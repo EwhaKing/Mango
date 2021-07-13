@@ -2060,6 +2060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801961470}
   - component: {fileID: 1801961471}
+  - component: {fileID: 1801961472}
   m_Layer: 5
   m_Name: TimeSlider
   m_TagString: Untagged
@@ -2135,10 +2136,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.62
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1801961472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801961469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0bb56a5a93ab24dbe46716f4f22de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1893387462
 GameObject:
   m_ObjectHideFlags: 0
