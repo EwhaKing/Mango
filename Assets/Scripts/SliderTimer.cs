@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SliderTimer : MonoBehaviour
 {
     private Slider slTimer;
+    float success;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,12 @@ public class SliderTimer : MonoBehaviour
         if(slTimer.value>0.0f)
         {
             slTimer.value -= 0.05f * Time.deltaTime;
-            Debug.Log("slTimer.value = " + slTimer.value);
-        } else
+            success = GameObject.Find("Image_line").GetComponent<RhythmBar>().success;
+            slTimer.value += success;
+        }else
         {
             Debug.Log("Timeup!");
         }
+        
     }
 }
