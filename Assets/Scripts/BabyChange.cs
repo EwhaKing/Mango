@@ -1,30 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class BabyChange : MonoBehaviour
 {
-    public GameObject Baby;
+    public Image Orig;
+    public Sprite New;
+    public Sprite New2;
+//    private float DelayTime = 1f;
+//    private float RealTime;
+
 
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
+    
+    
     // Update is called once per frame
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Destroy(Baby);
             Handheld.Vibrate();
-            Debug.Log("+++ TOUCH START +++");
+            Orig.sprite = New;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("--- TOUCH END ---");
+            /*RealTime += Time.deltaTime;
+            if (RealTime >= DelayTime)
+            {*/
+                Orig.sprite = New2;
+            //}
         }
+
     }
+
 }

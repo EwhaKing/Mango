@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TeaFall : MonoBehaviour
 {
-    Vector3 target = new Vector3(0, 0, 0);
+    public static Vector3 defaultposition = this.transform.position;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +15,12 @@ public class TeaFall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, 1f);
+        Invoke("Drop", 3.0f);
+    }
+
+    void Drop()
+    {
+        this.transform.position = defaultposition;
+        transform.Translate(0, -Time.deltaTime, 0); 
     }
 }
