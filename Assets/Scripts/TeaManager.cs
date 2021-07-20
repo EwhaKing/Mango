@@ -14,13 +14,21 @@ public class TeaManager : MonoBehaviour
     private bool first_fruit = true; //처음 뜨게 하기 위한 체크 변수
     private int fruit_current = 0; //현재 과일 인덱스
 
+    GameObject button_touch;
+    public GameObject lemonCircle;
+    public Sprite[] circleSprite = new Sprite[INDEX];
+
     private int finish = 0; //임의로 과일 하나 완료된거 판단하기 위한 변수
 
     public Image left_arm, right_arm, jamong_left_arm, jamong_right_arm;
 
+    public Image clear_img;
+
     // Start is called before the first frame update
     void Start()
     {
+        button_touch = GameObject.Find("Button_touch");
+
         left_arm.GetComponent<Animator>().enabled = false;
         right_arm.GetComponent<Animator>().enabled = false;
         jamong_left_arm.GetComponent<Animator>().enabled = false;
@@ -40,22 +48,20 @@ public class TeaManager : MonoBehaviour
             {
                 first_fruit = false;
                 fruit_current = i;
-                changeFruit(i);
+                changeFruit();
             }
         }
-
-
     }
 
-    public void changeFruit(int fruit) //fruit 로 과일 바꾸기
+    public void changeFruit() //fruit_current 로 과일 바꾸기
     {
         for (int i = 0; i < INDEX; i++)
         {
-            if (i == fruit) fruits_image[i].gameObject.SetActive(true);
+            if (i == fruit_current) fruits_image[i].gameObject.SetActive(true);
             else fruits_image[i].gameObject.SetActive(false);
         }
         
-        if(fruit == 1) //자몽이라면, 자몽이 너비가 넓어서 아기 팔의 위치를 조금 다르게 설정
+        if(fruit_current == 1) //자몽이라면, 자몽이 너비가 넓어서 아기 팔의 위치를 조금 다르게 설정
         {
             left_arm.gameObject.SetActive(false);
             right_arm.gameObject.SetActive(false);
@@ -92,42 +98,60 @@ public class TeaManager : MonoBehaviour
                             break;
                         }
                     }
-                    changeFruit(fruit_current);
+                    Invoke("changeFruit", 0.2f);
                 }
             }
          
         }
-        if (Input.GetMouseButtonDown(0)) //터치 시 팔 움직임
-        {
-            if(fruit_current == 1) //자몽이라면
-            {
-                if(jamong_left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
-                {
-                    jamong_left_arm.GetComponent<Animator>().enabled = true;
-                    jamong_right_arm.GetComponent<Animator>().enabled = true;
-                }
-                else
-                {
-                    jamong_left_arm.GetComponent<Animator>().Play("arm_left_anim_jamong", -1, 0f);
-                    jamong_right_arm.GetComponent<Animator>().Play("arm_right_anim_jamong", -1, 0f);
-                }
-            }
-            else //레몬, 꿀이라면
-            {
-                if(left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
-                {
-                    left_arm.GetComponent<Animator>().enabled = true;
-                    right_arm.GetComponent<Animator>().enabled = true;
-                }
-                else
-                {
-                    left_arm.GetComponent<Animator>().Play("arm_left_anim", -1, 0f);
-                    right_arm.GetComponent<Animator>().Play("arm_right_anim_lemon", -1, 0f);
-                }
-            }
-            finish++; //터치 판단
-        }
 
-        if (finish_condition == 0) fruits_image[0].gameObject.SetActive(true);
+        //6개 과일 모두 만든 경우
+        if (finish_condition == 0)
+        {
+            Invoke("gameClear", 0.2f);
+        }
+    }
+
+    public void gameClear()
+    {
+        button_touch.SetActive(false);
+        GameObject.Find("TimeSlider").GetComponent<SliderTimer>().enabled = false;
+        GameObject.Find("Image_line").GetComponent<RhythmBar>().enabled = false;
+        clear_img.gameObject.SetActive(true);
+    }
+
+    //특정영역 터치 시 수행: 아기 팔 모션 애니메이션, 과일 바꾸기 등과 관련, 과일 방울 떨어뜨리기
+    public void OnClickBaby_TeaManager()
+    {
+        lemonCircle.GetComponent<Image>().sprite = circleSprite[fruit_current];
+        lemonCircle.transform.localPosition = new Vector3(163f, -294f, 0f);
+        lemonCircle.SetActive(true);
+
+        if (fruit_current == 1) //자몽이라면
+        {
+            if (jamong_left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
+            {
+                jamong_left_arm.GetComponent<Animator>().enabled = true;
+                jamong_right_arm.GetComponent<Animator>().enabled = true;
+            }
+            else
+            {
+                jamong_left_arm.GetComponent<Animator>().Play("arm_left_anim_jamong", -1, 0f);
+                jamong_right_arm.GetComponent<Animator>().Play("arm_right_anim_jamong", -1, 0f);
+            }
+        }
+        else //레몬, 꿀이라면
+        {
+            if (left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
+            {
+                left_arm.GetComponent<Animator>().enabled = true;
+                right_arm.GetComponent<Animator>().enabled = true;
+            }
+            else
+            {
+                left_arm.GetComponent<Animator>().Play("arm_left_anim", -1, 0f);
+                right_arm.GetComponent<Animator>().Play("arm_right_anim_lemon", -1, 0f);
+            }
+        }
+        finish++; //터치 판단
     }
 }
