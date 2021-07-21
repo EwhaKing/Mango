@@ -38,7 +38,7 @@ public class RhythmBar : MonoBehaviour
         MinSuccess = startPos - (successHeight / 2f);
 
         //dropDrop 리스트에 DropDrop 태그 걸은 오브젝트들(3개-방울) 추가
-        dropDrop = GameObject.FindGameObjectsWithTag("DropDrop");
+        //dropDrop = GameObject.FindGameObjectsWithTag("DropDrop");
 
     }
 

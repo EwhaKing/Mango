@@ -736,7 +736,10 @@ MonoBehaviour:
   Basic: {fileID: 21300000, guid: 0d4592c4a535ffd47b9649adec4c9af2, type: 3}
   Success: {fileID: 21300000, guid: d7499c95b0a3e6b45a8559713780a0a0, type: 3}
   Fail: {fileID: 21300000, guid: 1df93ba17efb9a049998dcf003c6bd15, type: 3}
-  dropDrop: []
+  dropDrop:
+  - {fileID: 1044286584}
+  - {fileID: 410108080}
+  - {fileID: 1951400843}
 --- !u!1 &374947621
 GameObject:
   m_ObjectHideFlags: 0
