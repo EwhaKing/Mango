@@ -98,7 +98,7 @@ public class TeaManager : MonoBehaviour
                             break;
                         }
                     }
-                    Invoke("changeFruit", 0.2f);
+                    changeFruit();
                 }
             }
          
