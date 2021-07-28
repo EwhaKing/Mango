@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 1377785069}
   - component: {fileID: 1377785068}
   m_Layer: 0
-  m_Name: LifeManager_main
+  m_Name: LifeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
