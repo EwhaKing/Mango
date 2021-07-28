@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 234990290}
   m_Layer: 5
   m_Name: Image_life3
-  m_TagString: Untagged
+  m_TagString: LifeLife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 662828144}
   m_Layer: 5
   m_Name: Image_life2
-  m_TagString: Untagged
+  m_TagString: LifeLife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -747,6 +747,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1377785067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377785069}
+  - component: {fileID: 1377785068}
+  m_Layer: 0
+  m_Name: LifeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1377785068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377785067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5749fa73465384f46b4e0a3be3d6f65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifecnt: 3
+  life_full: {fileID: 21300000, guid: 0654349e1baa4bf429b70371468cefb4, type: 3}
+  life_broken: {fileID: 21300000, guid: 71ad18087753ef240811f30eaaacb5fe, type: 3}
+  lifeLife:
+  - {fileID: 1821764937}
+  - {fileID: 662828142}
+  - {fileID: 234990288}
+--- !u!4 &1377785069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377785067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.67096764, y: 0.6184868, z: -6.453125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1565473362
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +888,7 @@ GameObject:
   - component: {fileID: 1821764939}
   m_Layer: 5
   m_Name: Image_life1
-  m_TagString: Untagged
+  m_TagString: LifeLife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

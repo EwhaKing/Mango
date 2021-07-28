@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SliderTimer : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class SliderTimer : MonoBehaviour
     void Start()
     {
         slTimer = GetComponent<Slider>();
-
     }
 
     // Update is called once per frame
@@ -26,6 +26,9 @@ public class SliderTimer : MonoBehaviour
         }else
         {
             Debug.Log("Timeup!");
+            GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt -= 1;
+            Debug.Log("scene mini life" + GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt);
+            SceneManager.LoadScene("maingameScene");
         }
         
     }
