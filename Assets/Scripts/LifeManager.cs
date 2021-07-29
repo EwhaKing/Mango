@@ -19,7 +19,7 @@ public class LifeManager : MonoBehaviour
         lifecnt = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
         lifeChange();
         Debug.Log("life: " + lifecnt);
-        SceneManager.LoadScene("minigameSceneFinish");
+        //SceneManager.LoadScene("minigameSceneFinish");
     }
 
     public void lifeChange()
