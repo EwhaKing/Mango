@@ -12,12 +12,15 @@ public class LifeManager : MonoBehaviour
     
     //오브젝트 리스트 lifeLife 선언
     public GameObject[] lifeLife;
-
     void Start()
     {
-        lifecnt = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
-        Debug.Log("scene main life" + lifecnt);
+        //나중에 메인게임을 시작씬으로 고정하고 나면 추가할 코드들
+        //DontDestroyOnLoad(GameObject.Find("GameManager"));
+        if(GameObject.Find("LifeManager_mini"))
+            lifecnt = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
         lifeChange();
+        Debug.Log("life: " + lifecnt);
+        //SceneManager.LoadScene("minigameSceneFinish");
     }
 
     public void lifeChange()

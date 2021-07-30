@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TeaManager : MonoBehaviour
 {
@@ -113,10 +114,16 @@ public class TeaManager : MonoBehaviour
 
     public void gameClear()
     {
-        button_touch.SetActive(false);
-        GameObject.Find("TimeSlider").GetComponent<SliderTimer>().enabled = false;
-        GameObject.Find("Image_line").GetComponent<RhythmBar>().enabled = false;
+        //button_touch.SetActive(false);
+        //GameObject.Find("TimeSlider").GetComponent<SliderTimer>().enabled = false;
+        //GameObject.Find("Image_line").GetComponent<RhythmBar>().enabled = false;
         clear_img.gameObject.SetActive(true);
+        Invoke("mainLoad", 0.1f);
+    }
+
+    public void mainLoad()
+    {
+        SceneManager.LoadScene("maingameScene");
     }
 
     //특정영역 터치 시 수행: 아기 팔 모션 애니메이션, 과일 바꾸기 등과 관련, 과일 방울 떨어뜨리기
