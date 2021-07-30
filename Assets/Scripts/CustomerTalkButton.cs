@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CustomerTalkButton : MonoBehaviour
@@ -22,9 +23,13 @@ public class CustomerTalkButton : MonoBehaviour
             CustomerManager.check = false;
             //차 드래그 애니메이션 + 손님, 건네기 비활성화
             tea_img.GetComponent<ClickMove2>().enabled = true;
-            Invoke("deleteObject", 2f);
+            //다른 말풍선 클릭 안되게
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = false;
+            }
+            Invoke("deleteObject", 2.5f);
             //gameObject.SetActive(false);
-
         }
 
     }
@@ -33,5 +38,11 @@ public class CustomerTalkButton : MonoBehaviour
     {
         tea_img.SetActive(false);
         gameObject.SetActive(false);
+
+        //다른 말풍선 클릭 가능하게
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = true;
+        }
     }
 }

@@ -16,7 +16,8 @@ public class LifeManager : MonoBehaviour
     {
         //나중에 메인게임을 시작씬으로 고정하고 나면 추가할 코드들
         //DontDestroyOnLoad(GameObject.Find("GameManager"));
-        lifecnt = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
+        if(GameObject.Find("LifeManager_mini"))
+            lifecnt = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
         lifeChange();
         Debug.Log("life: " + lifecnt);
         //SceneManager.LoadScene("minigameSceneFinish");

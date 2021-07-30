@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class RhythmBar : MonoBehaviour
 {
@@ -96,6 +97,8 @@ public class RhythmBar : MonoBehaviour
 
             //실패범위에 포함되면 실패한 방울로 이미지 바꿈
             dropDrop[cnt].GetComponent<Image>().sprite = Fail;
+
+            Handheld.Vibrate(); // 실패시 진동
         }
 
         cnt++;

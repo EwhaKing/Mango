@@ -42,7 +42,7 @@ public class BabyChange : MonoBehaviour
     public void OnClickBaby_BabyChange()
     {
         Orig.sprite = New1; // 찡그린 거대 아기로 이미지 변경
-        Handheld.Vibrate(); // 진동
+        //Handheld.Vibrate(); // 진동
         Invoke("Change", 0.5f);
     }
 }
