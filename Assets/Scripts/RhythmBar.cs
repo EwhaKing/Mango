@@ -28,7 +28,7 @@ public class RhythmBar : MonoBehaviour
     public GameObject[] dropDrop;
 
     //성공 횟수로 차 가격 설정하기
-    static int success_count;
+    public static int success_count;
 
     // Start is called before the first frame update
     void Start()

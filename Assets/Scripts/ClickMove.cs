@@ -15,7 +15,7 @@ public class ClickMove : MonoBehaviour
     //3개 중 2개는 비활성화 상태에서
     //1개에 대해서만 작동되게 하는 부분에 대한 고민
 
-    public GameObject targetPosition; //손님 이미지로 설정하기
+    /*public GameObject targetPosition; //손님 이미지로 설정하기
     public GameObject plusCoin; //코인 이미지로 설정하기
     public float MoneyDelay = 0.5f;
     
@@ -57,7 +57,7 @@ public class ClickMove : MonoBehaviour
         }
 
         Destroy(plusCoin);
-    }
+    }*/
 
     
 }

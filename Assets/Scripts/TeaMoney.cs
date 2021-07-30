@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TeaMoney : MonoBehaviour
 {
@@ -13,36 +14,37 @@ public class TeaMoney : MonoBehaviour
 
     public GameObject gameObject; 
 
+
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Text>().text = totalMoney;
+        gameObject.GetComponent<Text>().text = totalMoney.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (success_count == 18)
+        if (RhythmBar.success_count == 18)
         {
             plusMoney = 500;
         }
 
-        else if (success_count == 17)
+        else if (RhythmBar.success_count == 17)
         {
             plusMoney = 300;
         }
 
-        else if (success_count == 16)
+        else if (RhythmBar.success_count == 16)
         {
             plusMoney = 200;
         }
 
-        else if (success_count == 15)
+        else if (RhythmBar.success_count == 15)
         {
             plusMoney = 100;
         }
 
-        else if (success_count == 0)
+        else if (RhythmBar.success_count == 0)
         {
             plusMoney = 0;
         }
@@ -54,7 +56,7 @@ public class TeaMoney : MonoBehaviour
 
         totalMoney += plusMoney;
 
-        gameObject.GetComponent<Text>().text = totalMoney;
+        gameObject.GetComponent<Text>().text = totalMoney.ToString();
     }
 
 
