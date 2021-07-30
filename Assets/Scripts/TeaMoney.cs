@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class TeaMoney : MonoBehaviour
 {
-    // 돈 합계 계산 스크립트
-    // 씬 2개에 모두 넣어야 하지 않을까?
 
     private int plusMoney = 0;
 
@@ -19,11 +17,7 @@ public class TeaMoney : MonoBehaviour
     void Start()
     {
         gameObject.GetComponent<Text>().text = totalMoney.ToString();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         if (RhythmBar.success_count == 18)
         {
             plusMoney = 500;
@@ -59,5 +53,10 @@ public class TeaMoney : MonoBehaviour
         gameObject.GetComponent<Text>().text = totalMoney.ToString();
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
 }
