@@ -27,6 +27,9 @@ public class RhythmBar : MonoBehaviour
     public GameObject[] dropDrop;
     public GameObject successArea;
 
+    //성공 횟수로 차 가격 설정하기
+    public static int success_count;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,9 @@ public class RhythmBar : MonoBehaviour
 
         //dropDrop 리스트에 DropDrop 태그 걸은 오브젝트들(3개-방울) 추가
         //dropDrop = GameObject.FindGameObjectsWithTag("DropDrop");
+
+        //게임 시작할 때 성공횟수 0으로 초기화
+        success_count = 0;
 
     }
 
@@ -79,6 +85,9 @@ public class RhythmBar : MonoBehaviour
 
             //성공범위에 포함되면 과일색 방울로 이미지 바꿈
             dropDrop[cnt].GetComponent<Image>().sprite = Success;
+
+            //성공하면 횟수 추가
+            success_count++;
         }
         else
         {
