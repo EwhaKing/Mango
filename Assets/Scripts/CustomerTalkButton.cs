@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CustomerTalkButton : MonoBehaviour
 {
+    public GameObject tea_img;
+
     public void OnClickCustomerTalk()
     {
         if(!CustomerManager.check)
@@ -19,9 +21,17 @@ public class CustomerTalkButton : MonoBehaviour
         {
             CustomerManager.check = false;
             //차 드래그 애니메이션 + 손님, 건네기 비활성화
-            gameObject.SetActive(false);
+            tea_img.GetComponent<ClickMove2>().enabled = true;
+            Invoke("deleteObject", 2f);
+            //gameObject.SetActive(false);
 
         }
 
+    }
+
+    public void deleteObject()
+    {
+        tea_img.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
