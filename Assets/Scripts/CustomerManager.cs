@@ -10,6 +10,8 @@ public class CustomerManager : MonoBehaviour
     public static bool check = false; //미니게임 씬 진행하고 왔는지 체크하는 변수
     public static int current_customer = -1; //현재 손님 인덱스
     public static int[] customer_img_idx = new int[3];
+    public static int[] tip_money = new int[3]; //부자 손님 팁
+    public static int rich_check = 0; //부자 손님 중복 피하기 위한 변수
 
     public Sprite deliver; //건네기 이미지
     public Sprite exc_mark; //느낌표 이미지
@@ -21,10 +23,17 @@ public class CustomerManager : MonoBehaviour
     int leng; //손님 이미지 배열 길이
     float time = 0f;
 
+    int customer_num = 0; //현재 누적 손님 
+
     // Start is called before the first frame update
     void Start()
     {
-        leng = customer_img.Length;
+        if (GameObject.Find("LifeManager_mini"))
+        {
+            customer_num = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt;
+        }
+
+        leng = customer_img.Length - 1; // 길이 마지막 인덱스는 부자손님
         
         if(current_customer == -1)
         {
@@ -61,6 +70,7 @@ public class CustomerManager : MonoBehaviour
             tea_img.GetComponent<ClickMove2>().enabled = false;
         }
 
+        //손님 띄우기
         customerImage();
         
     }
@@ -70,9 +80,39 @@ public class CustomerManager : MonoBehaviour
     {
         if (!check && current_customer != -1 && time != -1) //건네기 눌렀을 때
         {
+            if(time == 0)
+            {
+                //부자손님 이미지 저장
+                if (customer_num == 5 && rich_check == 0)
+                {
+                    rich_check++;
+                    customer_img_idx[current_customer] = leng;
+                    tip_money[current_customer] = 1000;
+                }
+                else if (customer_num == 8 && rich_check == 1)
+                {
+                    rich_check++;
+                    customer_img_idx[current_customer] = leng;
+                    tip_money[current_customer] = 1500;
+                }
+                else if (customer_num == 11 && rich_check == 2)
+                {
+                    rich_check++;
+                    customer_img_idx[current_customer] = leng;
+                    tip_money[current_customer] = 2000;
+                }
+                else if (customer_num == 15 && rich_check == 3)
+                {
+                    rich_check++;
+                    customer_img_idx[current_customer] = leng;
+                    tip_money[current_customer] = 2500;
+                }
+                else
+                {
+                    customer_img_idx[current_customer] = Random.Range(0, leng); //새로운 손님 이미지 저장
+                }
+            }
             time += Time.deltaTime;
-            customer_img_idx[current_customer] = Random.Range(0, leng); //새로운 손님 이미지 저장
-
         }
 
         if(time > 5f)

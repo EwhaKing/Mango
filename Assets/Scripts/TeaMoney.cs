@@ -8,7 +8,7 @@ public class TeaMoney : MonoBehaviour
 
     private int plusMoney = 0;
 
-    static int totalMoney = 0;
+    public static int totalMoney = 0;
 
     public GameObject gameObject; 
 
