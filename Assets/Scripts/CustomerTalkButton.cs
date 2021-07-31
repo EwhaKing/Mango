@@ -71,7 +71,7 @@ public class CustomerTalkButton : MonoBehaviour
 
         float yMove = speed * Time.deltaTime; //속도 설정
         this.transform.Translate(new Vector3(0, yMove, 0));
-        Invoke("Bye", 3f);
+        Invoke("Bye", 0.3f);
     }
 
     void Bye()

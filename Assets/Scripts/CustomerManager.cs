@@ -66,7 +66,9 @@ public class CustomerManager : MonoBehaviour
             //해당 손님 인덱스 말풍선 건네기로 바뀌게
             customer_obj[current_customer].GetComponent<Image>().sprite = deliver;
             tea_img.SetActive(true);
+            //차 타겟 해당 손님으로 지정해주기
             tea_img.GetComponent<ClickMove2>().targetPosition = customer_obj[current_customer].transform.GetChild(1).gameObject;
+            //애니메이션 건네기 눌렀을 때 실행되어야 하므로 일단 컴포넌트 false로 바꿔주기
             tea_img.GetComponent<ClickMove2>().enabled = false;
         }
 

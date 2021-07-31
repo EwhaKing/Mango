@@ -24,7 +24,12 @@ public class ClickMove : MonoBehaviour
 
     void Bye()
     {
-        Destroy(gameObject);
+        float time = 0f;
+        while (time < 0.5f)
+        {
+            time += Time.deltaTime;
+            this.transform.localPosition = new Vector3(this.transform.localPosition.x, 48.9f, this.transform.localPosition.z);
+        }
     }
 
 }
