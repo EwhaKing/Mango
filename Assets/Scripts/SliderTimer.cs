@@ -19,7 +19,11 @@ public class SliderTimer : MonoBehaviour
         successArea = GameObject.FindGameObjectWithTag("SuccessArea");
 
         currcus = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt;
-        GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt = ++currcus;
+        //부자 손님이 없을 경우만 손님수 카운트
+        if (CustomerManager.tip_money[0] == 0 && CustomerManager.tip_money[1] == 0 && CustomerManager.tip_money[2] == 0) 
+        {
+            GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt = ++currcus;
+        }
         Debug.Log("customer num: " + GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt);
 
         if (currcus <= 5) //1단계
@@ -59,7 +63,6 @@ public class SliderTimer : MonoBehaviour
         if (slTimer.value>0.0f)
         {
             slTimer.value -= speed * Time.deltaTime;
-            //success = GameObject.Find("Image_line").GetComponent<RhythmBar>().success;
             slTimer.value += success;
             success = 0;
         }else
