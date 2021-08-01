@@ -69,8 +69,8 @@ public class CustomerTalkButton : MonoBehaviour
     {
         plus_img.SetActive(true); //추가금 관련 게임 오브젝트 표시하고
 
-        float yMove = speed * Time.deltaTime; //속도 설정
-        this.transform.Translate(new Vector3(0, yMove, 0));
+        //float yMove = speed * Time.deltaTime; //속도 설정
+        //this.transform.Translate(new Vector3(0, yMove, 0)); //customer 오브젝트는 움직이면 안됩니당
         Invoke("Bye", 0.3f);
     }
 

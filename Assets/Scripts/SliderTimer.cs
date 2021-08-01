@@ -12,6 +12,9 @@ public class SliderTimer : MonoBehaviour
 
     private int currcus;
     private GameObject successArea;
+
+    public static bool time_over = false; //타임오버됐는지 확인하는 변수, 메인씬에서 customerManager에서 쓰려고 만들었습니다!
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +74,7 @@ public class SliderTimer : MonoBehaviour
             int life = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
             if(life!=0)
             {
+                time_over = true;
                 GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt -= 1;
             }
             SceneManager.LoadScene("maingameScene");
