@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class CustomerTalkButton : MonoBehaviour
 {
     public GameObject tea_img;
+    public GameObject plus_img; //손님 사라지고 추가금(이미지+텍스트)
+
+    int speed = 1; //추가금 이동 속도
+
 
     public void OnClickCustomerTalk()
     {
@@ -20,6 +24,7 @@ public class CustomerTalkButton : MonoBehaviour
         }
         else if(CustomerManager.current_customer == this.gameObject.transform.GetSiblingIndex()) //건네기 클릭
         {
+
             CustomerManager.check = false;
             //차 드래그 애니메이션
             tea_img.GetComponent<ClickMove2>().enabled = true;
@@ -43,6 +48,7 @@ public class CustomerTalkButton : MonoBehaviour
 
     public void deleteObject()
     {
+        
         //손님+말풍선 삭제
         tea_img.SetActive(false);
         gameObject.SetActive(false);
@@ -55,5 +61,21 @@ public class CustomerTalkButton : MonoBehaviour
         {
             GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = true;
         }
+
+        Invoke("plusDisplayMoney", 0.1f);
+    }
+
+    public void plusDisplayMoney()
+    {
+        plus_img.SetActive(true); //추가금 관련 게임 오브젝트 표시하고
+
+        float yMove = speed * Time.deltaTime; //속도 설정
+        this.transform.Translate(new Vector3(0, yMove, 0));
+        Invoke("Bye", 3f);
+    }
+
+    void Bye()
+    {
+        plus_img.SetActive(false);
     }
 }

@@ -17,7 +17,7 @@ public class ClickMove2 : MonoBehaviour
     void Update()
     {
         Vector3 velo = Vector3.zero;
-        transform.position = Vector3.SmoothDamp(gameObject.transform.position, targetPosition.transform.position, ref velo, .2f); //사람 object에게 이동
+        transform.position = Vector3.SmoothDamp(gameObject.transform.position, targetPosition.transform.position, ref velo, .1f); //사람 object에게 이동
     }
 
     

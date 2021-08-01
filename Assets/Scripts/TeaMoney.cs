@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class TeaMoney : MonoBehaviour
 {
 
-    private int plusMoney = 0;
+    public static int plusMoney = 0;
 
     public static int totalMoney = 0;
 
-    public GameObject gameObject; 
-
+    public GameObject gameObject;
 
     // Start is called before the first frame update
     void Start()
