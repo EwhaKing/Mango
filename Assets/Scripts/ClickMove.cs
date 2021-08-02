@@ -19,7 +19,9 @@ public class ClickMove : MonoBehaviour
     {
         float yMove = speed * Time.deltaTime; //속도 설정
         this.transform.Translate(new Vector3(0, yMove, 0));
-        Invoke("Bye", 0.2f);
+        //Invoke("Bye", 0.2f); 
+        //마지막에 0.1초 정도 멈춰있는걸로 수정했었는데 그냥 움직이다 사라지는게 더 자연스러운 것 같아 다시 주석처리했습니다. 
+        //사라지는 코드는 CustomerTalkButton에 있습니다!
     }
 
     void Bye()
@@ -28,7 +30,7 @@ public class ClickMove : MonoBehaviour
         while (time < 0.5f)
         {
             time += Time.deltaTime;
-            this.transform.localPosition = new Vector3(this.transform.localPosition.x, 48.9f, this.transform.localPosition.z);
+            this.transform.localPosition = new Vector3(this.transform.localPosition.x, 23.8f, this.transform.localPosition.z);
         }
     }
 
