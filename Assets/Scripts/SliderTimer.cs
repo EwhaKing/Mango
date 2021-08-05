@@ -75,7 +75,10 @@ public class SliderTimer : MonoBehaviour
             success = 0;
             if(slTimer.value <= 0.25f)
             {
-                timemusic.Play();
+                if(!timemusic.isPlaying)
+                {
+                    timemusic.Play();
+                }
             }
         }else
         {
