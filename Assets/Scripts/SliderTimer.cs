@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SliderTimer : MonoBehaviour
 {
     private Slider slTimer;
+    private GameObject sliderTimer;
     public float success = 0;
     public float speed = 0.05f;
 
@@ -14,10 +15,14 @@ public class SliderTimer : MonoBehaviour
     private GameObject successArea;
 
     public static bool time_over = false; //타임오버됐는지 확인하는 변수, 메인씬에서 customerManager에서 쓰려고 만들었습니다!
+    AudioSource timemusic;
 
     // Start is called before the first frame update
     void Start()
     {
+        sliderTimer = GameObject.Find("TimeSlider");
+        timemusic = sliderTimer.GetComponent<AudioSource>();
+
         slTimer = GetComponent<Slider>();
         successArea = GameObject.FindGameObjectWithTag("SuccessArea");
 
@@ -68,6 +73,10 @@ public class SliderTimer : MonoBehaviour
             slTimer.value -= speed * Time.deltaTime;
             slTimer.value += success;
             success = 0;
+            if(slTimer.value <= 0.25f)
+            {
+                timemusic.Play();
+            }
         }else
         {
             Debug.Log("Timeup!");
