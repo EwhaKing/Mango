@@ -8,13 +8,21 @@ public class CustomerTalkButton : MonoBehaviour
 {
     public GameObject tea_img;
     public GameObject plus_img; //손님 사라지고 추가금(이미지+텍스트)
+    public GameObject music_money;
 
     int speed = 1; //추가금 이동 속도
+
+    AudioSource audioSource;
+    public AudioClip CoinUp;
 
 
     public void OnClickCustomerTalk()
     {
-        if(!CustomerManager.check) //느낌표 클릭
+        //this.audioSource = GetComponent<AudioSource>();
+        
+
+
+        if (!CustomerManager.check) //느낌표 클릭
         {
             //CustomerManager.customer++; 
             CustomerManager.check = true; //미니게임 넘어갔음을 체크 (다시 돌아왔을 때 메인씬에 건네기+차 뜨게하기 위한 확인변수
@@ -36,7 +44,7 @@ public class CustomerTalkButton : MonoBehaviour
 
             if(CustomerManager.tip_money[CustomerManager.current_customer] != 0)
             {
-                TeaMoney.totalMoney += CustomerManager.tip_money[CustomerManager.current_customer];
+                TotalMoney.totalMoney += CustomerManager.tip_money[CustomerManager.current_customer];
                 CustomerManager.tip_money[CustomerManager.current_customer] = 0;
             }
 
@@ -48,13 +56,15 @@ public class CustomerTalkButton : MonoBehaviour
 
     public void deleteObject()
     {
-        
+        //audioSource.clip = CoinUp;
+        //audioSource.Play();
+
         //손님+말풍선 삭제
         tea_img.SetActive(false);
         gameObject.SetActive(false);
 
         //부자손님 돈 올라가게
-        GameObject.Find("Text_money").GetComponent<Text>().text = TeaMoney.totalMoney.ToString();
+        GameObject.Find("Text_money").GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
 
         //다른 말풍선 클릭 가능하게
         for (int i = 0; i < 3; i++)
@@ -68,9 +78,14 @@ public class CustomerTalkButton : MonoBehaviour
     public void plusDisplayMoney()
     {
         plus_img.SetActive(true); //추가금 관련 게임 오브젝트 표시하고
+        audioSource = this.music_money.GetComponent<AudioSource>();
+
+        audioSource.clip = CoinUp;
+        audioSource.Play();
 
         //float yMove = speed * Time.deltaTime; //속도 설정
         //this.transform.Translate(new Vector3(0, yMove, 0)); //customer 오브젝트는 움직이면 안됩니당
+
         Invoke("Bye", 0.3f);
     }
 
