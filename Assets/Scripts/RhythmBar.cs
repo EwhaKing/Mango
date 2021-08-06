@@ -31,6 +31,11 @@ public class RhythmBar : MonoBehaviour
     //성공 횟수로 차 가격 설정하기
     public static int success_count;
 
+    //사운드
+    AudioSource audioSource;
+    public AudioClip PowerSuccess;
+    public AudioClip PowerFail;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +47,8 @@ public class RhythmBar : MonoBehaviour
 
         //게임 시작할 때 성공횟수 0으로 초기화
         success_count = 0;
+
+        this.audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -87,6 +94,10 @@ public class RhythmBar : MonoBehaviour
             //성공범위에 포함되면 과일색 방울로 이미지 바꿈
             dropDrop[cnt].GetComponent<Image>().sprite = Success;
 
+            //PowerSuccess.Play();
+            audioSource.clip = PowerSuccess;
+            audioSource.Play();
+
             //성공하면 횟수 추가
             success_count++;
         }
@@ -97,6 +108,10 @@ public class RhythmBar : MonoBehaviour
 
             //실패범위에 포함되면 실패한 방울로 이미지 바꿈
             dropDrop[cnt].GetComponent<Image>().sprite = Fail;
+
+            //PowerFail.Play();
+            audioSource.clip = PowerFail;
+            audioSource.Play();
 
             Handheld.Vibrate(); // 실패시 진동
         }
