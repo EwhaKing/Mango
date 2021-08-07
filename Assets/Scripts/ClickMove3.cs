@@ -10,14 +10,14 @@ public class ClickMove3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (TeaMoney.plusMoney < 100)
+        if (TotalMoney.plusMoney < 100)
         {
-            gameObject.GetComponent<Text>().text = "+      " + TeaMoney.plusMoney.ToString();
+            gameObject.GetComponent<Text>().text = "+      " + TotalMoney.plusMoney.ToString();
         }
 
         else
         {
-            gameObject.GetComponent<Text>().text = "+       " + TeaMoney.plusMoney.ToString();
+            gameObject.GetComponent<Text>().text = "+       " + TotalMoney.plusMoney.ToString();
         }
     }
 

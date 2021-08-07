@@ -20,6 +20,10 @@ public class CustomerManager : MonoBehaviour
     public Sprite[] customer_img; //손님 이미지
     public GameObject tea_img; //건네는 차
 
+    public AudioClip[] customer_sad; //손님 한숨소리
+
+    AudioSource audioSource;
+
     int leng; //손님 이미지 배열 길이
     float time = 0f;
 
@@ -28,6 +32,8 @@ public class CustomerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
+
         if (GameObject.Find("LifeManager_mini"))
         {
             customer_num = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt;
@@ -77,6 +83,10 @@ public class CustomerManager : MonoBehaviour
             }
             else //타임 오버라면, 즉 차 만들기 실패
             {
+                audioSource.clip = customer_sad[customer_img_idx[current_customer]];
+                audioSource.volume = 0.7f;
+                audioSource.Play(); //손님 한숨 소리 재생
+
                 SliderTimer.time_over = false;
 
                 for (int i = 0; i < 3; i++) //버튼 클릭 못하게
@@ -117,25 +127,25 @@ public class CustomerManager : MonoBehaviour
                 {
                     rich_check++;
                     customer_img_idx[current_customer] = leng;
-                    tip_money[current_customer] = 1000;
+                    tip_money[current_customer] = 700;
                 }
                 else if (customer_num == 8 && rich_check == 1)
                 {
                     rich_check++;
                     customer_img_idx[current_customer] = leng;
-                    tip_money[current_customer] = 1500;
+                    tip_money[current_customer] = 1000;
                 }
                 else if (customer_num == 11 && rich_check == 2)
                 {
                     rich_check++;
                     customer_img_idx[current_customer] = leng;
-                    tip_money[current_customer] = 2000;
+                    tip_money[current_customer] = 1300;
                 }
                 else if (customer_num == 15 && rich_check == 3)
                 {
                     rich_check++;
                     customer_img_idx[current_customer] = leng;
-                    tip_money[current_customer] = 2500;
+                    tip_money[current_customer] = 1500;
                 }
                 else
                 {

@@ -15,7 +15,7 @@ public class TeaManager : MonoBehaviour
     private bool first_fruit = true; //처음 뜨게 하기 위한 체크 변수
     private int fruit_current = 0; //현재 과일 인덱스
 
-    GameObject button_touch;
+    public GameObject button_touch;
     public GameObject lemonCircle;
     public Sprite[] circleSprite = new Sprite[INDEX];
 
@@ -28,8 +28,6 @@ public class TeaManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        button_touch = GameObject.Find("Button_touch");
-
         left_arm.GetComponent<Animator>().enabled = false;
         right_arm.GetComponent<Animator>().enabled = false;
         jamong_left_arm.GetComponent<Animator>().enabled = false;
@@ -160,5 +158,13 @@ public class TeaManager : MonoBehaviour
             }
         }
         finish++; //터치 판단
+
+        button_touch.SetActive(false);
+        Invoke("button_touch_true", 0.5f);
+    }
+
+    void button_touch_true()
+    {
+        button_touch.SetActive(true);
     }
 }

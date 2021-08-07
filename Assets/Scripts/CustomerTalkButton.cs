@@ -8,14 +8,29 @@ public class CustomerTalkButton : MonoBehaviour
 {
     public GameObject tea_img;
     public GameObject plus_img; //손님 사라지고 추가금(이미지+텍스트)
+    public GameObject music_money;
+    public Text tip_money_text; //부자손님 팁 텍스트
 
     int speed = 1; //추가금 이동 속도
 
+    AudioSource audioSource, audioSource_customer, audioSource_GameManager;
+    public AudioClip CoinUp;
+    public AudioClip Button_audio; //버튼음
+    public AudioClip[] customer_happy; //손님 웃음소리
+
+    void Start()
+    {
+        audioSource_customer = GameObject.Find("customer").GetComponent<AudioSource>();
+        audioSource_GameManager = GameObject.Find("GameManager").GetComponent<AudioSource>();
+    }
 
     public void OnClickCustomerTalk()
     {
-        if(!CustomerManager.check) //느낌표 클릭
+        if (!CustomerManager.check) //느낌표 클릭
         {
+            audioSource_customer.clip = Button_audio;
+            audioSource_customer.volume = 0.7f;
+            audioSource_customer.Play();
             //CustomerManager.customer++; 
             CustomerManager.check = true; //미니게임 넘어갔음을 체크 (다시 돌아왔을 때 메인씬에 건네기+차 뜨게하기 위한 확인변수
             CustomerManager.current_customer = this.gameObject.transform.GetSiblingIndex(); //현재 손님 몇번째인지 저장
@@ -24,7 +39,9 @@ public class CustomerTalkButton : MonoBehaviour
         }
         else if(CustomerManager.current_customer == this.gameObject.transform.GetSiblingIndex()) //건네기 클릭
         {
-
+            audioSource_customer.clip = Button_audio;
+            audioSource_customer.volume = 0.7f;
+            audioSource_customer.Play();
             CustomerManager.check = false;
             //차 드래그 애니메이션
             tea_img.GetComponent<ClickMove2>().enabled = true;
@@ -36,9 +53,14 @@ public class CustomerTalkButton : MonoBehaviour
 
             if(CustomerManager.tip_money[CustomerManager.current_customer] != 0)
             {
-                TeaMoney.totalMoney += CustomerManager.tip_money[CustomerManager.current_customer];
+                tip_money_text.text = "+ 보너스 " + CustomerManager.tip_money[CustomerManager.current_customer].ToString();
+                tip_money_text.gameObject.SetActive(true);
+                TotalMoney.totalMoney += CustomerManager.tip_money[CustomerManager.current_customer];
                 CustomerManager.tip_money[CustomerManager.current_customer] = 0;
             }
+
+            audioSource_GameManager.clip = customer_happy[CustomerManager.customer_img_idx[CustomerManager.current_customer]];
+            audioSource_GameManager.Play(); //손님 웃음소리 재생
 
             //손님+말풍선 삭제, 차 드래그 되는 시간 기다리기
             Invoke("deleteObject", 2.5f);
@@ -48,19 +70,12 @@ public class CustomerTalkButton : MonoBehaviour
 
     public void deleteObject()
     {
-        
         //손님+말풍선 삭제
         tea_img.SetActive(false);
         gameObject.SetActive(false);
 
-        //부자손님 돈 올라가게
-        GameObject.Find("Text_money").GetComponent<Text>().text = TeaMoney.totalMoney.ToString();
-
-        //다른 말풍선 클릭 가능하게
-        for (int i = 0; i < 3; i++)
-        {
-            GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = true;
-        }
+        //부자손님 돈 + 미니게임에서 번 돈 올라가게
+        GameObject.Find("Text_money").GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
 
         Invoke("plusDisplayMoney", 0.1f);
     }
@@ -68,14 +83,26 @@ public class CustomerTalkButton : MonoBehaviour
     public void plusDisplayMoney()
     {
         plus_img.SetActive(true); //추가금 관련 게임 오브젝트 표시하고
+        audioSource = this.music_money.GetComponent<AudioSource>();
+
+        audioSource.clip = CoinUp;
+        audioSource.Play();
 
         //float yMove = speed * Time.deltaTime; //속도 설정
         //this.transform.Translate(new Vector3(0, yMove, 0)); //customer 오브젝트는 움직이면 안됩니당
+
         Invoke("Bye", 0.3f);
     }
 
     void Bye()
     {
         plus_img.SetActive(false);
+
+        //다른 말풍선 클릭 가능하게
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = true;
+        }
+
     }
 }
