@@ -127,25 +127,25 @@ public class CustomerManager : MonoBehaviour
                 {
                     rich_check++;
                     customer_img_idx[current_customer] = leng;
-                    tip_money[current_customer] = 1000;
+                    tip_money[current_customer] = 700;
                 }
                 else if (customer_num == 8 && rich_check == 1)
                 {
                     rich_check++;
                     customer_img_idx[current_customer] = leng;
-                    tip_money[current_customer] = 1500;
+                    tip_money[current_customer] = 1000;
                 }
                 else if (customer_num == 11 && rich_check == 2)
                 {
                     rich_check++;
                     customer_img_idx[current_customer] = leng;
-                    tip_money[current_customer] = 2000;
+                    tip_money[current_customer] = 1300;
                 }
                 else if (customer_num == 15 && rich_check == 3)
                 {
                     rich_check++;
                     customer_img_idx[current_customer] = leng;
-                    tip_money[current_customer] = 2500;
+                    tip_money[current_customer] = 1500;
                 }
                 else
                 {
