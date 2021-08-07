@@ -14,7 +14,7 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        BackgroundMusic = GameObject.Find("GameManager");
+        BackgroundMusic = GameObject.Find("SoundManager");
         backmusic = BackgroundMusic.GetComponent<AudioSource>();
         if (backmusic.isPlaying) return;
         else
