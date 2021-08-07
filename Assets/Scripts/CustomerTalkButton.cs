@@ -77,12 +77,6 @@ public class CustomerTalkButton : MonoBehaviour
         //부자손님 돈 + 미니게임에서 번 돈 올라가게
         GameObject.Find("Text_money").GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
 
-        //다른 말풍선 클릭 가능하게
-        for (int i = 0; i < 3; i++)
-        {
-            GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = true;
-        }
-
         Invoke("plusDisplayMoney", 0.1f);
     }
 
@@ -103,5 +97,12 @@ public class CustomerTalkButton : MonoBehaviour
     void Bye()
     {
         plus_img.SetActive(false);
+
+        //다른 말풍선 클릭 가능하게
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = true;
+        }
+
     }
 }
