@@ -307,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89, y: 0}
+  m_AnchoredPosition: {x: 200, y: 0}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &110818774
@@ -336,7 +336,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -872,6 +872,17 @@ MonoBehaviour:
       - m_Target: {fileID: 668216524}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 881082026}
+        m_MethodName: post
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2656,6 +2667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 881082024}
   - component: {fileID: 881082025}
+  - component: {fileID: 881082026}
   m_Layer: 0
   m_Name: EndingManager
   m_TagString: Untagged
@@ -2691,6 +2703,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameoverPopup: {fileID: 397317706}
   rankingPopup: {fileID: 462999337}
+  nikname_text: {fileID: 1766706284}
+  nikname: 
+--- !u!114 &881082026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881082023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eccd95e51ec70f4a9a645978ddc5e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   nikname_text: {fileID: 1766706284}
   nikname: 
 --- !u!1 &899527956
@@ -4654,7 +4680,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 5
   m_TargetDisplay: 0
