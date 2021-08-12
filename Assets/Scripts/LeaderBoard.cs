@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LeaderBoard : MonoBehaviour
 {
-    string url = "http://localhost:8080/api/leaders";
+    string url = "https://mango-love.herokuapp.com/api/leaders";
     public Text nikname_text;
 
 

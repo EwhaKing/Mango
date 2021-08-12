@@ -9,7 +9,7 @@ public class RankingManager : MonoBehaviour
     public GameObject _user;
     public List<GameObject> _users = new List<GameObject>();
     public int totaluser = 0; //나중에 데이터베이스에서 가져올 총 유저 수
-    string url = "http://localhost:8080/api/leaders";
+    string url = "https://mango-love.herokuapp.com/api/leaders";
     string leaderBoard;
     Data d;
     // Start is called before the first frame update
@@ -52,8 +52,8 @@ public class RankingManager : MonoBehaviour
 
     public void addUser()
     {
-        Debug.Log(d.item[0].username);
-        for (int i = 1; i < totaluser; i++)
+        Debug.Log(d.item.Length);
+        for (int i = 1; i < d.item.Length+1; i++)
         {
             GameObject user = GameObject.Instantiate(_user) as GameObject;
             user.name = "user" + (i + 1).ToString();
