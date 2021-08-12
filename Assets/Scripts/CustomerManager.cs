@@ -83,6 +83,7 @@ public class CustomerManager : MonoBehaviour
             }
             else //타임 오버라면, 즉 차 만들기 실패
             {
+                RhythmBar.success_count = 0; //돈 안올라가게 방울 0으로
                 audioSource.clip = customer_sad[customer_img_idx[current_customer]];
                 audioSource.volume = 0.7f;
                 audioSource.Play(); //손님 한숨 소리 재생
