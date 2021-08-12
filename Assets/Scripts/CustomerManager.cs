@@ -43,7 +43,7 @@ public class CustomerManager : MonoBehaviour
         
         if(current_customer == -1)
         {
-            /* //손님 이미지 중복 x 버전
+            //손님 이미지 중복 x 버전
             bool img_check = true;    
             for(int i=0;i<3;)
             {
@@ -59,11 +59,11 @@ public class CustomerManager : MonoBehaviour
                 }
                 if (img_check) i++;
             }
-            */
+            /*
             for(int i=0;i<3;i++)
             {
                 customer_img_idx[i] = Random.Range(0, leng);
-            }
+            }*/
         }
 
         //손님 띄우기
@@ -108,7 +108,8 @@ public class CustomerManager : MonoBehaviour
                     GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt--; //손님수 카운트 된거 삭제
                 }
 
-                Debug.Log("손님:" + GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt);
+                customer_num = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt;
+                Debug.Log("손님:" + customer_num);
 
                 Invoke("failtea_customerBye", 1f); //1초 뒤 손님+말풍선 사라짐
             }
@@ -150,7 +151,25 @@ public class CustomerManager : MonoBehaviour
                 }
                 else
                 {
-                    customer_img_idx[current_customer] = Random.Range(0, leng); //새로운 손님 이미지 저장
+                    //새로운 손님 이미지 저장, 현재있는 손님과 중복 안되게
+                    bool img_check = false;
+                    while(true)
+                    {
+                        img_check = true;
+                        customer_img_idx[current_customer] = Random.Range(0, leng); 
+                        for (int i = 0; i < 3; i++)
+                        {
+                            if (i != current_customer)
+                            {
+                                if(customer_img_idx[i] == customer_img_idx[current_customer])
+                                {
+                                    img_check = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if (img_check) break;
+                    }
                 }
             }
             time += Time.deltaTime;

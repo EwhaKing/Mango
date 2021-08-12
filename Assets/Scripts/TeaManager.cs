@@ -106,17 +106,22 @@ public class TeaManager : MonoBehaviour
         //6개 과일 모두 만든 경우
         if (finish_condition == 0)
         {
-            Invoke("gameClear", 0.2f);
+            //ButtonSound._buttonInstance.onBabyAudio();
+            button_touch.SetActive(false);
+            GameObject.Find("TimeSlider").GetComponent<SliderTimer>().enabled = false;
+            Invoke("gameClear", 0.5f);
         }
     }
 
     public void gameClear()
     {
-        //button_touch.SetActive(false);
-        //GameObject.Find("TimeSlider").GetComponent<SliderTimer>().enabled = false;
-        //GameObject.Find("Image_line").GetComponent<RhythmBar>().enabled = false;
-        clear_img.gameObject.SetActive(true);
-        Invoke("mainLoad", 0.1f);
+        GameObject.Find("Image_line").GetComponent<RhythmBar>().enabled = false;
+        if (GameObject.Find("Image_babyarm_left")) GameObject.Find("Image_babyarm_left").GetComponent<Animator>().enabled = false;
+        else GameObject.Find("Image_babyarm_left_jamong").GetComponent<Animator>().enabled = false;
+        if (GameObject.Find("Image_babyarm_right")) GameObject.Find("Image_babyarm_right").GetComponent<Animator>().enabled = false;
+        else GameObject.Find("Image_babyarm_right_jamong").GetComponent<Animator>().enabled = false;
+        //clear_img.gameObject.SetActive(true);
+        Invoke("mainLoad", 0.2f);
     }
 
     public void mainLoad()
