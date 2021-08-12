@@ -52,7 +52,6 @@ public class RankingManager : MonoBehaviour
 
     public void addUser()
     {
-        Debug.Log(d.item.Length);
         for (int i = 1; i < d.item.Length+1; i++)
         {
             GameObject user = GameObject.Instantiate(_user) as GameObject;
