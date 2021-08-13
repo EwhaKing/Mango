@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TeaDrop : MonoBehaviour
 {
-    int speed = 1; //속도 설정
+    int speed = 200; //속도 설정
 
     // Start is called before the first frame update
     void Start()

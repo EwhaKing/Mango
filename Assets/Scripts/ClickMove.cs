@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ClickMove : MonoBehaviour
 {
-    int speed = 2;
+    int speed = 200;
 
     //AudioSource audioSource;
     //public AudioClip CoinUp;
