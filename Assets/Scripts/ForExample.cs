@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameStart : MonoBehaviour
+public class ForExample : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,11 +18,11 @@ public class GameStart : MonoBehaviour
         
     }
 
-    public void OnClickGameRealStart()
+    public void OnClickSceneMove()
     {
         ButtonSound._buttonInstance.onButtonAudio();
 
-        SceneManager.LoadScene("maingameScene");
+        SceneManager.LoadScene("StartScene");
 
         //Debug.Log("버튼 작동 잘 되니?");
     }

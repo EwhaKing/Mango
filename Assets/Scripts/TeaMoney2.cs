@@ -22,7 +22,9 @@ public class TeaMoney2 : MonoBehaviour
 
         //gameObject.GetComponent<Text>().text = GetThousandCommaText(TotalMoney.totalMoney).ToString();
 
-        gameObject.GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
+        //gameObject.GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
+
+        gameObject.GetComponent<Text>().text = GetThousandCommaText(TotalMoney.totalMoney).ToString();
 
         //audioSource.clip = CoinUp;
         //audioSource.Play();
@@ -37,10 +39,10 @@ public class TeaMoney2 : MonoBehaviour
         
     }
 
-    /*public string GetThousandCommaText(int data)
+    public string GetThousandCommaText(int data)
     {
         return string.Format("{0:#,###}", data);
-    }*/
+    }
 
 
     
