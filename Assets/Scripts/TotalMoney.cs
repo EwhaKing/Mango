@@ -20,29 +20,29 @@ public class TotalMoney : MonoBehaviour
             plusMoney = 500;
         }
 
-        else if (RhythmBar.success_count == 17)
+        else if (RhythmBar.success_count >= 15 && RhythmBar.success_count <= 17)
         {
             plusMoney = 300;
         }
 
-        else if (RhythmBar.success_count == 16)
+        else if (RhythmBar.success_count >= 12 && RhythmBar.success_count <= 14)
         {
             plusMoney = 200;
         }
 
-        else if (RhythmBar.success_count == 15)
+        else if (RhythmBar.success_count >= 9 && RhythmBar.success_count <= 11)
         {
             plusMoney = 100;
         }
 
-        else if (RhythmBar.success_count == 0)
+        else if (RhythmBar.success_count >= 1 && RhythmBar.success_count <= 8)
         {
-            plusMoney = 0;
+            plusMoney = 50;
         }
 
         else
         {
-            plusMoney = 50;
+            plusMoney = 0;
         }
 
         totalMoney += plusMoney;

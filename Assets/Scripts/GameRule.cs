@@ -23,11 +23,13 @@ public class GameRule : MonoBehaviour
 
     public void OnClickGameRealRule()
     {
+        ButtonSound._buttonInstance.onButtonAudio();
         ruleText.SetActive(true);
     }
 
     public void OnClickGameRealRuleExit()
     {
+        ButtonSound._buttonInstance.onButtonAudio();
         ruleText.SetActive(false);
     }
 }
