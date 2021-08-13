@@ -15,7 +15,9 @@ public class TeaMoney : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
+        //gameObject.GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
+
+        gameObject.GetComponent<Text>().text = GetThousandCommaText(TotalMoney.totalMoney).ToString();
 
         //gameObject.GetComponent<Text>().text = GetThousandCommaText(TotalMoney.totalMoney).ToString();
 
@@ -60,9 +62,9 @@ public class TeaMoney : MonoBehaviour
 
     }
 
-    /*public string GetThousandCommaText(int data)
+    public string GetThousandCommaText(int data)
     {
         return string.Format("{0:#,###}", data);
-    }*/
+    }
 
 }
