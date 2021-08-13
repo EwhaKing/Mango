@@ -3973,7 +3973,7 @@ MonoBehaviour:
   customer_img:
   - {fileID: 21300000, guid: 219eb2035f19cdb49ae858418f14750e, type: 3}
   - {fileID: 21300000, guid: dc08cd9107864d349887f8cb51fcdc6c, type: 3}
-  - {fileID: 21300000, guid: 219eb2035f19cdb49ae858418f14750e, type: 3}
+  - {fileID: 21300000, guid: 502816618e967d042ab483ae3ccee12d, type: 3}
   - {fileID: 21300000, guid: 2e526997d02937343acb3e812387558b, type: 3}
   - {fileID: 21300000, guid: dd7371222818acb449f6b16b70c9b87a, type: 3}
   - {fileID: 21300000, guid: ea449c55a761d34448ed0a488a40bd93, type: 3}
@@ -4194,7 +4194,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 219eb2035f19cdb49ae858418f14750e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 502816618e967d042ab483ae3ccee12d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
