@@ -104,7 +104,7 @@ public class RhythmBar : MonoBehaviour
         else
         {
             Debug.Log("fail pos: " + now);
-            GameObject.Find("TimeSlider").GetComponent<SliderTimer>().success = -0.05f;
+            GameObject.Find("TimeSlider").GetComponent<SliderTimer>().success = -0.067f;
 
             //실패범위에 포함되면 실패한 방울로 이미지 바꿈
             dropDrop[cnt].GetComponent<Image>().sprite = Fail;
