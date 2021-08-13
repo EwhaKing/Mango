@@ -11,7 +11,7 @@ public class RhythmBar : MonoBehaviour
 
     public float MaxSuccess;
     public float MinSuccess;
-    float speed = 15f;
+    float speed = 1000f;
     float currPos;
 
     //public float success = 0;
