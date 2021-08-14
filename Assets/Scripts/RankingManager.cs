@@ -77,7 +77,7 @@ public class RankingManager : MonoBehaviour
         _user.transform.GetChild(1).GetComponent<Text>().text = "이름"; //데이터베이스에서 가져올 이름
         _user.transform.GetChild(2).GetComponent<Text>().text = "돈"; //데이터베이스에서 가져올 돈
 
-        totaluser = 11; //우선 10으로
+        totaluser = 31; //우선 10으로
         Invoke("get", 1f);
         Invoke("addUser", 3f);
 
