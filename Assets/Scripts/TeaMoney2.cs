@@ -8,7 +8,7 @@ public class TeaMoney2 : MonoBehaviour
     //AudioSource audioSource;
     //public AudioClip CoinUp;
     
-    public GameObject gameObject;
+    public GameObject _gameObject;
 
     
     
@@ -23,8 +23,9 @@ public class TeaMoney2 : MonoBehaviour
         //gameObject.GetComponent<Text>().text = GetThousandCommaText(TotalMoney.totalMoney).ToString();
 
         //gameObject.GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
-
-        gameObject.GetComponent<Text>().text = GetThousandCommaText(TotalMoney.totalMoney).ToString();
+        if (TotalMoney.totalMoney != 0)
+            _gameObject.GetComponent<Text>().text = GetThousandCommaText(TotalMoney.totalMoney).ToString();
+        else _gameObject.GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
 
         //audioSource.clip = CoinUp;
         //audioSource.Play();

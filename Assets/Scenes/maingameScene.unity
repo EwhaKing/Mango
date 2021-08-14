@@ -1522,7 +1522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3f90ac8cbda844987df94daf48bee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 476287554}
+  _gameObject: {fileID: 476287554}
 --- !u!114 &476287557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1853,7 +1853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3f90ac8cbda844987df94daf48bee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 634170323}
+  _gameObject: {fileID: 634170323}
 --- !u!114 &634170326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4216,7 +4216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5229fed6f722fca41b7b5caa949c8994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1791798793}
+  _gameObject: {fileID: 1791798793}
 --- !u!114 &1378342330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4897,7 +4897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3f90ac8cbda844987df94daf48bee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1626145415}
+  _gameObject: {fileID: 1626145415}
 --- !u!114 &1626145418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5329,8 +5329,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 141, y: 0}
-  m_SizeDelta: {x: 160, y: 100}
+  m_AnchoredPosition: {x: 154, y: 0}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1791798795
 MonoBehaviour:
@@ -5364,7 +5364,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1,000
+  m_Text: 10,000
 --- !u!222 &1791798796
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6021,7 +6021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 673, y: 452}
+  m_AnchoredPosition: {x: 637, y: 452}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2140945219
