@@ -11,7 +11,7 @@ public class CustomerTalkButton : MonoBehaviour
     public GameObject music_money;
     public Text tip_money_text; //부자손님 팁 텍스트
 
-    int speed = 1; //추가금 이동 속도
+    //int speed = 1; //추가금 이동 속도
 
     AudioSource audioSource, audioSource_customer;
     public AudioClip CoinUp;
@@ -70,7 +70,7 @@ public class CustomerTalkButton : MonoBehaviour
         gameObject.SetActive(false);
 
         //부자손님 돈 + 미니게임에서 번 돈 올라가게
-        GameObject.Find("Text_money").GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
+        GameObject.Find("Text_money").GetComponent<Text>().text = (string.Format("{0:#,###}", TotalMoney.totalMoney)).ToString();
 
         Invoke("plusDisplayMoney", 0.1f);
     }
