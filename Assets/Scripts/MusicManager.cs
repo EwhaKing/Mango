@@ -29,16 +29,4 @@ public class MusicManager : MonoBehaviour
     {
         
     }
-
-    public void OnClickBackMusic()
-    {
-        if (backmusic.isPlaying) backmusic.Pause();
-        else backmusic.Play();
-    }
-
-    public void OnClickButtonMusic()
-    {
-        //if (ButtonSound._buttonInstance.onButtonAudio.isPlaying) ButtonSound._buttonInstance.onButtonAudio.Pause();
-        //else ButtonSound._buttonInstance.onButtonAudio.Play();
-    }
 }
