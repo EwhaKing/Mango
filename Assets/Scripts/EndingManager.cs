@@ -20,10 +20,10 @@ public class EndingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lifecnt = 3;
+        //lifecnt = 3;
         parent_object = GameObject.Find("Canvas");
-        if (GameObject.Find("LifeManager_mini"))
-            lifecnt = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
+        //if (GameObject.Find("LifeManager_mini"))
+        //    lifecnt = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
 
         audioSource = this.GetComponent<AudioSource>();
     }
@@ -46,7 +46,7 @@ public class EndingManager : MonoBehaviour
         //모든 작업 중지
         GameObject.Find("GameManager").SetActive(false);
 
-        if (TotalMoney.totalMoney < 50) //랭킹 x 게임오버팝업, 우선 50원, 원래 5000
+        if (TotalMoney.totalMoney < 1000) //랭킹 x 게임오버팝업, 우선 50원, 원래 5000
         {
             //배경음악 멈춤
             GameObject soundManager = GameObject.Find("SoundManager");
