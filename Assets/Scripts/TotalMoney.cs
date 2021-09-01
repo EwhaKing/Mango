@@ -11,6 +11,12 @@ public class TotalMoney : MonoBehaviour
 
     //public GameObject gameObject;
 
+    private void Awake()
+    {
+        //초기화
+        totalMoney = 0;
+        plusMoney = 0;
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -20,10 +20,10 @@ public class EndingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lifecnt = 3;
+        //lifecnt = 3;
         parent_object = GameObject.Find("Canvas");
-        if (GameObject.Find("LifeManager_mini"))
-            lifecnt = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
+        //if (GameObject.Find("LifeManager_mini"))
+        //    lifecnt = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
 
         audioSource = this.GetComponent<AudioSource>();
     }
