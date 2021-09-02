@@ -297,6 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 41932810}
   - component: {fileID: 41932809}
+  - component: {fileID: 41932811}
   m_Layer: 0
   m_Name: GameData
   m_TagString: Untagged
@@ -318,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game_money: 0
   baby_custom: 0000000000000000
-  baby_clothes: 0100000000000000000000000100000001000000
+  baby_clothes: 01000000000000000000000001000000
   clock_hand_rot: 0
   mainscene_time: 0
 --- !u!4 &41932810
@@ -335,6 +336,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &41932811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41932808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18dd66dde6246e44583c140bb7e5cd35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &86312576
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,32 @@
+{
+    "item": 
+    [
+        {
+            "item_num": 0,
+            "item_name": "±âº»¿Ê",
+            "item_type": 0,
+            "item_cost": 0,
+            "own": true
+        },
+        {
+            "item_num": 1,
+            "item_name": "·¹¸ó¿Ê",
+            "item_type": 0,
+            "item_cost": 1000,
+            "own": false
+        },
+        {
+            "item_num": 2,
+            "item_name": "·¹¸ó ¸Ó¸®²ö",
+            "item_type": 1,
+            "item_cost": 500,
+            "own": false
+        },
+        {
+            "item_num": 3,
+            "item_name": "³ë¶û ¸Ó¸®",
+            "item_type": 2,
+            "item_cost": 2000,
+            "own": true
+        }
+    ]}
