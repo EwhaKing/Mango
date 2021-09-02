@@ -83,12 +83,12 @@ public class SliderTimer : MonoBehaviour
         }else
         {
             Debug.Log("Timeup!");
-            int life = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
-            if(life!=0)
-            {
+            //int life = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
+            //if(life!=0)
+            //{
                 time_over = true;
-                GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt -= 1;
-            }
+                //GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt -= 1;
+            //}
             SceneManager.LoadScene("maingameScene");
         }
         

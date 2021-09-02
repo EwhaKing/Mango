@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LifeManager_mini : MonoBehaviour
 {
-    public int lifecnt = 3;
+    //public int lifecnt = 3;
     public int customerCnt = 0;
     void Start()
     {

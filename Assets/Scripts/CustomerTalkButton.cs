@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class CustomerTalkButton : MonoBehaviour
 {
+    public static bool main_over_check = true; //끝낼 때 손님한테 차 건네고 있는지 판단
+
     public GameObject tea_img;
     public GameObject plus_img; //손님 사라지고 추가금(이미지+텍스트)
     public GameObject music_money;
@@ -36,6 +38,8 @@ public class CustomerTalkButton : MonoBehaviour
         }
         else if(CustomerManager.current_customer == this.gameObject.transform.GetSiblingIndex()) //건네기 클릭
         {
+            main_over_check = false;
+
             ButtonSound._buttonInstance.onButtonAudio(); //버튼 효과음 재생
             CustomerManager.check = false;
             //차 드래그 애니메이션
@@ -99,5 +103,12 @@ public class CustomerTalkButton : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = true;
         }
 
+        Invoke("mainOver", 0.3f);
+
+    }
+
+    void mainOver()
+    {
+        main_over_check = true;
     }
 }
