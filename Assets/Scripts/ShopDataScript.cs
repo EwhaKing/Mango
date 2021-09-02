@@ -4,10 +4,13 @@ using UnityEngine;
 using System.IO;
 
 [System.Serializable]
+
 public class ShopData
 {
-    public ItemData[] item = new ItemData[4];
+    public ItemData[] item;
 }
+
+[System.Serializable]
 public class ItemData
 {
     public int item_num;
@@ -16,29 +19,15 @@ public class ItemData
     public int item_cost;
     public bool own;
 
-    public ItemData()
-    {
-    }
-    public ItemData(int num, string name, int type, int cost, bool own) 
-    {
-        item_num = num;
-        item_name = name;
-        item_type = type;
-        item_cost = cost;
-        this.own = own;
-    }
-
 }
 
 public class ShopDataScript : MonoBehaviour
 {
-    public ShopData sd;
-
+    public static ShopData sd;
     void Start()
     {
-        sd = new ShopData();
         string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
-        sd = JsonUtility.FromJson<ShopData>(str);
+        sd = JsonUtility.FromJson<ShopData>("{\"item\":" + str + "}");
         Debug.Log(str);
         for (int i = 0; i < sd.item.Length; i++)
         {
@@ -49,12 +38,12 @@ public class ShopDataScript : MonoBehaviour
     public void BuyItem(int num)
     {
         string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
-        sd = JsonUtility.FromJson<ShopData>(str);
+        sd = JsonUtility.FromJson<ShopData>("{\"item\":" + str + "}");
         sd.item[num].own = true;
         File.WriteAllText(Application.dataPath + "/ShopData.json", JsonUtility.ToJson(sd));
 
         string str2 = File.ReadAllText(Application.dataPath + "/ShopData.json");
-        ShopData data_test = JsonUtility.FromJson<ShopData>(str2);
+        ShopData data_test = JsonUtility.FromJson<ShopData>("{\"item\":" + str2 + "}");
         Debug.Log("{NUM: " + sd.item[num].item_num + "  NAME: " + sd.item[num].item_name + "  TYPE: " + sd.item[num].item_type + "  COST: " + sd.item[num].item_cost + "  OWN: " + sd.item[num].own + "}");
 
     }

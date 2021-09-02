@@ -1,32 +1,30 @@
-{
-    "item": 
-    [
-        {
-            "item_num": 0,
-            "item_name": "±‚∫ªø ",
-            "item_type": 0,
-            "item_cost": 0,
-            "own": true
-        },
-        {
-            "item_num": 1,
-            "item_name": "∑π∏Ûø ",
-            "item_type": 0,
-            "item_cost": 1000,
-            "own": false
-        },
-        {
-            "item_num": 2,
-            "item_name": "∑π∏Û ∏”∏Æ≤ˆ",
-            "item_type": 1,
-            "item_cost": 500,
-            "own": false
-        },
-        {
-            "item_num": 3,
-            "item_name": "≥Î∂˚ ∏”∏Æ",
-            "item_type": 2,
-            "item_cost": 2000,
-            "own": true
-        }
-    ]}
+Ôªø[
+    {
+        "item_num": 0,
+        "item_name": "Í∏∞Î≥∏Ïò∑",
+        "item_type": 0,
+        "item_cost": 0,
+        "own": true
+    },
+    {
+        "item_num": 1,
+        "item_name": "Î†àÎ™¨Ïò∑",
+        "item_type": 0,
+        "item_cost": 1000,
+        "own": false
+    },
+    {
+        "item_num": 2,
+        "item_name": "Î†àÎ™¨ Î®∏Î¶¨ÎÅà",
+        "item_type": 1,
+        "item_cost": 500,
+        "own": false
+    },
+    {
+        "item_num": 3,
+        "item_name": "ÎÖ∏Îûë Î®∏Î¶¨",
+        "item_type": 2,
+        "item_cost": 2000,
+        "own": true
+    }
+]
