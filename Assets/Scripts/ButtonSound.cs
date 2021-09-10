@@ -54,4 +54,14 @@ public class ButtonSound : MonoBehaviour
         audioSource.clip = moneyBGM;
         audioSource.Play();
     }
+
+    public void onButtonMusicOn()
+    {
+        audioSource.Play();
+    }
+
+    public void onButtonMusicOff()
+    {
+        audioSource.Pause();
+    }
 }
