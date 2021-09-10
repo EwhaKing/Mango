@@ -120,7 +120,7 @@ public class TeaManager : MonoBehaviour
         else GameObject.Find("Image_babyarm_left_jamong").GetComponent<Animator>().enabled = false;
         if (GameObject.Find("Image_babyarm_right")) GameObject.Find("Image_babyarm_right").GetComponent<Animator>().enabled = false;
         else GameObject.Find("Image_babyarm_right_jamong").GetComponent<Animator>().enabled = false;
-        //clear_img.gameObject.SetActive(true);
+        clear_img.gameObject.SetActive(true);
         Invoke("mainLoad", 0.2f);
     }
 

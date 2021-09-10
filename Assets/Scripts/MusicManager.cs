@@ -25,6 +25,14 @@ public class MusicManager : MonoBehaviour
 
     }
 
+    public void BackGroundMusicOffButton()
+    {
+        BackgroundMusic = GameObject.Find("SoundManager");
+        backmusic = BackgroundMusic.GetComponent<AudioSource>();
+        if (backmusic.isPlaying) backmusic.Pause();
+        else backmusic.Play();
+    }
+
     // Update is called once per frame
     void Update()
     {

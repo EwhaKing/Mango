@@ -9,6 +9,8 @@ public class ButtonSound : MonoBehaviour
 
     public AudioClip buttonBGM;
     public AudioClip babylaughBGM;
+    public AudioClip popupBGM;
+    public AudioClip moneyBGM;
 
     // Start is called before the first frame update
     void Awake()
@@ -40,4 +42,29 @@ public class ButtonSound : MonoBehaviour
         audioSource.Play();
     }
 
+<<<<<<< HEAD
+=======
+    public void onPopUpAudio()
+    {
+        audioSource.clip = popupBGM;
+        audioSource.volume = 0.5f;
+        audioSource.Play();
+    }
+
+    public void onMoneyAudio()
+    {
+        audioSource.clip = moneyBGM;
+        audioSource.Play();
+    }
+
+    public void onButtonMusicOn()
+    {
+        audioSource.Play();
+    }
+
+    public void onButtonMusicOff()
+    {
+        audioSource.Pause();
+    }
+>>>>>>> main
 }

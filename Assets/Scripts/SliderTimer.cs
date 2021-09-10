@@ -53,14 +53,14 @@ public class SliderTimer : MonoBehaviour
         {
             speed = 0.067f;
             successArea.transform.localScale = new Vector3(1, 0.66f, 1);
-            GameObject.Find("Image_success").GetComponent<SuccessArea>().successSpeed = 1.1f;
+            GameObject.Find("Image_success").GetComponent<SuccessArea>().successSpeed = 100f;
             Debug.Log("level4");
         }
         else //5단계
         {
             speed = 0.083f;
             successArea.transform.localScale = new Vector3(1, 0.5f, 1);
-            GameObject.Find("Image_success").GetComponent<SuccessArea>().successSpeed = 1.1f;
+            GameObject.Find("Image_success").GetComponent<SuccessArea>().successSpeed = 100f;
             Debug.Log("level5");
         }
     }
@@ -83,12 +83,12 @@ public class SliderTimer : MonoBehaviour
         }else
         {
             Debug.Log("Timeup!");
-            int life = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
-            if(life!=0)
-            {
+            //int life = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt;
+            //if(life!=0)
+            //{
                 time_over = true;
-                GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt -= 1;
-            }
+                //GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().lifecnt -= 1;
+            //}
             SceneManager.LoadScene("maingameScene");
         }
         
