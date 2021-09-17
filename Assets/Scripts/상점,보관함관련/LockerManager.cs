@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LockerManager : MonoBehaviour
 {
     BabyCustom babyCustom;
-    List<Sprite> _hair;
-    List<Sprite> _clothes;
+    List<Sprite> locker_clothes_set; //진열되는 옷
 
-    List<int> locker_clothes; //GameStaticData꺼 가져와서 저장
     public List<int> locker_sprites = new List<int>(); //보관함 옷의 스프라이트 번호
 
     public GameObject _item;
@@ -17,24 +16,31 @@ public class LockerManager : MonoBehaviour
     private void Awake()
     {
         babyCustom = GameObject.Find("BabyCustom").GetComponent<BabyCustom>();
-        _hair = babyCustom.hair;
-        _clothes = babyCustom.clothes;
-        locker_clothes = GameObject.Find("GameData").GetComponent<GameStaticData>().baby_clothes;
+        locker_clothes_set = babyCustom.clothes_set; //babyCustom 에 있는 진열되는 옷 스프라이트 가져오기
+
+        //데이터베이스에서 정보 불러오기
+        string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
+        ShopDataScript.sd = JsonUtility.FromJson<ShopData>("{\"item\":" + str + "}");
+
+        //데이터베이스에 정보 다시 저장
+        //File.WriteAllText(Application.dataPath + "/ShopData.json", JsonUtility.ToJson(ShopDataScript.sd));
     }
     // Start is called before the first frame update
     void Start()
     {
         int cnt = 0;
 
+        int clothes_cnt = ShopDataScript.sd.item.Length; //현재 존재하는 옷세트 개수
+
         //보관 옷 뜨게
-        for(int i=0;i<locker_clothes.Count;i++)
+        for(int i=0;i<clothes_cnt;i++)
         {
-            if(locker_clothes[i] == 1)
+            if(ShopDataScript.sd.item[i].own) //해당 옷 세트를 가지고 있다면
             {
                 GameObject item;
                 if (cnt == 0) //처음이라면 _item 사용해야함
                 {
-                    _item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = _clothes[i];
+                    _item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = locker_clothes_set[i];
                     locker_sprites.Add(i);
                     item = _item;
                 }
@@ -46,11 +52,11 @@ public class LockerManager : MonoBehaviour
                     //item.transform.localScale = Vector3.one;
                     //item.transform.localRotation = Quaternion.identity;
                     
-                    item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = _clothes[i];
+                    item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = locker_clothes_set[i];
                     locker_sprites.Add(i);
                 }
 
-                if (GameObject.Find("GameData").GetComponent<GameStaticData>().baby_custom[0] == i)
+                if (GameObject.Find("GameData").GetComponent<GameStaticData>().baby_custom == i)
                 {
                     item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
                 }

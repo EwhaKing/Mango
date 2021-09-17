@@ -9,26 +9,26 @@
     },
     {
         "item_num": 1,
-        "item_name": "레몬옷",
+        "item_name": "꿀벌세트",
         "item_type": 0,
-        "item_cost": 1000,
+        "item_cost": 10000,
         "item_sprite": 1,
-        "own": false
+        "own": true
     },
     {
         "item_num": 2,
-        "item_name": "레몬 머리끈",
-        "item_type": 1,
-        "item_cost": 500,
-        "item_sprite": 0,
+        "item_name": "피크닉세트",
+        "item_type": 0,
+        "item_cost": 15000,
+        "item_sprite": 2,
         "own": false
     },
     {
         "item_num": 3,
-        "item_name": "노랑 머리",
-        "item_type": 2,
-        "item_cost": 2000,
-        "item_sprite": 0,
-        "own": true
+        "item_name": "곰돌이세트",
+        "item_type": 0,
+        "item_cost": 20000,
+        "item_sprite": 3,
+        "own": false
     }
 ]
