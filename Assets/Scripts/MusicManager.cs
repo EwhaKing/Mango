@@ -22,6 +22,29 @@ public class MusicManager : MonoBehaviour
             backmusic.Play();
             DontDestroyOnLoad(BackgroundMusic);
         }
+
+        /*if (GamePause.bgmOnOff == 1)
+        {
+            //if (backmusic.isPlaying) return;
+            //else backmusic.Play();
+            backmusic.Play();
+            //DontDestroyOnLoad(BackgroundMusic);
+        }
+        
+        else
+        {
+            backmusic.Pause();
+            //DontDestroyOnLoad(BackgroundMusic);
+        }*/
+        
+    }
+
+    public void BackGroundMusicOffButton()
+    {
+        BackgroundMusic = GameObject.Find("SoundManager");
+        backmusic = BackgroundMusic.GetComponent<AudioSource>();
+        if (backmusic.isPlaying) backmusic.Pause();
+        else backmusic.Play();
     }
 
     // Update is called once per frame

@@ -77,7 +77,11 @@ public class SliderTimer : MonoBehaviour
             {
                 if(!timemusic.isPlaying)
                 {
-                    timemusic.Play();
+                    //timemusic.Play();
+                    if (GamePause.soundOnOff == 1)
+                    {
+                        timemusic.Play();
+                    }
                 }
             }
         }else

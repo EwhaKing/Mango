@@ -55,7 +55,12 @@ public class EndingManager : MonoBehaviour
             gameoverPopup.SetActive(true);
             //gameover 효과음 재생
             audioSource.clip = gameover_bgm;
-            audioSource.Play();
+            //audioSource.Play();
+
+            if (GamePause.soundOnOff == 1)
+            {
+                audioSource.Play();
+            }
         }
         else //랭킹 o 랭킹판
         {

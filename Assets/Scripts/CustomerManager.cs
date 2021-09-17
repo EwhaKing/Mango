@@ -86,7 +86,12 @@ public class CustomerManager : MonoBehaviour
                 RhythmBar.success_count = 0; //돈 안올라가게 방울 0으로
                 audioSource.clip = customer_sad[customer_img_idx[current_customer]];
                 audioSource.volume = 0.7f;
-                audioSource.Play(); //손님 한숨 소리 재생
+                //audioSource.Play(); //손님 한숨 소리 재생
+
+                if (GamePause.soundOnOff == 1)
+                {
+                    audioSource.Play();
+                }
 
                 SliderTimer.time_over = false;
 
