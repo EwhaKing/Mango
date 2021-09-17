@@ -102,6 +102,7 @@ public class GamePause : MonoBehaviour
         Application.Quit();
     }
 
+
     public void OnClickBGMOn()
     {
         bgmOnOff = 1;
