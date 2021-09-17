@@ -6,6 +6,10 @@ public class GamePause : MonoBehaviour
 {
     public GameObject pauseScreen; //일시정지창
     public GameObject settingScreen; //설정창
+
+    public static int bgmOnOff = 1; // bgm 온오프 변수
+    public static int soundOnOff = 1; // 사운드 온오프 변수
+
     /*public GameObject numberScreen;
     public GameObject number3;
     public GameObject number2;
@@ -96,6 +100,30 @@ public class GamePause : MonoBehaviour
         ButtonSound._buttonInstance.onButtonAudio();
         pauseScreen.SetActive(false);
         Application.Quit();
+    }
+
+    public void OnClickBGMOn()
+    {
+        bgmOnOff = 1;
+        DontDestroyOnLoad(settingScreen);
+    }
+
+    public void OnClickBGMOff()
+    {
+        bgmOnOff = 0;
+        DontDestroyOnLoad(settingScreen);
+    }
+
+    public void OnClickButtonSoundOn()
+    {
+        soundOnOff = 1;
+        DontDestroyOnLoad(settingScreen);
+    }
+
+    public void OnClickButtonSoundOff()
+    {
+        soundOnOff = 0;
+        DontDestroyOnLoad(settingScreen);
     }
 
 
