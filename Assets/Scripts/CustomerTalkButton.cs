@@ -59,7 +59,12 @@ public class CustomerTalkButton : MonoBehaviour
             }
 
             audioSource_customer.clip = customer_happy[CustomerManager.customer_img_idx[CustomerManager.current_customer]];
-            audioSource_customer.Play(); //손님 웃음소리 재생
+            //audioSource_customer.Play(); //손님 웃음소리 재생
+
+            if (GamePause.soundOnOff == 1)
+            {
+                audioSource_customer.Play();
+            }
 
             //손님+말풍선 삭제, 차 드래그 되는 시간 기다리기
             Invoke("deleteObject", 2.5f);
@@ -85,7 +90,14 @@ public class CustomerTalkButton : MonoBehaviour
         audioSource = this.music_money.GetComponent<AudioSource>();
 
         audioSource.clip = CoinUp;
-        audioSource.Play();
+        //audioSource.Play();
+
+        if (GamePause.soundOnOff == 1)
+        {
+            audioSource.Play();
+        }
+
+
 
         //float yMove = speed * Time.deltaTime; //속도 설정
         //this.transform.Translate(new Vector3(0, yMove, 0)); //customer 오브젝트는 움직이면 안됩니당

@@ -33,25 +33,40 @@ public class ButtonSound : MonoBehaviour
     {
         audioSource.clip = buttonBGM;
         audioSource.volume = 0.7f;
-        audioSource.Play();
+        if(GamePause.soundOnOff == 1)
+        {
+            audioSource.Play();
+        }
     }
 
     public void onBabyAudio()
     {
         audioSource.clip = babylaughBGM;
-        audioSource.Play();
+        //audioSource.Play();
+        if (GamePause.soundOnOff == 1)
+        {
+            audioSource.Play();
+        }
     }
 
     public void onPopUpAudio()
     {
         audioSource.clip = popupBGM;
         audioSource.volume = 0.5f;
-        audioSource.Play();
+        //audioSource.Play();
+        if (GamePause.soundOnOff == 1)
+        {
+            audioSource.Play();
+        }
     }
 
     public void onMoneyAudio()
     {
         audioSource.clip = moneyBGM;
-        audioSource.Play();
+        //audioSource.Play();
+        if (GamePause.soundOnOff == 1)
+        {
+            audioSource.Play();
+        }
     }
 }

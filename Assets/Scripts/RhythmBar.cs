@@ -96,7 +96,12 @@ public class RhythmBar : MonoBehaviour
 
             //PowerSuccess.Play();
             audioSource.clip = PowerSuccess;
-            audioSource.Play();
+            //audioSource.Play();
+
+            if (GamePause.soundOnOff == 1)
+            {
+                audioSource.Play();
+            }
 
             //성공하면 횟수 추가
             success_count++;
@@ -111,7 +116,12 @@ public class RhythmBar : MonoBehaviour
 
             //PowerFail.Play();
             audioSource.clip = PowerFail;
-            audioSource.Play();
+            //audioSource.Play();
+
+            if (GamePause.soundOnOff == 1)
+            {
+                audioSource.Play();
+            }
 
             Handheld.Vibrate(); // 실패시 진동
         }
