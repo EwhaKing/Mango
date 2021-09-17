@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameStaticData : MonoBehaviour
 {
     //데이터 베이스 저장 필요한 변수들
-    public int game_money = 0;
+    public int game_money = 100000;
     public int baby_custom = 0; //현재 입고있는 옷 세트 번호
 
 

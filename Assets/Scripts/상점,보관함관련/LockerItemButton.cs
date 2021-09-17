@@ -18,7 +18,7 @@ public class LockerItemButton : MonoBehaviour
             gameObject.transform.parent.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
             //기본옷으로 바꾸기
             GameObject.Find("GameData").GetComponent<GameStaticData>().baby_custom = 0; //옷세트 번호
-            GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(); //아기 옷 입히기 적용
+            GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(0); //아기 옷 입히기 적용
 
         }
         else //색칠 안됐더라면
@@ -34,7 +34,7 @@ public class LockerItemButton : MonoBehaviour
             int clothe_sprite_num = GameObject.Find("GameManager").GetComponent<LockerManager>().locker_sprites[index]; //옷의 스프라이트 넘버
 
             GameObject.Find("GameData").GetComponent<GameStaticData>().baby_custom = clothe_sprite_num; //옷세트 번호
-            GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(); //아기 옷 입히기 적용
+            GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(clothe_sprite_num); //아기 옷 입히기 적용
         }
     }
 }

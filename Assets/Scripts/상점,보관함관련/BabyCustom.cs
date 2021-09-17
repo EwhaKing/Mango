@@ -44,7 +44,7 @@ public class BabyCustom : MonoBehaviour
         custom_sprites[2] = left_arm;    //왼팔 스프라이트
         custom_sprites[3] = right_arm;   //오른팔 스프라이트
 
-        if (babyObject.activeSelf) changeBabyCustom();
+        if (babyObject.activeSelf) changeBabyCustom(dataScript.baby_custom);
         
     }
 
@@ -57,21 +57,26 @@ public class BabyCustom : MonoBehaviour
         {
             if (baby_check)
             {
-                changeBabyCustom();
+                changeBabyCustom(dataScript.baby_custom); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
                 baby_check = false;
             }
         }
         else baby_check = true;
     }
 
-    public void changeBabyCustom()
+    public void changeBabyCustom(int custom_data)
     {
         babyObject = GameObject.Find("baby_object");
-        int custom_data = dataScript.baby_custom; //현재 입고 있는 옷세트의 번호
         Debug.Log("현재 옷 세트: " + custom_data);
         for (int i = 0; i < 4; i++)
         {
             babyObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = custom_sprites[i][custom_data];
         }
     }
+
+    public void lockerStart()
+    {
+        changeBabyCustom(dataScript.baby_custom); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
+    }
+
 }
