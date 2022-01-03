@@ -21,15 +21,9 @@ public class GamePause : MonoBehaviour
     //bool isPause;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        DontDestroyOnLoad(settingScreen);
     }
 
     public void OnClickGamePause() //일시정지
@@ -106,25 +100,21 @@ public class GamePause : MonoBehaviour
     public void OnClickBGMOn()
     {
         bgmOnOff = 1;
-        DontDestroyOnLoad(settingScreen);
     }
 
     public void OnClickBGMOff()
     {
         bgmOnOff = 0;
-        DontDestroyOnLoad(settingScreen);
     }
 
     public void OnClickButtonSoundOn()
     {
         soundOnOff = 1;
-        DontDestroyOnLoad(settingScreen);
     }
 
     public void OnClickButtonSoundOff()
     {
         soundOnOff = 0;
-        DontDestroyOnLoad(settingScreen);
     }
 
 
