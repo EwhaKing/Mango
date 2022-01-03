@@ -5,7 +5,8 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     GameObject BackgroundMusic;
-    AudioSource backmusic;
+    public static AudioSource backmusic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,9 +48,4 @@ public class MusicManager : MonoBehaviour
         else backmusic.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

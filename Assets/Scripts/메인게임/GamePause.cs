@@ -7,7 +7,7 @@ public class GamePause : MonoBehaviour
     public GameObject pauseScreen; //일시정지창
     public GameObject settingScreen; //설정창
 
-    public static int bgmOnOff = 1; // bgm 온오프 변수
+    //public static int bgmOnOff = 1; // bgm 온오프 변수
     public static int soundOnOff = 1; // 사운드 온오프 변수
 
     /*public GameObject numberScreen;
@@ -19,12 +19,6 @@ public class GamePause : MonoBehaviour
     //AudioSource backmusic;
 
     //bool isPause;
-
-    // Start is called before the first frame update
-    private void Awake()
-    {
-        DontDestroyOnLoad(settingScreen);
-    }
 
     public void OnClickGamePause() //일시정지
     {
@@ -99,12 +93,12 @@ public class GamePause : MonoBehaviour
 
     public void OnClickBGMOn()
     {
-        bgmOnOff = 1;
+        MusicManager.backmusic.Play();
     }
 
     public void OnClickBGMOff()
     {
-        bgmOnOff = 0;
+        MusicManager.backmusic.Pause();
     }
 
     public void OnClickButtonSoundOn()

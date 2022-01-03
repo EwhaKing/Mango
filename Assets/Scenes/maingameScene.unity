@@ -4328,7 +4328,6 @@ GameObject:
   - component: {fileID: 1144503218}
   - component: {fileID: 1144503217}
   - component: {fileID: 1144503216}
-  - component: {fileID: 1144503215}
   m_Layer: 5
   m_Name: backon
   m_TagString: Untagged
@@ -4355,18 +4354,6 @@ RectTransform:
   m_AnchoredPosition: {x: -150.00003, y: 99.99989}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1144503215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144503213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b23979ccfe6914c9f0adbd4c3bcb62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1144503216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4379,8 +4366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ff5c470b16ebb419542988a1569703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseScreen: {fileID: 0}
-  settingScreen: {fileID: 0}
+  pauseScreen: {fileID: 91410323}
+  settingScreen: {fileID: 1624800209}
 --- !u!114 &1144503217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4424,8 +4411,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1144503215}
-        m_MethodName: BackGroundMusicOffButton
+      - m_Target: {fileID: 1144503216}
+        m_MethodName: OnClickBGMOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
