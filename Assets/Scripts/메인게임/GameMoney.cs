@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameMoney : MonoBehaviour
 {
-    
+    //게임의 전체 돈을 나타내주는 스크립트
     public Text money_text;
     int money;
 

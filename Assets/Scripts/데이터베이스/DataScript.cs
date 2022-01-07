@@ -26,15 +26,15 @@ public class DataScript : MonoBehaviour
         {
             data.date = 0;
             string str = JsonUtility.ToJson(data);
-            File.WriteAllText(Application.dataPath + "/Data.json", JsonUtility.ToJson(data));
+            File.WriteAllText(Application.dataPath + "/DateData.json", JsonUtility.ToJson(data));
 
-            string str2 = File.ReadAllText(Application.dataPath + "/Data.json");
+            string str2 = File.ReadAllText(Application.dataPath + "/DateData.json");
             Data data_test = JsonUtility.FromJson<Data>(str2);
             data_test.printData();
         }
         else
         {
-            string str = File.ReadAllText(Application.dataPath + "/Data.json");
+            string str = File.ReadAllText(Application.dataPath + "/DateData.json");
             data = JsonUtility.FromJson<Data>(str);
             data.printData();
         }
@@ -45,9 +45,9 @@ public class DataScript : MonoBehaviour
     public void DateUp()
     {
         data.date++;
-        File.WriteAllText(Application.dataPath + "/Data.json", JsonUtility.ToJson(data));
+        File.WriteAllText(Application.dataPath + "/DateData.json", JsonUtility.ToJson(data));
 
-        string str2 = File.ReadAllText(Application.dataPath + "/Data.json");
+        string str2 = File.ReadAllText(Application.dataPath + "/DateData.json");
         Data data_test = JsonUtility.FromJson<Data>(str2);
         data_test.printData();
 
@@ -56,9 +56,9 @@ public class DataScript : MonoBehaviour
     public void DataClear()
     {
         data.date = 0;
-        File.WriteAllText(Application.dataPath + "/Data.json", JsonUtility.ToJson(data));
+        File.WriteAllText(Application.dataPath + "/DateData.json", JsonUtility.ToJson(data));
 
-        string str2 = File.ReadAllText(Application.dataPath + "/Data.json");
+        string str2 = File.ReadAllText(Application.dataPath + "/DateData.json");
         Data data_test = JsonUtility.FromJson<Data>(str2);
         data_test.printData();
     }
