@@ -62,7 +62,7 @@ public class GameStart : MonoBehaviour
     public void OnClickGameRealStart()
     {
         ButtonSound._buttonInstance.onButtonAudio();
-
+        Time.timeScale = 1;
         SceneManager.LoadScene("maingameScene");
 
         //Debug.Log("버튼 작동 잘 되니?");

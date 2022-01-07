@@ -709,7 +709,6 @@ GameObject:
   - component: {fileID: 357229801}
   - component: {fileID: 357229800}
   - component: {fileID: 357229799}
-  - component: {fileID: 357229803}
   m_Layer: 5
   m_Name: backon
   m_TagString: Untagged
@@ -793,8 +792,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 357229803}
-        m_MethodName: BackGroundMusicOffButton
+      - m_Target: {fileID: 357229799}
+        m_MethodName: OnClickBGMOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -841,18 +840,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357229797}
   m_CullTransparentMesh: 0
---- !u!114 &357229803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357229797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b23979ccfe6914c9f0adbd4c3bcb62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &755848216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,8 +2476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonBGM: {fileID: 8300000, guid: dfadcdaf3882ff64291677d9142938db, type: 3}
   babylaughBGM: {fileID: 8300000, guid: 99cd5aec9ef6162498635bdccf36f766, type: 3}
-  popupBGM: {fileID: 0}
-  moneyBGM: {fileID: 0}
+  popupBGM: {fileID: 8300000, guid: e015fd11f4981b242b6ef8a189edeeaf, type: 3}
+  moneyBGM: {fileID: 8300000, guid: ad7e30fd89d6483479960981aad8e966, type: 3}
 --- !u!4 &1998652850
 Transform:
   m_ObjectHideFlags: 0
