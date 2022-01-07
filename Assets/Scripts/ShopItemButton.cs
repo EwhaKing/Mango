@@ -54,6 +54,8 @@ public class ShopItemButton : MonoBehaviour
         else
         {
             //구매 완료: 데이터베이스 소유 변경
+            string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
+            ShopDataScript.sd = JsonUtility.FromJson<ShopData>("{\"item\":" + str + "}");
             ShopDataScript.sd.item[clothe_sprite_num].own = true; 
 
             //돈 변경

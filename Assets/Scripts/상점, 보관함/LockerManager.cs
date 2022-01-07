@@ -17,6 +17,10 @@ public class LockerManager : MonoBehaviour
     {
         babyCustom = GameObject.Find("BabyCustom").GetComponent<BabyCustom>();
         set_clothes = babyCustom.clothes_set; //babyCustom 에 있는 진열되는 옷 스프라이트 가져오기
+
+        //데이터베이스 불러오기
+        string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
+        ShopDataScript.sd = JsonUtility.FromJson<ShopData>(str);
     }
     // Start is called before the first frame update
     void Start()

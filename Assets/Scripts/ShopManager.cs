@@ -21,7 +21,7 @@ public class ShopManager : MonoBehaviour
 
         //데이터베이스 불러오기
         string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
-        ShopDataScript.sd = JsonUtility.FromJson<ShopData>("{\"item\":" + str + "}");
+        ShopDataScript.sd = JsonUtility.FromJson<ShopData>(str);
     }
 
     // Start is called before the first frame update
@@ -68,6 +68,12 @@ public class ShopManager : MonoBehaviour
                 cnt++;
             }
         }
+
+        if(cnt == 0) //옷을 다 가지고 있다면
+        {
+            Destroy(_item);
+        }
+
     }
 
 }
