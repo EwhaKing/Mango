@@ -1537,11 +1537,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2049471392}
   - {fileID: 1128937235}
+  - {fileID: 2049471392}
   - {fileID: 1828659452}
   - {fileID: 1193669121}
-  - {fileID: 912141804}
   m_Father: {fileID: 409574621}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3615,12 +3614,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912141803}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 252920488}
-  m_RootOrder: 4
+  m_Father: {fileID: 1193669121}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4027,7 +4026,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 252920488}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4188,7 +4187,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 912141804}
   m_Father: {fileID: 252920488}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4708,26 +4708,61 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6c35a661e4c9a31408933e4358f47e61, type: 3}
   - {fileID: 21300000, guid: 49062863b2b01f748978d56e36dbf380, type: 3}
   - {fileID: 21300000, guid: 38c40b8438ca5e3489ab8b43c5119a32, type: 3}
+  - {fileID: 21300000, guid: cef8d2581c165b14e838ece92848e21d, type: 3}
+  - {fileID: 21300000, guid: 9f044adc3dc13ac4ea7d1229849e2806, type: 3}
+  - {fileID: 21300000, guid: 603ecb6bd64c8da43bea9a8d6f2e3c5f, type: 3}
+  - {fileID: 21300000, guid: 8e4fe3974af161f43b5b4cc1229f3c76, type: 3}
+  - {fileID: 21300000, guid: 8e4fe3974af161f43b5b4cc1229f3c76, type: 3}
+  - {fileID: 21300000, guid: 8e4fe3974af161f43b5b4cc1229f3c76, type: 3}
+  - {fileID: 21300000, guid: 8e4fe3974af161f43b5b4cc1229f3c76, type: 3}
   clothes:
   - {fileID: 21300000, guid: 5158fb23dc8236643996005b1b120ab1, type: 3}
   - {fileID: 21300000, guid: a4f2bfe9e17d1c348b1d50ed8f1c3c4d, type: 3}
   - {fileID: 21300000, guid: a06161eb724c50f48ab50a5372930a8d, type: 3}
   - {fileID: 21300000, guid: 839f61cdf3bec5d4a90e24a58b444795, type: 3}
+  - {fileID: 21300000, guid: dbf0007560d26284db90c11fd4ff894a, type: 3}
+  - {fileID: 21300000, guid: 91498ac2b3a2a674d88d50d782cd29f6, type: 3}
+  - {fileID: 21300000, guid: 0ee3fd3015f8bce4b8f08e1c4b3cc2e8, type: 3}
+  - {fileID: 21300000, guid: 5158fb23dc8236643996005b1b120ab1, type: 3}
+  - {fileID: 21300000, guid: 5158fb23dc8236643996005b1b120ab1, type: 3}
+  - {fileID: 21300000, guid: 5158fb23dc8236643996005b1b120ab1, type: 3}
+  - {fileID: 21300000, guid: 5158fb23dc8236643996005b1b120ab1, type: 3}
   left_arm:
   - {fileID: 21300000, guid: ea80fd24f22c6444ba797710c8b8e545, type: 3}
   - {fileID: 21300000, guid: 549b3cf863b4c144e91a4020b6e991f1, type: 3}
   - {fileID: 21300000, guid: d72ffecb1347f0c46b8078d45fcb758a, type: 3}
   - {fileID: 21300000, guid: b6a6d9b2563b62f48b298292d7132a7f, type: 3}
+  - {fileID: 21300000, guid: 14b3bf30d1ecfdd43abbc7f00b889f70, type: 3}
+  - {fileID: 21300000, guid: 14b3bf30d1ecfdd43abbc7f00b889f70, type: 3}
+  - {fileID: 21300000, guid: 51f1caf0984382c41926a22d2b453e4d, type: 3}
+  - {fileID: 21300000, guid: ea80fd24f22c6444ba797710c8b8e545, type: 3}
+  - {fileID: 21300000, guid: ea80fd24f22c6444ba797710c8b8e545, type: 3}
+  - {fileID: 21300000, guid: ea80fd24f22c6444ba797710c8b8e545, type: 3}
+  - {fileID: 21300000, guid: ea80fd24f22c6444ba797710c8b8e545, type: 3}
   right_arm:
   - {fileID: 21300000, guid: 697ac9bebdd307644bde5c7c1e62a9ed, type: 3}
   - {fileID: 21300000, guid: a585d71d72b6a224d8e99dc0da016dcd, type: 3}
   - {fileID: 21300000, guid: 550058e90ba1f8243b8924c4d38bac20, type: 3}
   - {fileID: 21300000, guid: 74c811274ff2ffb41b0d5d38b35d3bf4, type: 3}
+  - {fileID: 21300000, guid: 3b3eb2be4bb28da41bb2baf979565a0f, type: 3}
+  - {fileID: 21300000, guid: af765e1d059828e41b089db75c418974, type: 3}
+  - {fileID: 21300000, guid: 4f276ac179c0f1a46b7d9463d71d555a, type: 3}
+  - {fileID: 21300000, guid: 697ac9bebdd307644bde5c7c1e62a9ed, type: 3}
+  - {fileID: 21300000, guid: 697ac9bebdd307644bde5c7c1e62a9ed, type: 3}
+  - {fileID: 21300000, guid: 697ac9bebdd307644bde5c7c1e62a9ed, type: 3}
+  - {fileID: 21300000, guid: 697ac9bebdd307644bde5c7c1e62a9ed, type: 3}
   clothes_set:
   - {fileID: 21300000, guid: 28ef3186f913d3046b63fb7c0fd535c1, type: 3}
   - {fileID: 21300000, guid: a1026ca33cb392548aa5b539ffd6efb5, type: 3}
   - {fileID: 21300000, guid: f6d47e711bdf2ac41b3f0514eb693618, type: 3}
   - {fileID: 21300000, guid: 30639bc0370e3c64aa273c767a5ca931, type: 3}
+  - {fileID: 21300000, guid: 774bdcb131d5cfd46a71724b23e38d08, type: 3}
+  - {fileID: 21300000, guid: 55abac7d78692af4e96c6832306e1686, type: 3}
+  - {fileID: 21300000, guid: 59af8871a8b8bd348bf34202cdf3549e, type: 3}
+  - {fileID: 21300000, guid: 28ef3186f913d3046b63fb7c0fd535c1, type: 3}
+  - {fileID: 21300000, guid: 28ef3186f913d3046b63fb7c0fd535c1, type: 3}
+  - {fileID: 21300000, guid: 28ef3186f913d3046b63fb7c0fd535c1, type: 3}
+  - {fileID: 21300000, guid: 28ef3186f913d3046b63fb7c0fd535c1, type: 3}
 --- !u!1 &1498987084
 GameObject:
   m_ObjectHideFlags: 0
@@ -5953,7 +5988,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 252920488}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

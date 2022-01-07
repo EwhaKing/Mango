@@ -8,7 +8,6 @@ public class GameStaticData : MonoBehaviour
     public int game_money = 100000;
     public int baby_custom = 0; //현재 입고있는 옷 세트 번호
 
-
     //데이터 베이스 저장 x 변수들
     public float clock_hand_rot = 0;
     public float mainscene_time = 0;

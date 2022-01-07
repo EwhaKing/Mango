@@ -51,8 +51,8 @@ public class LockerManager : MonoBehaviour
                     item = GameObject.Instantiate(_item) as GameObject;
                     item.name = "item" + cnt.ToString();
                     item.transform.SetParent(_item.transform.parent);
-                    //item.transform.localScale = Vector3.one;
-                    //item.transform.localRotation = Quaternion.identity;
+                    item.transform.localScale = Vector3.one;
+                    item.transform.localRotation = Quaternion.identity;
 
                     item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = set_clothes[i];
                     locker_sprites.Add(i);
