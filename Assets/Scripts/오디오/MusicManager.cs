@@ -48,4 +48,9 @@ public class MusicManager : MonoBehaviour
         else backmusic.Play();
     }
 
+    public void SetMusicVolume(float volume)
+    {
+        backmusic.volume = volume;
+    }
+
 }

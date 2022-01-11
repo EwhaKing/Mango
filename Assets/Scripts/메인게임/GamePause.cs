@@ -1,14 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GamePause : MonoBehaviour
 {
     public GameObject pauseScreen; //일시정지창
     public GameObject settingScreen; //설정창
 
+    public Image bgmOnImg;
+    public Image bgmOffImg;
+
+    public Image soundOnImg;
+    public Image soundOffImg;
+
+    //public GameObject backOff;
+
     //public static int bgmOnOff = 1; // bgm 온오프 변수
     public static int soundOnOff = 1; // 사운드 온오프 변수
+
+    void Start()
+    {
+        
+    }
 
     /*public GameObject numberScreen;
     public GameObject number3;
@@ -93,7 +107,21 @@ public class GamePause : MonoBehaviour
 
     public void OnClickBGMOn()
     {
-        MusicManager.backmusic.Play();
+        if (MusicManager.backmusic.isPlaying)
+        {
+            MusicManager.backmusic.Pause();
+            bgmOnImg.enabled = false;
+            bgmOffImg.enabled = true;
+        }
+
+        else
+        {
+            MusicManager.backmusic.Play();
+            bgmOnImg.enabled = true;
+            bgmOffImg.enabled = false;
+        }
+
+        //MusicManager.backmusic.Play();
     }
 
     public void OnClickBGMOff()
@@ -103,7 +131,20 @@ public class GamePause : MonoBehaviour
 
     public void OnClickButtonSoundOn()
     {
-        soundOnOff = 1;
+        if (soundOnOff == 1)
+        {
+            soundOnOff = 0;
+            soundOnImg.enabled = false;
+            soundOffImg.enabled = true;
+        }
+
+        else
+        {
+            soundOnOff = 1;
+            soundOnImg.enabled = true;
+            soundOffImg.enabled = false;
+        }
+        //soundOnOff = 1;
     }
 
     public void OnClickButtonSoundOff()
