@@ -8,16 +8,16 @@ public class GamePause : MonoBehaviour
     public GameObject pauseScreen; //일시정지창
     public GameObject settingScreen; //설정창
 
-    public Image bgmOnImg;
-    public Image bgmOffImg;
+    
 
-    public Image soundOnImg;
-    public Image soundOffImg;
+    
 
     //public GameObject backOff;
 
     //public static int bgmOnOff = 1; // bgm 온오프 변수
     public static int soundOnOff = 1; // 사운드 온오프 변수
+
+    //private bool bgmMuted = false;
 
     void Start()
     {
@@ -112,51 +112,19 @@ public class GamePause : MonoBehaviour
     }
 
 
-    public void OnClickBGMOn()
-    {
-        if (MusicManager.backmusic.isPlaying)
-        {
-            MusicManager.backmusic.Pause();
-            bgmOnImg.enabled = false;
-            bgmOffImg.enabled = true;
-        }
+    
 
-        else
-        {
-            MusicManager.backmusic.Play();
-            bgmOnImg.enabled = true;
-            bgmOffImg.enabled = false;
-        }
-
-        //MusicManager.backmusic.Play();
-    }
 
     public void OnClickBGMOff()
     {
         MusicManager.backmusic.Pause();
     }
 
-    public void OnClickButtonSoundOn()
-    {
-        if (soundOnOff == 1)
-        {
-            soundOnOff = 0;
-            soundOnImg.enabled = false;
-            soundOffImg.enabled = true;
-        }
-
-        else
-        {
-            soundOnOff = 1;
-            soundOnImg.enabled = true;
-            soundOffImg.enabled = false;
-        }
-        //soundOnOff = 1;
-    }
+    
 
     public void OnClickButtonSoundOff()
     {
-        soundOnOff = 0;
+        //soundOnOff = 0;
     }
 
 
