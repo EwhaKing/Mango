@@ -554,7 +554,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 202822012}
-        m_MethodName: OnClickSettingExit
+        m_MethodName: OnClickSettingExit2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3523,6 +3523,7 @@ GameObject:
   - component: {fileID: 2042646187}
   - component: {fileID: 2042646190}
   - component: {fileID: 2042646191}
+  - component: {fileID: 2042646192}
   m_Layer: 5
   m_Name: game_rule
   m_TagString: Untagged
@@ -3749,6 +3750,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2042646192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042646185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa108d3395d71ec42ac8a93111b1455a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackBg: {fileID: 1938783079}
+  storyText: {fileID: 1652574751}
+  black: {fileID: 1938783077}
+  story: {fileID: 1652574749}
+  startButton: {fileID: 1592874326}
+  ruleButton: {fileID: 2042646188}
 --- !u!1 &2118981983
 GameObject:
   m_ObjectHideFlags: 0
@@ -3763,6 +3782,7 @@ GameObject:
   - component: {fileID: 2118981987}
   - component: {fileID: 2118981985}
   - component: {fileID: 2118981986}
+  - component: {fileID: 2118981990}
   m_Layer: 5
   m_Name: game_shop
   m_TagString: Untagged
@@ -3988,3 +4008,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118981983}
   m_CullTransparentMesh: 0
+--- !u!114 &2118981990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118981983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa108d3395d71ec42ac8a93111b1455a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackBg: {fileID: 1938783079}
+  storyText: {fileID: 1652574751}
+  black: {fileID: 1938783077}
+  story: {fileID: 1652574749}
+  startButton: {fileID: 1592874326}
+  ruleButton: {fileID: 2042646188}

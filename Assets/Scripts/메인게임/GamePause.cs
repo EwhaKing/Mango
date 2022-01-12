@@ -96,6 +96,13 @@ public class GamePause : MonoBehaviour
         settingScreen.SetActive(false);
     }
 
+    public void OnClickSettingExit2() //설정창 나가기 - 스타트화면용
+    {
+        Time.timeScale = 1;
+        ButtonSound._buttonInstance.onButtonAudio();
+        settingScreen.SetActive(false);
+    }
+
     public void OnClickGameSave() //저장하고 종료하기 - 인데 종료만 구현
     {
         Time.timeScale = 0;
