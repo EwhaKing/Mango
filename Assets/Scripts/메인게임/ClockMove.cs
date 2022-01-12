@@ -74,8 +74,8 @@ public class ClockMove : MonoBehaviour
             //오늘 번 돈 정산 팝업창 
             pop_up.SetActive(true);
             ButtonSound._buttonInstance.onMoneyAudio(); //돈 효과음 재생
-            GameObject.Find("GameData").GetComponent<GameStaticData>().game_money += TotalMoney.totalMoney;
-            Debug.Log("게임 머니: " + GameObject.Find("GameData").GetComponent<GameStaticData>().game_money);
+            GameStaticData.data.data_money += TotalMoney.totalMoney;
+            Debug.Log("게임 머니: " + GameStaticData.data.data_money);
 
 
         }

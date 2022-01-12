@@ -8,15 +8,12 @@ public class GameData
 {
     public int data_money;
     public int data_cloth;
+    public int date;
 
 }
 
 public class GameStaticData : MonoBehaviour
 {
-    //데이터 베이스 저장 필요한 변수들
-    public int game_money = 100000;
-    public int baby_custom = 0; //현재 입고있는 옷 세트 번호
-
     //데이터 베이스 저장 x 변수들
     public float clock_hand_rot = 0;
     public float mainscene_time = 0;
@@ -81,9 +78,6 @@ public class GameStaticData : MonoBehaviour
         Debug.Log(str);
         Debug.Log("불러온 돈: " + data.data_money);
         Debug.Log("불러온 옷: " + data.data_cloth);
-
-        baby_custom = data.data_cloth;
-        game_money = data.data_money;
     }
 
 

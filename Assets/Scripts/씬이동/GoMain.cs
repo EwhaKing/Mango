@@ -29,8 +29,6 @@ public class GoMain : MonoBehaviour
     public void OnClickGameRealStart()
     {
         ButtonSound._buttonInstance.onButtonAudio();
-        GameStaticData.data.data_cloth = dataScript.baby_custom;
-        GameStaticData.data.data_money = dataScript.game_money;
         File.WriteAllText(Application.dataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
         Invoke("changeScene", 0.5f);
 

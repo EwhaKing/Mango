@@ -44,7 +44,7 @@ public class BabyCustom : MonoBehaviour
         custom_sprites[2] = left_arm;    //왼팔 스프라이트
         custom_sprites[3] = right_arm;   //오른팔 스프라이트
 
-        if (babyObject.activeSelf) changeBabyCustom(dataScript.baby_custom);
+        if (babyObject.activeSelf) changeBabyCustom(GameStaticData.data.data_cloth);
         
     }
 
@@ -57,7 +57,7 @@ public class BabyCustom : MonoBehaviour
         {
             if (baby_check)
             {
-                changeBabyCustom(dataScript.baby_custom); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
+                changeBabyCustom(GameStaticData.data.data_cloth); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
                 baby_check = false;
             }
         }
@@ -76,7 +76,7 @@ public class BabyCustom : MonoBehaviour
 
     public void lockerStart()
     {
-        changeBabyCustom(dataScript.baby_custom); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
+        changeBabyCustom(GameStaticData.data.data_cloth); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
     }
 
 }
