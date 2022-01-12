@@ -850,7 +850,6 @@ GameObject:
   m_Component:
   - component: {fileID: 416128724}
   - component: {fileID: 416128723}
-  - component: {fileID: 416128725}
   m_Layer: 0
   m_Name: GameData
   m_TagString: Untagged
@@ -870,8 +869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be2d14b4bb673c42b9f2e730bec85ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game_money: 100000
-  baby_custom: 0
   clock_hand_rot: 0
   mainscene_time: 0
   click_count: 0
@@ -890,18 +887,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &416128725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416128722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce9354d85f624c04a8ff6ba4604eb556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &755848216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,7 +1317,6 @@ GameObject:
   - component: {fileID: 1093058813}
   - component: {fileID: 1093058812}
   - component: {fileID: 1093058811}
-  - component: {fileID: 1093058814}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -1462,18 +1446,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1093058814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093058810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e920acaa53d12714aac174d9387cd0ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1233356089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,7 +1750,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1093058814}
+      - m_Target: {fileID: 0}
         m_MethodName: DateUp
         m_Mode: 1
         m_Arguments:
@@ -1808,7 +1780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d4c2fea505db216459f0f61fd9e4764b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8a2c104b690f7a42995bb0d6982ba60, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1982,17 +1954,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1093058814}
-        m_MethodName: DataClear
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1592874326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2012,7 +1973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d4c2fea505db216459f0f61fd9e4764b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c76f25f99cdf0bd4db53b3cc445569a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2667,7 +2628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aaa220f11ee00c1479b607b0f3277a69, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 989d2d1cf27fd9c4fadadab58954e04d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3015,7 +2976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aaa220f11ee00c1479b607b0f3277a69, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aff687f00be0b2a44a3fee2875e389d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

@@ -25,8 +25,6 @@ public class BabyCustom : MonoBehaviour
     {
         dataScript = GameObject.Find("GameData").GetComponent<GameStaticData>();
         babyObject = GameObject.Find("baby_object");
-
-        DontDestroyOnLoad(GameObject.Find("BabyCustom"));
     }
 
     // Start is called before the first frame update
@@ -68,9 +66,24 @@ public class BabyCustom : MonoBehaviour
     {
         babyObject = GameObject.Find("baby_object");
         Debug.Log("현재 옷 세트: " + custom_data);
-        for (int i = 0; i < 4; i++)
+        int child_count = babyObject.transform.childCount;
+        Debug.Log("자식수: " + child_count);
+        if(child_count == 4) //상점 속 아기 이미지
         {
-            babyObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = custom_sprites[i][custom_data];
+            for (int i = 0; i < 4; i++)
+            {
+                babyObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = custom_sprites[i][custom_data];
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 2; i++) //미니게임 속 아기 이미지
+            {
+                babyObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = custom_sprites[i][custom_data];
+            }
+            BabyChange babyScript = babyObject.GetComponent<BabyChange>();
+            babyScript.left_arm.sprite = custom_sprites[2][custom_data];
+            babyScript.right_arm.sprite = custom_sprites[3][custom_data];
         }
     }
 

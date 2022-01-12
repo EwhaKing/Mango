@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 [System.Serializable]
 public class GameData
@@ -20,19 +21,37 @@ public class GameStaticData : MonoBehaviour
     public int click_count = 0;
     public bool is_click = false;
 
-    GameObject gameData;
     public static GameData data;
 
     private void Awake()
     {
-        gameData = GameObject.Find("GameData");
-        DontDestroyOnLoad(gameData);
+        PlayerPrefs.SetInt("Story_Start", PlayerPrefs.GetInt("Story_Start", 0));
+        DontDestroyOnLoad(GameObject.Find("GameData"));
+
+        if (PlayerPrefs.GetInt("Story_Start") == 0)
+        {
+            GameStaticData.data.data_cloth = 0;
+            GameStaticData.data.data_money = 0;
+            GameStaticData.data.date = 1;
+            SaveGameData();
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadGameData();
+        try
+        {
+            LoadGameData();
+        }
+        catch (NullReferenceException ie)
+        {
+            GameStaticData.data.data_cloth = 0;
+            GameStaticData.data.data_money = 0;
+            GameStaticData.data.date = 1;
+            SaveGameData();
+            LoadGameData();
+        }
     }
 
     // Update is called once per frame
@@ -75,9 +94,8 @@ public class GameStaticData : MonoBehaviour
         string str = File.ReadAllText(Application.dataPath + "/GameData.json");
         data = JsonUtility.FromJson<GameData>(str);
 
-        Debug.Log(str);
-        Debug.Log("불러온 돈: " + data.data_money);
-        Debug.Log("불러온 옷: " + data.data_cloth);
+        Debug.Log("불러오기 성공");
+        Debug.Log("불러온 돈: " + data.data_money + "   불러온 옷: " + data.data_cloth + "  불러온 날짜: " + data.date);
     }
 
 
@@ -91,8 +109,20 @@ public class GameStaticData : MonoBehaviour
 
         // 올바르게 저장됐는지 확인 (자유롭게 변형)
         Debug.Log("저장완료");
-        Debug.Log("저장한 돈: " + data.data_money);
-        Debug.Log("저장한 옷: " + data.data_cloth);
+        Debug.Log("저장한 돈: " + data.data_money + "   저장한 옷: " + data.data_cloth + "  저장한 날짜: " + data.date);
+    }
+
+    public void DateUp()
+    {
+        data.date++;
+        SaveGameData();
+
+    }
+
+    public void DataClear()
+    {
+        data.date = 0;
+        SaveGameData();
     }
 
     private void OnApplicationQuit()
