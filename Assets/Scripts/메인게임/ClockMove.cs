@@ -80,7 +80,6 @@ public class ClockMove : MonoBehaviour
             File.WriteAllText(Application.dataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
             Debug.Log("게임 머니: " + GameStaticData.data.data_money + "    다음날: " + GameStaticData.data.date);
 
-
         }
     }
 }
