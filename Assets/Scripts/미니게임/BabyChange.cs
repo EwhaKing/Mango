@@ -8,12 +8,17 @@ public class BabyChange : MonoBehaviour
 {
 
     // 거대한 아기 이미지
-    public Image wry_baby;
+    public Image norm_baby_face;
+    public Image wry_baby_face;
+
+    public Image left_arm;
+    public Image right_arm;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        norm_baby_face.gameObject.SetActive(true);
+        wry_baby_face.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,13 +38,15 @@ public class BabyChange : MonoBehaviour
 
     void Change()
     {
-        wry_baby.gameObject.SetActive(false); // 원래 거대 아기로 이미지 변경
-    }
+        wry_baby_face.gameObject.SetActive(false);
+        norm_baby_face.gameObject.SetActive(true);
+    }
 
     //특정 영역 클릭시 아기 표정 바꾸기
     public void OnClickBaby_BabyChange()
     {
-        wry_baby.gameObject.SetActive(true); // 찡그린 거대 아기로 이미지 변경
+        norm_baby_face.gameObject.SetActive(false);
+        wry_baby_face.gameObject.SetActive(true);
         //Handheld.Vibrate(); // 진동
         Invoke("Change", 0.5f);
     }

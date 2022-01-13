@@ -46,7 +46,7 @@ public class ShopItemButton : MonoBehaviour
         int cost = ShopDataScript.sd.item[clothe_sprite_num].item_cost; //옷 돈
 
         //돈이 부족하다면 -> 구매 불가 팝업
-        if (GameObject.Find("GameData").GetComponent<GameStaticData>().game_money - cost < 0)
+        if (GameStaticData.data.data_money - cost < 0)
         {
             pay_not.SetActive(true); //새 팝업창
         }
@@ -55,10 +55,10 @@ public class ShopItemButton : MonoBehaviour
         {
             //구매 완료: 데이터베이스 소유 변경
             string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
-            ShopDataScript.sd.item[clothe_sprite_num].own = true; 
+            ShopDataScript.sd.item[clothe_sprite_num].own = true;
 
             //돈 변경
-            GameObject.Find("GameData").GetComponent<GameStaticData>().game_money -= cost;
+            GameStaticData.data.data_money -= cost;
 
             //상점 옷 삭제
             Destroy(gameObject); //상점 진열 삭제

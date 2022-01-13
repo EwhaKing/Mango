@@ -58,7 +58,7 @@ public class LockerManager : MonoBehaviour
                     locker_sprites.Add(i);
                 }
 
-                if (GameObject.Find("GameData").GetComponent<GameStaticData>().baby_custom == i)
+                if (GameStaticData.data.data_cloth == i)
                 {
                     item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
                 }

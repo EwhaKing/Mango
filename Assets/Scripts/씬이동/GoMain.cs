@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 public class GoMain : MonoBehaviour
 {
+
+    GameStaticData dataScript;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        dataScript = GameObject.Find("GameData").GetComponent<GameStaticData>();
+
+    }
     void Start()
     {
         
@@ -20,9 +29,14 @@ public class GoMain : MonoBehaviour
     public void OnClickGameRealStart()
     {
         ButtonSound._buttonInstance.onButtonAudio();
-
-        SceneManager.LoadScene("startScene");
+        File.WriteAllText(Application.dataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
+        Invoke("changeScene", 0.5f);
 
         //Debug.Log("버튼 작동 잘 되니?");
+    }
+
+    public void changeScene()
+    {
+        SceneManager.LoadScene("startScene");
     }
 }

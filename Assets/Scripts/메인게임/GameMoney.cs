@@ -12,7 +12,7 @@ public class GameMoney : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        money = GameObject.Find("GameData").GetComponent<GameStaticData>().game_money;
+        money = GameStaticData.data.data_money;
         if (money != 0)
             money_text.text = GetThousandCommaText(money).ToString();
         else money_text.text = money.ToString();
@@ -21,7 +21,7 @@ public class GameMoney : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        money = GameObject.Find("GameData").GetComponent<GameStaticData>().game_money;
+        money = GameStaticData.data.data_money;
         if (money != 0)
             money_text.text = GetThousandCommaText(money).ToString();
         else money_text.text = money.ToString();

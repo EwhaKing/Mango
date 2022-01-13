@@ -25,8 +25,6 @@ public class BabyCustom : MonoBehaviour
     {
         dataScript = GameObject.Find("GameData").GetComponent<GameStaticData>();
         babyObject = GameObject.Find("baby_object");
-
-        DontDestroyOnLoad(GameObject.Find("BabyCustom"));
     }
 
     // Start is called before the first frame update
@@ -44,7 +42,7 @@ public class BabyCustom : MonoBehaviour
         custom_sprites[2] = left_arm;    //왼팔 스프라이트
         custom_sprites[3] = right_arm;   //오른팔 스프라이트
 
-        if (babyObject.activeSelf) changeBabyCustom(dataScript.baby_custom);
+        if (babyObject.activeSelf) changeBabyCustom(GameStaticData.data.data_cloth);
         
     }
 
@@ -57,7 +55,7 @@ public class BabyCustom : MonoBehaviour
         {
             if (baby_check)
             {
-                changeBabyCustom(dataScript.baby_custom); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
+                changeBabyCustom(GameStaticData.data.data_cloth); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
                 baby_check = false;
             }
         }
@@ -68,15 +66,30 @@ public class BabyCustom : MonoBehaviour
     {
         babyObject = GameObject.Find("baby_object");
         Debug.Log("현재 옷 세트: " + custom_data);
-        for (int i = 0; i < 4; i++)
+        int child_count = babyObject.transform.childCount;
+        Debug.Log("자식수: " + child_count);
+        if(child_count == 4) //상점 속 아기 이미지
         {
-            babyObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = custom_sprites[i][custom_data];
+            for (int i = 0; i < 4; i++)
+            {
+                babyObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = custom_sprites[i][custom_data];
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 2; i++) //미니게임 속 아기 이미지
+            {
+                babyObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = custom_sprites[i][custom_data];
+            }
+            BabyChange babyScript = babyObject.GetComponent<BabyChange>();
+            babyScript.left_arm.sprite = custom_sprites[2][custom_data];
+            babyScript.right_arm.sprite = custom_sprites[3][custom_data];
         }
     }
 
     public void lockerStart()
     {
-        changeBabyCustom(dataScript.baby_custom); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
+        changeBabyCustom(GameStaticData.data.data_cloth); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
     }
 
 }
