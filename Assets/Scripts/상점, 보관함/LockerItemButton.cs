@@ -14,6 +14,9 @@ public class LockerItemButton : MonoBehaviour
         //이미 색칠되어 있다면
         if (gameObject.transform.parent.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color.r == 0.8f)
         {
+            //효과음
+            ButtonSound._buttonInstance.onButtonAudio();
+
             //클릭 색 다시 없애기
             gameObject.transform.parent.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
             //기본옷으로 바꾸기
@@ -23,6 +26,9 @@ public class LockerItemButton : MonoBehaviour
         }
         else //색칠 안됐더라면
         {
+            //효과음
+            ButtonSound._buttonInstance.onButtonAudio();
+
             //클릭한 버튼 색 바꾸기
             gameObject.transform.parent.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
 

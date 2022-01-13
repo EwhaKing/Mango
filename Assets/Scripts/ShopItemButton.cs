@@ -14,6 +14,9 @@ public class ShopItemButton : MonoBehaviour
 
     public void onClickClothes() //옷 버튼 클릭 시 옷 미리보기
     {
+        //효과음
+        ButtonSound._buttonInstance.onButtonAudio();
+
         //현재 gameObject == item
         int index = gameObject.transform.GetSiblingIndex(); //item 몇번째 자식인지
         int clothe_sprite_num = GameObject.Find("GameManager").GetComponent<ShopManager>().shop[index]; //고른 옷의 스프라이트 넘버
@@ -22,6 +25,9 @@ public class ShopItemButton : MonoBehaviour
 
     public void onClickPay()
     {
+        //효과음
+        ButtonSound._buttonInstance.onButtonAudio();
+
         int index = gameObject.transform.GetSiblingIndex(); //item 몇번째 자식인지
 
         int clothe_sprite_num = GameObject.Find("GameManager").GetComponent<ShopManager>().shop[index]; //고른 옷의 스프라이트 넘버
@@ -40,6 +46,9 @@ public class ShopItemButton : MonoBehaviour
 
     public void onBuyButton() //구매버튼 클릭시
     {
+        //효과음
+        ButtonSound._buttonInstance.onMoneyAudio();
+
         pay_popup.SetActive(false); //팝업창 닫기
 
         int cost = ShopDataScript.sd.item[current_buy].item_cost; //옷 돈
@@ -49,11 +58,17 @@ public class ShopItemButton : MonoBehaviour
         //돈이 부족하다면 -> 구매 불가 팝업
         if (GameStaticData.data.data_money - cost < 0)
         {
+            //효과음
+            ButtonSound._buttonInstance.onPopUpAudio();
+
             pay_not.SetActive(true); //새 팝업창
         }
 
         else
         {
+            //효과음
+            ButtonSound._buttonInstance.onMoneyAudio();
+
             //구매 완료: 데이터베이스 소유 변경
             string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
             ShopDataScript.sd.item[current_buy].own = true;
@@ -76,6 +91,9 @@ public class ShopItemButton : MonoBehaviour
 
     public void onDeleteButton() //구매 취소 or 엑스 버튼 클릭 시
     {
+        //효과음
+        ButtonSound._buttonInstance.onMoneyAudio();
+
         pay_popup.SetActive(false); //팝업창 닫기
     }
 }
