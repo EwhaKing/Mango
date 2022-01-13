@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BabyCustom : MonoBehaviour
 {
-    bool baby_check = true;
+    //bool baby_check = true;
 
     public List<Sprite> hair; //0: 기본 옷, 1: 꿀벌 옷, 2: 피크닉 옷, 3: 곰돌이 옷
     public List<Sprite> clothes;
@@ -15,7 +15,7 @@ public class BabyCustom : MonoBehaviour
 
     public List<Sprite> clothes_set; //진열되는 옷
 
-    List<List<Sprite>> custom_sprites = new List<List<Sprite>>(4); //행: 옷, 머리, 왼팔, 오른팔 / 열: 종류
+    List<List<Sprite>> custom_sprites = new List<List<Sprite>>(4); //행: 옷, 왼팔, 오른팔, 머리 / 열: 종류
 
     GameObject babyObject;
 
@@ -38,16 +38,17 @@ public class BabyCustom : MonoBehaviour
 
         //행에 대한 열 삽입
         custom_sprites[0] = clothes;     //옷 스프라이트
-        custom_sprites[1] = hair;        //머리 스프라이트
-        custom_sprites[2] = left_arm;    //왼팔 스프라이트
-        custom_sprites[3] = right_arm;   //오른팔 스프라이트
+        custom_sprites[1] = left_arm;    //왼팔 스프라이트
+        custom_sprites[2] = right_arm;   //오른팔 스프라이트
+        custom_sprites[3] = hair;        //머리 스프라이트
 
-        if (babyObject.activeSelf) changeBabyCustom(GameStaticData.data.data_cloth);
-        
+        //if (babyObject.activeSelf) changeBabyCustom(GameStaticData.data.data_cloth);
+        changeBabyCustom(GameStaticData.data.data_cloth); //시작하면 바로 현재 옷 입히기
+
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         babyObject = GameObject.Find("baby_object");
 
@@ -60,7 +61,7 @@ public class BabyCustom : MonoBehaviour
             }
         }
         else baby_check = true;
-    }
+    }*/
 
     public void changeBabyCustom(int custom_data)
     {
@@ -75,15 +76,23 @@ public class BabyCustom : MonoBehaviour
                 babyObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = custom_sprites[i][custom_data];
             }
         }
-        else
+        else //미니게임 속 아기 이미지
         {
-            for (int i = 0; i < 2; i++) //미니게임 속 아기 이미지
-            {
-                babyObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = custom_sprites[i][custom_data];
-            }
+            babyObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = custom_sprites[0][custom_data]; //옷
+            babyObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = custom_sprites[3][custom_data]; //머리
+
             BabyChange babyScript = babyObject.GetComponent<BabyChange>();
-            babyScript.left_arm.sprite = custom_sprites[2][custom_data];
-            babyScript.right_arm.sprite = custom_sprites[3][custom_data];
+            TeaManager teaScript = GameObject.Find("GameManager").GetComponent<TeaManager>();
+            if (teaScript.fruit_current == 1) //자몽
+            { 
+                babyScript.left_arm_jamong.sprite = custom_sprites[1][custom_data];
+                babyScript.right_arm_jamong.sprite = custom_sprites[2][custom_data];
+            }
+            else
+            {
+                babyScript.left_arm.sprite = custom_sprites[1][custom_data];
+                babyScript.right_arm.sprite = custom_sprites[2][custom_data];
+            }
         }
     }
 

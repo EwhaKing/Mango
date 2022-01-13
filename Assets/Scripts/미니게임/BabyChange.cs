@@ -14,6 +14,9 @@ public class BabyChange : MonoBehaviour
     public Image left_arm;
     public Image right_arm;
 
+    public Image left_arm_jamong;
+    public Image right_arm_jamong;
+
     // Start is called before the first frame update
     void Start()
     {

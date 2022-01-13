@@ -4464,6 +4464,8 @@ MonoBehaviour:
   wry_baby_face: {fileID: 1266092806}
   left_arm: {fileID: 865826907}
   right_arm: {fileID: 476142154}
+  left_arm_jamong: {fileID: 424660943}
+  right_arm_jamong: {fileID: 1967803105}
 --- !u!1 &1766395182
 GameObject:
   m_ObjectHideFlags: 0
