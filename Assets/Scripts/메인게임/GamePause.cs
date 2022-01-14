@@ -9,9 +9,6 @@ public class GamePause : MonoBehaviour
     public GameObject settingScreen; //설정창
 
     
-
-    
-
     //public GameObject backOff;
 
     //public static int bgmOnOff = 1; // bgm 온오프 변수
@@ -19,20 +16,28 @@ public class GamePause : MonoBehaviour
 
     //private bool bgmMuted = false;
 
-    void Start()
-    {
-        
-    }
 
-    /*public GameObject numberScreen;
+    //public GameObject numberScreen;
     public GameObject number3;
     public GameObject number2;
-    public GameObject number1;*/
+    public GameObject number1;
+    public GameObject number0;
 
     //GameObject BackgroundMusic;
     //AudioSource backmusic;
 
     //bool isPause;
+
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+        
+    }
+
 
     public void OnClickGamePause() //일시정지
     {
@@ -43,11 +48,60 @@ public class GamePause : MonoBehaviour
 
     public void OnClickGameContinue() //이어하기
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         ButtonSound._buttonInstance.onButtonAudio();
-        pauseScreen.SetActive(false);
+        
         //numberScreen.SetActive(true); //반투명 이미지만
         //StartCoroutine(CountDown3());
+
+        StartCoroutine(Timer(4));
+
+        
+
+    }
+
+    IEnumerator Timer(float countTime)
+    {
+        float lastTime = Time.realtimeSinceStartup;
+        float processTime = 0;
+        float countDown = 0;
+
+        while (processTime < countTime)
+        {
+            processTime = Time.realtimeSinceStartup - lastTime;
+            countDown = countTime - processTime;
+            Debug.Log(countDown);
+
+            if (countDown > 3)
+            {
+                number3.SetActive(true);
+            }
+
+            else if (countDown > 2)
+            {
+                number3.SetActive(false);
+                number2.SetActive(true);
+            }
+
+            else if (countDown > 1)
+            {
+                number2.SetActive(false);
+                number1.SetActive(true);
+            }
+
+            else
+            {
+                number1.SetActive(false);
+                number0.SetActive(true);
+            }
+
+            yield return null;
+        }
+
+        number0.SetActive(false);
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1;
+        
     }
 
     /*IEnumerator CountDown3() // 알파값 0 -> 1

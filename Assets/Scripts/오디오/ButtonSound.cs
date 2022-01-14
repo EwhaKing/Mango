@@ -19,6 +19,8 @@ public class ButtonSound : MonoBehaviour
     private bool soundMuted = false;
     public static int soundOnOff = 1;
 
+    [SerializeField] Slider soundSlider;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,7 +31,7 @@ public class ButtonSound : MonoBehaviour
     {
         audioSource = this.gameObject.GetComponent<AudioSource>(); //GameManager 오브젝트
 
-        if (!PlayerPrefs.HasKey("soundMuted"))
+        /*if (!PlayerPrefs.HasKey("soundMuted"))
         {
             PlayerPrefs.SetInt("soundMuted", 0);
             soundLoad();
@@ -38,7 +40,7 @@ public class ButtonSound : MonoBehaviour
         else
         {
             soundLoad();
-        }
+        }*/
 
         UpdateSoundImg();
         AudioListener.pause = soundMuted;
@@ -64,7 +66,7 @@ public class ButtonSound : MonoBehaviour
             soundOnOff = 1;
         }
 
-        soundSave();
+        //soundSave();
         UpdateSoundImg();
 
         /*if (soundOnOff == 1)
@@ -98,7 +100,7 @@ public class ButtonSound : MonoBehaviour
         }
     }
 
-    private void soundLoad()
+    /*private void soundLoad()
     {
         //bgmSlider.value = PlayerPrefs.GetFloat("bgmVolume");
         soundMuted = PlayerPrefs.GetInt("soundMuted") == 1;
@@ -108,6 +110,12 @@ public class ButtonSound : MonoBehaviour
     {
         //PlayerPrefs.SetFloat("bgmVolume", bgmSlider.value);
         PlayerPrefs.SetInt("soundMuted", soundMuted ? 1 : 0);
+    }*/
+
+    public void changeSoundVolume()
+    {
+        audioSource.volume = soundSlider.value;
+        //bgmSave();
     }
 
 

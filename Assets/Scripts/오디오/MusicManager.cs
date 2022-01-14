@@ -18,13 +18,13 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!PlayerPrefs.HasKey("bgmMuted"))
+        /*if (!PlayerPrefs.HasKey("bgmMuted"))
         {
             PlayerPrefs.SetInt("bgmMuted", 0);
             bgmLoad();
         }
 
-        else if (!PlayerPrefs.HasKey("bgmVolume"))
+        if (!PlayerPrefs.HasKey("bgmVolume"))
         {
             PlayerPrefs.SetFloat("bgmVolume", 1);
             bgmLoad();
@@ -33,7 +33,7 @@ public class MusicManager : MonoBehaviour
         else
         {
             bgmLoad();
-        }
+        }*/
 
         UpdateBgmImg();
         AudioListener.pause = bgmMuted;
@@ -90,7 +90,7 @@ public class MusicManager : MonoBehaviour
             backmusic.Play();
         }
 
-        bgmSave();
+        //bgmSave();
         UpdateBgmImg();
         //MusicManager.backmusic.Play();
     }
@@ -113,10 +113,10 @@ public class MusicManager : MonoBehaviour
     public void changeBgmVolume()
     {
         backmusic.volume = bgmSlider.value;
-        bgmSave();
+        //bgmSave();
     }
 
-    private void bgmLoad()
+    /*private void bgmLoad()
     {
         bgmSlider.value = PlayerPrefs.GetFloat("bgmVolume");
         bgmMuted = PlayerPrefs.GetInt("bgmMuted") == 1;
@@ -126,6 +126,6 @@ public class MusicManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("bgmVolume", bgmSlider.value);
         PlayerPrefs.SetInt("bgmMuted", bgmMuted ? 1 : 0);
-    }
+    }*/
 
 }
