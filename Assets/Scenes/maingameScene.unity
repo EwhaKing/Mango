@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 80742792}
   m_Layer: 5
   m_Name: setting
-  m_TagString: Untagged
+  m_TagString: KeepGoing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 91410324}
   m_Layer: 5
   m_Name: pausescreen
-  m_TagString: Untagged
+  m_TagString: KeepGoing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -560,10 +560,6 @@ RectTransform:
   - {fileID: 1150475749}
   - {fileID: 80742791}
   - {fileID: 431806801}
-  - {fileID: 1945688275}
-  - {fileID: 257126988}
-  - {fileID: 451594023}
-  - {fileID: 1410372011}
   m_Father: {fileID: 1705727454}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1433,12 +1429,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257126987}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 91410326}
-  m_RootOrder: 4
+  m_Father: {fileID: 1705727454}
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1591,7 +1587,7 @@ RectTransform:
   - {fileID: 2073352019}
   - {fileID: 1939159997}
   m_Father: {fileID: 1705727454}
-  m_RootOrder: 19
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2212,7 +2208,7 @@ GameObject:
   - component: {fileID: 431806802}
   m_Layer: 5
   m_Name: save
-  m_TagString: Untagged
+  m_TagString: KeepGoing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2370,12 +2366,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451594022}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 91410326}
-  m_RootOrder: 5
+  m_Father: {fileID: 1705727454}
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5364,7 +5360,7 @@ GameObject:
   - component: {fileID: 1150475750}
   m_Layer: 5
   m_Name: continue
-  m_TagString: Untagged
+  m_TagString: KeepGoing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6773,12 +6769,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410372010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 91410326}
-  m_RootOrder: 6
+  m_Father: {fileID: 1705727454}
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7948,7 +7944,7 @@ RectTransform:
   - {fileID: 89687090}
   - {fileID: 964897805}
   m_Father: {fileID: 1705727454}
-  m_RootOrder: 18
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8325,6 +8321,10 @@ RectTransform:
   - {fileID: 1779247720}
   - {fileID: 1219884591}
   - {fileID: 91410326}
+  - {fileID: 1945688275}
+  - {fileID: 257126988}
+  - {fileID: 451594023}
+  - {fileID: 1410372011}
   - {fileID: 1624800210}
   - {fileID: 305624135}
   m_Father: {fileID: 0}
@@ -9795,12 +9795,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945688274}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 91410326}
-  m_RootOrder: 3
+  m_Father: {fileID: 1705727454}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

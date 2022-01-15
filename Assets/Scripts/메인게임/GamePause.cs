@@ -8,6 +8,13 @@ public class GamePause : MonoBehaviour
     public GameObject pauseScreen; //일시정지창
     public GameObject settingScreen; //설정창
 
+    //public SpriteRenderer pauseRenderer;
+    //public SpriteRenderer settingRenderer;
+
+    //public SpriteRenderer pauseRenderer = GetComponent<SpriteRenderer>();
+    //settingRenderer = GetComponent<SpriteRenderer>();
+
+
     
     //public GameObject backOff;
 
@@ -22,6 +29,8 @@ public class GamePause : MonoBehaviour
     public GameObject number2;
     public GameObject number1;
     public GameObject number0;
+
+    
 
     //GameObject BackgroundMusic;
     //AudioSource backmusic;
@@ -66,6 +75,8 @@ public class GamePause : MonoBehaviour
         float processTime = 0;
         float countDown = 0;
 
+        GameObject[] KeepGoing = GameObject.FindGameObjectsWithTag("KeepGoing");
+
         while (processTime < countTime)
         {
             processTime = Time.realtimeSinceStartup - lastTime;
@@ -74,6 +85,12 @@ public class GamePause : MonoBehaviour
 
             if (countDown > 3)
             {
+
+                for (int i = 0; i < KeepGoing.Length; i++)
+                {
+                    KeepGoing[i].GetComponent<Image>().enabled = false;
+                }
+
                 number3.SetActive(true);
             }
 
@@ -96,6 +113,11 @@ public class GamePause : MonoBehaviour
             }
 
             yield return null;
+        }
+
+        for (int i = 0; i < KeepGoing.Length; i++)
+        {
+            KeepGoing[i].GetComponent<Image>().enabled = true;
         }
 
         number0.SetActive(false);
