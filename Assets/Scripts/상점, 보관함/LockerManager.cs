@@ -82,4 +82,16 @@ public class LockerManager : MonoBehaviour
         locker_sprites.Add(clothe_sprite);
     }
 
+    public void onClickLocker() //보관함 켤때마다 실행하는 함수 (현재 입고 있는 옷 뜨도록)
+    {
+        GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(GameStaticData.data.data_cloth); //아기 옷 입히기 적용
+        //옷 토글
+        _item.transform.parent.transform.GetChild(GameStaticData.data.data_cloth).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
+        //나머지는 토글 풀기
+        for (int i = 0; i < _item.transform.parent.transform.childCount; i++)
+        {
+            if (i != GameStaticData.data.data_cloth) _item.transform.parent.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+        }
+    }
+
 }
