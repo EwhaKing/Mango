@@ -92,24 +92,31 @@ public class GamePause : MonoBehaviour
                 }
 
                 number3.SetActive(true);
+                number3.GetComponent<Transform>().localScale = Vector3.one * (countDown - 3);
             }
 
             else if (countDown > 2)
             {
                 number3.SetActive(false);
                 number2.SetActive(true);
+
+                number2.GetComponent<Transform>().localScale = Vector3.one * (countDown - 2);
             }
 
             else if (countDown > 1)
             {
                 number2.SetActive(false);
                 number1.SetActive(true);
+
+                number1.GetComponent<Transform>().localScale = Vector3.one * (countDown - 1);
             }
 
             else
             {
                 number1.SetActive(false);
                 number0.SetActive(true);
+
+                //number0.GetComponent<Transform>().localScale = Vector3.one * countDown;
             }
 
             yield return null;
