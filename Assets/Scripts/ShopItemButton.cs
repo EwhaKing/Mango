@@ -70,7 +70,7 @@ public class ShopItemButton : MonoBehaviour
             ButtonSound._buttonInstance.onMoneyAudio();
 
             //구매 완료: 데이터베이스 소유 변경
-            string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
+            string str = File.ReadAllText(Application.persistentDataPath + "/ShopData.json");
             ShopDataScript.sd.item[current_buy].own = true;
 
             //돈 변경
@@ -85,7 +85,7 @@ public class ShopItemButton : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<LockerManager>().addClotheLocker(current_buy); //옷 보관함에 추가
 
             //데이터베이스에 다시 저장
-            File.WriteAllText(Application.dataPath + "/ShopData.json", JsonUtility.ToJson(ShopDataScript.sd));
+            File.WriteAllText(Application.persistentDataPath + "/ShopData.json", JsonUtility.ToJson(ShopDataScript.sd));
         }
     }
 
