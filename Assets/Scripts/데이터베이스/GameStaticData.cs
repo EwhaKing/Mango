@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class GameData
@@ -22,35 +22,46 @@ public class GameStaticData : MonoBehaviour
     public bool is_click = false;
 
     public static GameData data;
+    public Text dateStart;
+    public List<Sprite> startButton;
+    public GameObject start_button;
 
-    private void Awake()
+    void Awake()
     {
         PlayerPrefs.SetInt("Story_Start", PlayerPrefs.GetInt("Story_Start", 0));
         DontDestroyOnLoad(GameObject.Find("GameData"));
 
-        if (PlayerPrefs.GetInt("Story_Start") == 0)
+        if (PlayerPrefs.GetInt("Story_Start") != 0 && File.Exists(Application.persistentDataPath + "/GameData.json"))
         {
-            GameStaticData.data.data_cloth = 0;
-            GameStaticData.data.data_money = 0;
-            GameStaticData.data.date = 1;
-            SaveGameData();
+            Debug.LogWarning("게임파일있음");
+            Debug.Log("파일 주소: " + Application.persistentDataPath + "/GameData.json");
+            LoadGameData();
+        }
+        else
+        {
+            Debug.LogWarning("게임파일없음");
+            File.Create(Application.persistentDataPath + "/GameData.json").Close();
+            data = JsonUtility.FromJson<GameData>("{\"data_money\": 100000,\"data_cloth\": 0,\"date\" :  0}");
+            File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(data));
+            
+            Invoke("LoadGameData", 0.5f);
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        try
+
+        if (data.date > 0)
         {
-            LoadGameData();
+            start_button.GetComponent<Image>().sprite = startButton[1];
+            dateStart.text = data.date.ToString();
+            dateStart.transform.gameObject.SetActive(true);
         }
-        catch (NullReferenceException ie)
+        else
         {
-            GameStaticData.data.data_cloth = 0;
-            GameStaticData.data.data_money = 0;
-            GameStaticData.data.date = 1;
-            SaveGameData();
-            LoadGameData();
+            start_button.GetComponent<Image>().sprite = startButton[0];
+            dateStart.transform.gameObject.SetActive(false);
         }
     }
 
@@ -89,27 +100,19 @@ public class GameStaticData : MonoBehaviour
 
     public void LoadGameData()
     {
-        Debug.Log("불러오기 성공");
-
-        string str = File.ReadAllText(Application.dataPath + "/GameData.json");
+        string str = File.ReadAllText(Application.persistentDataPath + "/GameData.json");
         data = JsonUtility.FromJson<GameData>(str);
 
-        Debug.Log("불러오기 성공");
-        Debug.Log("불러온 돈: " + data.data_money + "   불러온 옷: " + data.data_cloth + "  불러온 날짜: " + data.date);
+        Debug.Log("불러온 데이터" + str);
     }
 
 
     // 게임 저장하기
     public void SaveGameData()
     {
-        File.WriteAllText(Application.dataPath + "/GameData.json", JsonUtility.ToJson(data));
+        File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(data));
 
-        string str = File.ReadAllText(Application.dataPath + "/GameData.json");
-        data = JsonUtility.FromJson<GameData>(str);
-
-        // 올바르게 저장됐는지 확인 (자유롭게 변형)
-        Debug.Log("저장완료");
-        Debug.Log("저장한 돈: " + data.data_money + "   저장한 옷: " + data.data_cloth + "  저장한 날짜: " + data.date);
+        Invoke("LoadGameData", 0.5f);
     }
 
     public void DateUp()

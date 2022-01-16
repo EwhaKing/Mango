@@ -29,7 +29,7 @@ public class GoMain : MonoBehaviour
     public void OnClickGameRealStart()
     {
         ButtonSound._buttonInstance.onButtonAudio();
-        File.WriteAllText(Application.dataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
+        File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
         Invoke("changeScene", 0.5f);
 
         //Debug.Log("버튼 작동 잘 되니?");

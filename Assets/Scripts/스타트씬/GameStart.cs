@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 
@@ -12,25 +11,10 @@ public class GameStart : MonoBehaviour
     string leaderBoard;
     Data leader;
 
-    public List<Sprite> startButton;
-    public GameObject start_button;
-    public Text dateStart;
-
     // Start is called before the first frame update
     void Start()
     {
         get();
-        if (PlayerPrefs.GetInt("Story_Start") == 0)
-        {
-            start_button.GetComponent<Image>().sprite = startButton[0];
-            dateStart.transform.gameObject.SetActive(false);
-        }
-        else
-        {
-            start_button.GetComponent<Image>().sprite = startButton[1];
-            dateStart.text = GameStaticData.data.date.ToString();
-            dateStart.transform.gameObject.SetActive(true);
-        }
     }
 
     // Update is called once per frame

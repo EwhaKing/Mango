@@ -873,6 +873,11 @@ MonoBehaviour:
   mainscene_time: 0
   click_count: 0
   is_click: 0
+  dateStart: {fileID: 1262248269}
+  startButton:
+  - {fileID: 21300000, guid: f8a2c104b690f7a42995bb0d6982ba60, type: 3}
+  - {fileID: 21300000, guid: ff642a69ac2f8574293773e4a472d8d0, type: 3}
+  start_button: {fileID: 1402576214}
 --- !u!4 &416128724
 Transform:
   m_ObjectHideFlags: 0
@@ -1227,6 +1232,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34026c3ec095a254895fda5453885b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &991316878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991316880}
+  - component: {fileID: 991316879}
+  m_Layer: 0
+  m_Name: ShopData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &991316879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991316878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18dd66dde6246e44583c140bb7e5cd35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &991316880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991316878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 336.75253, y: 222.54796, z: -280.42844}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1020276565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,11 +1956,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totaluser: 0
-  startButton:
-  - {fileID: 21300000, guid: f8a2c104b690f7a42995bb0d6982ba60, type: 3}
-  - {fileID: 21300000, guid: ff642a69ac2f8574293773e4a472d8d0, type: 3}
-  start_button: {fileID: 1402576214}
-  dateStart: {fileID: 1262248269}
 --- !u!1 &1592874321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,11 +2009,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totaluser: 0
-  startButton:
-  - {fileID: 21300000, guid: f8a2c104b690f7a42995bb0d6982ba60, type: 3}
-  - {fileID: 21300000, guid: ff642a69ac2f8574293773e4a472d8d0, type: 3}
-  start_button: {fileID: 1402576214}
-  dateStart: {fileID: 1262248269}
 --- !u!114 &1592874324
 MonoBehaviour:
   m_ObjectHideFlags: 0

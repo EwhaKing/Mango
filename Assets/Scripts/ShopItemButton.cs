@@ -54,7 +54,6 @@ public class ShopItemButton : MonoBehaviour
         else
         {
             //구매 완료: 데이터베이스 소유 변경
-            string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
             ShopDataScript.sd.item[clothe_sprite_num].own = true;
 
             //돈 변경
@@ -68,12 +67,31 @@ public class ShopItemButton : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<LockerManager>().addClotheLocker(clothe_sprite_num); //옷 보관함에 추가
 
             //데이터베이스에 다시 저장
-            File.WriteAllText(Application.dataPath + "/ShopData.json", JsonUtility.ToJson(ShopDataScript.sd));
+            SaveShopData();
         }
     }
 
     public void onDeleteButton() //구매 취소 or 엑스 버튼 클릭 시
     {
         pay_popup.SetActive(false); //팝업창 닫기
+    }
+
+    public void SaveShopData()
+    {
+        File.WriteAllText(Application.persistentDataPath + "/ShopData.json", JsonUtility.ToJson(ShopDataScript.sd));
+        Invoke("LoadShopData", 0.5f);
+    }
+
+    public void LoadShopData()
+    {
+        string str = File.ReadAllText(Application.persistentDataPath + "/ShopData.json");
+        ShopDataScript.sd = JsonUtility.FromJson<ShopData>(str);
+
+        Debug.Log("불러오기 성공");
+        for (int i = 0; i < ShopDataScript.sd.item.Length; i++)
+        {
+            Debug.Log("{NUM: " + ShopDataScript.sd.item[i].item_num + "  NAME: " + ShopDataScript.sd.item[i].item_name + "  COST: " + ShopDataScript.sd.item[i].item_cost + "  OWN: " + ShopDataScript.sd.item[i].own + "}");
+        }
+
     }
 }
