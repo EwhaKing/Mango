@@ -4696,12 +4696,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 697ac9bebdd307644bde5c7c1e62a9ed, type: 3}
   clothes_set:
   - {fileID: 21300000, guid: 28ef3186f913d3046b63fb7c0fd535c1, type: 3}
-  - {fileID: 21300000, guid: a1026ca33cb392548aa5b539ffd6efb5, type: 3}
-  - {fileID: 21300000, guid: f6d47e711bdf2ac41b3f0514eb693618, type: 3}
-  - {fileID: 21300000, guid: 30639bc0370e3c64aa273c767a5ca931, type: 3}
-  - {fileID: 21300000, guid: 774bdcb131d5cfd46a71724b23e38d08, type: 3}
-  - {fileID: 21300000, guid: 55abac7d78692af4e96c6832306e1686, type: 3}
-  - {fileID: 21300000, guid: 59af8871a8b8bd348bf34202cdf3549e, type: 3}
+  - {fileID: 21300000, guid: 3b110796b2cfe9542a3eb3ba8a8268d2, type: 3}
+  - {fileID: 21300000, guid: df627e502acd90b47a8bc58aa11e9619, type: 3}
+  - {fileID: 21300000, guid: 94a1edb211a4e7b4dbb9dabfef5d6fab, type: 3}
+  - {fileID: 21300000, guid: d88a149cf7c058e4b8b735784014242b, type: 3}
+  - {fileID: 21300000, guid: 1368fae26c81a0247ae785823d128d8a, type: 3}
+  - {fileID: 21300000, guid: d52090512420df3448e924e781049260, type: 3}
   - {fileID: 21300000, guid: 28ef3186f913d3046b63fb7c0fd535c1, type: 3}
   - {fileID: 21300000, guid: 28ef3186f913d3046b63fb7c0fd535c1, type: 3}
   - {fileID: 21300000, guid: 28ef3186f913d3046b63fb7c0fd535c1, type: 3}
