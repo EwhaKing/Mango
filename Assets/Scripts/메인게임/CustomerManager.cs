@@ -90,6 +90,7 @@ public class CustomerManager : MonoBehaviour
 
                 if (GamePause.soundOnOff == 1)
                 {
+                    audioSource.volume = SettingManager.soundSliderValue;
                     audioSource.Play();
                 }
 

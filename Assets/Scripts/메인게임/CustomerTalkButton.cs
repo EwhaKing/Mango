@@ -63,6 +63,7 @@ public class CustomerTalkButton : MonoBehaviour
 
             if (GamePause.soundOnOff == 1)
             {
+                audioSource.volume = SettingManager.soundSliderValue;
                 audioSource_customer.Play();
             }
 

@@ -100,6 +100,7 @@ public class RhythmBar : MonoBehaviour
 
             if (GamePause.soundOnOff == 1)
             {
+                audioSource.volume = SettingManager.soundSliderValue;
                 audioSource.Play();
             }
 
@@ -120,6 +121,7 @@ public class RhythmBar : MonoBehaviour
 
             if (GamePause.soundOnOff == 1)
             {
+                audioSource.volume = SettingManager.soundSliderValue;
                 audioSource.Play();
             }
 
