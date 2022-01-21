@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonSound : MonoBehaviour
 {
-    AudioSource audioSource;
+    public AudioSource audioSource;
     public static ButtonSound _buttonInstance;
 
     public AudioClip buttonBGM;
@@ -21,18 +22,34 @@ public class ButtonSound : MonoBehaviour
     void Start()
     {
         audioSource = this.gameObject.GetComponent<AudioSource>(); //GameManager 오브젝트
+
+        /*if (!PlayerPrefs.HasKey("soundMuted"))
+        {
+            PlayerPrefs.SetInt("soundMuted", 0);
+            soundLoad();
+        }
+
+        else
+        {
+            soundLoad();
+        }*/
     }
 
-    // Update is called once per frame
-    void Update()
+    /*private void soundLoad()
     {
-        
+        //bgmSlider.value = PlayerPrefs.GetFloat("bgmVolume");
+        soundMuted = PlayerPrefs.GetInt("soundMuted") == 1;
     }
+
+    private void soundSave()
+    {
+        //PlayerPrefs.SetFloat("bgmVolume", bgmSlider.value);
+        PlayerPrefs.SetInt("soundMuted", soundMuted ? 1 : 0);
+    }*/
 
     public void onButtonAudio()
     {
         audioSource.clip = buttonBGM;
-        audioSource.volume = 0.7f;
         if(GamePause.soundOnOff == 1)
         {
             audioSource.Play();
@@ -52,7 +69,6 @@ public class ButtonSound : MonoBehaviour
     public void onPopUpAudio()
     {
         audioSource.clip = popupBGM;
-        audioSource.volume = 0.5f;
         //audioSource.Play();
         if (GamePause.soundOnOff == 1)
         {

@@ -62,12 +62,12 @@ public class RhythmBar : MonoBehaviour
         if (this.transform.localPosition.y >= MaxPos)
         {
             speed *= -1;
-            transform.localPosition = new Vector3(695, MaxPos);
+            transform.localPosition = new Vector3(transform.localPosition.x, MaxPos);
         } 
         else if(this.transform.localPosition.y <= MinPos)
         {
             speed *= -1;
-            transform.localPosition = new Vector3(695, MinPos);
+            transform.localPosition = new Vector3(transform.localPosition.x, MinPos);
         }
 
     }
@@ -100,6 +100,7 @@ public class RhythmBar : MonoBehaviour
 
             if (GamePause.soundOnOff == 1)
             {
+                audioSource.volume = SettingManager.soundSliderValue;
                 audioSource.Play();
             }
 
@@ -120,6 +121,7 @@ public class RhythmBar : MonoBehaviour
 
             if (GamePause.soundOnOff == 1)
             {
+                audioSource.volume = SettingManager.soundSliderValue;
                 audioSource.Play();
             }
 

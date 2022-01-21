@@ -7,10 +7,6 @@ public class EndingButton : MonoBehaviour
 {
     public void onRestartButton()
     {
-        //dontdestroyobject 초기화
-        GameObject soundManager = GameObject.Find("SoundManager");
-        Destroy(soundManager);
-
         ButtonSound._buttonInstance.onButtonAudio();
 
         //static 변수 초기화

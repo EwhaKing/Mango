@@ -15,6 +15,9 @@ public class GameStory : MonoBehaviour
 
     public Image startButton;
     public Image ruleButton;
+    public Image shopButton;
+    public Image newButton;
+    public Text dateText;
 
 
     void Start()
@@ -28,6 +31,9 @@ public class GameStory : MonoBehaviour
         {
             Debug.Log("게임 첫번째 실행 o"); 
             PlayerPrefs.SetInt("Story_Start", 1);
+
+            story.SetActive(true);
+            black.SetActive(true);
 
             StartCoroutine(FadeTextToFullAlpha());
 
@@ -75,6 +81,7 @@ public class GameStory : MonoBehaviour
         {
             //text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime / 2.0f));
             storyText.color = new Color(storyText.color.r, storyText.color.g, storyText.color.b, storyText.color.a - (Time.deltaTime / 3.0f));
+            //yield return new WaitForSecondsRealtime(1);
             yield return null;
         }
         
@@ -88,11 +95,19 @@ public class GameStory : MonoBehaviour
     {
         startButton.color = new Color(startButton.color.r, startButton.color.g, startButton.color.b, 0);
         ruleButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, 0);
+        dateText.color = new Color(dateText.color.r, dateText.color.g, dateText.color.b, 0);
 
         while (startButton.color.a < 1.0f)
         {
-            startButton.color = new Color(startButton.color.r, startButton.color.g, startButton.color.b, startButton.color.a + (Time.deltaTime / 3.0f));
-            ruleButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 3.0f));
+            startButton.color = new Color(startButton.color.r, startButton.color.g, startButton.color.b, startButton.color.a + (Time.deltaTime / 2.0f));
+            ruleButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
+
+            shopButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
+            newButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
+
+            dateText.color = new Color(dateText.color.r, dateText.color.g, dateText.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
+
+            //yield return new WaitForSecondsRealtime(1);
             yield return null;
         }
 

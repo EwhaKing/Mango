@@ -13,7 +13,7 @@ public class TeaManager : MonoBehaviour
     public int num = 6; //각 과일 개수의 합
     public int finish_condition; //종료조건 검사하기 위해서
     private bool first_fruit = true; //처음 뜨게 하기 위한 체크 변수
-    private int fruit_current = 0; //현재 과일 인덱스
+    public int fruit_current = 0; //현재 과일 인덱스
 
     public GameObject button_touch;
     public GameObject lemonCircle;
@@ -54,6 +54,9 @@ public class TeaManager : MonoBehaviour
 
     public void changeFruit() //fruit_current 로 과일 바꾸기
     {
+        //아기 팔 바꾸기 (자몽만 팔 달라서 필요한 코드)
+        GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(GameStaticData.data.data_cloth);
+
         for (int i = 0; i < INDEX; i++)
         {
             if (i == fruit_current) fruits_image[i].gameObject.SetActive(true);

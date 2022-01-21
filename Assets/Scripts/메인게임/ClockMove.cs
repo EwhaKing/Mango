@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class ClockMove : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class ClockMove : MonoBehaviour
     public GameObject pop_up;
     float time = 0;
     bool check = true;
-    float limit_time = 10;
+    float limit_time = 180; //1당 1초
     float fade_time = 0f;
 
     // Start is called before the first frame update
@@ -74,9 +75,10 @@ public class ClockMove : MonoBehaviour
             //오늘 번 돈 정산 팝업창 
             pop_up.SetActive(true);
             ButtonSound._buttonInstance.onMoneyAudio(); //돈 효과음 재생
-            GameObject.Find("GameData").GetComponent<GameStaticData>().game_money += TotalMoney.totalMoney;
-            Debug.Log("게임 머니: " + GameObject.Find("GameData").GetComponent<GameStaticData>().game_money);
-
+            GameStaticData.data.data_money += TotalMoney.totalMoney;
+            GameStaticData.data.date++;
+            File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
+            Debug.Log("게임 머니: " + GameStaticData.data.data_money + "    다음날: " + GameStaticData.data.date);
 
         }
     }

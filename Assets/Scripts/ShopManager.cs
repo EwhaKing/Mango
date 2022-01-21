@@ -18,10 +18,6 @@ public class ShopManager : MonoBehaviour
     {
         babyCustom = GameObject.Find("BabyCustom").GetComponent<BabyCustom>();
         set_clothes = babyCustom.clothes_set; //babyCustom 에 있는 진열되는 옷 스프라이트 가져오기
-
-        //데이터베이스 불러오기
-        string str = File.ReadAllText(Application.dataPath + "/ShopData.json");
-        ShopDataScript.sd = JsonUtility.FromJson<ShopData>(str);
     }
 
     // Start is called before the first frame update
@@ -32,46 +28,50 @@ public class ShopManager : MonoBehaviour
 
     public void shopStart()
     {
-        int cnt = 0;
+        bool check = true;
 
         int clothes_cnt = ShopDataScript.sd.item.Length; //현재 존재하는 옷세트 개수
 
         //보관 옷 뜨게
         for (int i = 0; i < clothes_cnt; i++)
         {
+            GameObject item;
+
+            if (check) //처음이라면 _item 사용해야함
+            {
+                item = _item;
+                check = false;
+            }
+            else
+            {
+                item = GameObject.Instantiate(_item) as GameObject;
+                item.name = "item" + i.ToString();
+                item.transform.SetParent(_item.transform.parent);
+                item.transform.localScale = Vector3.one;
+                item.transform.localRotation = Quaternion.identity;
+            }
+
+            //item에 진열 옷 이미지 채우기
+            item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = set_clothes[i];
+
             if (!ShopDataScript.sd.item[i].own) //해당 옷 세트를 가지고 있지 않다면
             {
-                GameObject item;
-
-                if (cnt == 0) //처음이라면 _item 사용해야함
-                {
-                    item = _item;
-                }
-                else
-                {
-                    item = GameObject.Instantiate(_item) as GameObject;
-                    item.name = "item" + cnt.ToString();
-                    item.transform.SetParent(_item.transform.parent);
-                    //item.transform.localScale = Vector3.one;
-                    //item.transform.localRotation = Quaternion.identity;
-                }
-
-                //item에 진열 옷 이미지와 가격표 채우기
-                //옷 이미지
-                item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = set_clothes[i];
                 //가격
                 item.transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<Text>().text = ShopDataScript.sd.item[i].item_cost.ToString();
-
-                //해당 옷 세트 번호 저장
-                shop.Add(i);
-
-                cnt++;
+            
+                item.transform.GetChild(1).transform.gameObject.SetActive(true); //가격버튼 활성화
+                item.transform.GetChild(2).transform.gameObject.SetActive(false); //보유중 버튼 비활성화
+                item.transform.GetChild(0).gameObject.GetComponent<Button>().enabled = true; //옷 미리보기 활성화
             }
-        }
+            else //가지고 있다면 -> 보유중 버튼 뜨게 하고 비활성화 하기
+            {
+                item.transform.GetChild(1).transform.gameObject.SetActive(false); //가격버튼은 비활성화
+                item.transform.GetChild(2).transform.gameObject.SetActive(true); //보유중 버튼 활성화
+                item.transform.GetChild(0).gameObject.GetComponent<Button>().enabled = false; //옷 미리보기 비활성화
+            }
 
-        if(cnt == 0) //옷을 다 가지고 있다면
-        {
-            Destroy(_item);
+            //해당 옷 세트 번호 저장
+            shop.Add(i);
         }
 
     }

@@ -14,15 +14,21 @@ public class LockerItemButton : MonoBehaviour
         //이미 색칠되어 있다면
         if (gameObject.transform.parent.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color.r == 0.8f)
         {
+            //효과음
+            ButtonSound._buttonInstance.onButtonAudio();
+
             //클릭 색 다시 없애기
             gameObject.transform.parent.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
             //기본옷으로 바꾸기
-            GameObject.Find("GameData").GetComponent<GameStaticData>().baby_custom = 0; //옷세트 번호
+            GameStaticData.data.data_cloth = 0; //옷세트 번호
             GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(0); //아기 옷 입히기 적용
 
         }
         else //색칠 안됐더라면
         {
+            //효과음
+            ButtonSound._buttonInstance.onButtonAudio();
+
             //클릭한 버튼 색 바꾸기
             gameObject.transform.parent.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
 
@@ -33,7 +39,7 @@ public class LockerItemButton : MonoBehaviour
 
             int clothe_sprite_num = GameObject.Find("GameManager").GetComponent<LockerManager>().locker_sprites[index]; //옷의 스프라이트 넘버
 
-            GameObject.Find("GameData").GetComponent<GameStaticData>().baby_custom = clothe_sprite_num; //옷세트 번호
+            GameStaticData.data.data_cloth = clothe_sprite_num; //옷세트 번호
             GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(clothe_sprite_num); //아기 옷 입히기 적용
         }
     }

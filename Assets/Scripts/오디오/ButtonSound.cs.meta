@@ -6,6 +6,10 @@ MonoImporter:
   defaultReferences:
   - buttonBGM: {fileID: 8300000, guid: dfadcdaf3882ff64291677d9142938db, type: 3}
   - babylaughBGM: {fileID: 8300000, guid: 99cd5aec9ef6162498635bdccf36f766, type: 3}
+  - popupBGM: {fileID: 8300000, guid: e015fd11f4981b242b6ef8a189edeeaf, type: 3}
+  - moneyBGM: {fileID: 8300000, guid: ad7e30fd89d6483479960981aad8e966, type: 3}
+  - soundOnImg: {instanceID: 0}
+  - soundOffImg: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
