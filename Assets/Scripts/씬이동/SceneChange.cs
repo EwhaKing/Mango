@@ -7,6 +7,8 @@ public class SceneChange : MonoBehaviour
 {
     public void onLoadStartScene()
     {
+        Time.timeScale = 1;
+
         //static 변수 초기화
         CustomerManager.check = false;
         CustomerManager.current_customer = -1;
