@@ -14,15 +14,9 @@ public class GamePause : MonoBehaviour
     //public SpriteRenderer pauseRenderer = GetComponent<SpriteRenderer>();
     //settingRenderer = GetComponent<SpriteRenderer>();
 
-
-    
     //public GameObject backOff;
 
-    //public static int bgmOnOff = 1; // bgm 온오프 변수
-    public static int soundOnOff = 1; // 사운드 온오프 변수
-
     //private bool bgmMuted = false;
-
 
     //public GameObject numberScreen;
     public GameObject number3;
@@ -30,23 +24,12 @@ public class GamePause : MonoBehaviour
     public GameObject number1;
     public GameObject number0;
 
-    
-
     //GameObject BackgroundMusic;
     //AudioSource backmusic;
 
     //bool isPause;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
+    public static int soundOnOff = 1; //버튼 브금 온 오프 변수 (다른 스크립트에서 이거 사용)
 
     public void OnClickGamePause() //일시정지
     {
@@ -194,21 +177,15 @@ public class GamePause : MonoBehaviour
         Application.Quit();
     }
 
-
-    
-
-
-    public void OnClickBGMOff()
+    /*private void bgmLoad()
     {
-        MusicManager.backmusic.Pause();
+        bgmSlider.value = PlayerPrefs.GetFloat("bgmVolume");
+        bgmMuted = PlayerPrefs.GetInt("bgmMuted") == 1;
     }
 
-    
-
-    public void OnClickButtonSoundOff()
+    private void bgmSave()
     {
-        //soundOnOff = 0;
-    }
-
-
+        PlayerPrefs.SetFloat("bgmVolume", bgmSlider.value);
+        PlayerPrefs.SetInt("bgmMuted", bgmMuted ? 1 : 0);
+    }*/
 }

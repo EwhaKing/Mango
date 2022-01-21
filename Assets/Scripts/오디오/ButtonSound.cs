@@ -5,21 +5,13 @@ using UnityEngine.UI;
 
 public class ButtonSound : MonoBehaviour
 {
-    AudioSource audioSource;
+    public AudioSource audioSource;
     public static ButtonSound _buttonInstance;
 
     public AudioClip buttonBGM;
     public AudioClip babylaughBGM;
     public AudioClip popupBGM;
     public AudioClip moneyBGM;
-
-    public Image soundOnImg;
-    public Image soundOffImg;
-
-    private bool soundMuted = false;
-    public static int soundOnOff = 1;
-
-    [SerializeField] Slider soundSlider;
 
     // Start is called before the first frame update
     void Awake()
@@ -41,63 +33,6 @@ public class ButtonSound : MonoBehaviour
         {
             soundLoad();
         }*/
-
-        UpdateSoundImg();
-        AudioListener.pause = soundMuted;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OnClickButtonSoundOn()
-    {
-        if (soundMuted == false)
-        {
-            soundMuted = true;
-            soundOnOff = 0;
-        }
-
-        else
-        {
-            soundMuted = false;
-            soundOnOff = 1;
-        }
-
-        //soundSave();
-        UpdateSoundImg();
-
-        /*if (soundOnOff == 1)
-        {
-            soundOnOff = 0;
-            soundOnImg.enabled = false;
-            soundOffImg.enabled = true;
-        }
-
-        else
-        {
-            soundOnOff = 1;
-            soundOnImg.enabled = true;
-            soundOffImg.enabled = false;
-        }*/
-        //soundOnOff = 1;
-    }
-
-    private void UpdateSoundImg()
-    {
-        if (soundMuted == false)
-        {
-            soundOnImg.enabled = true;
-            soundOffImg.enabled = false;
-        }
-
-        else
-        {
-            soundOnImg.enabled = false;
-            soundOffImg.enabled = true;
-        }
     }
 
     /*private void soundLoad()
@@ -112,18 +47,10 @@ public class ButtonSound : MonoBehaviour
         PlayerPrefs.SetInt("soundMuted", soundMuted ? 1 : 0);
     }*/
 
-    public void changeSoundVolume()
-    {
-        audioSource.volume = soundSlider.value;
-        //bgmSave();
-    }
-
-
     public void onButtonAudio()
     {
         audioSource.clip = buttonBGM;
-        audioSource.volume = 0.7f;
-        if(soundOnOff == 1)
+        if(GamePause.soundOnOff == 1)
         {
             audioSource.Play();
         }
@@ -133,7 +60,7 @@ public class ButtonSound : MonoBehaviour
     {
         audioSource.clip = babylaughBGM;
         //audioSource.Play();
-        if (soundOnOff == 1)
+        if (GamePause.soundOnOff == 1)
         {
             audioSource.Play();
         }
@@ -142,9 +69,8 @@ public class ButtonSound : MonoBehaviour
     public void onPopUpAudio()
     {
         audioSource.clip = popupBGM;
-        audioSource.volume = 0.5f;
         //audioSource.Play();
-        if (soundOnOff == 1)
+        if (GamePause.soundOnOff == 1)
         {
             audioSource.Play();
         }
@@ -154,7 +80,7 @@ public class ButtonSound : MonoBehaviour
     {
         audioSource.clip = moneyBGM;
         //audioSource.Play();
-        if (soundOnOff == 1)
+        if (GamePause.soundOnOff == 1)
         {
             audioSource.Play();
         }

@@ -31,6 +31,9 @@ public class GameStory : MonoBehaviour
             Debug.Log("게임 첫번째 실행 o"); 
             PlayerPrefs.SetInt("Story_Start", 1);
 
+            story.SetActive(true);
+            black.SetActive(true);
+
             StartCoroutine(FadeTextToFullAlpha());
 
             PlayerPrefs.Save();
@@ -94,11 +97,11 @@ public class GameStory : MonoBehaviour
 
         while (startButton.color.a < 1.0f)
         {
-            startButton.color = new Color(startButton.color.r, startButton.color.g, startButton.color.b, startButton.color.a + (Time.deltaTime / 3.0f));
-            ruleButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 3.0f));
+            startButton.color = new Color(startButton.color.r, startButton.color.g, startButton.color.b, startButton.color.a + (Time.deltaTime / 2.0f));
+            ruleButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
 
-            shopButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 3.0f));
-            newButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 3.0f));
+            shopButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
+            newButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
 
             //yield return new WaitForSecondsRealtime(1);
             yield return null;
