@@ -13,10 +13,10 @@ public class ButtonSound : MonoBehaviour
     public AudioClip popupBGM;
     public AudioClip moneyBGM;
 
-    public Image soundOnImg;
-    public Image soundOffImg;
+    //public Image soundOnImg;
+    //public Image soundOffImg;
 
-    private bool soundMuted = false;
+    public static bool soundMuted = false;
     public static int soundOnOff = 1;
 
     [SerializeField] Slider soundSlider;
@@ -42,7 +42,7 @@ public class ButtonSound : MonoBehaviour
             soundLoad();
         }*/
 
-        UpdateSoundImg();
+        //UpdateSoundImg();
         AudioListener.pause = soundMuted;
     }
 
@@ -58,16 +58,20 @@ public class ButtonSound : MonoBehaviour
         {
             soundMuted = true;
             soundOnOff = 0;
+            GameObject.Find("realbuttonon").GetComponent<Image>().enabled = false;
+            GameObject.Find("realbuttonoff").GetComponent<Image>().enabled = true;
         }
 
         else
         {
             soundMuted = false;
             soundOnOff = 1;
+            GameObject.Find("realbuttonon").GetComponent<Image>().enabled = true;
+            GameObject.Find("realbuttonoff").GetComponent<Image>().enabled = false;
         }
 
         //soundSave();
-        UpdateSoundImg();
+        //UpdateSoundImg();
 
         /*if (soundOnOff == 1)
         {
@@ -85,7 +89,7 @@ public class ButtonSound : MonoBehaviour
         //soundOnOff = 1;
     }
 
-    private void UpdateSoundImg()
+    /*private void UpdateSoundImg()
     {
         if (soundMuted == false)
         {
@@ -98,7 +102,7 @@ public class ButtonSound : MonoBehaviour
             soundOnImg.enabled = false;
             soundOffImg.enabled = true;
         }
-    }
+    }*/
 
     /*private void soundLoad()
     {

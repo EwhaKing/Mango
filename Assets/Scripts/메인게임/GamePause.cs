@@ -30,7 +30,15 @@ public class GamePause : MonoBehaviour
     public GameObject number1;
     public GameObject number0;
 
-    
+    //메인 브금 슬라이더
+    [SerializeField] Slider bgmSlider;
+
+    //효과음 온 오프 이미지
+    public Image bgmOnImg;
+    public Image bgmOffImg;
+    public Image soundOnImg;
+    public Image soundOffImg;
+
 
     //GameObject BackgroundMusic;
     //AudioSource backmusic;
@@ -170,6 +178,32 @@ public class GamePause : MonoBehaviour
         Time.timeScale = 0;
         ButtonSound._buttonInstance.onButtonAudio();
         settingScreen.SetActive(true);
+
+        //브금 온 오프 이미지
+        if (MusicManager.bgmMuted == false)
+        {
+            bgmOnImg.enabled = true;
+            bgmOffImg.enabled = false;
+        }
+
+        else
+        {
+            bgmOnImg.enabled = false;
+            bgmOffImg.enabled = true;
+        }
+
+        if (ButtonSound.soundMuted == false)
+        {
+            soundOnImg.enabled = true;
+            soundOffImg.enabled = false;
+        }
+
+        else
+        {
+            soundOnImg.enabled = false;
+            soundOffImg.enabled = true;
+        }
+
     }
 
     public void OnClickSettingExit() //설정창 나가기
@@ -195,7 +229,30 @@ public class GamePause : MonoBehaviour
     }
 
 
-    
+    public void OnClickBGMOn()
+    {
+        if (MusicManager.bgmMuted == false)
+        {
+            MusicManager.bgmMuted = true;
+            MusicManager.backmusic.Pause();
+            bgmOnImg.enabled = false;
+            bgmOffImg.enabled = true;
+        }
+
+        else
+        {
+            MusicManager.bgmMuted = false;
+            MusicManager.backmusic.Play();
+            bgmOnImg.enabled = true;
+            bgmOffImg.enabled = false;
+        }
+    }
+
+    public void changeBgmVolume()
+    {
+        MusicManager.backmusic.volume = bgmSlider.value;
+        //bgmSave();
+    }
 
 
     public void OnClickBGMOff()

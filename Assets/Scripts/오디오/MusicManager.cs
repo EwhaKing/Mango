@@ -8,12 +8,12 @@ public class MusicManager : MonoBehaviour
     GameObject BackgroundMusic;
     public static AudioSource backmusic;
 
-    public Image bgmOnImg;
-    public Image bgmOffImg;
+    //public Image bgmOnImg;
+    //public Image bgmOffImg;
 
-    private bool bgmMuted = false;
+    public static bool bgmMuted = false;
 
-    [SerializeField] Slider bgmSlider;
+    //[SerializeField] Slider bgmSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +35,8 @@ public class MusicManager : MonoBehaviour
             bgmLoad();
         }*/
 
-        UpdateBgmImg();
-        AudioListener.pause = bgmMuted;
+        
+        //AudioListener.pause = bgmMuted;
         
     }
 
@@ -91,11 +91,11 @@ public class MusicManager : MonoBehaviour
         }
 
         //bgmSave();
-        UpdateBgmImg();
+        //UpdateBgmImg();
         //MusicManager.backmusic.Play();
     }
 
-    private void UpdateBgmImg()
+    /*private void UpdateBgmImg()
     {
         if (bgmMuted == false)
         {
@@ -108,13 +108,13 @@ public class MusicManager : MonoBehaviour
             bgmOnImg.enabled = false;
             bgmOffImg.enabled = true;
         }
-    }
+    }*/
 
-    public void changeBgmVolume()
+    /*public void changeBgmVolume()
     {
         backmusic.volume = bgmSlider.value;
         //bgmSave();
-    }
+    }*/
 
     /*private void bgmLoad()
     {

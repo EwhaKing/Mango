@@ -359,6 +359,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 0}
   settingScreen: {fileID: 1020276565}
+  number3: {fileID: 0}
+  number2: {fileID: 0}
+  number1: {fileID: 0}
+  number0: {fileID: 0}
+  bgmSlider: {fileID: 0}
+  bgmOnImg: {fileID: 2010539156}
+  bgmOffImg: {fileID: 21666362}
+  soundOnImg: {fileID: 877941323}
+  soundOffImg: {fileID: 1679258823}
 --- !u!114 &87629984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +511,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 0}
   settingScreen: {fileID: 1020276565}
+  number3: {fileID: 0}
+  number2: {fileID: 0}
+  number1: {fileID: 0}
+  number0: {fileID: 0}
+  bgmSlider: {fileID: 0}
+  bgmOnImg: {fileID: 0}
+  bgmOffImg: {fileID: 0}
+  soundOnImg: {fileID: 0}
+  soundOffImg: {fileID: 0}
 --- !u!114 &202822013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,6 +668,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 0}
   settingScreen: {fileID: 1020276565}
+  number3: {fileID: 0}
+  number2: {fileID: 0}
+  number1: {fileID: 0}
+  number0: {fileID: 0}
+  bgmSlider: {fileID: 0}
+  bgmOnImg: {fileID: 0}
+  bgmOffImg: {fileID: 0}
+  soundOnImg: {fileID: 0}
+  soundOffImg: {fileID: 0}
 --- !u!114 &229292238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -757,8 +784,6 @@ MonoBehaviour:
   babylaughBGM: {fileID: 8300000, guid: 99cd5aec9ef6162498635bdccf36f766, type: 3}
   popupBGM: {fileID: 8300000, guid: e015fd11f4981b242b6ef8a189edeeaf, type: 3}
   moneyBGM: {fileID: 8300000, guid: ad7e30fd89d6483479960981aad8e966, type: 3}
-  soundOnImg: {fileID: 877941323}
-  soundOffImg: {fileID: 1679258823}
   soundSlider: {fileID: 0}
 --- !u!82 &229292242
 AudioSource:
@@ -1308,7 +1333,6 @@ GameObject:
   - component: {fileID: 628371649}
   - component: {fileID: 628371648}
   - component: {fileID: 628371647}
-  - component: {fileID: 628371651}
   m_Layer: 5
   m_Name: back
   m_TagString: Untagged
@@ -1344,13 +1368,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628371645}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ff5c470b16ebb419542988a1569703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 0}
   settingScreen: {fileID: 1020276565}
+  number3: {fileID: 0}
+  number2: {fileID: 0}
+  number1: {fileID: 0}
+  number0: {fileID: 0}
+  bgmSlider: {fileID: 1851154217}
+  bgmOnImg: {fileID: 2010539156}
+  bgmOffImg: {fileID: 21666362}
+  soundOnImg: {fileID: 0}
+  soundOffImg: {fileID: 0}
 --- !u!114 &628371648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1394,7 +1427,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 628371651}
+      - m_Target: {fileID: 628371647}
         m_MethodName: OnClickBGMOn
         m_Mode: 1
         m_Arguments:
@@ -1418,7 +1451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1442,21 +1475,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628371645}
   m_CullTransparentMesh: 0
---- !u!114 &628371651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628371645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b23979ccfe6914c9f0adbd4c3bcb62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgmOnImg: {fileID: 2010539156}
-  bgmOffImg: {fileID: 21666362}
-  bgmSlider: {fileID: 1851154217}
 --- !u!1 &761415756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,9 +1987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b23979ccfe6914c9f0adbd4c3bcb62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmOnImg: {fileID: 2010539156}
-  bgmOffImg: {fileID: 21666362}
-  bgmSlider: {fileID: 1851154217}
 --- !u!4 &1093058813
 Transform:
   m_ObjectHideFlags: 0
@@ -2421,8 +2436,6 @@ MonoBehaviour:
   babylaughBGM: {fileID: 8300000, guid: 99cd5aec9ef6162498635bdccf36f766, type: 3}
   popupBGM: {fileID: 8300000, guid: e015fd11f4981b242b6ef8a189edeeaf, type: 3}
   moneyBGM: {fileID: 8300000, guid: ad7e30fd89d6483479960981aad8e966, type: 3}
-  soundOnImg: {fileID: 877941323}
-  soundOffImg: {fileID: 1679258823}
   soundSlider: {fileID: 1522373447}
 --- !u!114 &1522373447
 MonoBehaviour:
@@ -3088,12 +3101,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1851154215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b23979ccfe6914c9f0adbd4c3bcb62, type: 3}
+  m_Script: {fileID: 11500000, guid: c1ff5c470b16ebb419542988a1569703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmOnImg: {fileID: 2010539156}
-  bgmOffImg: {fileID: 21666362}
+  pauseScreen: {fileID: 0}
+  settingScreen: {fileID: 1020276565}
+  number3: {fileID: 0}
+  number2: {fileID: 0}
+  number1: {fileID: 0}
+  number0: {fileID: 0}
   bgmSlider: {fileID: 1851154217}
+  bgmOnImg: {fileID: 0}
+  bgmOffImg: {fileID: 0}
+  soundOnImg: {fileID: 0}
+  soundOffImg: {fileID: 0}
 --- !u!1 &1925829782
 GameObject:
   m_ObjectHideFlags: 0
@@ -3456,8 +3477,6 @@ MonoBehaviour:
   babylaughBGM: {fileID: 8300000, guid: 99cd5aec9ef6162498635bdccf36f766, type: 3}
   popupBGM: {fileID: 8300000, guid: e015fd11f4981b242b6ef8a189edeeaf, type: 3}
   moneyBGM: {fileID: 8300000, guid: ad7e30fd89d6483479960981aad8e966, type: 3}
-  soundOnImg: {fileID: 877941323}
-  soundOffImg: {fileID: 1679258823}
   soundSlider: {fileID: 0}
 --- !u!4 &1998652850
 Transform:
