@@ -280,7 +280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 889985508}
         m_MethodName: OnClickSettingExit
         m_Mode: 1
         m_Arguments:
@@ -3380,7 +3380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 375622171}
-  settingScreen: {fileID: 0}
+  settingScreen: {fileID: 1623198788}
   number3: {fileID: 0}
   number2: {fileID: 0}
   number1: {fileID: 0}
@@ -4987,7 +4987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 375622171}
-  settingScreen: {fileID: 0}
+  settingScreen: {fileID: 1623198788}
   number3: {fileID: 213378920}
   number2: {fileID: 740077464}
   number1: {fileID: 1043272042}
@@ -6813,7 +6813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 375622171}
-  settingScreen: {fileID: 0}
+  settingScreen: {fileID: 1623198788}
   number3: {fileID: 0}
   number2: {fileID: 0}
   number1: {fileID: 0}
@@ -6961,7 +6961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 375622171}
-  settingScreen: {fileID: 0}
+  settingScreen: {fileID: 1623198788}
   number3: {fileID: 213378920}
   number2: {fileID: 740077464}
   number1: {fileID: 1043272042}
