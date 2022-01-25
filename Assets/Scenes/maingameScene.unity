@@ -3672,8 +3672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eccd95e51ec70f4a9a645978ddc5e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nikname_text: {fileID: 1766706284}
-  nikname: 
+  nickname: 
 --- !u!82 &881082027
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7168,6 +7167,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!114 &1622598529
 MonoBehaviour:
   m_ObjectHideFlags: 0

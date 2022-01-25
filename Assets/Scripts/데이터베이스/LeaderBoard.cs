@@ -6,36 +6,35 @@ using UnityEngine.UI;
 
 public class LeaderBoard : MonoBehaviour
 {
-    string url = "https://mango-love.herokuapp.com/api/leaders";
-    public Text nikname_text;
+    string url_leader = "https://mango-love.herokuapp.com/api/leaders";
 
 
-    public string nikname;
+    public string nickname;
     public void post()
     {
-        StartCoroutine(PostUser());
+        StartCoroutine(PostLeader());
     }
 
-    public class User
+    public class Leader
     {
         public string username;
         public int score;
 
     }
 
-    IEnumerator PostUser()
+    IEnumerator PostLeader()
     {
         UnityWebRequest request = new UnityWebRequest();
-        nikname = nikname_text.text;
+        nickname = PlayerPrefs.GetString("PlayerName");
 
-        User user = new User
+        Leader leader = new Leader
         {
-            username = nikname,
+            username = nickname,
             score = TotalMoney.totalMoney
         };
 
-        string json = JsonUtility.ToJson(user);
-        request = UnityWebRequest.Post(url, json);
+        string json = JsonUtility.ToJson(leader);
+        request = UnityWebRequest.Post(url_leader, json);
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(jsonToSend);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
