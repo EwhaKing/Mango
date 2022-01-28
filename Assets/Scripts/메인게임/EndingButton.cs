@@ -21,6 +21,9 @@ public class EndingButton : MonoBehaviour
 
         RhythmBar.success_count = 0;
         SliderTimer.time_over = false;
+
+        //손님 수 초기화
+        GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt = 0;
         
         //메인게임 씬 로드
         SceneManager.LoadScene("maingameScene");

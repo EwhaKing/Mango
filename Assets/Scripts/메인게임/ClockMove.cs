@@ -10,7 +10,7 @@ public class ClockMove : MonoBehaviour
     public GameObject pop_up;
     float time = 0;
     bool check = true;
-    float limit_time = 180; //1당 1초
+    float limit_time = 90; //1당 1초, 메인게임 시간
     float fade_time = 0f;
 
     // Start is called before the first frame update
