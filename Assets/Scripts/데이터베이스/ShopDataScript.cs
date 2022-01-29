@@ -25,10 +25,9 @@ public class ShopDataScript : MonoBehaviour
     public static ShopData sd;
     void Start()
     {
-        PlayerPrefs.SetInt("Story_Start", PlayerPrefs.GetInt("Story_Start", 0));
         DontDestroyOnLoad(GameObject.Find("ShopData"));
 
-        if (PlayerPrefs.GetInt("Story_Start") != 0 && File.Exists(Application.persistentDataPath + "/ShopData.json"))
+        if (File.Exists(Application.persistentDataPath + "/ShopData.json"))
         {
             Debug.LogWarning("옷파일 있음");
             Debug.Log("파일 주소: " + Application.persistentDataPath + "/ShopData.json");

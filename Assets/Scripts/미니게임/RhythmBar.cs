@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class RhythmBar : MonoBehaviour
 {
-    float MaxPos = 180f;
-    float MinPos = -395f;
+    float MaxPos = 270f;
+    float MinPos = -300f;
 
     public float MaxSuccess;
     public float MinSuccess;
@@ -69,6 +69,7 @@ public class RhythmBar : MonoBehaviour
             speed *= -1;
             transform.localPosition = new Vector3(transform.localPosition.x, MinPos);
         }
+        if (this.transform.localPosition.y == MaxSuccess) Debug.LogWarning("최대!!!!");
 
     }
 
@@ -85,7 +86,6 @@ public class RhythmBar : MonoBehaviour
         }
 
         float now = this.transform.localPosition.y;
-        Debug.Log("max: " + MaxSuccess);
         if (now >= MinSuccess && now <= MaxSuccess)
         {
             Debug.Log("success pos: " + now);

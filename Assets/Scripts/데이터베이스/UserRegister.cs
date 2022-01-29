@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using System.IO;
+using TMPro;
 
 public class UserRegister : MonoBehaviour
 {
-    string url_user = "https://mango-love.herokuapp.com/api/registration";
-    public Text textUsername;
+    string url_user = "https://mango-love.herokuapp.com/api/user/registration";
+    public TextMeshProUGUI textUsername;
+    public TextMeshProUGUI textError;
+    public GameObject nameScreen;
+    public GameObject nameBackground;
 
 
     public string username;
@@ -50,13 +55,45 @@ public class UserRegister : MonoBehaviour
             string result = request.downloadHandler.text;
             if(result == "exist")
             {
+                textError.text = "<color=red>이미 있는 이름입니다.</color>"+"\n"+ "<color=red>다시 입력하세요</color>";
                 Debug.Log("이미 있는 이름입니다. 다시 입력하세요");
             }
             else
             {
-                Debug.Log("이름 등록 완료");
-                PlayerPrefs.SetString("PlayerName", username);
+                textError.text = "이름 등록 완료!";
+                GameStaticData.data.name = username;
+                File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
+                Debug.Log(result + "    " + PlayerPrefs.GetString("PlayerName"));
+
+                Invoke("closeNameScreen", 0.5f);
             }
         }
     }
+
+    void closeNameScreen()
+    {
+        nameScreen.SetActive(false);
+        nameBackground.SetActive(false);
+    }
+
+    public void onClickOk()
+    {
+        post();
+    }
+
+    public void onTextChanged()
+    {
+        Debug.Log("Text Changed");
+        if (textError.text.Contains("이미 있는 이름입니다."))
+        {
+            textError.text = "아기의 이름을 지어주세요!";
+        }
+    }
+
+    void Start()
+    {
+        textUsername.text = "";
+    }
+
+
 }
