@@ -10,6 +10,7 @@ public class GameData
     public int data_money;
     public int data_cloth;
     public int date;
+    public string name;
 
 }
 
@@ -28,30 +29,34 @@ public class GameStaticData : MonoBehaviour
 
     void Awake()
     {
-        PlayerPrefs.SetInt("Story_Start", PlayerPrefs.GetInt("Story_Start", 0));
         DontDestroyOnLoad(GameObject.Find("GameData"));
 
-        if (PlayerPrefs.GetInt("Story_Start") != 0 && File.Exists(Application.persistentDataPath + "/GameData.json"))
+        if (File.Exists(Application.persistentDataPath + "/GameData.json"))
         {
             Debug.LogWarning("게임파일있음");
             Debug.Log("파일 주소: " + Application.persistentDataPath + "/GameData.json");
             LoadGameData();
+            DateCheck();
         }
         else
         {
             Debug.LogWarning("게임파일없음");
-            File.Create(Application.persistentDataPath + "/GameData.json").Close();
-            data = JsonUtility.FromJson<GameData>("{\"data_money\": 100000,\"data_cloth\": 0,\"date\" :  0}");
-            File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(data));
-            
-            Invoke("LoadGameData", 0.5f);
+            Invoke("CreateFile", 0.1f);
+            Invoke("LoadGameData", 0.2f);
+            Invoke("DateCheck", 0.3f);
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void CreateFile()
     {
+        File.Create(Application.persistentDataPath + "/GameData.json").Close();
+        data = JsonUtility.FromJson<GameData>("{\"data_money\": 0,\"data_cloth\": 0,\"date\" :  0,\"name\" : \"\"}");
+        File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(data));
+    }
 
+    // Start is called before the first frame update
+    void DateCheck()
+    {
         if (data.date > 0)
         {
             start_button.GetComponent<Image>().sprite = startButton[1];
@@ -60,8 +65,8 @@ public class GameStaticData : MonoBehaviour
         }
         else
         {
-            start_button.GetComponent<Image>().sprite = startButton[0];
             dateStart.transform.gameObject.SetActive(false);
+            start_button.GetComponent<Image>().sprite = startButton[0];
         }
     }
 
@@ -128,8 +133,4 @@ public class GameStaticData : MonoBehaviour
         SaveGameData();
     }
 
-    private void OnApplicationQuit()
-    {
-        SaveGameData();
-    }
 }

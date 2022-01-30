@@ -7,12 +7,12 @@ using UnityEngine.Networking;
 public class GameStart : MonoBehaviour
 {
     public int totaluser = 0; //나중에 데이터베이스에서 가져올 총 유저 수
-    string url = "https://mango-love.herokuapp.com/api/leaders";
+    string url = "https://mango-love.herokuapp.com/api/leaders/score";
     string leaderBoard;
     Data leader;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         get();
     }

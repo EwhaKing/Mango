@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingManager : MonoBehaviour
 {
     public GameObject bgmSetting, soundSetting; //세팅 버튼 이미지 오브젝트
     public static float bgmSliderValue = 1, soundSliderValue = 1;
+    public TextMeshProUGUI babyname;
      
     [SerializeField] Slider bgmSlider, soundSlider; //소리 조절 슬라이더
 
@@ -14,6 +16,7 @@ public class SettingManager : MonoBehaviour
     void Start()
     {
         changeBgmButtonImage();
+        babyname.text = "아기이름: " + GameStaticData.data.name;
     }
 
     public void OnClickBackButton()

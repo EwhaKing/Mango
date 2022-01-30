@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEditor;
+using System.IO;
+using TMPro;
 
 public class GameStory : MonoBehaviour
 {
@@ -12,35 +12,31 @@ public class GameStory : MonoBehaviour
     public Image storyText;
     public GameObject black;
     public GameObject story;
+    public GameObject nameScreen;
+    public GameObject nameBackground;
 
     public Image startButton;
     public Image ruleButton;
     public Image shopButton;
     public Image newButton;
     public Text dateText;
+    public TextMeshProUGUI textUsername;
 
 
     void Start()
     {
-        //text = GetComponent<Text>();
+        nameScreen.SetActive(false);
 
-        PlayerPrefs.SetInt("Story_Start", PlayerPrefs.GetInt("Story_Start", 0));
-        //PlayerPrefs.SetInt("Story_Start", 0);
-
-        if (PlayerPrefs.GetInt("Story_Start") == 0)
+        if (!File.Exists(Application.persistentDataPath + "/GameData.json"))
         {
             Debug.Log("게임 첫번째 실행 o"); 
-            PlayerPrefs.SetInt("Story_Start", 1);
 
             story.SetActive(true);
             black.SetActive(true);
 
             StartCoroutine(FadeTextToFullAlpha());
-
-            PlayerPrefs.Save();
         }
-
-        else if (PlayerPrefs.GetInt("Story_Start") != 0)
+        else
         {
             Debug.Log("게임 첫번째 실행 x");
 
@@ -54,6 +50,7 @@ public class GameStory : MonoBehaviour
 
     }
 
+    //스토리 fade in fade out
     IEnumerator FadeTextToFullAlpha() // 알파값 0 -> 1
     {
         //text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
@@ -88,12 +85,13 @@ public class GameStory : MonoBehaviour
         story.SetActive(false);
         black.SetActive(false);
 
-        StartCoroutine(FadeTextToFullAlpha2());
+        StartCoroutine(openNameScreen());
     }
 
+    //버튼 fade in fade out
     IEnumerator FadeTextToFullAlpha2() // 알파값 0 -> 1
     {
-        Debug.Log("button_view");
+        //Debug.Log("button_view");
         startButton.color = new Color(startButton.color.r, startButton.color.g, startButton.color.b, 0);
         ruleButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, 0);
         shopButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, 0);
@@ -102,7 +100,7 @@ public class GameStory : MonoBehaviour
 
         while (startButton.color.a < 1.0f)
         {
-            Debug.Log("Time_" + startButton.color.a);
+            //Debug.Log("Time_" + startButton.color.a);
             startButton.color = new Color(startButton.color.r, startButton.color.g, startButton.color.b, startButton.color.a + (Time.deltaTime / 2.0f));
             ruleButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
 
@@ -119,7 +117,12 @@ public class GameStory : MonoBehaviour
 
     }
 
-    
+    IEnumerator openNameScreen()
+    {
+        nameScreen.SetActive(true);
+        nameBackground.SetActive(true);
+        StartCoroutine(FadeTextToFullAlpha2());
+        yield return null;
+    }
 
-    
 }
