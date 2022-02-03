@@ -6,7 +6,7 @@ using TMPro;
 
 public class SettingManager : MonoBehaviour
 {
-    public GameObject bgmSetting, soundSetting; //세팅 버튼 이미지 오브젝트
+    public GameObject bgmSetting, soundSetting, vibSetting; //세팅 버튼 이미지 오브젝트
     public static float bgmSliderValue = 1, soundSliderValue = 1;
     public TextMeshProUGUI babyname;
      
@@ -47,6 +47,19 @@ public class SettingManager : MonoBehaviour
         changeBgmButtonImage();
     }
 
+    public void OnClickVibButton()
+    {
+        if (RhythmBar.vibonoff == 1)
+        {
+            RhythmBar.vibonoff = 0;
+        }
+        else
+        {
+            RhythmBar.vibonoff = 1;
+        }
+        changeBgmButtonImage();
+    }
+
     public void changeBgmButtonImage()
     {
         if (MusicManager.bgmMuted == false) //온상태
@@ -60,7 +73,7 @@ public class SettingManager : MonoBehaviour
             bgmSetting.transform.GetChild(2).gameObject.SetActive(true);
         }
 
-        if (GamePause.soundOnOff == 0) //오프상태
+        if (GamePause.soundOnOff == 0) //버튼 효과음 오프상태
         {
             soundSetting.transform.GetChild(1).gameObject.SetActive(false);
             soundSetting.transform.GetChild(2).gameObject.SetActive(true);
@@ -70,6 +83,18 @@ public class SettingManager : MonoBehaviour
             soundSetting.transform.GetChild(1).gameObject.SetActive(true);
             soundSetting.transform.GetChild(2).gameObject.SetActive(false);
         }
+
+        if (RhythmBar.vibonoff == 0) //진동 오프상태
+        {
+            vibSetting.transform.GetChild(1).gameObject.SetActive(false);
+            vibSetting.transform.GetChild(2).gameObject.SetActive(true);
+        }
+        else
+        {
+            vibSetting.transform.GetChild(1).gameObject.SetActive(true);
+            vibSetting.transform.GetChild(2).gameObject.SetActive(false);
+        }
+
         //슬라이더 버튼
         bgmSlider.value = bgmSliderValue;
         soundSlider.value = soundSliderValue;

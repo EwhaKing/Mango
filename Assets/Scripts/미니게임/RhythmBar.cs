@@ -36,6 +36,9 @@ public class RhythmBar : MonoBehaviour
     public AudioClip PowerSuccess;
     public AudioClip PowerFail;
 
+    //진동 온오프 변수 (SettingManager 스크립트에서 사용)
+    public static int vibonoff = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,7 +128,11 @@ public class RhythmBar : MonoBehaviour
                 audioSource.Play();
             }
 
-            Handheld.Vibrate(); // 실패시 진동
+            if (vibonoff == 1) //실패 + 진동 설정 on 시 진동
+            {
+                Handheld.Vibrate();
+            }
+            
         }
 
         cnt++;

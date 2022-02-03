@@ -116,37 +116,6 @@ public class GamePause : MonoBehaviour
         
     }
 
-    /*IEnumerator CountDown3() // 알파값 0 -> 1
-    {
-        number3.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(CountDown2());
-    }
-
-    IEnumerator CountDown2() // 알파값 0 -> 1
-    {
-        number3.SetActive(false);
-        number2.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(CountDown1());
-    }
-
-    IEnumerator CountDown1() // 알파값 0 -> 1
-    {
-        number2.SetActive(false);
-        number1.SetActive(true);
-
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(CountDown0());
-    }
-
-    IEnumerator CountDown0() // 알파값 0 -> 1
-    {
-        number1.SetActive(false);
-        numberScreen.SetActive(false);
-        yield return null;
-    }*/
-
 
     public void OnClickGameSetting() //설정
     {
@@ -177,15 +146,4 @@ public class GamePause : MonoBehaviour
         Application.Quit();
     }
 
-    /*private void bgmLoad()
-    {
-        bgmSlider.value = PlayerPrefs.GetFloat("bgmVolume");
-        bgmMuted = PlayerPrefs.GetInt("bgmMuted") == 1;
-    }
-
-    private void bgmSave()
-    {
-        PlayerPrefs.SetFloat("bgmVolume", bgmSlider.value);
-        PlayerPrefs.SetInt("bgmMuted", bgmMuted ? 1 : 0);
-    }*/
 }
