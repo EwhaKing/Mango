@@ -23,8 +23,16 @@ public class SceneChange : MonoBehaviour
         SliderTimer.time_over = false;
 
         //손님 수 초기화
-        GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt = 0;
+        if(GameObject.Find("LifeManager_mini"))
+            GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt = 0;
 
+        //시간 초기화
+        GameObject.Find("GameData").GetComponent<GameStaticData>().clock_hand_rot = 0;
+        GameObject.Find("GameData").GetComponent<GameStaticData>().mainscene_time = 0;
+        GameObject.Find("GameData").GetComponent<GameStaticData>().click_count = 0;
+        GameObject.Find("GameData").GetComponent<GameStaticData>().is_click = false;
+
+        //스타트씬 로드
         SceneManager.LoadScene("StartScene");
     }
 

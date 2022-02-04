@@ -306,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1116845353}
   settingScreen: {fileID: 639541261}
+  numberScreen: {fileID: 0}
   number3: {fileID: 772784183}
   number2: {fileID: 1933050918}
   number1: {fileID: 1202194180}
@@ -957,6 +958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1116845353}
   settingScreen: {fileID: 639541261}
+  numberScreen: {fileID: 0}
   number3: {fileID: 0}
   number2: {fileID: 0}
   number1: {fileID: 0}
@@ -3013,6 +3015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1116845353}
   settingScreen: {fileID: 639541261}
+  numberScreen: {fileID: 0}
   number3: {fileID: 0}
   number2: {fileID: 0}
   number1: {fileID: 0}
@@ -5609,6 +5612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1116845353}
   settingScreen: {fileID: 639541261}
+  numberScreen: {fileID: 0}
   number3: {fileID: 772784183}
   number2: {fileID: 1933050918}
   number1: {fileID: 1202194180}
@@ -6243,7 +6247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8574db31502024dba4768cda57023f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clock_hand: {fileID: 1731884662}
   pop_up: {fileID: 1779247719}
+  time: 0
 --- !u!1 &1768553941
 GameObject:
   m_ObjectHideFlags: 0

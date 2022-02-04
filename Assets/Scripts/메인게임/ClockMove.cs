@@ -6,9 +6,9 @@ using System.IO;
 
 public class ClockMove : MonoBehaviour
 {
-    GameObject clock_hand;
+    public GameObject clock_hand;
     public GameObject pop_up;
-    float time = 0;
+    public float time = 0;
     bool check = true;
     float limit_time = 30; //1당 1초
     float fade_time = 0f;
@@ -31,8 +31,8 @@ public class ClockMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject.Find("GameData").GetComponent<GameStaticData>().mainscene_time = time;
-
+        //GameObject.Find("GameData").GetComponent<GameStaticData>().mainscene_time = time;
+        
         //transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
         if (check && time < limit_time) //우선 10초, 원래 3분
         {
@@ -40,7 +40,7 @@ public class ClockMove : MonoBehaviour
             clock_hand.transform.localEulerAngles = new Vector3(clock_hand.transform.localEulerAngles.x,
                                                             clock_hand.transform.localEulerAngles.y,
                                                             - (360f / limit_time) * time);
-            GameObject.Find("GameData").GetComponent<GameStaticData>().clock_hand_rot = clock_hand.transform.localEulerAngles.z;
+            //GameObject.Find("GameData").GetComponent<GameStaticData>().clock_hand_rot = clock_hand.transform.localEulerAngles.z;
 
             //시계 빨간색으로 깜빡임
             if (time > limit_time * 0.9f)

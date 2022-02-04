@@ -34,6 +34,12 @@ public class CustomerTalkButton : MonoBehaviour
             CustomerManager.check = true; //미니게임 넘어갔음을 체크 (다시 돌아왔을 때 메인씬에 건네기+차 뜨게하기 위한 확인변수
             CustomerManager.current_customer = this.gameObject.transform.GetSiblingIndex(); //현재 손님 몇번째인지 저장
             //Debug.Log(CustomerManager.current_customer);
+
+            //현재 메인겜 시간 저장
+            GameObject.Find("GameData").GetComponent<GameStaticData>().mainscene_time = GameObject.Find("clock_hand").GetComponent<ClockMove>().time;
+            //현재 메인갬 시계바늘각도 저장
+            GameObject.Find("GameData").GetComponent<GameStaticData>().clock_hand_rot = GameObject.Find("clock_hand").GetComponent<ClockMove>().clock_hand.transform.localEulerAngles.z;
+            //미니게임 부르기
             SceneManager.LoadScene("minigameSceneFinish");
         }
         else if(CustomerManager.current_customer == this.gameObject.transform.GetSiblingIndex()) //건네기 클릭
