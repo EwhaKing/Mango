@@ -18,7 +18,7 @@ public class GamePause : MonoBehaviour
 
     //private bool bgmMuted = false;
 
-    //public GameObject numberScreen;
+    public GameObject numberScreen;
     public GameObject number3;
     public GameObject number2;
     public GameObject number1;
@@ -43,7 +43,7 @@ public class GamePause : MonoBehaviour
         //Time.timeScale = 1;
         ButtonSound._buttonInstance.onButtonAudio();
         
-        //numberScreen.SetActive(true); //반투명 이미지만
+        numberScreen.SetActive(true); //뒤에 버튼 선택 안되게 하는 배경
         //StartCoroutine(CountDown3());
 
         StartCoroutine(Timer(4));
@@ -112,6 +112,9 @@ public class GamePause : MonoBehaviour
 
         number0.SetActive(false);
         pauseScreen.SetActive(false);
+
+        numberScreen.SetActive(false); //배경 없애기
+
         Time.timeScale = 1;
         
     }

@@ -35,12 +35,12 @@ public class SuccessArea : MonoBehaviour
         if (this.transform.localPosition.y >= MaxPos)
         {
             successSpeed *= -1;
-            transform.localPosition = new Vector3(695, MaxPos);
+            transform.localPosition = new Vector3(transform.localPosition.x, MaxPos);
         }
         else if (this.transform.localPosition.y <= MinPos)
         {
             successSpeed *= -1;
-            transform.localPosition = new Vector3(695, MinPos);
+            transform.localPosition = new Vector3(transform.localPosition.x, MinPos);
         }
     }
 }
