@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameStory : MonoBehaviour
 {
@@ -29,12 +30,16 @@ public class GameStory : MonoBehaviour
 
         if (!File.Exists(Application.persistentDataPath + "/GameData.json"))
         {
+            /*
             Debug.Log("게임 첫번째 실행 o"); 
 
             story.SetActive(true);
             black.SetActive(true);
 
             StartCoroutine(FadeTextToFullAlpha());
+            */
+            //게임 첫번째 실행일 경우 스토리 씬 띄우기
+            SceneManager.LoadScene("storyScene");
         }
         else
         {
