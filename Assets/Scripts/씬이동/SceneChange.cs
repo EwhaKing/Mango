@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
+    //스타트씬
     public void onLoadStartScene()
     {
         Time.timeScale = 1;
@@ -36,21 +37,37 @@ public class SceneChange : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
+    //메인게임씬
     public void onLoadMainScene()
     {
         SceneManager.LoadScene("maingameScene");
     }
 
+    //미니게임씬
     public void onLoadMinigameScene()
     {
         SceneManager.LoadScene("minigameSceneFinish");
     }
 
+    //꾸미기씬
     public void onLoadShopScene()
     {
         SceneManager.LoadScene("shopScene");
     }
 
+    //스토리씬
+    public void onLoadStoryScene()
+    {
+        SceneManager.LoadScene("storyScene");
+    }
+
+    //로딩씬
+    public void onLoadLoadingScene()
+    {
+        SceneManager.LoadScene("loadingScene");
+    }
+
+    //같은씬
     public void onLoadSameScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
