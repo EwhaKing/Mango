@@ -1798,7 +1798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2054712893}
-  - component: {fileID: 2054712894}
+  - component: {fileID: 2054712895}
   m_Layer: 0
   m_Name: GameStory
   m_TagString: Untagged
@@ -1820,7 +1820,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2054712894
+--- !u!114 &2054712895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1829,10 +1829,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2054712892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d36769dd63e82f418dca427e96b81df, type: 3}
+  m_Script: {fileID: 11500000, guid: aa108d3395d71ec42ac8a93111b1455a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blackBg: {fileID: 155524271}
   storyText: {fileID: 586759058}
   black: {fileID: 155524268}
   story: {fileID: 586759055}
+  nameScreen: {fileID: 127311635}
+  nameBackground: {fileID: 1576453851}
+  textUsername: {fileID: 968485904}

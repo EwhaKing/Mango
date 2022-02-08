@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using System.IO;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UserRegister : MonoBehaviour
 {
@@ -74,6 +75,7 @@ public class UserRegister : MonoBehaviour
     {
         nameScreen.SetActive(false);
         nameBackground.SetActive(false);
+        SceneManager.LoadScene("StartScene"); //스타트 씬 띄우기
     }
 
     public void onClickOk()

@@ -23,9 +23,11 @@ public class GameStaticData : MonoBehaviour
     public bool is_click = false;
 
     public static GameData data;
-    public Text dateStart;
-    public List<Sprite> startButton;
-    public GameObject start_button;
+    //public Text dateStart;
+    //public List<Sprite> startButton;
+    //public GameObject start_button;
+
+    //스타트 버튼 이어하기랑 게임시작 중 선택하는 코드 부분 StartButtonText.cs에 옮겼습니다! (로딩씬에서 gamestaticdata 시작하기위해)
 
     void Awake()
     {
@@ -36,7 +38,7 @@ public class GameStaticData : MonoBehaviour
             Debug.LogWarning("게임파일있음");
             Debug.Log("파일 주소: " + Application.persistentDataPath + "/GameData.json");
             LoadGameData();
-            DateCheck();
+            //DateCheck(); 
         }
         else
         {
@@ -55,7 +57,7 @@ public class GameStaticData : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void DateCheck()
+    /*void DateCheck()
     {
         if (data.date > 0)
         {
@@ -68,7 +70,7 @@ public class GameStaticData : MonoBehaviour
             dateStart.transform.gameObject.SetActive(false);
             start_button.GetComponent<Image>().sprite = startButton[0];
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
