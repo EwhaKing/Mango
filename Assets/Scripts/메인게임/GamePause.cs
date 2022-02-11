@@ -8,26 +8,13 @@ public class GamePause : MonoBehaviour
     public GameObject pauseScreen; //일시정지창
     public GameObject settingScreen; //설정창
 
-    //public SpriteRenderer pauseRenderer;
-    //public SpriteRenderer settingRenderer;
-
-    //public SpriteRenderer pauseRenderer = GetComponent<SpriteRenderer>();
-    //settingRenderer = GetComponent<SpriteRenderer>();
-
-    //public GameObject backOff;
-
-    //private bool bgmMuted = false;
+    //public GameObject ConButton;
 
     public GameObject numberScreen;
     public GameObject number3;
     public GameObject number2;
     public GameObject number1;
     public GameObject number0;
-
-    //GameObject BackgroundMusic;
-    //AudioSource backmusic;
-
-    //bool isPause;
 
     public static int soundOnOff = 1; //버튼 브금 온 오프 변수 (다른 스크립트에서 이거 사용)
 
@@ -36,20 +23,50 @@ public class GamePause : MonoBehaviour
         Time.timeScale = 0;
         ButtonSound._buttonInstance.onButtonAudio();
         pauseScreen.SetActive(true);
+
+        //StartCoroutine(BlinkAnimation());
     }
+
+    /*IEnumerator BlinkAnimation()
+    {
+        float lastTime = Time.realtimeSinceStartup;
+        float processTime = 0;
+
+        processTime = Time.realtimeSinceStartup - lastTime;
+
+        while (true)
+        {
+            if (processTime < 0.5f)
+            {
+                ConButton.GetComponent<Image>().color = new Color(1, 1, 1, 1 - processTime);
+            }
+
+            else
+            {
+                ConButton.GetComponent<Image>().color = new Color(1, 1, 1, processTime);
+
+                if (processTime > 1f)
+                {
+                    processTime = 0;
+                }
+            }
+
+            processTime += lastTime;
+
+            Debug.Log(processTime);
+
+            yield return null;
+        }
+
+    }*/
 
     public void OnClickGameContinue() //이어하기
     {
-        //Time.timeScale = 1;
         ButtonSound._buttonInstance.onButtonAudio();
-        
+
         numberScreen.SetActive(true); //뒤에 버튼 선택 안되게 하는 배경
-        //StartCoroutine(CountDown3());
 
         StartCoroutine(Timer(4));
-
-        
-
     }
 
     IEnumerator Timer(float countTime)
@@ -68,7 +85,6 @@ public class GamePause : MonoBehaviour
 
             if (countDown > 3)
             {
-
                 for (int i = 0; i < KeepGoing.Length; i++)
                 {
                     KeepGoing[i].GetComponent<Image>().enabled = false;
@@ -116,40 +132,8 @@ public class GamePause : MonoBehaviour
         numberScreen.SetActive(false); //배경 없애기
 
         Time.timeScale = 1;
-        
+
     }
-
-    /*IEnumerator CountDown3() // 알파값 0 -> 1
-    {
-        number3.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(CountDown2());
-    }
-
-    IEnumerator CountDown2() // 알파값 0 -> 1
-    {
-        number3.SetActive(false);
-        number2.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(CountDown1());
-    }
-
-    IEnumerator CountDown1() // 알파값 0 -> 1
-    {
-        number2.SetActive(false);
-        number1.SetActive(true);
-
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(CountDown0());
-    }
-
-    IEnumerator CountDown0() // 알파값 0 -> 1
-    {
-        number1.SetActive(false);
-        numberScreen.SetActive(false);
-        yield return null;
-    }*/
-
 
     public void OnClickGameSetting() //설정
     {
@@ -163,6 +147,32 @@ public class GamePause : MonoBehaviour
         Time.timeScale = 0;
         ButtonSound._buttonInstance.onButtonAudio();
         settingScreen.SetActive(false);
+
+        //StartCoroutine(SettingExitTimer(1));
+    }
+
+    IEnumerator SettingExitTimer(float countTime)
+    {
+        float lastTime = Time.realtimeSinceStartup;
+        float processTime = 0;
+        float countDown = 0;
+
+        while (processTime < countTime)
+        {
+            processTime = Time.realtimeSinceStartup - lastTime;
+            countDown = countTime - processTime;
+            Debug.Log(countDown);
+
+            if (countDown > 0.5)
+            {
+                settingScreen.GetComponent<Transform>().localScale = Vector3.one * countDown;
+            }
+
+            yield return null;
+        }
+
+        settingScreen.SetActive(false);
+
     }
 
     public void OnClickSettingExit2() //설정창 나가기 - 스타트화면용
@@ -180,15 +190,4 @@ public class GamePause : MonoBehaviour
         Application.Quit();
     }
 
-    /*private void bgmLoad()
-    {
-        bgmSlider.value = PlayerPrefs.GetFloat("bgmVolume");
-        bgmMuted = PlayerPrefs.GetInt("bgmMuted") == 1;
-    }
-
-    private void bgmSave()
-    {
-        PlayerPrefs.SetFloat("bgmVolume", bgmSlider.value);
-        PlayerPrefs.SetInt("bgmMuted", bgmMuted ? 1 : 0);
-    }*/
 }
