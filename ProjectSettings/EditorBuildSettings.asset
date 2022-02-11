@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/maingameScene.unity
     guid: a85fdc0c4ec0642429b2405d95f4006c
   - enabled: 1
-    path: Assets/Scenes/minigameSceneFinish.unity
+    path: Assets/Scenes/minigameSceneSiyeon.unity
     guid: cda10add6e2d8c84f9c701576d959691
   - enabled: 1
     path: Assets/Scenes/shopScene.unity
