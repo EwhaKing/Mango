@@ -64,7 +64,7 @@ public class ShopItemButton : MonoBehaviour
             pay_not.SetActive(true); //새 팝업창
         }
 
-        else
+        else //구매완료
         {
             //효과음
             ButtonSound._buttonInstance.onMoneyAudio();
@@ -76,16 +76,14 @@ public class ShopItemButton : MonoBehaviour
             //돈 변경
             GameStaticData.data.data_money -= cost;
 
-            //상점 옷 보유중 변경
-            gameObject.transform.parent.GetChild(current_buy).GetChild(1).transform.gameObject.SetActive(false); //가격버튼은 비활성화
-            gameObject.transform.parent.GetChild(current_buy).GetChild(2).transform.gameObject.SetActive(true); //보유중 버튼 활성화
-            gameObject.transform.parent.GetChild(current_buy).GetChild(0).gameObject.GetComponent<Button>().enabled = false; //옷 미리보기 비활성화
-
             //보관함에 옷 추가
             GameObject.Find("GameManager").GetComponent<LockerManager>().addClotheLocker(current_buy); //옷 보관함에 추가
 
             //데이터베이스에 다시 저장
             File.WriteAllText(Application.persistentDataPath + "/ShopData.json", JsonUtility.ToJson(ShopDataScript.sd));
+
+            //상점 옷 보유중 변경
+            GameObject.Find("GameManager").GetComponent<ShopManager>().onShopLoad();
         }
     }
 
