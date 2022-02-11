@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameStory : MonoBehaviour
 {
@@ -15,39 +16,14 @@ public class GameStory : MonoBehaviour
     public GameObject nameScreen;
     public GameObject nameBackground;
 
-    public Image startButton;
-    public Image ruleButton;
-    public Image shopButton;
-    public Image newButton;
-    public Text dateText;
     public TextMeshProUGUI textUsername;
+
+    //버튼들 페이드 인은 StartButtonText.cs 스크립트에 옮겼습니다! (스토리 씬이랑 스타트씬 분리하기 위해)
 
 
     void Start()
     {
-        nameScreen.SetActive(false);
-
-        if (!File.Exists(Application.persistentDataPath + "/GameData.json"))
-        {
-            Debug.Log("게임 첫번째 실행 o"); 
-
-            story.SetActive(true);
-            black.SetActive(true);
-
-            StartCoroutine(FadeTextToFullAlpha());
-        }
-        else
-        {
-            Debug.Log("게임 첫번째 실행 x");
-
-            story.SetActive(false);
-            black.SetActive(false);
-
-            StartCoroutine(FadeTextToFullAlpha2());
-        }
-
-
-
+        StartCoroutine(FadeTextToFullAlpha());
     }
 
     //스토리 fade in fade out
@@ -88,40 +64,10 @@ public class GameStory : MonoBehaviour
         StartCoroutine(openNameScreen());
     }
 
-    //버튼 fade in fade out
-    IEnumerator FadeTextToFullAlpha2() // 알파값 0 -> 1
-    {
-        //Debug.Log("button_view");
-        startButton.color = new Color(startButton.color.r, startButton.color.g, startButton.color.b, 0);
-        ruleButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, 0);
-        shopButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, 0);
-        newButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, 0);
-        dateText.color = new Color(dateText.color.r, dateText.color.g, dateText.color.b, 0);
-
-        while (startButton.color.a < 1.0f)
-        {
-            //Debug.Log("Time_" + startButton.color.a);
-            startButton.color = new Color(startButton.color.r, startButton.color.g, startButton.color.b, startButton.color.a + (Time.deltaTime / 2.0f));
-            ruleButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
-
-            shopButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
-            newButton.color = new Color(ruleButton.color.r, ruleButton.color.g, ruleButton.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
-
-            dateText.color = new Color(dateText.color.r, dateText.color.g, dateText.color.b, ruleButton.color.a + (Time.deltaTime / 2.0f));
-
-            //yield return new WaitForSecondsRealtime(1);
-            yield return null;
-        }
-        yield return null;
-        //yield return new WaitForSeconds(5f);
-
-    }
-
     IEnumerator openNameScreen()
     {
         nameScreen.SetActive(true);
         nameBackground.SetActive(true);
-        StartCoroutine(FadeTextToFullAlpha2());
         yield return null;
     }
 

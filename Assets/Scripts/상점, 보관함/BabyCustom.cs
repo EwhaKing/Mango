@@ -71,12 +71,12 @@ public class BabyCustom : MonoBehaviour
         Debug.Log("자식수: " + child_count);
         if(child_count == 4) //상점 속 아기 이미지
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < child_count; i++)
             {
                 babyObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = custom_sprites[i][custom_data];
             }
         }
-        else //미니게임 속 아기 이미지
+        else if(child_count == 2) //미니게임 속 아기 이미지
         {
             babyObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = custom_sprites[0][custom_data]; //옷
             babyObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = custom_sprites[3][custom_data]; //머리
@@ -93,6 +93,14 @@ public class BabyCustom : MonoBehaviour
                 babyScript.left_arm.sprite = custom_sprites[1][custom_data];
                 babyScript.right_arm.sprite = custom_sprites[2][custom_data];
             }
+        }
+        else //시작화면 속 아기 이미지
+        {
+            babyObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = custom_sprites[0][custom_data]; //바디
+            babyObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = custom_sprites[3][custom_data]; //머리
+            babyObject.transform.GetChild(3).gameObject.GetComponent<Image>().sprite = custom_sprites[1][custom_data]; //왼팔
+            babyObject.transform.GetChild(4).gameObject.GetComponent<Image>().sprite = custom_sprites[2][custom_data]; //오른팔
+
         }
     }
 
