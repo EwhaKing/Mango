@@ -8,13 +8,14 @@ using UnityEngine.SceneManagement;
 
 public class LoadingManager : MonoBehaviour
 {
-    float progressPercent = 0f;
     public static string next_scene;
     public int totaluser = 0;
-    public  Slider loadingTimer;
     string url_leader_score = "https://mango-love.herokuapp.com/api/leaders/score";
     string leaderBoard;
     Data leader;
+
+    [SerializeField] public Image progressBar;
+    public Slider loadingBar;
 
     [System.Serializable]
     class Data
@@ -52,7 +53,7 @@ public class LoadingManager : MonoBehaviour
 
     IEnumerator loadGameData()
     {
-        float timer = 0f;
+        Debug.LogWarning("게임데이터");
         DontDestroyOnLoad(GameObject.Find("GameData"));
 
         if (File.Exists(Application.persistentDataPath + "/GameData.json"))
@@ -65,19 +66,14 @@ public class LoadingManager : MonoBehaviour
             Debug.LogWarning("게임파일없음");
             CreateFile();
         }
-        while (timer < 0.33f)
-        {
-            timer += Time.deltaTime*0.5f;
-            loadingTimer.value += Time.deltaTime*0.5f;
-        }
+        progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 0.33f, 1f);
         StartCoroutine(loadLeaderData());
         yield return null;
     }
 
     IEnumerator loadLeaderData()
     {
-        float timer = 0f;
-
+        Debug.LogWarning("리더데이터");
         UnityWebRequest request = new UnityWebRequest();
         request = UnityWebRequest.Get(url_leader_score);
         yield return request.SendWebRequest();
@@ -92,17 +88,14 @@ public class LoadingManager : MonoBehaviour
             leader = JsonUtility.FromJson<Data>("{\"item\":" + leaderBoard + "}");
         }
 
-        while (timer < 0.33f)
-        {
-            timer += Time.deltaTime * 0.5f;
-            loadingTimer.value += Time.deltaTime * 0.5f;
-        }
+        progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 0.66f, 1f);
         StartCoroutine(loadStartScene());
         yield return null;
     }
 
     IEnumerator loadStartScene()
     {
+        Debug.LogWarning("스타트씬");
         yield return null; 
         AsyncOperation op = SceneManager.LoadSceneAsync(next_scene); 
         op.allowSceneActivation = false; 
@@ -111,16 +104,21 @@ public class LoadingManager : MonoBehaviour
             yield return null; 
             if (op.progress < 0.9f) 
             {
-                loadingTimer.value += Time.deltaTime * 0.5f * timer;
-                if(loadingTimer.value > op.progress)
-                {
-                    timer = 0f;
+                loadingBar.value += Time.deltaTime * 0.3f * timer;
+                if (loadingBar.value >= op.progress) 
+                { 
+                    timer = 0f; 
                 }
+                else
+                {
+                    timer = 1f;
+                }
+
             } 
             else 
             {
-                loadingTimer.value += Time.deltaTime * 0.5f;
-                if (loadingTimer.value == 1.0f) 
+                loadingBar.value += Time.deltaTime * 0.3f * timer;
+                if (loadingBar.value == 1.0f) 
                 { 
                     op.allowSceneActivation = true;
                     yield break;

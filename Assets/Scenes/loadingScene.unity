@@ -887,7 +887,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08fae79f694d44c4890ca7ea34f84207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingTimer: {fileID: 1166874975}
+  totaluser: 0
+  progressBar: {fileID: 1110886354}
+  loadingBar: {fileID: 1166874975}
 --- !u!1 &1110886352
 GameObject:
   m_ObjectHideFlags: 0
