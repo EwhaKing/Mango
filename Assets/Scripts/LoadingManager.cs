@@ -114,7 +114,8 @@ public class LoadingManager : MonoBehaviour
             {
                 loadingBar.value += timer;
                 if (loadingBar.value == 1.0f) 
-                { 
+                {
+                    yield return new WaitForSeconds(1f);
                     op.allowSceneActivation = true;
                     yield break;
                 }
@@ -164,8 +165,8 @@ public class LoadingManager : MonoBehaviour
     {
         while (loadingBar.value < destination)
         {
-            loadingBar.value = Mathf.Lerp(loadingBar.value, destination + 0.05f, 0.05f);
-            yield return new WaitForSeconds(0.01f);
+            loadingBar.value = Mathf.Lerp(loadingBar.value, destination + 0.5f, 0.05f);
+            yield return new WaitForSeconds(0.05f);
         }
         Debug.Log(loadingBar.value + "    " + destination);
 
