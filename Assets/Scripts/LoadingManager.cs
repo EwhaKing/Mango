@@ -66,8 +66,7 @@ public class LoadingManager : MonoBehaviour
             Debug.LogWarning("게임파일없음");
             CreateFile();
         }
-        progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 0.33f, 1f);
-        StartCoroutine(loadLeaderData());
+        StartCoroutine(moveProgress(0.33f, "leader"));
         yield return null;
     }
 
@@ -88,8 +87,7 @@ public class LoadingManager : MonoBehaviour
             leader = JsonUtility.FromJson<Data>("{\"item\":" + leaderBoard + "}");
         }
 
-        progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 0.66f, 1f);
-        StartCoroutine(loadStartScene());
+        StartCoroutine(moveProgress(0.66f, "scene"));
         yield return null;
     }
 
@@ -99,25 +97,22 @@ public class LoadingManager : MonoBehaviour
         yield return null; 
         AsyncOperation op = SceneManager.LoadSceneAsync(next_scene); 
         op.allowSceneActivation = false; 
-        float timer = 1f; 
+        float timer = 0.0f; 
         while (!op.isDone) { 
-            yield return null; 
+            yield return null;
+            timer += Time.deltaTime;
             if (op.progress < 0.9f) 
             {
-                loadingBar.value += Time.deltaTime * 0.3f * timer;
+                loadingBar.value = Mathf.Lerp(loadingBar.value, 0.66f + 0.33f*op.progress, timer);
                 if (loadingBar.value >= op.progress) 
                 { 
                     timer = 0f; 
-                }
-                else
-                {
-                    timer = 1f;
                 }
 
             } 
             else 
             {
-                loadingBar.value += Time.deltaTime * 0.3f * timer;
+                loadingBar.value += timer;
                 if (loadingBar.value == 1.0f) 
                 { 
                     op.allowSceneActivation = true;
@@ -163,6 +158,26 @@ public class LoadingManager : MonoBehaviour
     {
         GameStaticData.data.date = 0;
         SaveGameData();
+    }
+
+    IEnumerator moveProgress(float destination, string next)
+    {
+        while (loadingBar.value < destination)
+        {
+            loadingBar.value = Mathf.Lerp(loadingBar.value, destination + 0.05f, 0.05f);
+            yield return new WaitForSeconds(0.01f);
+        }
+        Debug.Log(loadingBar.value + "    " + destination);
+
+        if (next == "leader")
+        {
+            StartCoroutine(loadLeaderData());
+        } 
+        else
+        {
+            StartCoroutine(loadStartScene());
+        }
+        yield return null;
     }
 
 }
