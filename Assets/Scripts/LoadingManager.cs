@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
@@ -16,6 +17,7 @@ public class LoadingManager : MonoBehaviour
 
     [SerializeField] public Image progressBar;
     public Slider loadingBar;
+    public TextMeshProUGUI progress_text;
 
     [System.Serializable]
     class Data
@@ -53,7 +55,7 @@ public class LoadingManager : MonoBehaviour
 
     IEnumerator loadGameData()
     {
-        Debug.LogWarning("게임데이터");
+        progress_text.text = "아기정보를 불러오고 있습니다...";
         DontDestroyOnLoad(GameObject.Find("GameData"));
 
         if (File.Exists(Application.persistentDataPath + "/GameData.json"))
@@ -66,13 +68,53 @@ public class LoadingManager : MonoBehaviour
             Debug.LogWarning("게임파일없음");
             CreateFile();
         }
-        StartCoroutine(moveProgress(0.33f, "leader"));
+        StartCoroutine(moveProgress(0.2f, "shop"));
+        yield return null;
+    }
+
+    IEnumerator loadShopData()
+    {
+        progress_text.text = "아기가 옷을 고르고 있어요...";
+        DontDestroyOnLoad(GameObject.Find("ShopData"));
+
+        if (File.Exists(Application.persistentDataPath + "/ShopData.json"))
+        {
+            Debug.LogWarning("옷파일 있음");
+            Debug.Log("파일 주소: " + Application.persistentDataPath + "/ShopData.json");
+            LoadShopData();
+        }
+        else
+        {
+            Debug.LogWarning("옷파일 없음");
+            CreateShopFile();
+        }
+        StartCoroutine(moveProgress(0.4f, "tea"));
+        yield return null;
+    }
+
+    IEnumerator loadTeaData()
+    {
+        progress_text.text = "아기가 레시피를 보고 있어요...";
+        DontDestroyOnLoad(GameObject.Find("TeaDex"));
+        if (File.Exists(Application.persistentDataPath + "/TeaDex.json"))
+        {
+            Debug.LogWarning("차파일 있음");
+            Debug.Log("파일 주소: " + Application.persistentDataPath + "/TeaDex.json");
+            LoadTeaDex();
+        }
+        else
+        {
+            Debug.LogWarning("차파일 없음");
+            File.Create(Application.persistentDataPath + "/TeaDex.json").Close();
+            createTeaData();
+        }
+        StartCoroutine(moveProgress(0.6f, "leader"));
         yield return null;
     }
 
     IEnumerator loadLeaderData()
     {
-        Debug.LogWarning("리더데이터");
+        progress_text.text = "서버에 접속하고 있습니다(최대 30초 소요가능)...";
         UnityWebRequest request = new UnityWebRequest();
         request = UnityWebRequest.Get(url_leader_score);
         yield return request.SendWebRequest();
@@ -87,13 +129,13 @@ public class LoadingManager : MonoBehaviour
             leader = JsonUtility.FromJson<Data>("{\"item\":" + leaderBoard + "}");
         }
 
-        StartCoroutine(moveProgress(0.66f, "scene"));
+        StartCoroutine(moveProgress(0.8f, "scene"));
         yield return null;
     }
 
     IEnumerator loadStartScene()
     {
-        Debug.LogWarning("스타트씬");
+        progress_text.text = "아기가 가게를 열고 있어요...";
         yield return null; 
         AsyncOperation op = SceneManager.LoadSceneAsync(next_scene); 
         op.allowSceneActivation = false; 
@@ -103,7 +145,7 @@ public class LoadingManager : MonoBehaviour
             timer += Time.deltaTime;
             if (op.progress < 0.9f) 
             {
-                loadingBar.value = Mathf.Lerp(loadingBar.value, 0.66f + 0.33f*op.progress, timer);
+                loadingBar.value = Mathf.Lerp(loadingBar.value, 0.8f + 0.2f*op.progress, timer);
                 if (loadingBar.value >= op.progress) 
                 { 
                     timer = 0f; 
@@ -161,6 +203,56 @@ public class LoadingManager : MonoBehaviour
         SaveGameData();
     }
 
+    public void LoadShopData()
+    {
+        string str = File.ReadAllText(Application.persistentDataPath + "/ShopData.json");
+        ShopDataScript.sd = JsonUtility.FromJson<ShopData>(str);
+        Debug.Log("불러온 옷: " + str);
+
+    }
+
+    public void CreateShopFile()
+    {
+        File.Create(Application.persistentDataPath + "/ShopData.json").Close();
+        ShopDataScript.sd = JsonUtility.FromJson<ShopData>("{\"item\":[{\"item_num\":0,\"item_name\":\"기본옷\", \"item_cost\":0,\"own\":true},{\"item_num\":1,\"item_name\":\"꿀벌옷\", \"item_cost\":30000,\"own\": false},{\"item_num\":2,\"item_name\":\"피크닉옷\", \"item_cost\":30000,\"own\":false},{\"item_num\":3,\"item_name\":\"곰돌이잠옷\", \"item_cost\":40000,\"own\":false},{\"item_num\":4,\"item_name\":\"한복 치마\", \"item_cost\":50000,\"own\":false},{\"item_num\":5,\"item_name\":\"한복 두루마기\", \"item_cost\":50000,\"own\":false},{\"item_num\":6,\"item_name\":\"꽃무늬옷\", \"item_cost\":20000,\"own\":false},{\"item_num\":7,\"item_name\":\"멜빵옷\", \"item_cost\":20000,\"own\":false},{\"item_num\":8,\"item_name\":\"루돌프옷\", \"item_cost\":30000,\"own\":false},{\"item_num\":9,\"item_name\":\"산타옷\", \"item_cost\":30000,\"own\":false},{\"item_num\":10,\"item_name\":\"병아리잠옷\", \"item_cost\":40000,\"own\":false}]}");
+        File.WriteAllText(Application.persistentDataPath + "/ShopData.json", JsonUtility.ToJson(ShopDataScript.sd));
+    }
+
+    public void LoadTeaDex()
+    {
+        string str = File.ReadAllText(Application.persistentDataPath + "/TeaDex.json");
+        TeaDataScript.teaDex = JsonUtility.FromJson<TeaDex>(str);
+        Debug.Log("불러온 차도감: " + str);
+
+    }
+
+    public void createTeaData()
+    {
+        TeaDataScript.teaDex.item[0] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 0, \"tea_name\": \"형아를 위한 차\",\"tea_recipe\": [{\"ingredient_num\": 0,\"ingredient_amout\": 8}],\"own\": false}");
+        TeaDataScript.teaDex.item[1] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 1, \"tea_name\": \"눈에서 꿀이 뚝뚝\",\"tea_recipe\": [{\"ingredient_num\": 13,\"ingredient_amout\": 8}],\"own\": false}");
+        TeaDataScript.teaDex.item[2] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 2, \"tea_name\": \"코코파인 플리쉬\",\"tea_recipe\": [{\"ingredient_num\": 8,\"ingredient_amout\": 4}, {\"ingredient_num\": 5,\"ingredient_amout\": 4}],\"own\": false}");
+        TeaDataScript.teaDex.item[3] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 3, \"tea_name\": \"딸바보 주스\",\"tea_recipe\": [{\"ingredient_num\": 2,\"ingredient_amout\": 2}, {\"ingredient_num\": 3,\"ingredient_amout\": 2}, {\"ingredient_num\": 15,\"ingredient_amout\": 4}],\"own\": false}");
+        TeaDataScript.teaDex.item[4] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 4, \"tea_name\": \"허니만을 위한 밀크티❤\",\"tea_recipe\": [{\"ingredient_num\": 13,\"ingredient_amout\": 2}, {\"ingredient_num\": 10,\"ingredient_amout\": 3}, {\"ingredient_num\": 15,\"ingredient_amout\": 3}],\"own\": false}");
+
+        TeaDataScript.teaDex.item[5] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 5, \"tea_name\": \"레몬디베트\",\"tea_recipe\": [{\"ingredient_num\": 11,\"ingredient_amout\": 3}, {\"ingredient_num\": 14,\"ingredient_amout\": 3}, {\"ingredient_num\": 15,\"ingredient_amout\": 2}],\"own\": false}");
+        TeaDataScript.teaDex.item[6] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 6, \"tea_name\": \"레몬아...나 자몽다...\",\"tea_recipe\": [{\"ingredient_num\": 3,\"ingredient_amout\": 4}, {\"ingredient_num\": 0,\"ingredient_amout\": 2}, {\"ingredient_num\": 1,\"ingredient_amout\": 2}],\"own\": false}");
+        TeaDataScript.teaDex.item[7] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 7, \"tea_name\": \"올때 메론라떼\",\"tea_recipe\": [{\"ingredient_num\": 9,\"ingredient_amout\": 4}, {\"ingredient_num\": 15,\"ingredient_amout\": 6}],\"own\": false}");
+        TeaDataScript.teaDex.item[8] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 8, \"tea_name\": \"궁금해 허니~\",\"tea_recipe\": [{\"ingredient_num\": 9,\"ingredient_amout\": 5}, {\"ingredient_num\": 15,\"ingredient_amout\": 5}],\"own\": false}");
+        TeaDataScript.teaDex.item[9] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 9, \"tea_name\": \"민트 폴라디츠\",\"tea_recipe\": [{\"ingredient_num\": 11,\"ingredient_amout\": 2}, {\"ingredient_num\": 14,\"ingredient_amout\": 3}, {\"ingredient_num\": 15,\"ingredient_amout\": 5}],\"own\": false}");
+
+        TeaDataScript.teaDex.item[10] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 10, \"tea_name\": \"언덕위의 트로피컬\",\"tea_recipe\": [{\"ingredient_num\": 4,\"ingredient_amout\": 3}, {\"ingredient_num\": 5,\"ingredient_amout\": 3}, {\"ingredient_num\": 6,\"ingredient_amout\": 4}],\"own\": false}");
+        TeaDataScript.teaDex.item[11] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 11, \"tea_name\": \"디벳 민트 초코티\",\"tea_recipe\": [{\"ingredient_num\": 12,\"ingredient_amout\": 4}, {\"ingredient_num\": 11,\"ingredient_amout\": 2}, {\"ingredient_num\": 14,\"ingredient_amout\": 4}],\"own\": false}");
+        TeaDataScript.teaDex.item[12] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 12, \"tea_name\": \"신호등 주스\",\"tea_recipe\": [{\"ingredient_num\": 7,\"ingredient_amout\": 4}, {\"ingredient_num\": 2,\"ingredient_amout\": 3}, {\"ingredient_num\": 3,\"ingredient_amout\": 3}],\"own\": false}");
+        TeaDataScript.teaDex.item[13] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 13, \"tea_name\": \"봄사랑 벚꽃차\",\"tea_recipe\": [{\"ingredient_num\": 19,\"ingredient_amout\": 8}],\"own\": false}");
+        TeaDataScript.teaDex.item[14] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 14, \"tea_name\": \"쑥쑥라떼\",\"tea_recipe\": [{\"ingredient_num\": 16,\"ingredient_amout\": 4}, {\"ingredient_num\": 15,\"ingredient_amout\": 8}],\"own\": false}");
+
+        TeaDataScript.teaDex.item[15] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 15, \"tea_name\": \"감기 뚝 마늘차\",\"tea_recipe\": [{\"ingredient_num\": 17,\"ingredient_amout\": 4}, {\"ingredient_num\": 13,\"ingredient_amout\": 8}],\"own\": false}");
+        TeaDataScript.teaDex.item[16] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 16, \"tea_name\": \"PROTEIN\",\"tea_recipe\": [{\"ingredient_num\": 18,\"ingredient_amout\": 9}, {\"ingredient_num\": 3,\"ingredient_amout\": 5}],\"own\": false}");
+        TeaDataScript.teaDex.item[17] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 17, \"tea_name\": \"아프디망고!\",\"tea_recipe\": [{\"ingredient_num\": 20,\"ingredient_amout\": 18}],\"own\": false}");
+
+        File.WriteAllText(Application.persistentDataPath + "/TeaDex.json", JsonUtility.ToJson(TeaDataScript.teaDex));
+    }
+
     IEnumerator moveProgress(float destination, string next)
     {
         while (loadingBar.value < destination)
@@ -170,10 +262,18 @@ public class LoadingManager : MonoBehaviour
         }
         Debug.Log(loadingBar.value + "    " + destination);
 
-        if (next == "leader")
+        if (next == "shop")
+        {
+            StartCoroutine(loadShopData());
+        }
+        else if (next == "tea")
+        {
+            StartCoroutine(loadTeaData());
+        }
+        else if (next == "leader")
         {
             StartCoroutine(loadLeaderData());
-        } 
+        }
         else
         {
             StartCoroutine(loadStartScene());
