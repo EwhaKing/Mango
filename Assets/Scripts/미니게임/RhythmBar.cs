@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class RhythmBar : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class RhythmBar : MonoBehaviour
 
     public float MaxSuccess;
     public float MinSuccess;
-    float speed = 1500f;
+    public float touchPos = 0;
+    float speed = 500f;
     float currPos;
 
     //public float success = 0;
@@ -27,6 +29,7 @@ public class RhythmBar : MonoBehaviour
     //오브젝트 리스트 dropDrop 선언
     public GameObject[] dropDrop;
     public GameObject successArea;
+    public TextMeshProUGUI successText;
 
     //성공 횟수로 차 가격 설정하기
     public static int success_count;
@@ -41,6 +44,7 @@ public class RhythmBar : MonoBehaviour
     {
         currPos = this.transform.localPosition.y;
         successArea = GameObject.FindGameObjectWithTag("SuccessArea");
+        successText.transform.gameObject.SetActive(false);
 
         //dropDrop 리스트에 DropDrop 태그 걸은 오브젝트들(3개-방울) 추가
         //dropDrop = GameObject.FindGameObjectsWithTag("DropDrop");
@@ -76,6 +80,7 @@ public class RhythmBar : MonoBehaviour
     //특정 영역 클릭시 리듬바에 대한 수행
     public void OnClickBaby_RhythmBar()
     {
+        setTextDeactive();
         if (cnt == 3)
         {
             for (int i = 0; i < 3; i++)
@@ -85,11 +90,16 @@ public class RhythmBar : MonoBehaviour
             cnt = 0;
         }
 
-        float now = this.transform.localPosition.y;
-        if (now >= MinSuccess && now <= MaxSuccess)
+        touchPos = this.transform.localPosition.y;
+        if (touchPos >= MinSuccess && touchPos <= MaxSuccess)
         {
-            Debug.Log("success pos: " + now);
+            Debug.Log("success pos: " + touchPos);
             GameObject.Find("TimeSlider").GetComponent<SliderTimer>().success = 0.10f;
+            
+            //성공 텍스트 띄우기
+            successText.text = "SUCCESS";
+            successText.transform.localPosition = new Vector3(successText.transform.localPosition.x, touchPos);
+            setTextActive();
 
             //성공범위에 포함되면 과일색 방울로 이미지 바꿈
             dropDrop[cnt].GetComponent<Image>().sprite = Success;
@@ -109,8 +119,13 @@ public class RhythmBar : MonoBehaviour
         }
         else
         {
-            Debug.Log("fail pos: " + now);
+            Debug.Log("fail pos: " + touchPos);
             GameObject.Find("TimeSlider").GetComponent<SliderTimer>().success = -0.067f;
+
+            //실패 텍스트 띄우기
+            successText.text = "MISS";
+            successText.transform.localPosition = new Vector3(successText.transform.localPosition.x, touchPos);
+            setTextActive();
 
             //실패범위에 포함되면 실패한 방울로 이미지 바꿈
             dropDrop[cnt].GetComponent<Image>().sprite = Fail;
@@ -129,5 +144,15 @@ public class RhythmBar : MonoBehaviour
         }
 
         cnt++;
+    }
+
+    void setTextDeactive()
+    {
+        successText.transform.gameObject.SetActive(false);
+    }
+
+    void setTextActive()
+    {
+        successText.transform.gameObject.SetActive(true);
     }
 }
