@@ -29,33 +29,6 @@ public class GameStaticData : MonoBehaviour
 
     //스타트 버튼 이어하기랑 게임시작 중 선택하는 코드 부분 StartButtonText.cs에 옮겼습니다! (로딩씬에서 gamestaticdata 시작하기위해)
 
-    void Awake()
-    {
-        DontDestroyOnLoad(GameObject.Find("GameData"));
-
-        if (File.Exists(Application.persistentDataPath + "/GameData.json"))
-        {
-            Debug.LogWarning("게임파일있음");
-            Debug.Log("파일 주소: " + Application.persistentDataPath + "/GameData.json");
-            LoadGameData();
-            //DateCheck(); 
-        }
-        else
-        {
-            Debug.LogWarning("게임파일없음");
-            Invoke("CreateFile", 0.1f);
-            Invoke("LoadGameData", 0.2f);
-            Invoke("DateCheck", 0.3f);
-        }
-    }
-
-    void CreateFile()
-    {
-        File.Create(Application.persistentDataPath + "/GameData.json").Close();
-        data = JsonUtility.FromJson<GameData>("{\"data_money\": 0,\"data_cloth\": 0,\"date\" :  0,\"name\" : \"\"}");
-        File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(data));
-    }
-
     // Start is called before the first frame update
     /*void DateCheck()
     {
