@@ -434,7 +434,7 @@ RectTransform:
   m_Children:
   - {fileID: 754088607}
   m_Father: {fileID: 823197671}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1459,8 +1459,9 @@ GameObject:
   - component: {fileID: 268899439}
   - component: {fileID: 268899438}
   - component: {fileID: 268899437}
+  - component: {fileID: 268899440}
   m_Layer: 5
-  m_Name: Recipe_list_title1
+  m_Name: Recipe_list_title1_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1482,7 +1483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -750, y: 325}
+  m_AnchoredPosition: {x: -740, y: 325}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &268899437
@@ -1528,6 +1529,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 268899440}
+        m_MethodName: OnClickDrink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1244509165}
         m_MethodName: set_text
         m_Mode: 5
@@ -1576,6 +1588,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268899435}
   m_CullTransparentMesh: 0
+--- !u!114 &268899440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268899435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdbb457f75f9e54087bc93e0f773152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeDetailBg: {fileID: 1028209530}
+  DrinkBg: {fileID: 21300000, guid: 17a30fff97518f84c8ea247745ce5322, type: 3}
+  TeaBg: {fileID: 21300000, guid: 9bfb613ae85b236439e6698889c6449a, type: 3}
+  SpecialBg: {fileID: 21300000, guid: 04a9d962e1af1f3448907064d4519a95, type: 3}
 --- !u!1 &286655228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,7 +2071,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2038787374}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2153,8 +2181,9 @@ GameObject:
   - component: {fileID: 384688369}
   - component: {fileID: 384688368}
   - component: {fileID: 384688367}
+  - component: {fileID: 384688370}
   m_Layer: 5
-  m_Name: Recipe_list_title3
+  m_Name: Recipe_list_title3_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2176,7 +2205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -750, y: 25}
+  m_AnchoredPosition: {x: -740, y: 25}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384688367
@@ -2233,6 +2262,17 @@ MonoBehaviour:
           m_StringArgument: "\uC2A4\uD398\uC15C \uB808\uC2DC\uD53C"
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 384688370}
+        m_MethodName: OnClickSpecial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &384688368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2270,6 +2310,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384688365}
   m_CullTransparentMesh: 0
+--- !u!114 &384688370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384688365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdbb457f75f9e54087bc93e0f773152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeDetailBg: {fileID: 1028209530}
+  DrinkBg: {fileID: 21300000, guid: 17a30fff97518f84c8ea247745ce5322, type: 3}
+  TeaBg: {fileID: 21300000, guid: 9bfb613ae85b236439e6698889c6449a, type: 3}
+  SpecialBg: {fileID: 21300000, guid: 04a9d962e1af1f3448907064d4519a95, type: 3}
 --- !u!1 &396801917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,8 +2695,9 @@ GameObject:
   - component: {fileID: 524139026}
   - component: {fileID: 524139025}
   - component: {fileID: 524139024}
+  - component: {fileID: 524139027}
   m_Layer: 5
-  m_Name: Recipe_list_title2
+  m_Name: Recipe_list_title2_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2662,7 +2719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -750, y: 175}
+  m_AnchoredPosition: {x: -740, y: 175}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &524139024
@@ -2708,6 +2765,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 524139027}
+        m_MethodName: OnClickTea
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1244509165}
         m_MethodName: set_text
         m_Mode: 5
@@ -2756,6 +2824,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524139022}
   m_CullTransparentMesh: 0
+--- !u!114 &524139027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524139022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdbb457f75f9e54087bc93e0f773152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeDetailBg: {fileID: 1028209530}
+  DrinkBg: {fileID: 21300000, guid: 17a30fff97518f84c8ea247745ce5322, type: 3}
+  TeaBg: {fileID: 21300000, guid: 9bfb613ae85b236439e6698889c6449a, type: 3}
+  SpecialBg: {fileID: 21300000, guid: 04a9d962e1af1f3448907064d4519a95, type: 3}
 --- !u!1 &548706899
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,7 +3336,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 823197671}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3308,6 +3392,29 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1244509165}
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "\uC74C\uB8CC \uB808\uC2DC\uD53C"
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1028209532}
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 21300000, guid: 17a30fff97518f84c8ea247745ce5322,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3883,9 +3990,9 @@ RectTransform:
   - {fileID: 1592874322}
   - {fileID: 87629980}
   - {fileID: 1145078577}
+  - {fileID: 48124941}
   - {fileID: 686110137}
   - {fileID: 2038787374}
-  - {fileID: 48124941}
   - {fileID: 1925829783}
   - {fileID: 1443624794}
   m_Father: {fileID: 0}
@@ -4460,13 +4567,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93725497, g: 0.9058824, b: 0.81568635, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 00fc7ce36be818d4088e958c63748e7e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8558,7 +8665,7 @@ GameObject:
   - component: {fileID: 2038787376}
   - component: {fileID: 2038787375}
   m_Layer: 5
-  m_Name: Recipe_box
+  m_Name: Recipe_popup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8581,9 +8688,10 @@ RectTransform:
   - {fileID: 1244509164}
   - {fileID: 102274086}
   - {fileID: 1028209531}
+  - {fileID: 2039919887}
   - {fileID: 382737791}
   m_Father: {fileID: 823197671}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8609,7 +8717,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 57adca095e6bce143ae7cc711d8be561, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8626,6 +8734,80 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038787373}
+  m_CullTransparentMesh: 0
+--- !u!1 &2039919886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2039919887}
+  - component: {fileID: 2039919889}
+  - component: {fileID: 2039919888}
+  m_Layer: 5
+  m_Name: Recipe_detail_x
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2039919887
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039919886}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2038787374}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -375, y: -250}
+  m_SizeDelta: {x: 500, y: 250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2039919888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039919886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a221d33702526d447bfe4b2bcd3a2e9a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2039919889
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039919886}
   m_CullTransparentMesh: 0
 --- !u!1 &2042502160
 GameObject:
