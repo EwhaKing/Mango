@@ -315,9 +315,12 @@ public class TeaManager : MonoBehaviour
                 break;
             }
         }
-        if (check) //도감 얻음
+        if (check && TeaDataScript.teaDex.item[recipe].own == false) //기존에 없고 조건 만족 -> 도감 얻음
         {
+            Debug.Log("레시피 획득! " + recipe);
+
             get_recipe = recipe;
+            TeaDataScript.teaDex.item[recipe].own = true;
         }
     }
 
