@@ -103,10 +103,4 @@ public class BabyCustom : MonoBehaviour
 
         }
     }
-
-    public void lockerStart()
-    {
-        changeBabyCustom(GameStaticData.data.data_cloth); //현재 입고 있는 옷세트의 번호 매개변수로 보내기
-    }
-
 }

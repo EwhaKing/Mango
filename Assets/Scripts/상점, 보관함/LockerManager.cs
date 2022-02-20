@@ -67,7 +67,6 @@ public class LockerManager : MonoBehaviour
                 cnt++;
             }
         }
-
     }
 
     public void addClotheLocker(int clothe_sprite)
@@ -78,20 +77,42 @@ public class LockerManager : MonoBehaviour
         item.transform.localScale = Vector3.one;
         item.transform.localRotation = Quaternion.identity;
 
+        //현재 입은 옷 정보 변경
+        GameStaticData.data.data_cloth = clothe_sprite;
+
+        //오브젝트에 추가
         item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = set_clothes[clothe_sprite];
+
+        //new텍스트 활성화
+        item.transform.GetChild(1).gameObject.SetActive(true);
+
+        //스크롤뷰 오른쪽 보이도록
+        item.transform.parent.localPosition = new Vector2(-100000f, item.transform.parent.localPosition.y);
+
+        //보관함 스프라이트 추가
         locker_sprites.Add(clothe_sprite);
     }
 
-    public void onClickLocker() //보관함 켤때마다 실행하는 함수 (현재 입고 있는 옷 뜨도록)
+    //기존 보관함 UI에 덮어씌기
+    public void onLockerLoad()
     {
-        GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(GameStaticData.data.data_cloth); //아기 옷 입히기 적용
-        //옷 토글
-        _item.transform.parent.transform.GetChild(GameStaticData.data.data_cloth).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
-        //나머지는 토글 풀기
-        for (int i = 0; i < _item.transform.parent.transform.childCount; i++)
+        int cnt = _item.transform.parent.transform.childCount; //총 몇 개 보관하고 있는지
+
+        //보관 옷 토글 + new 관리
+        for (int i = 0; i < cnt; i++)
         {
-            if (i != GameStaticData.data.data_cloth) _item.transform.parent.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+            GameObject item = _item.transform.parent.GetChild(i).gameObject;
+
+            //현재 입고 있는 옷이라면
+            if(locker_sprites[i] == GameStaticData.data.data_cloth)
+            {
+                item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
+                GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(GameStaticData.data.data_cloth); //현재 입고 있는 옷 입히기
+            }
+            else
+            {
+                item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+            }
         }
     }
-
 }

@@ -13,7 +13,7 @@ public class RhythmBar : MonoBehaviour
     public float MaxSuccess;
     public float MinSuccess;
     public float touchPos = 0;
-    float speed = 500f;
+    float speed = 1500f;
     float currPos;
 
     //public float success = 0;
@@ -116,6 +116,12 @@ public class RhythmBar : MonoBehaviour
 
             //성공하면 횟수 추가
             success_count++;
+
+            //성공하면 각 과일 성공 개수 증가
+            TeaManager teaManager = GameObject.Find("GameManager").GetComponent<TeaManager>();
+            teaManager.success_num[teaManager.fruit_current]++;
+
+            Debug.Log("현재 과일 " + teaManager.fruit_current + "의 성공 개수: " + teaManager.success_num[teaManager.fruit_current]);
         }
         else
         {

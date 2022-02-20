@@ -336,7 +336,7 @@ RectTransform:
   - {fileID: 263368998}
   - {fileID: 656280433}
   m_Father: {fileID: 409574621}
-  m_RootOrder: 17
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 87515917}
   - component: {fileID: 87515916}
   m_Layer: 5
-  m_Name: Image_babytea_lemon
+  m_Name: Image_babytea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,7 +758,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 162.99992, y: -207}
-  m_SizeDelta: {x: 300, y: 320}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &87515916
 MonoBehaviour:
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5097e1c33fa997e43a259fd3c0cc5b93, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95f72ce82b96ebd4385c954f1679d60e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1082,7 +1082,7 @@ RectTransform:
   - {fileID: 1521343664}
   - {fileID: 1585591831}
   m_Father: {fileID: 409574621}
-  m_RootOrder: 23
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1360,13 +1360,59 @@ MonoBehaviour:
   - {fileID: 1950607942}
   - {fileID: 1558493338}
   fruits_image:
-  - {fileID: 87515916}
-  - {fileID: 1173771414}
-  - {fileID: 672171364}
+  - {fileID: 1525292381}
+  - {fileID: 1039252200}
+  - {fileID: 796513435}
+  fruits_recipe_sprite:
+  - {fileID: 21300000, guid: 6db298592aba29a41854f0c49f213a29, type: 3}
+  - {fileID: 21300000, guid: 3869ab5369916fc46938fea02a22d217, type: 3}
+  - {fileID: 21300000, guid: e7049e4483f047143a9d6059f2bc3114, type: 3}
+  - {fileID: 21300000, guid: 34619e811ca86a047b7c05ff9374aee4, type: 3}
+  - {fileID: 21300000, guid: f1bfcc06a18447348a39e3aa03f34954, type: 3}
+  - {fileID: 21300000, guid: f137c7c28a628eb42848a4f1a57a81bc, type: 3}
+  - {fileID: 21300000, guid: 6e0c6e5ac91ef8f40b7d2aaf9ea75f06, type: 3}
+  - {fileID: 21300000, guid: 42b302a5792a3b446b61e1f35cd64ba5, type: 3}
+  - {fileID: 21300000, guid: 9429a4945d375ae46bd89fa7f91c87fc, type: 3}
+  - {fileID: 21300000, guid: 0e14ea8ef2aa8fb42ae326ac3ddbca30, type: 3}
+  - {fileID: 21300000, guid: 92fa828bbad13754caae14b5b54099a7, type: 3}
+  - {fileID: 21300000, guid: 99b695b97e6d5bd418f36cec09447b8d, type: 3}
+  - {fileID: 21300000, guid: 92fa828bbad13754caae14b5b54099a7, type: 3}
+  - {fileID: 21300000, guid: f9179910750166c4c9fa360991d942dc, type: 3}
+  - {fileID: 21300000, guid: cc6891164409ef74495e44d65ad95bc0, type: 3}
+  - {fileID: 21300000, guid: 620e93563f362ba4c950f2efb185aa55, type: 3}
+  - {fileID: 21300000, guid: 0c236aad8af0fd04fb7e45371deb817d, type: 3}
+  - {fileID: 21300000, guid: 3fa462b8811cb3a4a85878115f91d9f7, type: 3}
+  - {fileID: 21300000, guid: d771d041095223c4a853bf3df53fec4f, type: 3}
+  - {fileID: 21300000, guid: acd3dd5d6bb38d24b8449807bc565f36, type: 3}
+  - {fileID: 21300000, guid: 086eb9a1dffb1e54f89a95af047f02c3, type: 3}
+  fruits_sprite:
+  - {fileID: 21300000, guid: 5097e1c33fa997e43a259fd3c0cc5b93, type: 3}
+  - {fileID: 21300000, guid: 94545a66ea7736a499d9f1d54185470e, type: 3}
+  - {fileID: 21300000, guid: 09e52de4b28a4b84db8fe673e1e79bea, type: 3}
+  - {fileID: 21300000, guid: e77685f693d07574d806d272059f4da7, type: 3}
+  - {fileID: 21300000, guid: 63f9ff6a9a7008e43a41db14c6c1c271, type: 3}
+  - {fileID: 21300000, guid: 68852402e1d5b674183a5557553a6e78, type: 3}
+  - {fileID: 21300000, guid: ea27869c5bcee8640bab52a463db02cd, type: 3}
+  - {fileID: 21300000, guid: 9b39c0f875429fc489be389a6b42bab0, type: 3}
+  - {fileID: 21300000, guid: 7c7fb967822a29c4988b483245b6b34a, type: 3}
+  - {fileID: 21300000, guid: 6b75710769c56fd488cd90688de7d7aa, type: 3}
+  - {fileID: 21300000, guid: 92fa828bbad13754caae14b5b54099a7, type: 3}
+  - {fileID: 21300000, guid: 99b695b97e6d5bd418f36cec09447b8d, type: 3}
+  - {fileID: 21300000, guid: 92fa828bbad13754caae14b5b54099a7, type: 3}
+  - {fileID: 21300000, guid: da45b6c23399413488e31ab63c53fb75, type: 3}
+  - {fileID: 21300000, guid: f7c973f0cdf37b2469aec50c3430f7a3, type: 3}
+  - {fileID: 21300000, guid: 95f72ce82b96ebd4385c954f1679d60e, type: 3}
+  - {fileID: 21300000, guid: 0c236aad8af0fd04fb7e45371deb817d, type: 3}
+  - {fileID: 21300000, guid: fe3b89bc286a92a42aef43cb4ad02c2a, type: 3}
+  - {fileID: 21300000, guid: d771d041095223c4a853bf3df53fec4f, type: 3}
+  - {fileID: 21300000, guid: acd3dd5d6bb38d24b8449807bc565f36, type: 3}
+  - {fileID: 21300000, guid: c941652d4a620084fa923583fb559aa6, type: 3}
   fruits_num: 000000000000000000000000
+  fruits_index: 000000000000000000000000
   num: 6
   finish_condition: 0
   fruit_current: 0
+  fruits_mini: {fileID: 87515916}
   button_touch: {fileID: 1829095400}
   lemonCircle: {fileID: 1091608792}
   circleSprite:
@@ -1448,7 +1494,7 @@ RectTransform:
   m_Children:
   - {fileID: 1940735649}
   m_Father: {fileID: 409574621}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1592,8 +1638,6 @@ RectTransform:
   - {fileID: 93907251}
   - {fileID: 1266092805}
   - {fileID: 87515915}
-  - {fileID: 672171363}
-  - {fileID: 1173771413}
   - {fileID: 424660942}
   - {fileID: 1967803104}
   - {fileID: 865826906}
@@ -1720,7 +1764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &424660942
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1733,7 +1777,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409574621}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.819}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1888,7 +1932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &476142153
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1901,7 +1945,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409574621}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2671,80 +2715,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656280432}
   m_CullTransparentMesh: 0
---- !u!1 &672171362
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 672171363}
-  - component: {fileID: 672171365}
-  - component: {fileID: 672171364}
-  m_Layer: 5
-  m_Name: Image_babytea_honey
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &672171363
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672171362}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 409574621}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 162.99992, y: -185}
-  m_SizeDelta: {x: 240, y: 320}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &672171364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672171362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: da45b6c23399413488e31ab63c53fb75, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &672171365
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672171362}
-  m_CullTransparentMesh: 0
 --- !u!1 &695629994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,7 +3003,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409574621}
-  m_RootOrder: 18
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3089,7 +3059,7 @@ GameObject:
   - component: {fileID: 796513436}
   - component: {fileID: 796513435}
   m_Layer: 5
-  m_Name: Image_honey
+  m_Name: Image3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3186,7 +3156,7 @@ RectTransform:
   - {fileID: 920576381}
   - {fileID: 1608636584}
   m_Father: {fileID: 409574621}
-  m_RootOrder: 22
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3248,7 +3218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &865826906
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3261,7 +3231,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409574621}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3485,7 +3455,7 @@ GameObject:
   - component: {fileID: 1039252201}
   - component: {fileID: 1039252200}
   m_Layer: 5
-  m_Name: Image_jamong
+  m_Name: Image2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3636,7 +3606,7 @@ GameObject:
   - component: {fileID: 1091608794}
   - component: {fileID: 1091608796}
   m_Layer: 5
-  m_Name: Image_lemoncircle
+  m_Name: Image_circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3654,7 +3624,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409574621}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3822,7 +3792,7 @@ RectTransform:
   - {fileID: 1910403784}
   - {fileID: 620715330}
   m_Father: {fileID: 409574621}
-  m_RootOrder: 24
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3882,80 +3852,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128941437}
-  m_CullTransparentMesh: 0
---- !u!1 &1173771412
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1173771413}
-  - component: {fileID: 1173771415}
-  - component: {fileID: 1173771414}
-  m_Layer: 5
-  m_Name: Image_babytea_jamong
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1173771413
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173771412}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 409574621}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 153, y: -218.00003}
-  m_SizeDelta: {x: 280, y: 320}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1173771414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173771412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 94545a66ea7736a499d9f1d54185470e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1173771415
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173771412}
   m_CullTransparentMesh: 0
 --- !u!1 &1195033450
 GameObject:
@@ -4345,7 +4241,7 @@ RectTransform:
   m_Children:
   - {fileID: 1125333717}
   m_Father: {fileID: 409574621}
-  m_RootOrder: 20
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4837,7 +4733,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409574621}
-  m_RootOrder: 21
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -5180,7 +5076,7 @@ GameObject:
   - component: {fileID: 1481240789}
   - component: {fileID: 1481240788}
   m_Layer: 5
-  m_Name: Text_lemon
+  m_Name: Text_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5456,7 +5352,7 @@ GameObject:
   - component: {fileID: 1525292382}
   - component: {fileID: 1525292381}
   m_Layer: 5
-  m_Name: Image_lemon
+  m_Name: Image1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5606,7 +5502,7 @@ GameObject:
   - component: {fileID: 1558493339}
   - component: {fileID: 1558493338}
   m_Layer: 5
-  m_Name: Text_honey
+  m_Name: Text_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6405,7 +6301,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409574621}
-  m_RootOrder: 19
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6922,7 +6818,7 @@ GameObject:
   - component: {fileID: 1950607943}
   - component: {fileID: 1950607942}
   m_Layer: 5
-  m_Name: Text_jamong
+  m_Name: Text_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7080,7 +6976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1967803104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7093,7 +6989,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409574621}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 14.248001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
