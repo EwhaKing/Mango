@@ -6046,6 +6046,7 @@ GameObject:
   - component: {fileID: 1636689353}
   - component: {fileID: 1636689352}
   - component: {fileID: 1636689351}
+  - component: {fileID: 1636689355}
   m_Layer: 5
   m_Name: continue
   m_TagString: KeepGoing
@@ -6182,6 +6183,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636689349}
   m_CullTransparentMesh: 0
+--- !u!111 &1636689355
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636689349}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 603f30d8b1d4ede4aac4e11a63ada010, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 603f30d8b1d4ede4aac4e11a63ada010, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1665630747
 GameObject:
   m_ObjectHideFlags: 0
