@@ -64,7 +64,7 @@ public class UserRegister : MonoBehaviour
                 textError.text = "이름 등록 완료!";
                 GameStaticData.data.name = username;
                 File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
-                Debug.Log(result + "    " + PlayerPrefs.GetString("PlayerName"));
+                Debug.Log(result + "    " + GameStaticData.data.name);
 
                 Invoke("closeNameScreen", 0.5f);
             }
@@ -73,8 +73,6 @@ public class UserRegister : MonoBehaviour
 
     void closeNameScreen()
     {
-        nameScreen.SetActive(false);
-        nameBackground.SetActive(false);
         SceneManager.LoadScene("StartScene"); //스타트 씬 띄우기
     }
 

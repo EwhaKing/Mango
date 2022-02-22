@@ -9,66 +9,145 @@ using UnityEngine.SceneManagement;
 public class GameStory : MonoBehaviour
 {
     //public Text text;
-    public Image blackBg;
-    public Image storyText;
-    public GameObject black;
-    public GameObject story;
-    public GameObject nameScreen;
-    public GameObject nameBackground;
-
+    public Image background;
+    public Image story;
+    public Image fake_background;
+    public Image curtain;
+    public Image caption_back;
+    public TextMeshProUGUI textCaption;
     public TextMeshProUGUI textUsername;
 
-    //버튼들 페이드 인은 StartButtonText.cs 스크립트에 옮겼습니다! (스토리 씬이랑 스타트씬 분리하기 위해)
+    public static int index = 0;
+    public int currIndex = 0;
+    public List<Sprite> storyImages;
+    public List<string> storyCaptions;
 
-
+    void Awake()
+    {
+        background.transform.gameObject.SetActive(false);
+        story.transform.gameObject.SetActive(false);
+        curtain.transform.gameObject.SetActive(false);
+        caption_back.transform.gameObject.SetActive(false);
+    }
     void Start()
     {
         StartCoroutine(FadeTextToFullAlpha());
     }
 
-    //스토리 fade in fade out
+
     IEnumerator FadeTextToFullAlpha() // 알파값 0 -> 1
     {
-        //text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
-        storyText.color = new Color(storyText.color.r, storyText.color.g, storyText.color.b, 0);
-        
-        while (storyText.color.a < 1.0f)
+        fake_background.color = new Color(fake_background.color.r, fake_background.color.g, fake_background.color.b, 0);
+        while (fake_background.color.a < 1.0f)
         {
-            //text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a + (Time.deltaTime / 2.0f));
-            storyText.color = new Color(storyText.color.r, storyText.color.g, storyText.color.b, storyText.color.a + (Time.deltaTime / 3.0f));
+            fake_background.color = new Color(fake_background.color.r, fake_background.color.g, fake_background.color.b, fake_background.color.a + (Time.deltaTime / 3.0f));
             yield return null;
-            
+
+        }
+        yield return new WaitForSeconds(0.5f);
+
+        StartCoroutine(readystory());
+    }
+
+    IEnumerator readystory()
+    {
+        background.transform.gameObject.SetActive(true);
+        story.transform.gameObject.SetActive(true);
+        curtain.transform.gameObject.SetActive(true);
+        fake_background.transform.gameObject.SetActive(false);
+        StartCoroutine(FadeCurtainToZeroAlpha()); 
+        yield return null;
+    }
+
+    IEnumerator FadeCurtainToZeroAlpha()  // 알파값 1 -> 0
+    {
+        curtain.color = new Color(curtain.color.r, curtain.color.g, curtain.color.b, 1);
+
+        while (curtain.color.a > 0.0f)
+        {
+            curtain.color = new Color(curtain.color.r, curtain.color.g, curtain.color.b, curtain.color.a - (Time.deltaTime));
+            yield return null;
         }
 
-        yield return new WaitForSeconds(5f);
+        StartCoroutine(ShowStoryImage());
+    }
 
+    IEnumerator ShowStoryImage() // 알파값 0 -> 1
+    {
+        caption_back.transform.gameObject.SetActive(true);
+        changeCaption(index);
+
+        yield return null;
+    }
+
+    IEnumerator ChangeStoryImage()  // 알파값 1 -> 0
+    {
+        if (currIndex == 9)
+        {
+            caption_back.transform.gameObject.SetActive(false);
+            textCaption.transform.gameObject.SetActive(false);
+            StartCoroutine(FadeCurtainToFullAlpha());
+        }
+        else
+        {
+            story.sprite = storyImages[currIndex];
+            changeCaption(currIndex);
+        }
+        yield return null;
+    }
+
+    IEnumerator FadeCurtainToFullAlpha()  // 알파값 1 -> 0
+    {
+        curtain.color = new Color(curtain.color.r, curtain.color.g, curtain.color.b, 0);
+
+        while (curtain.color.a < 1.0f)
+        {
+            curtain.color = new Color(curtain.color.r, curtain.color.g, curtain.color.b, curtain.color.a + (Time.deltaTime));
+            yield return null;
+        }
+
+        StartCoroutine(readyEndstory());
+    }
+
+    IEnumerator readyEndstory()
+    {
+        background.transform.gameObject.SetActive(false);
+        story.transform.gameObject.SetActive(false);
+        curtain.transform.gameObject.SetActive(false);
+        fake_background.transform.gameObject.SetActive(true);
         StartCoroutine(FadeTextToZeroAlpha());
+        yield return null;
     }
 
     IEnumerator FadeTextToZeroAlpha()  // 알파값 1 -> 0
     {
-        //text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
-        storyText.color = new Color(storyText.color.r, storyText.color.g, storyText.color.b, 1);
+        fake_background.color = new Color(fake_background.color.r, fake_background.color.g, fake_background.color.b, 1);
 
-        while (storyText.color.a > 0.0f)
+        while (fake_background.color.a > 0.0f)
         {
-            //text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime / 2.0f));
-            storyText.color = new Color(storyText.color.r, storyText.color.g, storyText.color.b, storyText.color.a - (Time.deltaTime / 3.0f));
-            //yield return new WaitForSecondsRealtime(1);
+            fake_background.color = new Color(fake_background.color.r, fake_background.color.g, fake_background.color.b, fake_background.color.a - (Time.deltaTime / 3.0f));
             yield return null;
         }
-        
-        story.SetActive(false);
-        black.SetActive(false);
-
         StartCoroutine(openNameScreen());
     }
 
     IEnumerator openNameScreen()
     {
-        nameScreen.SetActive(true);
-        nameBackground.SetActive(true);
+        SceneManager.LoadScene("usernameScene");
         yield return null;
     }
 
+    public void changeCaption(int index)
+    {
+        textCaption.text = storyCaptions[index];
+    }
+
+    void Update()
+    {
+        if (currIndex < index)
+        {
+            currIndex = index;
+            StartCoroutine(ChangeStoryImage());
+        }
+    }
 }

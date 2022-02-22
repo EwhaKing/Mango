@@ -83,9 +83,9 @@ public class GetLeaderData : MonoBehaviour
             int i;
             for (i = 1; i < leader.item.Length + 1; i++)
             {
-                _users[i].transform.GetChild(0).GetComponent<Text>().text = (i).ToString() + ".";
-                _users[i].transform.GetChild(1).GetComponent<Text>().text = leader.item[i - 1].user;
-                _users[i].transform.GetChild(2).GetComponent<Text>().text = leader.item[i - 1].score;
+                _users[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (i).ToString() + ".";
+                _users[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].user;
+                _users[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].score;
             }
             for(int j = i+1; j < _users.Count + 1; j++) {
                 Destroy(_users[i]);
@@ -96,9 +96,9 @@ public class GetLeaderData : MonoBehaviour
             int i;
             for (i = 1; i < _users.Count + 1; i++)
             {
-                _users[i].transform.GetChild(0).GetComponent<Text>().text = (i).ToString() + ".";
-                _users[i].transform.GetChild(1).GetComponent<Text>().text = leader.item[i - 1].user;
-                _users[i].transform.GetChild(2).GetComponent<Text>().text = leader.item[i - 1].score;
+                _users[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (i).ToString() + ".";
+                _users[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].user;
+                _users[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].score;
             }
             for (int j = i+1; j < leader.item.Length + 1; j++)
             {
@@ -108,9 +108,9 @@ public class GetLeaderData : MonoBehaviour
                 user.transform.localScale = Vector3.one;
                 user.transform.localRotation = Quaternion.identity;
 
-                user.transform.GetChild(0).GetComponent<Text>().text = (i).ToString() + "."; //등수
-                user.transform.GetChild(1).GetComponent<Text>().text = leader.item[i - 1].user; //데이터베이스에서 가져올 이름
-                user.transform.GetChild(2).GetComponent<Text>().text = leader.item[i - 1].score; //데이터베이스에서 가져올 돈
+                user.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (i).ToString() + "."; //등수
+                user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].user; //데이터베이스에서 가져올 이름
+                user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].score; //데이터베이스에서 가져올 돈
 
                 _users.Add(user);
             }
@@ -125,9 +125,9 @@ public class GetLeaderData : MonoBehaviour
                 user.transform.localScale = Vector3.one;
                 user.transform.localRotation = Quaternion.identity;
 
-                user.transform.GetChild(0).GetComponent<Text>().text = (i).ToString() + "."; //등수
-                user.transform.GetChild(1).GetComponent<Text>().text = leader.item[i - 1].user; //데이터베이스에서 가져올 이름
-                user.transform.GetChild(2).GetComponent<Text>().text = leader.item[i - 1].score; //데이터베이스에서 가져올 돈
+                user.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (i).ToString() + "."; //등수
+                user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].user; //데이터베이스에서 가져올 이름
+                user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].score; //데이터베이스에서 가져올 돈
 
                 _users.Add(user);
             }
@@ -157,9 +157,9 @@ public class GetLeaderData : MonoBehaviour
         _users.Clear();
         _users.Add(_user);
 
-        _user.transform.GetChild(0).GetComponent<Text>().text = "  ";
-        _user.transform.GetChild(1).GetComponent<Text>().text = "이름"; //데이터베이스에서 가져올 이름
-        _user.transform.GetChild(2).GetComponent<Text>().text = "돈"; //데이터베이스에서 가져올 돈
+        _user.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "  ";
+        _user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "이름"; //데이터베이스에서 가져올 이름
+        _user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "돈"; //데이터베이스에서 가져올 돈
 
         totaluser = 31; //우선 10으로
         getScore();

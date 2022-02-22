@@ -46,8 +46,16 @@ public class LoadingManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("게임 첫번째 실행 x");
-            next_scene = "StartScene";
+            LoadGameData();
+            if(GameStaticData.data.name == "")
+            {
+                next_scene = "usernameScene";
+            }
+            else
+            {
+                Debug.Log("게임 첫번째 실행 x");
+                next_scene = "StartScene";
+            }
         }
         StartCoroutine(loadGameData());
         yield return null;
