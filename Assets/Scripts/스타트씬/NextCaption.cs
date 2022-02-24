@@ -18,7 +18,10 @@ public class NextCaption : MonoBehaviour
 
     public void onClickStoryScene()
     {
-        GameStory.index++;
-        Debug.Log("바뀐값: " + GameStory.index);
+        if(GameStory.isOk == true)
+        {
+            GameStory.index++;
+            Debug.Log("바뀐값: " + GameStory.index);
+        }
     }
 }

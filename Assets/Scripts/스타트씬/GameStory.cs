@@ -19,6 +19,7 @@ public class GameStory : MonoBehaviour
 
     public static int index = 0;
     public int currIndex = 0;
+    public static bool isOk = false;
     public List<Sprite> storyImages;
     public List<string> storyCaptions;
 
@@ -77,7 +78,8 @@ public class GameStory : MonoBehaviour
         caption_back.transform.gameObject.SetActive(true);
         changeCaption(index);
 
-        yield return null;
+        yield return new WaitForSeconds(1f);
+        isOk = true;
     }
 
     IEnumerator ChangeStoryImage()  // 알파값 1 -> 0
@@ -93,7 +95,7 @@ public class GameStory : MonoBehaviour
             story.sprite = storyImages[currIndex];
             changeCaption(currIndex);
         }
-        yield return null;
+        yield return new WaitForSeconds(1f);
     }
 
     IEnumerator FadeCurtainToFullAlpha()  // 알파값 1 -> 0
