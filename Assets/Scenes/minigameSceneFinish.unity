@@ -779,7 +779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 95f72ce82b96ebd4385c954f1679d60e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da45b6c23399413488e31ab63c53fb75, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1409,10 +1409,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c941652d4a620084fa923583fb559aa6, type: 3}
   fruits_num: 000000000000000000000000
   fruits_index: 000000000000000000000000
-  num: 6
   finish_condition: 0
   fruit_current: 0
   fruits_mini: {fileID: 87515916}
+  success_num: 000000000000000000000000
   button_touch: {fileID: 1829095400}
   lemonCircle: {fileID: 1091608792}
   circleSprite:
@@ -5398,7 +5398,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6db298592aba29a41854f0c49f213a29, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34619e811ca86a047b7c05ff9374aee4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

@@ -236,7 +236,7 @@ public class TeaManager : MonoBehaviour
         //아기가 들고있는 과일 이미지 바꾸기
         fruits_mini.sprite = fruits_sprite[fruits_index[fruit_current]];
         
-        if(fruit_current == 1) //자몽이라면, 자몽이 너비가 넓어서 아기 팔의 위치를 조금 다르게 설정
+        if(fruits_index[fruit_current] == 1) //자몽이라면, 자몽이 너비가 넓어서 아기 팔의 위치를 조금 다르게 설정
         {
             left_arm.gameObject.SetActive(false);
             right_arm.gameObject.SetActive(false);
