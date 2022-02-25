@@ -6382,7 +6382,6 @@ GameObject:
   - component: {fileID: 1402576218}
   - component: {fileID: 1402576217}
   - component: {fileID: 1402576216}
-  - component: {fileID: 1402576219}
   - component: {fileID: 1402576220}
   - component: {fileID: 1402576221}
   m_Layer: 5
@@ -6466,17 +6465,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: DateUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1402576217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6514,28 +6502,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402576214}
   m_CullTransparentMesh: 0
---- !u!114 &1402576219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402576214}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa108d3395d71ec42ac8a93111b1455a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 0}
-  story: {fileID: 0}
-  fake_background: {fileID: 0}
-  curtain: {fileID: 0}
-  caption_back: {fileID: 0}
-  textCaption: {fileID: 0}
-  textUsername: {fileID: 0}
-  currIndex: 0
-  storyImages: []
-  storyCaptions: []
 --- !u!114 &1402576220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7557,7 +7523,6 @@ GameObject:
   - component: {fileID: 1592874327}
   - component: {fileID: 1592874326}
   - component: {fileID: 1592874325}
-  - component: {fileID: 1592874324}
   - component: {fileID: 1592874323}
   - component: {fileID: 1592874328}
   m_Layer: 5
@@ -7599,28 +7564,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totaluser: 0
---- !u!114 &1592874324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592874321}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa108d3395d71ec42ac8a93111b1455a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 0}
-  story: {fileID: 0}
-  fake_background: {fileID: 0}
-  curtain: {fileID: 0}
-  caption_back: {fileID: 0}
-  textCaption: {fileID: 0}
-  textUsername: {fileID: 0}
-  currIndex: 0
-  storyImages: []
-  storyCaptions: []
 --- !u!114 &1592874325
 MonoBehaviour:
   m_ObjectHideFlags: 0

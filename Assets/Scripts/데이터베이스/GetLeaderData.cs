@@ -77,7 +77,7 @@ public class GetLeaderData : MonoBehaviour
     {
         if (isTotalScore == false) text_rank.text = "하루 랭킹";
         else text_rank.text = "전체 랭킹";
-        
+
         if ( _users.Count > 1 && leader.item.Length < _users.Count)
         {
             int i;
@@ -87,33 +87,36 @@ public class GetLeaderData : MonoBehaviour
                 _users[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].user;
                 _users[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].score;
             }
-            for(int j = i+1; j < _users.Count + 1; j++) {
-                Destroy(_users[i]);
+            for (int j = _users.Count-1; j >= i; j--) {
+                Destroy(_users[j]);
+                _users.Remove(_users[j]);
             }
+            Debug.Log("컴포넌트수: " + _users.Count + "    리스트수: " + leader.item.Length);
         }
         else if (_users.Count > 1 && leader.item.Length >= _users.Count)
         {
             int i;
-            for (i = 1; i < _users.Count + 1; i++)
+            for (i = 1; i < _users.Count; i++)
             {
                 _users[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (i).ToString() + ".";
                 _users[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].user;
                 _users[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].score;
             }
-            for (int j = i+1; j < leader.item.Length + 1; j++)
+            for (int j = i; j < leader.item.Length + 1; j++)
             {
                 GameObject user = GameObject.Instantiate(_user) as GameObject;
-                user.name = "user" + (i + 1).ToString();
+                user.name = "user" + (j + 1).ToString();
                 user.transform.SetParent(_user.transform.parent);
                 user.transform.localScale = Vector3.one;
                 user.transform.localRotation = Quaternion.identity;
 
-                user.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (i).ToString() + "."; //등수
-                user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].user; //데이터베이스에서 가져올 이름
-                user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].score; //데이터베이스에서 가져올 돈
+                user.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (j).ToString() + "."; //등수
+                user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[j - 1].user; //데이터베이스에서 가져올 이름
+                user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[j - 1].score; //데이터베이스에서 가져올 돈
 
                 _users.Add(user);
             }
+            Debug.Log("컴포넌트수: " + _users.Count + "    리스트수: " + leader.item.Length);
         }
         else if (_users.Count <= 1)
         {
