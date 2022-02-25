@@ -1407,6 +1407,28 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d771d041095223c4a853bf3df53fec4f, type: 3}
   - {fileID: 21300000, guid: acd3dd5d6bb38d24b8449807bc565f36, type: 3}
   - {fileID: 21300000, guid: c941652d4a620084fa923583fb559aa6, type: 3}
+  circleSprite:
+  - {fileID: 21300000, guid: ca6c71eb61c705049a9385ae08e15a7c, type: 3}
+  - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
+  - {fileID: 21300000, guid: 9b76345943eaeec4c9dc6d933a37fd12, type: 3}
+  - {fileID: 21300000, guid: fb217ba9069da2e4d82794fe22890b20, type: 3}
+  - {fileID: 21300000, guid: ef8a51aea94bf0e4bb4909efbd49ceee, type: 3}
+  - {fileID: 21300000, guid: 104ad89dac956a0439742ff27e7a2f79, type: 3}
+  - {fileID: 21300000, guid: 87cc4bfc5633d90469f332dcf7027357, type: 3}
+  - {fileID: 21300000, guid: 904ec44cb21c12440b35ef65dcdb6e5f, type: 3}
+  - {fileID: 21300000, guid: 522f54d6eab022149a7e8c1286d59202, type: 3}
+  - {fileID: 21300000, guid: 7587cff81064d714e9149260e5c8dfd4, type: 3}
+  - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
+  - {fileID: 21300000, guid: 9dde3828a2da2b5498784fb50f60935e, type: 3}
+  - {fileID: 21300000, guid: ca6c71eb61c705049a9385ae08e15a7c, type: 3}
+  - {fileID: 21300000, guid: 9dde3828a2da2b5498784fb50f60935e, type: 3}
+  - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
+  - {fileID: 21300000, guid: ca6c71eb61c705049a9385ae08e15a7c, type: 3}
+  - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
+  - {fileID: 21300000, guid: ca6c71eb61c705049a9385ae08e15a7c, type: 3}
+  - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
+  - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
+  - {fileID: 21300000, guid: 9dde3828a2da2b5498784fb50f60935e, type: 3}
   fruits_num: 000000000000000000000000
   fruits_index: 000000000000000000000000
   finish_condition: 0
@@ -1415,10 +1437,7 @@ MonoBehaviour:
   success_num: 000000000000000000000000
   button_touch: {fileID: 1829095400}
   lemonCircle: {fileID: 1091608792}
-  circleSprite:
-  - {fileID: 21300000, guid: ca6c71eb61c705049a9385ae08e15a7c, type: 3}
-  - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
-  - {fileID: 21300000, guid: 9dde3828a2da2b5498784fb50f60935e, type: 3}
+  slice: {fileID: 757460445}
   left_arm: {fileID: 865826907}
   right_arm: {fileID: 476142154}
   jamong_left_arm: {fileID: 424660943}
@@ -2911,6 +2930,7 @@ GameObject:
   - component: {fileID: 757460446}
   - component: {fileID: 757460448}
   - component: {fileID: 757460447}
+  - component: {fileID: 757460449}
   m_Layer: 5
   m_Name: Image_slice
   m_TagString: Untagged
@@ -2974,6 +2994,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757460445}
   m_CullTransparentMesh: 0
+--- !u!114 &757460449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757460445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f20cb3cccb1e414881e8be287a3948b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &785694253
 GameObject:
   m_ObjectHideFlags: 0
@@ -3727,7 +3759,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ca6c71eb61c705049a9385ae08e15a7c, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
