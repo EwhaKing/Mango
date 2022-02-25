@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StartButtonText : MonoBehaviour
 {
-    public Text dateStart;
+    public TextMeshProUGUI dateStart;
     public List<Sprite> startButton_sprite;
     public GameObject start_button;
 
