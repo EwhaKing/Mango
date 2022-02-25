@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/storyScene.unity
     guid: 59a9208bd094e1e419f1dc08e00459f9
   - enabled: 1
+    path: Assets/Scenes/usernameScene.unity
+    guid: dee432d49e69c79448b80baf0796850a
+  - enabled: 1
     path: Assets/Scenes/maingameScene.unity
     guid: a85fdc0c4ec0642429b2405d95f4006c
   - enabled: 1
