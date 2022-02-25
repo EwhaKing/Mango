@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GetTea : MonoBehaviour
 {
     public GameObject foundRecipe;
-    public float delay = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +19,6 @@ public class GetTea : MonoBehaviour
             foundRecipe.transform.GetChild(0).GetComponent<Text>().text = "'" + TeaDataScript.teaDex.item[TeaManager.get_recipe].tea_name +
                 "' 레시피를 획득하였습니다!";
 
-            //2초 후 사라짐
-            StartCoroutine(delayDelete());
-
             //효과음
             ButtonSound._buttonInstance.onPopUpAudio();
 
@@ -31,18 +27,5 @@ public class GetTea : MonoBehaviour
 
             TeaManager.get_recipe = -1; //초기화
         }
-    }
-
-    IEnumerator delayDelete()
-    {
-        yield return new WaitForSeconds(delay);
-
-        foundRecipe.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

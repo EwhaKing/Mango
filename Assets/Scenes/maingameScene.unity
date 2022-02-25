@@ -3589,6 +3589,7 @@ GameObject:
   - component: {fileID: 1030014826}
   - component: {fileID: 1030014825}
   - component: {fileID: 1030014827}
+  - component: {fileID: 1030014829}
   m_Layer: 5
   m_Name: recipe_popup
   m_TagString: Untagged
@@ -3613,7 +3614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -52}
+  m_AnchoredPosition: {x: 0, y: -42}
   m_SizeDelta: {x: 900, y: 80}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1030014825
@@ -3660,13 +3661,33 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030014823}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2394bb72e2283f4da9b6c83c24209f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 10
-  speed: 10
+  popupImage: {fileID: 1030014825}
+  popupText: {fileID: 993019048}
+  speed: 1
+--- !u!95 &1030014829
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030014823}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c82a04543c6bd45408ac1ac4113bdbee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1042726296
 GameObject:
   m_ObjectHideFlags: 0
@@ -5136,7 +5157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foundRecipe: {fileID: 1030014823}
-  delay: 2
 --- !u!1 &1407960708
 GameObject:
   m_ObjectHideFlags: 0

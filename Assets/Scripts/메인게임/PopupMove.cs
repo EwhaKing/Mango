@@ -1,44 +1,55 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopupMove : MonoBehaviour
 {
-    public float move = 10f;
-    public float speed = 10f;
-    Vector3 cur_pos, previous;
+    public Image popupImage;
+    public Text popupText;
 
-    bool check = false;
+    public float speed = 2.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        cur_pos = this.transform.position;
-
-        previous = new Vector3(cur_pos.x, cur_pos.y + move, cur_pos.z);
-
-        this.transform.position = previous;
+        StartCoroutine(FadeTextToFullAlpha());
     }
 
-    // Update is called once per frame
-    void Update()
+    //페이드 인, 아웃
+    IEnumerator FadeTextToFullAlpha() // 알파값 0 -> 1
     {
-        Debug.Log("현재 위치: " + transform.position.y);
-        if(!check && transform.position.y > cur_pos.y)
+        popupImage.color = new Color(popupImage.color.r, popupImage.color.g, popupImage.color.b, 0);
+        popupText.color = new Color(popupText.color.r, popupText.color.g, popupText.color.b, 0);
+
+        while (popupImage.color.a < 1.0f)
         {
-            this.transform.Translate(new Vector3(0, -speed, 0)); // 떨어지는 동작
-        }
-        StartCoroutine(waitTime());
-        if(!check && transform.position.y < previous.y)
-        {
-            check = true;
-            this.transform.Translate(new Vector3(0, speed, 0)); // 위로 가는 동작
+            popupImage.color = new Color(popupImage.color.r, popupImage.color.g, popupImage.color.b, popupImage.color.a + (Time.deltaTime / speed));
+            popupText.color = new Color(popupText.color.r, popupText.color.g, popupText.color.b, popupText.color.a + (Time.deltaTime / speed));
+            yield return null;
         }
 
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(FadeTextToZeroAlpha());
     }
 
-    IEnumerator waitTime()
+    IEnumerator FadeTextToZeroAlpha()  // 알파값 1 -> 0
     {
-        yield return new WaitForSeconds(2f);
+        this.GetComponent<Animator>().SetBool("isUp", true);
+
+        Debug.Log("0으로 된다.");
+
+        popupImage.color = new Color(popupImage.color.r, popupImage.color.g, popupImage.color.b, 1f);
+        popupText.color = new Color(popupText.color.r, popupText.color.g, popupText.color.b, 1f);
+
+        while (popupImage.color.a > 0.0f)
+        {
+            Debug.Log("현재 투명도: " + popupImage.color.a);
+            popupImage.color = new Color(popupImage.color.r, popupImage.color.g, popupImage.color.b, popupImage.color.a - (Time.deltaTime / speed));
+            popupText.color = new Color(popupText.color.r, popupText.color.g, popupText.color.b, popupText.color.a - (Time.deltaTime / speed));
+            yield return null;
+        }
+
+        yield return null;
     }
 }
