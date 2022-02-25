@@ -87,7 +87,7 @@ public class LockerManager : MonoBehaviour
         item.transform.GetChild(1).gameObject.SetActive(true);
 
         //스크롤뷰 오른쪽 보이도록
-        item.transform.parent.localPosition = new Vector2(-100000f, item.transform.parent.localPosition.y);
+        item.transform.parent.localPosition = new Vector2(-10000f, item.transform.parent.localPosition.y);
 
         //보관함 스프라이트 추가
         locker_sprites.Add(clothe_sprite);

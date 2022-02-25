@@ -7,13 +7,15 @@ using UnityEngine.SceneManagement;
 public class TeaManager : MonoBehaviour
 {
     public const int TEA = 18; //총 차(주스) 개수
-    public const int INDEX = 21; //총 과일 개수
+    public const int INDEX = 21; //총 재료 개수
     public const int NUM = 6; //각 과일 개수의 합
 
     public Text[] fruits_text = new Text[3]; //각각 과일의 수 텍스트 UI
     public Image[] fruits_image = new Image[3]; //각각 과일의 이미지
     public Sprite[] fruits_recipe_sprite = new Sprite[INDEX]; //각각 과일 레시피 이미지
     public Sprite[] fruits_sprite = new Sprite[INDEX]; //각각 반과일 이미지 UI 스프라이트
+    public Sprite[] circleSprite = new Sprite[INDEX]; //재료 떨어지는 이미지
+
     public int[] fruits_num = new int[3]; //각각 과일의 개수 저장하는 배열
     public int[] fruits_index = { -1, -1, -1}; //각 과일 순서에 과일 인덱스 저장
     public int finish_condition; //종료조건 검사하기 위해서
@@ -25,8 +27,8 @@ public class TeaManager : MonoBehaviour
     int recipe = 0; //뜨게 할 레시피(과일 조합)
 
     public GameObject button_touch;
-    public GameObject lemonCircle;
-    public Sprite[] circleSprite = new Sprite[INDEX];
+    public GameObject lemonCircle; //방울 이미지
+    public GameObject slice; //슬라이스 이미지
 
     private int finish = 0; //과일 하나 완료된거 판단하기 위한 변수 (방울 3개)
 
@@ -236,7 +238,7 @@ public class TeaManager : MonoBehaviour
         //아기가 들고있는 과일 이미지 바꾸기
         fruits_mini.sprite = fruits_sprite[fruits_index[fruit_current]];
         
-        if(fruit_current == 1) //자몽이라면, 자몽이 너비가 넓어서 아기 팔의 위치를 조금 다르게 설정
+        if(fruits_index[fruit_current] == 1) //자몽이라면, 자몽이 너비가 넓어서 아기 팔의 위치를 조금 다르게 설정
         {
             left_arm.gameObject.SetActive(false);
             right_arm.gameObject.SetActive(false);
@@ -327,11 +329,25 @@ public class TeaManager : MonoBehaviour
     //특정영역 터치 시 수행: 아기 팔 모션 애니메이션, 과일 바꾸기 등과 관련, 과일 방울 떨어뜨리기
     public void OnClickBaby_TeaManager()
     {
-        lemonCircle.GetComponent<Image>().sprite = circleSprite[fruit_current];
-        lemonCircle.transform.localPosition = new Vector3(163f, -294f, 0f);
-        lemonCircle.SetActive(true);
+        GameObject downObj = null;
 
-        if (fruit_current == 1) //자몽이라면
+        switch (fruits_index[fruit_current])
+        {
+            //과일 + 찻잎 + 스페셜
+            case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
+                downObj = slice;
+                break;
+            default: //방울
+                downObj = lemonCircle;
+                break;
+                    
+        }
+
+        downObj.GetComponent<Image>().sprite = circleSprite[fruits_index[fruit_current]];
+        downObj.transform.localPosition = new Vector3(163f, -294f, 0f);
+        downObj.SetActive(true);
+
+        if (fruits_index[fruit_current] == 1) //자몽이라면
         {
             if (jamong_left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
             {
@@ -344,7 +360,7 @@ public class TeaManager : MonoBehaviour
                 jamong_right_arm.GetComponent<Animator>().Play("arm_right_anim_jamong", -1, 0f);
             }
         }
-        else //레몬, 꿀이라면
+        else
         {
             if (left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
             {
