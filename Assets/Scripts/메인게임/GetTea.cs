@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class GetTea : MonoBehaviour
 {
+    const int TEA_NUM = 18;
+
     public GameObject foundRecipe;
+    public Image tea;
+
+    public Sprite[] tea_sprites = new Sprite[TEA_NUM];
 
     // Start is called before the first frame update
     void Start()
     {
         if(TeaManager.get_recipe != -1) //새로운 도감 얻음
         {
+            tea.sprite = tea_sprites[TeaManager.get_recipe];
+
             //도감 얻었다는 팝업창 뜨도록
             foundRecipe.SetActive(true);
 

@@ -5157,6 +5157,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foundRecipe: {fileID: 1030014823}
+  tea: {fileID: 1882830075}
+  tea_sprites:
+  - {fileID: 21300000, guid: e7049e4483f047143a9d6059f2bc3114, type: 3}
+  - {fileID: 21300000, guid: 09e52de4b28a4b84db8fe673e1e79bea, type: 3}
+  - {fileID: 21300000, guid: 086eb9a1dffb1e54f89a95af047f02c3, type: 3}
+  - {fileID: 21300000, guid: c941652d4a620084fa923583fb559aa6, type: 3}
+  - {fileID: 21300000, guid: 0e14ea8ef2aa8fb42ae326ac3ddbca30, type: 3}
+  - {fileID: 21300000, guid: 34619e811ca86a047b7c05ff9374aee4, type: 3}
+  - {fileID: 21300000, guid: e77685f693d07574d806d272059f4da7, type: 3}
+  - {fileID: 21300000, guid: 42b302a5792a3b446b61e1f35cd64ba5, type: 3}
+  - {fileID: 21300000, guid: 9b39c0f875429fc489be389a6b42bab0, type: 3}
+  - {fileID: 21300000, guid: f1bfcc06a18447348a39e3aa03f34954, type: 3}
+  - {fileID: 21300000, guid: 63f9ff6a9a7008e43a41db14c6c1c271, type: 3}
+  - {fileID: 21300000, guid: 6db298592aba29a41854f0c49f213a29, type: 3}
+  - {fileID: 21300000, guid: 3869ab5369916fc46938fea02a22d217, type: 3}
+  - {fileID: 21300000, guid: 94545a66ea7736a499d9f1d54185470e, type: 3}
+  - {fileID: 21300000, guid: 5097e1c33fa997e43a259fd3c0cc5b93, type: 3}
+  - {fileID: 21300000, guid: 9429a4945d375ae46bd89fa7f91c87fc, type: 3}
+  - {fileID: 21300000, guid: 7c7fb967822a29c4988b483245b6b34a, type: 3}
+  - {fileID: 21300000, guid: 6b75710769c56fd488cd90688de7d7aa, type: 3}
 --- !u!1 &1407960708
 GameObject:
   m_ObjectHideFlags: 0
