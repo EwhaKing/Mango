@@ -1409,10 +1409,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c941652d4a620084fa923583fb559aa6, type: 3}
   fruits_num: 000000000000000000000000
   fruits_index: 000000000000000000000000
-  num: 6
   finish_condition: 0
   fruit_current: 0
   fruits_mini: {fileID: 87515916}
+  success_num: 000000000000000000000000
   button_touch: {fileID: 1829095400}
   lemonCircle: {fileID: 1091608792}
   circleSprite:
@@ -2639,8 +2639,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SUCCESS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5722fd8b0ac1265408da61b0aaf0a6d5, type: 2}
-  m_sharedMaterial: {fileID: 1263394625155567862, guid: 5722fd8b0ac1265408da61b0aaf0a6d5,
+  m_fontAsset: {fileID: 11400000, guid: 6772caf7e21bff04da7408662ccdb44a, type: 2}
+  m_sharedMaterial: {fileID: -3347580348885017248, guid: 6772caf7e21bff04da7408662ccdb44a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3892,7 +3892,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5722fd8b0ac1265408da61b0aaf0a6d5, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 1263394625155567862, guid: 5722fd8b0ac1265408da61b0aaf0a6d5,
     type: 2}
   m_fontSharedMaterials: []
