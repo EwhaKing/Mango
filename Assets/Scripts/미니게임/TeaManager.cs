@@ -333,13 +333,11 @@ public class TeaManager : MonoBehaviour
 
         switch (fruits_index[fruit_current])
         {
-            case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9:
-                downObj = slice;        
-                break;
-            case 10: case 11: case 12:
+            //과일 + 찻잎 + 스페셜
+            case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
                 downObj = slice;
                 break;
-            default:
+            default: //방울
                 downObj = lemonCircle;
                 break;
                     
