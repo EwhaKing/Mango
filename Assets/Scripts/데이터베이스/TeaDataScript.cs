@@ -15,13 +15,15 @@ public class TeaData
 {
     public int tea_num;
     public string tea_name;
+    public string tea_description;
     public IngredientData[] tea_recipe;
     public bool own;
 
-    public TeaData (int num, string name, IngredientData[] recipe, bool own)
+    public TeaData (int num, string name, string description, IngredientData[] recipe, bool own)
     {
         this.tea_num = num;
         this.tea_name = name;
+        this.tea_description = description;
         this.tea_recipe = recipe;
         this.own = own;
     }
