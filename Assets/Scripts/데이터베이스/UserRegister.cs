@@ -73,7 +73,8 @@ public class UserRegister : MonoBehaviour
 
     void closeNameScreen()
     {
-        SceneManager.LoadScene("StartScene"); //스타트 씬 띄우기
+        if(GameObject.Find("SoundManager") != null) StartCoroutine(FadeMusicOutDestroy());
+        else StartCoroutine(FadeMusicOut());
     }
 
     public void onClickOk()
@@ -88,6 +89,27 @@ public class UserRegister : MonoBehaviour
         {
             textError.text = "아기의 이름을 지어주세요!";
         }
+    }
+
+    IEnumerator FadeMusicOutDestroy()  // 알파값 1 -> 0
+    {
+        while (StoryMusic.story_music.volume > 0.0f)
+        {
+            StoryMusic.story_music.volume -= (Time.deltaTime / 3.0f);
+            yield return null;
+        }
+        Destroy(GameObject.Find("SoundManager"));
+        SceneManager.LoadScene("StartScene"); //스타트 씬 띄우기
+    }
+
+    IEnumerator FadeMusicOut()  // 알파값 1 -> 0
+    {
+        while (UsernameMusic.username_music.volume > 0.0f)
+        {
+            UsernameMusic.username_music.volume -= (Time.deltaTime / 3.0f);
+            yield return null;
+        }
+        SceneManager.LoadScene("StartScene"); //스타트 씬 띄우기
     }
 
     void Start()
