@@ -10,6 +10,7 @@ public class usernameManager : MonoBehaviour
     {
         background.SetActive(true);
         screen.SetActive(true);
+
     }
 
     // Update is called once per frame

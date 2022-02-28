@@ -84,7 +84,7 @@ public class GameStory : MonoBehaviour
 
     IEnumerator ChangeStoryImage()  // 알파값 1 -> 0
     {
-        if (currIndex == 9)
+        if (currIndex == 8)
         {
             caption_back.transform.gameObject.SetActive(false);
             textCaption.transform.gameObject.SetActive(false);
