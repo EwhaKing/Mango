@@ -95,7 +95,7 @@ public class UserRegister : MonoBehaviour
     {
         while (StoryMusic.story_music.volume > 0.0f)
         {
-            StoryMusic.story_music.volume -= (Time.deltaTime / 3.0f);
+            StoryMusic.story_music.volume -= (Time.deltaTime);
             yield return null;
         }
         Destroy(GameObject.Find("SoundManager"));
@@ -106,7 +106,7 @@ public class UserRegister : MonoBehaviour
     {
         while (UsernameMusic.username_music.volume > 0.0f)
         {
-            UsernameMusic.username_music.volume -= (Time.deltaTime / 3.0f);
+            UsernameMusic.username_music.volume -= (Time.deltaTime);
             yield return null;
         }
         SceneManager.LoadScene("StartScene"); //스타트 씬 띄우기
