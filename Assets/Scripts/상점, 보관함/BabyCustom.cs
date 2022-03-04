@@ -25,11 +25,7 @@ public class BabyCustom : MonoBehaviour
     {
         dataScript = GameObject.Find("GameData").GetComponent<GameStaticData>();
         babyObject = GameObject.Find("baby_object");
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         //custom_sprites 각 행의 열 초기화
         custom_sprites.Add(new List<Sprite>());
         custom_sprites.Add(new List<Sprite>());
@@ -44,6 +40,12 @@ public class BabyCustom : MonoBehaviour
 
         //if (babyObject.activeSelf) changeBabyCustom(GameStaticData.data.data_cloth);
         changeBabyCustom(GameStaticData.data.data_cloth); //시작하면 바로 현재 옷 입히기
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
 
     }
 
@@ -78,20 +80,22 @@ public class BabyCustom : MonoBehaviour
         }
         else if(child_count == 2) //미니게임 속 아기 이미지
         {
+            Debug.Log(custom_sprites[0][0]);
             babyObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = custom_sprites[0][custom_data]; //옷
             babyObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = custom_sprites[3][custom_data]; //머리
 
             BabyChange babyScript = babyObject.GetComponent<BabyChange>();
             TeaManager teaScript = GameObject.Find("GameManager").GetComponent<TeaManager>();
-            if (teaScript.fruit_current == 1) //자몽
-            { 
-                babyScript.left_arm_jamong.sprite = custom_sprites[1][custom_data];
-                babyScript.right_arm_jamong.sprite = custom_sprites[2][custom_data];
-            }
-            else
+            switch (teaScript.fruit_current)
             {
-                babyScript.left_arm.sprite = custom_sprites[1][custom_data];
-                babyScript.right_arm.sprite = custom_sprites[2][custom_data];
+                case 1: case 2: case 3: case 4: case 7: case 8: case 9: //너비 넓은거
+                    babyScript.left_arm_jamong.sprite = custom_sprites[1][custom_data];
+                    babyScript.right_arm_jamong.sprite = custom_sprites[2][custom_data];
+                    break;
+                default:
+                    babyScript.left_arm.sprite = custom_sprites[1][custom_data];
+                    babyScript.right_arm.sprite = custom_sprites[2][custom_data];
+                    break;
             }
         }
         else //시작화면 속 아기 이미지
