@@ -38,6 +38,8 @@ public class TeaManager : MonoBehaviour
 
     public static int get_recipe = -1; //얻은 레시피 번호
 
+    public int fruit_count = 0; //레시피당 과일 몇개있는지
+
     // Start is called before the first frame update
     void Start()
     {
@@ -131,7 +133,8 @@ public class TeaManager : MonoBehaviour
         Debug.Log("레시피에 있는 과일 개수: " + TeaDataScript.teaDex.item[recipe].tea_recipe.Length);
 
         //몇번째 과일인지 저장하고 과일 나타내기
-        for(int i = 0; i < TeaDataScript.teaDex.item[recipe].tea_recipe.Length; i++)
+        fruit_count = TeaDataScript.teaDex.item[recipe].tea_recipe.Length;
+        for (int i = 0; i < fruit_count; i++)
         {
             int index = TeaDataScript.teaDex.item[recipe].tea_recipe[i].ingredient_num;
             fruits_index[i] = index; //몇번째 과일인지 저장
@@ -237,20 +240,27 @@ public class TeaManager : MonoBehaviour
 
         //아기가 들고있는 과일 이미지 바꾸기
         fruits_mini.sprite = fruits_sprite[fruits_index[fruit_current]];
-        
-        if(fruits_index[fruit_current] == 1) //자몽이라면, 자몽이 너비가 넓어서 아기 팔의 위치를 조금 다르게 설정
+
+        switch (fruits_index[fruit_current])
         {
-            left_arm.gameObject.SetActive(false);
-            right_arm.gameObject.SetActive(false);
-            jamong_left_arm.gameObject.SetActive(true);
-            jamong_right_arm.gameObject.SetActive(true);
+            case 1: case 2: case 3: case 4: case 7: case 8: case 9: //너비가 넓은 과일들 (팔 넓게)
+                left_arm.gameObject.SetActive(false);
+                right_arm.gameObject.SetActive(false);
+                jamong_left_arm.gameObject.SetActive(true);
+                jamong_right_arm.gameObject.SetActive(true);
+                break;
+            default:
+                left_arm.gameObject.SetActive(true);
+                right_arm.gameObject.SetActive(true);
+                jamong_left_arm.gameObject.SetActive(false);
+                jamong_right_arm.gameObject.SetActive(false);
+                break;
         }
-        else
+
+        if(fruits_index[fruit_current] == 5) //파인애플만 y 위치 수정
         {
-            left_arm.gameObject.SetActive(true);
-            right_arm.gameObject.SetActive(true);
-            jamong_left_arm.gameObject.SetActive(false);
-            jamong_right_arm.gameObject.SetActive(false);
+            fruits_mini.gameObject.transform.position = new Vector2(fruits_mini.gameObject.transform.position.x,
+                fruits_mini.gameObject.transform.position.y + 8f);
         }
     }
 
@@ -268,9 +278,10 @@ public class TeaManager : MonoBehaviour
                 if(fruits_num[fruit_current] == 0)
                 {
                     fruit_current++;
-                    if (fruit_current < 3)
+                    if (fruit_current < fruit_count) //레시피에 있는 과일 개수 모두 끝내기 전까지
                     {
-                        changeFruit();
+                        //changeFruit();
+                        Invoke("changeFruit", 0.5f); //방울 다 떨어지는 거 기다리기 위해
                     }
                 }
             }
@@ -347,31 +358,32 @@ public class TeaManager : MonoBehaviour
         downObj.transform.localPosition = new Vector3(163f, -294f, 0f);
         downObj.SetActive(true);
 
-        if (fruits_index[fruit_current] == 1) //자몽이라면
+        switch (fruits_index[fruit_current])
         {
-            if (jamong_left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
-            {
-                jamong_left_arm.GetComponent<Animator>().enabled = true;
-                jamong_right_arm.GetComponent<Animator>().enabled = true;
-            }
-            else
-            {
-                jamong_left_arm.GetComponent<Animator>().Play("arm_left_anim_jamong", -1, 0f);
-                jamong_right_arm.GetComponent<Animator>().Play("arm_right_anim_jamong", -1, 0f);
-            }
-        }
-        else
-        {
-            if (left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
-            {
-                left_arm.GetComponent<Animator>().enabled = true;
-                right_arm.GetComponent<Animator>().enabled = true;
-            }
-            else
-            {
-                left_arm.GetComponent<Animator>().Play("arm_left_anim", -1, 0f);
-                right_arm.GetComponent<Animator>().Play("arm_right_anim_lemon", -1, 0f);
-            }
+            case 1: case 2: case 3: case 4: case 7: case 8: case 9: //너비가 넓은 과일들 (팔 넓게)
+                if (jamong_left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
+                {
+                    jamong_left_arm.GetComponent<Animator>().enabled = true;
+                    jamong_right_arm.GetComponent<Animator>().enabled = true;
+                }
+                else
+                {
+                    jamong_left_arm.GetComponent<Animator>().Play("arm_left_anim_jamong", -1, 0f);
+                    jamong_right_arm.GetComponent<Animator>().Play("arm_right_anim_jamong", -1, 0f);
+                }
+                break;
+            default:
+                if (left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
+                {
+                    left_arm.GetComponent<Animator>().enabled = true;
+                    right_arm.GetComponent<Animator>().enabled = true;
+                }
+                else
+                {
+                    left_arm.GetComponent<Animator>().Play("arm_left_anim", -1, 0f);
+                    right_arm.GetComponent<Animator>().Play("arm_right_anim_lemon", -1, 0f);
+                }
+                break;
         }
         finish++; //터치 판단
 
