@@ -6,29 +6,33 @@ using UnityEngine.UI;
 
 public class RecipeManager : MonoBehaviour
 {
-
     public GameObject recipeDetailBg;
 
     public Sprite DrinkBg;
     public Sprite TeaBg;
     public Sprite SpecialBg;
 
-    List<Sprite> set_recipe; //레시피
+    public GameObject teaContent;
+    public GameObject drinkContent;
+    public GameObject specialContent;
 
-    public List<int> recipe_sprites = new List<int>(); //레시피 스프라이트 번호
+    public Sprite[] total_sprite = new Sprite[21]; //과일 이미지
+    public Sprite[] bubble_sprite = new Sprite[21]; //방울 이미지
 
-    public GameObject _item;
+    public Sprite[] gc_recipe = new Sprite[36];
+    
+    Sprite[] real_recipe = new Sprite[18];
 
     // Start is called before the first frame update
     void Start()
     {
-        recipeStart();
+        teaStart();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void Awake()
@@ -38,57 +42,224 @@ public class RecipeManager : MonoBehaviour
         TeaDataScript.teaDex = JsonUtility.FromJson<TeaDex>(str);
     }
 
-    //오류 발생 - 아이템 18개만 있어야 하는데 18 * 3개 생기고 스크롤바로 일부만 확인 가능함
-    public void recipeStart() //현재 모든 음료수가 뜨도록 되어 있음 //음료, 차, 스페셜로 분류되도록 해야 함
+    public void OnClickRecipe()
     {
-        int recipe_cnt = TeaDataScript.teaDex.item.Length; //현재 존재하는 레시피 개수
+        changeSprite();
 
-        for (int i = 0; i < recipe_cnt; i++)
+        GameObject.Find("Recipe_title").GetComponent<Text>().text = TeaDataScript.teaDex.item[0].tea_name; //레시피 이름
+        GameObject.Find("Recipe_detail_text").GetComponent<Text>().text = TeaDataScript.teaDex.item[0].tea_description; //레시피 상세설명
+
+        for (int i=0; i<18; i++)
         {
-            GameObject item;
-
-            if (recipe_sprites.Count == 0) //처음이라면 _item 사용해야함
+            if (i == 0 || i == 5 || i == 8 || i == 11) //tea일 때
             {
-                item = _item;
+                //GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
+            }
+        }
+
+        GameObject.Find("Recipe_image").GetComponent<Image>().sprite = real_recipe[0]; //레시피 상세 이미지
+
+        //최종 때 주석 지울 것 - 현재 확인하느라
+
+        /*if (!TeaDataScript.teaDex.item[0].own) //해당 레시피를 소유하고 있지 않다면
+        {
+            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
+        }
+        else
+        {
+            //아래 단락 올리기
+        }*/
+
+        GameObject.Find("Recipe_content").transform.GetChild(3).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(4).gameObject.SetActive(true);
+        GameObject.Find("Recipe_content").transform.GetChild(5).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(6).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(7).gameObject.SetActive(false);
+
+        GameObject.Find("Ingredient_2").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
+
+        GameObject.Find("bubble_2").GetComponent<Image>().sprite = bubble_sprite[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
+
+        //GameObject.Find("bubble_name2").GetComponent<Text>().text = TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
+
+        GameObject.Find("bubble_num2").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_amout.ToString() + "<b>↑</b>";
+
+    }
+
+    public void changeSprite()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            if (TeaDataScript.teaDex.item[i].own) //해당 레시피를 소유하고 있다면
+            {
+                //레시피 버튼 회색에서 컬러 되도록
+                real_recipe[i] = gc_recipe[i + 18];
             }
 
             else
             {
-                item = GameObject.Instantiate(_item) as GameObject;
-                item.name = "item" + i.ToString();
-                item.transform.SetParent(_item.transform.parent);
-                item.transform.localScale = Vector3.one;
-                item.transform.localRotation = Quaternion.identity;
+                real_recipe[i] = gc_recipe[i];
             }
-
-            //item에 레시피 이미지 채우기 - 현재 이미지 없어서 오류 나므로 우선 주석 처리
-            //item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = set_recipe[i];
-
-            //상세 레시피 활성화
-            item.transform.GetChild(0).gameObject.GetComponent<Button>().enabled = true;
-
-            //해당 옷 세트 번호 저장
-            recipe_sprites.Add(i);
-
         }
-
-    }
-
-    public void OnClickDrink() //좌측 인덱스에서 음료 선택
-    {
-        ButtonSound._buttonInstance.onButtonAudio();
-        recipeDetailBg.GetComponent<Image>().sprite = DrinkBg; //배경 이미지(색깔 박스)
     }
 
     public void OnClickTea() //좌측 인덱스에서 차 선택
     {
         ButtonSound._buttonInstance.onButtonAudio();
         recipeDetailBg.GetComponent<Image>().sprite = TeaBg; //배경 이미지(색깔 박스)
+
+        GameObject.Find("Recipe_title").GetComponent<Text>().text = TeaDataScript.teaDex.item[0].tea_name; //레시피 이름
+        GameObject.Find("Recipe_detail_text").GetComponent<Text>().text = TeaDataScript.teaDex.item[0].tea_description; //레시피 상세설명
+
+        for (int i = 0; i < 18; i++)
+        {
+            if (i == 0 || i == 5 || i == 8 || i == 11) //tea일 때
+            {
+                //GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
+            }
+        }
+
+        GameObject.Find("Recipe_image").GetComponent<Image>().sprite = real_recipe[0];
+
+        /*if (!TeaDataScript.teaDex.item[0].own) //해당 레시피를 소유하고 있지 않다면
+        {
+            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
+        }
+        else
+        {
+            //아래 단락 올리기
+        }*/
+
+        GameObject.Find("Recipe_content").transform.GetChild(3).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(4).gameObject.SetActive(true);
+        GameObject.Find("Recipe_content").transform.GetChild(5).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(6).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(7).gameObject.SetActive(false);
+
+        GameObject.Find("Ingredient_2").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
+
+        GameObject.Find("bubble_2").GetComponent<Image>().sprite = bubble_sprite[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
+
+        //GameObject.Find("bubble_name2").GetComponent<Text>().text = TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
+
+        GameObject.Find("bubble_num2").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_amout.ToString() + "<b>↑</b>";
+
+        teaStart(); //상세 레시피 활성화
+    }
+
+    public void teaStart()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            teaContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Button>().enabled = true;
+        }
+    }
+
+    public void OnClickDrink() //좌측 인덱스에서 음료 선택
+    {
+        ButtonSound._buttonInstance.onButtonAudio();
+        recipeDetailBg.GetComponent<Image>().sprite = DrinkBg; //배경 이미지(색깔 박스)
+
+        GameObject.Find("Recipe_title").GetComponent<Text>().text = TeaDataScript.teaDex.item[2].tea_name; //레시피 이름
+        GameObject.Find("Recipe_detail_text").GetComponent<Text>().text = TeaDataScript.teaDex.item[2].tea_description; //레시피 상세설명
+
+        for (int i = 0; i < 18; i++)
+        {
+            if (i == 2 || i == 3 || i == 4 || i == 6 || i == 7 || i == 9 || i == 10 || i == 12 || i == 17)
+            {
+                //GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
+            }
+        }
+
+        GameObject.Find("Recipe_image").GetComponent<Image>().sprite = real_recipe[2];
+
+        /*if (!TeaDataScript.teaDex.item[2].own) //해당 레시피를 소유하고 있지 않다면
+        {
+            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
+        }
+        else
+        {
+            //아래 단락 올리기
+        }*/
+
+        GameObject.Find("Recipe_content").transform.GetChild(3).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(4).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(5).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(6).gameObject.SetActive(true);
+        GameObject.Find("Recipe_content").transform.GetChild(7).gameObject.SetActive(true);
+
+        GameObject.Find("Ingredient_4").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[2].tea_recipe[0].ingredient_num];
+        GameObject.Find("Ingredient_5").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[2].tea_recipe[1].ingredient_num];
+
+        GameObject.Find("bubble_4").GetComponent<Image>().sprite = bubble_sprite[TeaDataScript.teaDex.item[2].tea_recipe[0].ingredient_num];
+        GameObject.Find("bubble_5").GetComponent<Image>().sprite = bubble_sprite[TeaDataScript.teaDex.item[2].tea_recipe[1].ingredient_num];
+
+        //GameObject.Find("bubble_name4").GetComponent<Text>().text = TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_num];
+        //GameObject.Find("bubble_name5").GetComponent<Text>().text = TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[num].tea_recipe[1].ingredient_num];
+
+        GameObject.Find("bubble_num4").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[2].tea_recipe[0].ingredient_amout.ToString() + "<b>↑</b>";
+        GameObject.Find("bubble_num5").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[2].tea_recipe[1].ingredient_amout.ToString() + "<b>↑</b>";
+
+        drinkStart();
+    }
+
+    public void drinkStart()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            drinkContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Button>().enabled = true;
+        }
     }
 
     public void OnClickSpecial() //좌측 인덱스에서 스페셜 선택
     {
         ButtonSound._buttonInstance.onButtonAudio();
         recipeDetailBg.GetComponent<Image>().sprite = SpecialBg; //배경 이미지(색깔 박스)
+
+        GameObject.Find("Recipe_title").GetComponent<Text>().text = TeaDataScript.teaDex.item[1].tea_name; //레시피 이름
+        GameObject.Find("Recipe_detail_text").GetComponent<Text>().text = TeaDataScript.teaDex.item[1].tea_description; //레시피 상세설명
+
+        for (int i = 0; i < 18; i++)
+        {
+            if (i == 1 || i == 13 || i == 14 || i == 15 || i == 16)
+            {
+                //GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
+            }
+        }
+
+        GameObject.Find("Recipe_image").GetComponent<Image>().sprite = real_recipe[1];
+
+        /*if (!TeaDataScript.teaDex.item[1].own) //해당 레시피를 소유하고 있지 않다면
+        {
+            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
+        }
+        else
+        {
+            //아래 단락 올리기
+        }*/
+
+        GameObject.Find("Recipe_content").transform.GetChild(3).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(4).gameObject.SetActive(true);
+        GameObject.Find("Recipe_content").transform.GetChild(5).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(6).gameObject.SetActive(false);
+        GameObject.Find("Recipe_content").transform.GetChild(7).gameObject.SetActive(false);
+
+        GameObject.Find("Ingredient_2").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[1].tea_recipe[0].ingredient_num];
+
+        GameObject.Find("bubble_2").GetComponent<Image>().sprite = bubble_sprite[TeaDataScript.teaDex.item[1].tea_recipe[0].ingredient_num];
+
+        //GameObject.Find("bubble_name2").GetComponent<Text>().text = TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
+
+        GameObject.Find("bubble_num2").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[1].tea_recipe[0].ingredient_amout.ToString() + "<b>↑</b>";
+
+        specialStart();
+    }
+
+    public void specialStart()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            specialContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Button>().enabled = true;
+        }
     }
 }
