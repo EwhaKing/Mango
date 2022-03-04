@@ -826,7 +826,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102274085}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
@@ -1761,6 +1761,43 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
   - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
   - {fileID: 21300000, guid: 9dde3828a2da2b5498784fb50f60935e, type: 3}
+  gc_recipe:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &286655228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,6 +2763,43 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
   - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
   - {fileID: 21300000, guid: 9dde3828a2da2b5498784fb50f60935e, type: 3}
+  gc_recipe:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &411905252
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,6 +3832,43 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
   - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
   - {fileID: 21300000, guid: 9dde3828a2da2b5498784fb50f60935e, type: 3}
+  gc_recipe:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &569417831
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,6 +5316,43 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
   - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
   - {fileID: 21300000, guid: 9dde3828a2da2b5498784fb50f60935e, type: 3}
+  gc_recipe:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &694227304
 GameObject:
   m_ObjectHideFlags: 0
@@ -7262,7 +7410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &878712472
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14058,7 +14206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1626714804
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15560,7 +15708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1931728227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16258,6 +16406,7 @@ GameObject:
   - component: {fileID: 2038787374}
   - component: {fileID: 2038787376}
   - component: {fileID: 2038787375}
+  - component: {fileID: 2038787377}
   m_Layer: 5
   m_Name: Recipe_popup
   m_TagString: Untagged
@@ -16328,6 +16477,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038787373}
   m_CullTransparentMesh: 0
+--- !u!114 &2038787377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038787373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41efb23b7c6e9f1409a02c944abc2afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2041874608
 GameObject:
   m_ObjectHideFlags: 0

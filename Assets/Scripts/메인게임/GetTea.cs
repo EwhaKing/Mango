@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,9 @@ public class GetTea : MonoBehaviour
     public Image tea;
 
     public Sprite[] tea_sprites = new Sprite[TEA_NUM];
+
+    //0으로 초기화된 뉴 레시피 확인 배열
+    public static int[] what_recipe = Enumerable.Repeat<int>(0, 18).ToArray<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,9 @@ public class GetTea : MonoBehaviour
 
             //출력
             Debug.Log("얻은 레시피: " + TeaManager.get_recipe);
+
+            //스타트씬으로 변수 가져가기
+            what_recipe[TeaManager.get_recipe] = 1;
 
             TeaManager.get_recipe = -1; //초기화
         }

@@ -29,20 +29,30 @@ public class RecipeItemButton : MonoBehaviour
         ButtonSound._buttonInstance.onButtonAudio(); //효과음
 
         int num = int.Parse(gameObject.name.Split("_"[0])[1]); //item_num 뒤에 num 불러오기
+
+        GetTea.what_recipe[num] = 0; //버튼을 클릭했으면 뉴 레시피가 아님
+        GameObject.Find("item_" + num.ToString()).transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(false);
+
         showDetail(num); //버튼별 상세 설명
     }
 
     public void showDetail(int num) //레시피 버튼 클릭 시 상세 설명
     {
-        Debug.Log("과일 몇 종류? " + TeaDataScript.teaDex.item[num].tea_description);
+        Debug.Log("음료 설명? " + TeaDataScript.teaDex.item[num].tea_description); //상세설명 로그
+
         GameObject.Find("Recipe_title").GetComponent<Text>().text = TeaDataScript.teaDex.item[num].tea_name; //레시피 이름
         GameObject.Find("Recipe_detail_text").GetComponent<Text>().text = TeaDataScript.teaDex.item[num].tea_description; //레시피 상세설명
 
         GameObject.Find("Recipe_image").GetComponent<Image>().sprite = gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite; //레시피 상세 이미지
 
         Debug.Log("과일 몇 종류? " + TeaDataScript.teaDex.item[num].tea_recipe.Length);
-        Debug.Log("몇번 과일? " + TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_num);
         Debug.Log("무슨 과일? " + TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_num]);
+
+        //최종 때 주석 지울 것 - 현재 확인하느라
+        /*if (!TeaDataScript.teaDex.item[num].own) //해당 레시피를 소유하고 있지 않다면
+        {
+            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
+        }*/
 
         if (TeaDataScript.teaDex.item[num].tea_recipe.Length == 1)
         {
@@ -119,17 +129,5 @@ public class RecipeItemButton : MonoBehaviour
             }
         }*/
 
-        //TeaDataScript.teaDex.item[recipe].tea_recipe.Length;
-        //TeaDataScript.teaDex.item[recipe].tea_recipe[i].ingredient_num;
-
-        /*if (!TeaDataScript.teaDex.item[num].own) //해당 레시피를 소유하고 있지 않다면
-        {
-            GameObject.Find("Recipe_content").transform.GetChild(6).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
-        }
-
-        if (TeaManager.get_recipe != -1) //레시피를 새로 얻었다면
-        {
-            GameObject.Find("Recipe_Button").transform.GetChild(1).gameObject.SetActive(true); //item 버튼에 new 이미지 띄우기
-        }*/
     }
 }
