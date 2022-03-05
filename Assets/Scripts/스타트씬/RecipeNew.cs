@@ -8,6 +8,8 @@ public class RecipeNew : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("레시피 획득 후" + TeaDataScript.teaDex.item[0].own);
+
         for (int i=0; i<18; i++)
         {
             if (GetTea.what_recipe[i] == 1) //어떤 뉴 레시피가 존재한다면
