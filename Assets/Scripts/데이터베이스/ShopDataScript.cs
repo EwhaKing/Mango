@@ -17,6 +17,7 @@ public class ItemData
     public string item_name;
     public int item_cost;
     public bool own;
+    public bool is_read;
 
 }
 
