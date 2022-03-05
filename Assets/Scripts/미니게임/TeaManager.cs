@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class TeaManager : MonoBehaviour
 {
@@ -333,7 +334,9 @@ public class TeaManager : MonoBehaviour
             Debug.Log("레시피 획득! " + recipe);
 
             get_recipe = recipe;
-            TeaDataScript.teaDex.item[recipe].own = true;
+            TeaDataScript.teaDex.item[recipe].own = true; //데이터 베이스에 차 소유 변경
+            //데이터베이스에 다시 저장
+            File.WriteAllText(Application.persistentDataPath + "/TeaDex.json", JsonUtility.ToJson(TeaDataScript.teaDex));
         }
     }
 
