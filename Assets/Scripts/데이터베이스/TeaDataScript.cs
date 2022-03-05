@@ -19,8 +19,9 @@ public class TeaData
     public string tea_description;
     public IngredientData[] tea_recipe;
     public bool own;
+    public bool is_read;
 
-    public TeaData (int num, string name, int type, string description, IngredientData[] recipe, bool own)
+    public TeaData (int num, string name, int type, string description, IngredientData[] recipe, bool own, bool read)
     {
         this.tea_num = num;
         this.tea_name = name;
@@ -28,6 +29,7 @@ public class TeaData
         this.tea_description = description;
         this.tea_recipe = recipe;
         this.own = own;
+        this.is_read = read;
     }
 }
 
