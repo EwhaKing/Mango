@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,7 +55,7 @@ public class ShopManager : MonoBehaviour
                 //item에 진열 옷 이미지 채우기
                 item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = set_clothes[i];
                 //가격
-                item.transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<Text>().text = ShopDataScript.sd.item[i].item_cost.ToString();
+                item.transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI> ().text = ShopDataScript.sd.item[i].item_cost.ToString();
 
                 item.transform.GetChild(1).transform.gameObject.SetActive(true); //가격버튼 활성화
                 item.transform.GetChild(2).transform.gameObject.SetActive(false); //보유중 버튼 비활성화
@@ -117,7 +118,7 @@ public class ShopManager : MonoBehaviour
                 //item에 진열 옷 이미지 채우기
                 item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = set_clothes[i];
                 //가격
-                item.transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<Text>().text = ShopDataScript.sd.item[i].item_cost.ToString();
+                item.transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = ShopDataScript.sd.item[i].item_cost.ToString();
 
                 item.transform.GetChild(1).transform.gameObject.SetActive(true); //가격버튼 활성화
                 item.transform.GetChild(2).transform.gameObject.SetActive(false); //보유중 버튼 비활성화

@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class GameMoney : MonoBehaviour
 {
     //게임의 전체 돈을 나타내주는 스크립트
-    public Text money_text;
+    public TextMeshProUGUI money_text;
     int money;
 
     // Start is called before the first frame update
