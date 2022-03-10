@@ -6,11 +6,17 @@ using UnityEngine.UI;
 
 public class RecipeManager : MonoBehaviour
 {
-    public GameObject recipeDetailBg;
+    public GameObject teaIndex;
+    public GameObject juiceIndex;
+    public GameObject specialIndex;
 
-    public Sprite DrinkBg;
-    public Sprite TeaBg;
-    public Sprite SpecialBg;
+    public Sprite TeaBg1;
+    public Sprite DrinkBg1;
+    public Sprite SpecialBg1;
+
+    public Sprite TeaBg2;
+    public Sprite DrinkBg2;
+    public Sprite SpecialBg2;
 
     public GameObject teaContent;
     public GameObject drinkContent;
@@ -45,6 +51,10 @@ public class RecipeManager : MonoBehaviour
     public void OnClickRecipe()
     {
         changeSprite();
+
+        teaIndex.GetComponent<Image>().sprite = TeaBg1; //배경 이미지(색깔 박스)
+        juiceIndex.GetComponent<Image>().sprite = DrinkBg2;
+        specialIndex.GetComponent<Image>().sprite = SpecialBg2;
 
         GameObject.Find("Recipe_title").GetComponent<Text>().text = TeaDataScript.teaDex.item[0].tea_name; //레시피 이름
         GameObject.Find("Recipe_detail_text").GetComponent<Text>().text = TeaDataScript.teaDex.item[0].tea_description; //레시피 상세설명
@@ -105,7 +115,10 @@ public class RecipeManager : MonoBehaviour
     public void OnClickTea() //좌측 인덱스에서 차 선택
     {
         ButtonSound._buttonInstance.onButtonAudio();
-        recipeDetailBg.GetComponent<Image>().sprite = TeaBg; //배경 이미지(색깔 박스)
+        
+        teaIndex.GetComponent<Image>().sprite = TeaBg1; //배경 이미지(색깔 박스)
+        juiceIndex.GetComponent<Image>().sprite = DrinkBg2;
+        specialIndex.GetComponent<Image>().sprite = SpecialBg2;
 
         GameObject.Find("Recipe_title").GetComponent<Text>().text = TeaDataScript.teaDex.item[0].tea_name; //레시피 이름
         GameObject.Find("Recipe_detail_text").GetComponent<Text>().text = TeaDataScript.teaDex.item[0].tea_description; //레시피 상세설명
@@ -156,7 +169,10 @@ public class RecipeManager : MonoBehaviour
     public void OnClickDrink() //좌측 인덱스에서 음료 선택
     {
         ButtonSound._buttonInstance.onButtonAudio();
-        recipeDetailBg.GetComponent<Image>().sprite = DrinkBg; //배경 이미지(색깔 박스)
+
+        teaIndex.GetComponent<Image>().sprite = TeaBg2; //배경 이미지(색깔 박스)
+        juiceIndex.GetComponent<Image>().sprite = DrinkBg1;
+        specialIndex.GetComponent<Image>().sprite = SpecialBg2;
 
         GameObject.Find("Recipe_title").GetComponent<Text>().text = TeaDataScript.teaDex.item[2].tea_name; //레시피 이름
         GameObject.Find("Recipe_detail_text").GetComponent<Text>().text = TeaDataScript.teaDex.item[2].tea_description; //레시피 상세설명
@@ -214,7 +230,10 @@ public class RecipeManager : MonoBehaviour
     public void OnClickSpecial() //좌측 인덱스에서 스페셜 선택
     {
         ButtonSound._buttonInstance.onButtonAudio();
-        recipeDetailBg.GetComponent<Image>().sprite = SpecialBg; //배경 이미지(색깔 박스)
+
+        teaIndex.GetComponent<Image>().sprite = TeaBg2; //배경 이미지(색깔 박스)
+        juiceIndex.GetComponent<Image>().sprite = DrinkBg2;
+        specialIndex.GetComponent<Image>().sprite = SpecialBg1;
 
         GameObject.Find("Recipe_title").GetComponent<Text>().text = TeaDataScript.teaDex.item[1].tea_name; //레시피 이름
         GameObject.Find("Recipe_detail_text").GetComponent<Text>().text = TeaDataScript.teaDex.item[1].tea_description; //레시피 상세설명

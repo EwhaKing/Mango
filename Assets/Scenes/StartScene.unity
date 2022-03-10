@@ -868,8 +868,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 742376c8ad876ac4d9f49eac2e771911, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1560,7 +1560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740, y: 325}
+  m_AnchoredPosition: {x: -732, y: 330}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &268899437
@@ -1674,15 +1674,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: ffa843bc6c34654419a851517bfe9218, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1710,10 +1710,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdbb457f75f9e54087bc93e0f773152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipeDetailBg: {fileID: 1028209530}
-  DrinkBg: {fileID: 21300000, guid: 9bfb613ae85b236439e6698889c6449a, type: 3}
-  TeaBg: {fileID: 21300000, guid: 17a30fff97518f84c8ea247745ce5322, type: 3}
-  SpecialBg: {fileID: 21300000, guid: 04a9d962e1af1f3448907064d4519a95, type: 3}
+  teaIndex: {fileID: 268899435}
+  juiceIndex: {fileID: 524139022}
+  specialIndex: {fileID: 384688365}
+  TeaBg1: {fileID: 21300000, guid: 9bab241e719b24b4d97d70169cbac5a2, type: 3}
+  DrinkBg1: {fileID: 21300000, guid: 9743b7fb128b3b14194ecf4e9ebd2504, type: 3}
+  SpecialBg1: {fileID: 21300000, guid: 711d5cf42f11c5c4daf212737b4ea3ff, type: 3}
+  TeaBg2: {fileID: 21300000, guid: ffa843bc6c34654419a851517bfe9218, type: 3}
+  DrinkBg2: {fileID: 21300000, guid: 80a065c9e0b0bcb418aba279083715ef, type: 3}
+  SpecialBg2: {fileID: 21300000, guid: 4409157b7183919488d6e83a5c11d81e, type: 3}
   teaContent: {fileID: 878712471}
   drinkContent: {fileID: 1626714803}
   specialContent: {fileID: 1931728226}
@@ -2562,7 +2567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740, y: 25}
+  m_AnchoredPosition: {x: -732, y: 10}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384688367
@@ -2676,15 +2681,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.34354377, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: 4409157b7183919488d6e83a5c11d81e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2712,10 +2717,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdbb457f75f9e54087bc93e0f773152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipeDetailBg: {fileID: 1028209530}
-  DrinkBg: {fileID: 21300000, guid: 9bfb613ae85b236439e6698889c6449a, type: 3}
-  TeaBg: {fileID: 21300000, guid: 17a30fff97518f84c8ea247745ce5322, type: 3}
-  SpecialBg: {fileID: 21300000, guid: 04a9d962e1af1f3448907064d4519a95, type: 3}
+  teaIndex: {fileID: 268899435}
+  juiceIndex: {fileID: 524139022}
+  specialIndex: {fileID: 384688365}
+  TeaBg1: {fileID: 21300000, guid: 9bab241e719b24b4d97d70169cbac5a2, type: 3}
+  DrinkBg1: {fileID: 21300000, guid: 9743b7fb128b3b14194ecf4e9ebd2504, type: 3}
+  SpecialBg1: {fileID: 21300000, guid: 711d5cf42f11c5c4daf212737b4ea3ff, type: 3}
+  TeaBg2: {fileID: 21300000, guid: ffa843bc6c34654419a851517bfe9218, type: 3}
+  DrinkBg2: {fileID: 21300000, guid: 80a065c9e0b0bcb418aba279083715ef, type: 3}
+  SpecialBg2: {fileID: 21300000, guid: 4409157b7183919488d6e83a5c11d81e, type: 3}
   teaContent: {fileID: 878712471}
   drinkContent: {fileID: 1626714803}
   specialContent: {fileID: 1931728226}
@@ -2913,8 +2923,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3105,8 +3115,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3577,8 +3587,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3631,7 +3641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740, y: 175}
+  m_AnchoredPosition: {x: -732, y: 170}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &524139024
@@ -3745,15 +3755,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.66859865, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: 80a065c9e0b0bcb418aba279083715ef, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3781,10 +3791,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdbb457f75f9e54087bc93e0f773152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipeDetailBg: {fileID: 1028209530}
-  DrinkBg: {fileID: 21300000, guid: 9bfb613ae85b236439e6698889c6449a, type: 3}
-  TeaBg: {fileID: 21300000, guid: 17a30fff97518f84c8ea247745ce5322, type: 3}
-  SpecialBg: {fileID: 21300000, guid: 04a9d962e1af1f3448907064d4519a95, type: 3}
+  teaIndex: {fileID: 268899435}
+  juiceIndex: {fileID: 524139022}
+  specialIndex: {fileID: 384688365}
+  TeaBg1: {fileID: 21300000, guid: 9bab241e719b24b4d97d70169cbac5a2, type: 3}
+  DrinkBg1: {fileID: 21300000, guid: 9743b7fb128b3b14194ecf4e9ebd2504, type: 3}
+  SpecialBg1: {fileID: 21300000, guid: 711d5cf42f11c5c4daf212737b4ea3ff, type: 3}
+  TeaBg2: {fileID: 21300000, guid: ffa843bc6c34654419a851517bfe9218, type: 3}
+  DrinkBg2: {fileID: 21300000, guid: 80a065c9e0b0bcb418aba279083715ef, type: 3}
+  SpecialBg2: {fileID: 21300000, guid: 4409157b7183919488d6e83a5c11d81e, type: 3}
   teaContent: {fileID: 878712471}
   drinkContent: {fileID: 1626714803}
   specialContent: {fileID: 1931728226}
@@ -4352,8 +4367,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4923,8 +4938,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5127,22 +5142,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1244509165}
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: "\uCC28 \uB808\uC2DC\uD53C"
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1028209532}
         m_MethodName: set_sprite
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 17a30fff97518f84c8ea247745ce5322,
+          m_ObjectArgument: {fileID: 21300000, guid: 985a6c8b4f3695e42b031a4a1ea2c8a6,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
@@ -5216,6 +5220,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1244509165}
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "\uCC28 \uB808\uC2DC\uD53C"
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &686110139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5265,10 +5280,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdbb457f75f9e54087bc93e0f773152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipeDetailBg: {fileID: 1028209530}
-  DrinkBg: {fileID: 21300000, guid: 9bfb613ae85b236439e6698889c6449a, type: 3}
-  TeaBg: {fileID: 21300000, guid: 17a30fff97518f84c8ea247745ce5322, type: 3}
-  SpecialBg: {fileID: 21300000, guid: 04a9d962e1af1f3448907064d4519a95, type: 3}
+  teaIndex: {fileID: 268899435}
+  juiceIndex: {fileID: 524139022}
+  specialIndex: {fileID: 384688365}
+  TeaBg1: {fileID: 21300000, guid: 9bab241e719b24b4d97d70169cbac5a2, type: 3}
+  DrinkBg1: {fileID: 21300000, guid: 9743b7fb128b3b14194ecf4e9ebd2504, type: 3}
+  SpecialBg1: {fileID: 21300000, guid: 711d5cf42f11c5c4daf212737b4ea3ff, type: 3}
+  TeaBg2: {fileID: 21300000, guid: ffa843bc6c34654419a851517bfe9218, type: 3}
+  DrinkBg2: {fileID: 21300000, guid: 80a065c9e0b0bcb418aba279083715ef, type: 3}
+  SpecialBg2: {fileID: 21300000, guid: 4409157b7183919488d6e83a5c11d81e, type: 3}
   teaContent: {fileID: 878712471}
   drinkContent: {fileID: 1626714803}
   specialContent: {fileID: 1931728226}
@@ -5474,7 +5494,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 975090279}
   m_Father: {fileID: 1028209531}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5502,7 +5523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a221d33702526d447bfe4b2bcd3a2e9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 985a6c8b4f3695e42b031a4a1ea2c8a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6680,8 +6701,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7220,8 +7241,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7730,6 +7751,80 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
   - {fileID: 21300000, guid: fd2cecb2157f9ab4fa75681233d36ed7, type: 3}
   - {fileID: 21300000, guid: 9dde3828a2da2b5498784fb50f60935e, type: 3}
+--- !u!1 &975090278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975090279}
+  - component: {fileID: 975090281}
+  - component: {fileID: 975090280}
+  m_Layer: 5
+  m_Name: Recipe_x (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &975090279
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975090278}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 726384883}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &975090280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975090278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e579e20a12e8b0042a9b94472bb7e2d6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &975090281
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975090278}
+  m_CullTransparentMesh: 0
 --- !u!1 &980469178
 GameObject:
   m_ObjectHideFlags: 0
@@ -8601,13 +8696,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.93725497, g: 0.9058824, b: 0.81568635, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 985a6c8b4f3695e42b031a4a1ea2c8a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10643,8 +10738,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11127,8 +11222,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11258,8 +11353,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11777,8 +11872,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12032,8 +12127,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -13444,8 +13539,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -14486,8 +14581,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -14617,8 +14712,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -17065,8 +17160,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -17196,8 +17291,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -17420,8 +17515,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5c8e867f06cb4114494770ce1ea16dc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

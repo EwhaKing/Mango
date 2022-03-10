@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,8 +31,12 @@ public class RecipeItemButton : MonoBehaviour
 
         int num = int.Parse(gameObject.name.Split("_"[0])[1]); //item_num 뒤에 num 불러오기
 
-        GetTea.what_recipe[num] = 0; //버튼을 클릭했으면 뉴 레시피가 아님
+        TeaDataScript.teaDex.item[num].is_read = false; //버튼을 클릭했으면 뉴 레시피가 아님
+        File.WriteAllText(Application.persistentDataPath + "/TeaDex.json", JsonUtility.ToJson(TeaDataScript.teaDex));
+
         GameObject.Find("item_" + num.ToString()).transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(false);
+
+        GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(false);
 
         showDetail(num); //버튼별 상세 설명
     }
