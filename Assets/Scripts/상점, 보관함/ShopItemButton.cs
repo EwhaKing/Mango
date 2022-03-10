@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,14 +33,14 @@ public class ShopItemButton : MonoBehaviour
 
         int clothe_sprite_num = GameObject.Find("GameManager").GetComponent<ShopManager>().shop[index]; //고른 옷의 스프라이트 넘버
 
-        string want_buy_text = ShopDataScript.sd.item[clothe_sprite_num].item_name + " 을(를) 구매하시겠습니까?"; //옷 이름 구매 문구
+        string want_buy_text = ShopDataScript.sd.item[clothe_sprite_num].item_name + " 을(를) \n구매하시겠습니까?"; //옷 이름 구매 문구
         string cost_text = ShopDataScript.sd.item[clothe_sprite_num].item_cost.ToString(); //옷 가격
 
         pay_popup.SetActive(true); //팝업창 띄우기
 
         //적용
-        pay_popup.transform.GetChild(1).gameObject.GetComponent<Text>().text = want_buy_text;
-        pay_popup.transform.GetChild(3).gameObject.GetComponent<Text>().text = cost_text;
+        pay_popup.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = want_buy_text;
+        pay_popup.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = cost_text;
 
         current_buy = clothe_sprite_num;
     }
