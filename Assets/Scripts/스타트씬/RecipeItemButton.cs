@@ -56,6 +56,9 @@ public class RecipeItemButton : MonoBehaviour
 
         if (!TeaDataScript.teaDex.item[num].own) //해당 레시피를 소유하고 있지 않다면
         {
+            GameObject.Find("Recipe_title").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 이름
+            GameObject.Find("Recipe_detail_text").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 상세설명
+
             GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
         }
 

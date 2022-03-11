@@ -62,9 +62,10 @@ public class RecipeManager : MonoBehaviour
 
         for (int i=0; i<18; i++)
         {
-            if (i == 0 || i == 5 || i == 8 || i == 11) //tea일 때
+            if (TeaDataScript.teaDex.item[i].tea_type == 0) //tea일 때
             {
-                //GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
+                //음료 이미지 테스트
+                GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
             }
         }
 
@@ -74,6 +75,9 @@ public class RecipeManager : MonoBehaviour
 
         if (!TeaDataScript.teaDex.item[0].own) //해당 레시피를 소유하고 있지 않다면
         {
+            GameObject.Find("Recipe_title").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 이름
+            GameObject.Find("Recipe_detail_text").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 상세설명
+
             GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
         }
 
@@ -96,25 +100,10 @@ public class RecipeManager : MonoBehaviour
 
     }
 
-    public void changeSprite()
-    {
-        for (int i = 0; i < 18; i++)
-        {
-            if (TeaDataScript.teaDex.item[i].own) //해당 레시피를 소유하고 있다면
-            {
-                //레시피 버튼 회색에서 컬러 되도록
-                real_recipe[i] = gc_recipe[i + 18];
-            }
-
-            else
-            {
-                real_recipe[i] = gc_recipe[i];
-            }
-        }
-    }
-
     public void OnClickTea() //좌측 인덱스에서 차 선택
     {
+        changeSprite();
+
         ButtonSound._buttonInstance.onButtonAudio();
         
         teaIndex.GetComponent<Image>().sprite = TeaBg1; //배경 이미지(색깔 박스)
@@ -126,9 +115,10 @@ public class RecipeManager : MonoBehaviour
 
         for (int i = 0; i < 18; i++)
         {
-            if (i == 0 || i == 5 || i == 8 || i == 11) //tea일 때
+            if (TeaDataScript.teaDex.item[i].tea_type == 0) //tea일 때
             {
-                //GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
+                //음료 이미지 테스트
+                GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
             }
         }
 
@@ -136,6 +126,9 @@ public class RecipeManager : MonoBehaviour
 
         if (!TeaDataScript.teaDex.item[0].own) //해당 레시피를 소유하고 있지 않다면
         {
+            GameObject.Find("Recipe_title").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 이름
+            GameObject.Find("Recipe_detail_text").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 상세설명
+
             GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
         }
 
@@ -169,6 +162,8 @@ public class RecipeManager : MonoBehaviour
 
     public void OnClickDrink() //좌측 인덱스에서 음료 선택
     {
+        changeSprite();
+
         ButtonSound._buttonInstance.onButtonAudio();
 
         teaIndex.GetComponent<Image>().sprite = TeaBg2; //배경 이미지(색깔 박스)
@@ -180,9 +175,10 @@ public class RecipeManager : MonoBehaviour
 
         for (int i = 0; i < 18; i++)
         {
-            if (i == 2 || i == 3 || i == 4 || i == 6 || i == 7 || i == 9 || i == 10 || i == 12 || i == 17)
+            if (TeaDataScript.teaDex.item[i].tea_type == 1)
             {
-                //GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
+                //음료 이미지 테스트
+                GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
             }
         }
 
@@ -190,6 +186,9 @@ public class RecipeManager : MonoBehaviour
 
         if (!TeaDataScript.teaDex.item[2].own) //해당 레시피를 소유하고 있지 않다면
         {
+            GameObject.Find("Recipe_title").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 이름
+            GameObject.Find("Recipe_detail_text").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 상세설명
+
             GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
         }
 
@@ -230,6 +229,8 @@ public class RecipeManager : MonoBehaviour
 
     public void OnClickSpecial() //좌측 인덱스에서 스페셜 선택
     {
+        changeSprite();
+
         ButtonSound._buttonInstance.onButtonAudio();
 
         teaIndex.GetComponent<Image>().sprite = TeaBg2; //배경 이미지(색깔 박스)
@@ -241,9 +242,10 @@ public class RecipeManager : MonoBehaviour
 
         for (int i = 0; i < 18; i++)
         {
-            if (i == 1 || i == 13 || i == 14 || i == 15 || i == 16)
+            if (TeaDataScript.teaDex.item[i].tea_type == 2)
             {
-                //GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
+                //음료 이미지 테스트
+                GameObject.Find("item_" + i.ToString()).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = real_recipe[i];
             }
         }
 
@@ -251,6 +253,9 @@ public class RecipeManager : MonoBehaviour
 
         if (!TeaDataScript.teaDex.item[1].own) //해당 레시피를 소유하고 있지 않다면
         {
+            GameObject.Find("Recipe_title").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 이름
+            GameObject.Find("Recipe_detail_text").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 상세설명
+
             GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
         }
 
@@ -282,6 +287,23 @@ public class RecipeManager : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             specialContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Button>().enabled = true;
+        }
+    }
+
+    public void changeSprite()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            if (TeaDataScript.teaDex.item[i].own) //해당 레시피를 소유하고 있다면
+            {
+                //레시피 버튼 회색에서 컬러 되도록
+                real_recipe[i] = gc_recipe[i + 18];
+            }
+
+            else
+            {
+                real_recipe[i] = gc_recipe[i];
+            }
         }
     }
 }
