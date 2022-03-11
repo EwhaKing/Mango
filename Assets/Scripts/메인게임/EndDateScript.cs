@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EndDateScript : MonoBehaviour
 {
-    public Text dateEnd;
+    public TextMeshProUGUI dateEnd;
     public int date;
 
     // Start is called before the first frame update
