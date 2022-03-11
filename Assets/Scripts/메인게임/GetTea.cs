@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GetTea : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class GetTea : MonoBehaviour
             foundRecipe.SetActive(true);
 
             //팝업창 텍스트 구성
-            foundRecipe.transform.GetChild(0).GetComponent<Text>().text = "'" + TeaDataScript.teaDex.item[TeaManager.get_recipe].tea_name +
+            foundRecipe.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "'" + TeaDataScript.teaDex.item[TeaManager.get_recipe].tea_name +
                 "' 레시피를 획득하였습니다!";
 
             //효과음

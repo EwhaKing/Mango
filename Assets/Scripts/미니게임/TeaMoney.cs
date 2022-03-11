@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TeaMoney : MonoBehaviour
 {
@@ -12,9 +13,9 @@ public class TeaMoney : MonoBehaviour
     void Start()
     {
         //gameObject.GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
-        if(TotalMoney.totalMoney != 0)
-            _gameObject.GetComponent<Text>().text = GetThousandCommaText(TotalMoney.totalMoney).ToString();
-        else _gameObject.GetComponent<Text>().text = TotalMoney.totalMoney.ToString();
+        if (TotalMoney.totalMoney != 0)
+            _gameObject.GetComponent<TextMeshProUGUI>().text = GetThousandCommaText(TotalMoney.totalMoney).ToString();
+        else _gameObject.GetComponent<TextMeshProUGUI>().text = TotalMoney.totalMoney.ToString();
     }
 
     // Update is called once per frame

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ClickMove3 : MonoBehaviour
 {
+    //얻은 돈 표시하는 스크립트
+
     public GameObject _gameObject;
 
     // Start is called before the first frame update
@@ -12,12 +15,12 @@ public class ClickMove3 : MonoBehaviour
     {
         if (TotalMoney.plusMoney < 100)
         {
-            _gameObject.GetComponent<Text>().text = "+      " + TotalMoney.plusMoney.ToString();
+            _gameObject.GetComponent<TextMeshProUGUI>().text = "+        " + TotalMoney.plusMoney.ToString();
         }
 
         else
         {
-            _gameObject.GetComponent<Text>().text = "+       " + TotalMoney.plusMoney.ToString();
+            _gameObject.GetComponent<TextMeshProUGUI>().text = "+         " + TotalMoney.plusMoney.ToString();
         }
     }
 
