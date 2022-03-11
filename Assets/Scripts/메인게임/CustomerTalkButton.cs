@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CustomerTalkButton : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class CustomerTalkButton : MonoBehaviour
     public GameObject tea_img;
     public GameObject plus_img; //손님 사라지고 추가금(이미지+텍스트)
     public GameObject music_money;
-    public Text tip_money_text; //부자손님 팁 텍스트
+    public TextMeshProUGUI tip_money_text; //부자손님 팁 텍스트
 
     //int speed = 1; //추가금 이동 속도
 
@@ -86,7 +87,7 @@ public class CustomerTalkButton : MonoBehaviour
         gameObject.SetActive(false);
 
         //부자손님 돈 + 미니게임에서 번 돈 올라가게
-        GameObject.Find("Text_money").GetComponent<Text>().text = (string.Format("{0:#,###}", TotalMoney.totalMoney)).ToString();
+        GameObject.Find("Text_money").GetComponent<TextMeshProUGUI>().text = (string.Format("{0:#,###}", TotalMoney.totalMoney)).ToString();
 
         Invoke("plusDisplayMoney", 0.1f);
     }

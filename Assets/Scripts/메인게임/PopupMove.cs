@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PopupMove : MonoBehaviour
 {
     public Image popupImage;
-    public Text popupText;
+    public TextMeshProUGUI popupText;
 
     public float speed = 2.0f;
 

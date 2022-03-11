@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
+using TMPro;
 
 public class TeaManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class TeaManager : MonoBehaviour
     public const int INDEX = 21; //총 재료 개수
     public const int NUM = 6; //각 과일 개수의 합
 
-    public Text[] fruits_text = new Text[3]; //각각 과일의 수 텍스트 UI
+    public TextMeshProUGUI[] fruits_text = new TextMeshProUGUI[3]; //각각 과일의 수 텍스트 UI
     public Image[] fruits_image = new Image[3]; //각각 과일의 이미지
     public Sprite[] fruits_recipe_sprite = new Sprite[INDEX]; //각각 과일 레시피 이미지
     public Sprite[] fruits_sprite = new Sprite[INDEX]; //각각 반과일 이미지 UI 스프라이트
