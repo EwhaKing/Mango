@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class RecipeItemButton : MonoBehaviour
 {
@@ -45,8 +46,8 @@ public class RecipeItemButton : MonoBehaviour
     {
         Debug.Log("음료 설명? " + TeaDataScript.teaDex.item[num].tea_description); //상세설명 로그
 
-        GameObject.Find("Recipe_title").GetComponent<Text>().text = TeaDataScript.teaDex.item[num].tea_name; //레시피 이름
-        GameObject.Find("Recipe_detail_text").GetComponent<Text>().text = TeaDataScript.teaDex.item[num].tea_description; //레시피 상세설명
+        GameObject.Find("Recipe_title").GetComponent<TextMeshProUGUI>().text = TeaDataScript.teaDex.item[num].tea_name; //레시피 이름
+        GameObject.Find("Recipe_detail_text").GetComponent<TextMeshProUGUI>().text = TeaDataScript.teaDex.item[num].tea_description; //레시피 상세설명
 
         GameObject.Find("Recipe_image").GetComponent<Image>().sprite = gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite; //레시피 상세 이미지
 
@@ -74,7 +75,7 @@ public class RecipeItemButton : MonoBehaviour
 
                 //GameObject.Find("bubble_name2").GetComponent<Text>().text = TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_num];
 
-                GameObject.Find("bubble_num2").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_amout.ToString() + "<b>↑</b>";
+                GameObject.Find("bubble_num2").GetComponent<TextMeshProUGUI>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_amout.ToString() + "<b>↑</b>";
             }
 
             else if (TeaDataScript.teaDex.item[num].tea_recipe.Length == 2)
@@ -94,8 +95,8 @@ public class RecipeItemButton : MonoBehaviour
                 //GameObject.Find("bubble_name4").GetComponent<Text>().text = TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_num];
                 //GameObject.Find("bubble_name5").GetComponent<Text>().text = TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[num].tea_recipe[1].ingredient_num];
 
-                GameObject.Find("bubble_num4").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_amout.ToString() + "<b>↑</b>";
-                GameObject.Find("bubble_num5").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[1].ingredient_amout.ToString() + "<b>↑</b>";
+                GameObject.Find("bubble_num4").GetComponent<TextMeshProUGUI>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_amout.ToString() + "<b>↑</b>";
+                GameObject.Find("bubble_num5").GetComponent<TextMeshProUGUI>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[1].ingredient_amout.ToString() + "<b>↑</b>";
             }
 
             else
@@ -118,9 +119,9 @@ public class RecipeItemButton : MonoBehaviour
                 //GameObject.Find("bubble_name2").GetComponent<Text>().text = TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[num].tea_recipe[1].ingredient_num];
                 //GameObject.Find("bubble_name3").GetComponent<Text>().text = TeaDataScript.ingredient_name[TeaDataScript.teaDex.item[num].tea_recipe[2].ingredient_num];
 
-                GameObject.Find("bubble_num1").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_amout.ToString() + "<b>↑</b>";
-                GameObject.Find("bubble_num2").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[1].ingredient_amout.ToString() + "<b>↑</b>";
-                GameObject.Find("bubble_num3").GetComponent<Text>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[2].ingredient_amout.ToString() + "<b>↑</b>";
+                GameObject.Find("bubble_num1").GetComponent<TextMeshProUGUI>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[0].ingredient_amout.ToString() + "<b>↑</b>";
+                GameObject.Find("bubble_num2").GetComponent<TextMeshProUGUI>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[1].ingredient_amout.ToString() + "<b>↑</b>";
+                GameObject.Find("bubble_num3").GetComponent<TextMeshProUGUI>().text = "x " + TeaDataScript.teaDex.item[num].tea_recipe[2].ingredient_amout.ToString() + "<b>↑</b>";
             }
         }
 
