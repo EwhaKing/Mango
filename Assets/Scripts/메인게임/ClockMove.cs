@@ -76,9 +76,9 @@ public class ClockMove : MonoBehaviour
             pop_up.SetActive(true);
             ButtonSound._buttonInstance.onMoneyAudio(); //돈 효과음 재생
             GameStaticData.data.data_money += TotalMoney.totalMoney;
+            GameStaticData.data.data_money_total += TotalMoney.totalMoney;
             GameStaticData.data.date++;
             File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
-            Debug.Log("게임 머니: " + GameStaticData.data.data_money + "    다음날: " + GameStaticData.data.date);
 
         }
     }
