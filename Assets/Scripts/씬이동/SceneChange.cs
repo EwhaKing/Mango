@@ -36,6 +36,7 @@ public class SceneChange : MonoBehaviour
 
         //GameData 초기화
 
+        GameStaticData.data.data_money_total = 0;
         GameStaticData.data.data_money = 0;
         GameStaticData.data.data_cloth = 0;
         GameStaticData.data.date = 0;

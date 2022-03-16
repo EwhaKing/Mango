@@ -17,6 +17,11 @@ public class TotalLeaderRegister : MonoBehaviour
 
     }
 
+    void Start()
+    {
+        if (GameStaticData.data.data_money_total > 0) postTotal();
+    }
+
     public void postTotal()
     {
         StartCoroutine(PostLeader());
@@ -25,24 +30,12 @@ public class TotalLeaderRegister : MonoBehaviour
     IEnumerator PostLeader()
     {
         UnityWebRequest request = new UnityWebRequest();
-        nickname = GameStaticData.data.name;
         Leader leader;
-
-        int clothes_cnt = ShopDataScript.sd.item.Length;
-        int total = GameStaticData.data.data_money;
-
-        for (int i = 0; i < clothes_cnt; i++)
-        {
-            if (ShopDataScript.sd.item[i].own) //해당 옷 세트를 가지고 있다면
-            {
-                total += ShopDataScript.sd.item[i].item_cost;
-            }
-        }
 
         leader = new Leader
         {
-            username = nickname,
-            score = total
+            username = GameStaticData.data.name,
+            score = GameStaticData.data.data_money_total
         };
 
         string json = JsonUtility.ToJson(leader);
@@ -60,19 +53,6 @@ public class TotalLeaderRegister : MonoBehaviour
         else
         {
             Debug.Log("성공");
-        }
-    }
-
-    void Start()
-    {
-        Invoke("postWait", 1f);
-    }
-
-    void postWait()
-    {
-        if (GameStaticData.data.data_money > 0)
-        {
-            postTotal();
         }
     }
 }
