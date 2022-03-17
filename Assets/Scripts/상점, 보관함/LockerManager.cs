@@ -85,9 +85,6 @@ public class LockerManager : MonoBehaviour
         item.transform.localScale = Vector3.one;
         item.transform.localRotation = Quaternion.identity;
 
-        //현재 입은 옷 정보 변경
-        GameStaticData.data.data_cloth = clothe_sprite;
-
         //오브젝트에 추가
         item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = set_clothes[clothe_sprite];
 
