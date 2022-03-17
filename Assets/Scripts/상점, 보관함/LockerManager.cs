@@ -58,11 +58,19 @@ public class LockerManager : MonoBehaviour
                     locker_sprites.Add(i);
                 }
 
+                // 입고있는 옷이라면 토글
                 if (GameStaticData.data.data_cloth == i)
                 {
                     item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
                 }
                 else item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+
+                // new 떠야 한다면
+                if (ShopDataScript.sd.item[i].is_read)
+                {
+                    item.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else item.transform.GetChild(1).gameObject.SetActive(false);
 
                 cnt++;
             }
@@ -85,6 +93,8 @@ public class LockerManager : MonoBehaviour
 
         //new텍스트 활성화
         item.transform.GetChild(1).gameObject.SetActive(true);
+        ShopDataScript.sd.item[clothe_sprite].is_read = true; //new 활성화 됐다는 거 표시
+        File.WriteAllText(Application.persistentDataPath + "/ShopData.json", JsonUtility.ToJson(ShopDataScript.sd));  //데이터베이스에 다시 저장
 
         //스크롤뷰 오른쪽 보이도록
         item.transform.parent.localPosition = new Vector2(-10000f, item.transform.parent.localPosition.y);
@@ -113,6 +123,13 @@ public class LockerManager : MonoBehaviour
             {
                 item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
             }
+
+            // new 떠야 한다면
+            if (ShopDataScript.sd.item[locker_sprites[i]].is_read)
+            {
+                item.transform.GetChild(1).gameObject.SetActive(true);
+            }
+            else item.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 }

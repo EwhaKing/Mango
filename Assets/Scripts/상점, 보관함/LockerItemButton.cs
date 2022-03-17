@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,15 @@ public class LockerItemButton : MonoBehaviour
         //현재 gameObject == item
 
         int index = gameObject.transform.GetSiblingIndex(); //item 몇번째 자식인지
+
+        // new 버튼 관리
+        int clote_index = GameObject.Find("GameManager").GetComponent<LockerManager>().locker_sprites[index];
+        if (ShopDataScript.sd.item[clote_index].is_read)
+        {
+            gameObject.transform.GetChild(1).gameObject.SetActive(false); //new 오브젝트 삭제
+            ShopDataScript.sd.item[clote_index].is_read = false;
+            File.WriteAllText(Application.persistentDataPath + "/ShopData.json", JsonUtility.ToJson(ShopDataScript.sd));  //데이터베이스에 다시 저장
+        }
 
         //이미 색칠되어 있다면
         if (gameObject.transform.parent.transform.GetChild(index).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().color.r == 0.8f)
