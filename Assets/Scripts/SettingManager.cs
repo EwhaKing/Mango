@@ -16,7 +16,7 @@ public class SettingManager : MonoBehaviour
     void Start()
     {
         changeBgmButtonImage();
-        babyname.text = "아기이름: " + GameStaticData.data.name;
+        babyname.text = GameStaticData.data.name;
     }
 
     public void OnClickBackButton()

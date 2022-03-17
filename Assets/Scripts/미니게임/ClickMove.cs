@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class ClickMove : MonoBehaviour
 {
-    int speed = 200;
+    public int speed = 200;
+    GameObject credit_bg;
 
     //AudioSource audioSource;
     //public AudioClip CoinUp;
@@ -27,6 +28,12 @@ public class ClickMove : MonoBehaviour
         //사라지는 코드는 CustomerTalkButton에 있습니다!
 
         
+    }
+
+    public void onClickCredit()
+    {
+        credit_bg = GameObject.Find("credit_bg");
+        credit_bg.transform.localPosition = new Vector2(0f, 0f);
     }
 
     void Bye()
