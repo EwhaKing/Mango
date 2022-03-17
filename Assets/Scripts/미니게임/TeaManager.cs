@@ -245,17 +245,22 @@ public class TeaManager : MonoBehaviour
 
         switch (fruits_index[fruit_current])
         {
-            case 1: case 2: case 3: case 4: case 7: case 8: case 9: //너비가 넓은 과일들 (팔 넓게)
-                left_arm.gameObject.SetActive(false);
-                right_arm.gameObject.SetActive(false);
-                jamong_left_arm.gameObject.SetActive(true);
-                jamong_right_arm.gameObject.SetActive(true);
-                break;
-            default:
+            case 0: case 5: case 6: case 13: case 14: case 15: case 18: case 20: //너비가 좁은 과일들 (팔 좁게)
                 left_arm.gameObject.SetActive(true);
                 right_arm.gameObject.SetActive(true);
                 jamong_left_arm.gameObject.SetActive(false);
                 jamong_right_arm.gameObject.SetActive(false);
+                left_arm.GetComponent<Animator>().enabled = false;
+                right_arm.GetComponent<Animator>().enabled = false;
+                break;
+            default:
+                Debug.Log("현재 과일: " + fruits_index[fruit_current]);
+                left_arm.gameObject.SetActive(false);
+                right_arm.gameObject.SetActive(false);
+                jamong_left_arm.gameObject.SetActive(true);
+                jamong_right_arm.gameObject.SetActive(true);
+                jamong_left_arm.GetComponent<Animator>().enabled = false;
+                jamong_right_arm.GetComponent<Animator>().enabled = false;
                 break;
         }
 
@@ -364,19 +369,7 @@ public class TeaManager : MonoBehaviour
 
         switch (fruits_index[fruit_current])
         {
-            case 1: case 2: case 3: case 4: case 7: case 8: case 9: //너비가 넓은 과일들 (팔 넓게)
-                if (jamong_left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
-                {
-                    jamong_left_arm.GetComponent<Animator>().enabled = true;
-                    jamong_right_arm.GetComponent<Animator>().enabled = true;
-                }
-                else
-                {
-                    jamong_left_arm.GetComponent<Animator>().Play("arm_left_anim_jamong", -1, 0f);
-                    jamong_right_arm.GetComponent<Animator>().Play("arm_right_anim_jamong", -1, 0f);
-                }
-                break;
-            default:
+            case 0: case 5: case 6: case 13: case 14: case 15: case 18: case 20: //너비가 좁은 과일들 (팔 좁게)
                 if (left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
                 {
                     left_arm.GetComponent<Animator>().enabled = true;
@@ -386,6 +379,19 @@ public class TeaManager : MonoBehaviour
                 {
                     left_arm.GetComponent<Animator>().Play("arm_left_anim", -1, 0f);
                     right_arm.GetComponent<Animator>().Play("arm_right_anim_lemon", -1, 0f);
+                }
+                break;
+            default:
+                Debug.Log("현재 과일: " + fruits_index[fruit_current]);
+                if (jamong_left_arm.GetComponent<Animator>().isActiveAndEnabled == false)
+                {
+                    jamong_left_arm.GetComponent<Animator>().enabled = true;
+                    jamong_right_arm.GetComponent<Animator>().enabled = true;
+                }
+                else
+                {
+                    jamong_left_arm.GetComponent<Animator>().Play("arm_left_anim_jamong", -1, 0f);
+                    jamong_right_arm.GetComponent<Animator>().Play("arm_right_anim_jamong", -1, 0f);
                 }
                 break;
         }
