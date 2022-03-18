@@ -1707,10 +1707,10 @@ MonoBehaviour:
   juiceIndex: {fileID: 524139022}
   specialIndex: {fileID: 384688365}
   TeaBg1: {fileID: 21300000, guid: 9bab241e719b24b4d97d70169cbac5a2, type: 3}
-  DrinkBg1: {fileID: 21300000, guid: 9743b7fb128b3b14194ecf4e9ebd2504, type: 3}
+  DrinkBg1: {fileID: 21300000, guid: 77d06644cf307cb4b926fffcb96f57d3, type: 3}
   SpecialBg1: {fileID: 21300000, guid: 711d5cf42f11c5c4daf212737b4ea3ff, type: 3}
   TeaBg2: {fileID: 21300000, guid: ffa843bc6c34654419a851517bfe9218, type: 3}
-  DrinkBg2: {fileID: 21300000, guid: 80a065c9e0b0bcb418aba279083715ef, type: 3}
+  DrinkBg2: {fileID: 21300000, guid: 38d404b9cfb03074bad431ea8e660c96, type: 3}
   SpecialBg2: {fileID: 21300000, guid: 4409157b7183919488d6e83a5c11d81e, type: 3}
   teaContent: {fileID: 878712471}
   drinkContent: {fileID: 1626714803}
@@ -1808,7 +1808,6 @@ GameObject:
   - component: {fileID: 286655232}
   - component: {fileID: 286655231}
   - component: {fileID: 286655230}
-  - component: {fileID: 286655233}
   m_Layer: 5
   m_Name: rule_exit
   m_TagString: Untagged
@@ -1878,9 +1877,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 286655233}
-        m_MethodName: OnClickGameRealRuleExit
+      - m_Target: {fileID: 1998652849}
+        m_MethodName: onButtonAudio
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 738228278}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1926,19 +1936,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286655228}
   m_CullTransparentMesh: 0
---- !u!114 &286655233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286655228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4a9b659a5b10747903a052745bc3de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ruleText: {fileID: 738228278}
 --- !u!1 &298941066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2979,10 +2976,10 @@ MonoBehaviour:
   juiceIndex: {fileID: 524139022}
   specialIndex: {fileID: 384688365}
   TeaBg1: {fileID: 21300000, guid: 9bab241e719b24b4d97d70169cbac5a2, type: 3}
-  DrinkBg1: {fileID: 21300000, guid: 9743b7fb128b3b14194ecf4e9ebd2504, type: 3}
+  DrinkBg1: {fileID: 21300000, guid: 77d06644cf307cb4b926fffcb96f57d3, type: 3}
   SpecialBg1: {fileID: 21300000, guid: 711d5cf42f11c5c4daf212737b4ea3ff, type: 3}
   TeaBg2: {fileID: 21300000, guid: ffa843bc6c34654419a851517bfe9218, type: 3}
-  DrinkBg2: {fileID: 21300000, guid: 80a065c9e0b0bcb418aba279083715ef, type: 3}
+  DrinkBg2: {fileID: 21300000, guid: 38d404b9cfb03074bad431ea8e660c96, type: 3}
   SpecialBg2: {fileID: 21300000, guid: 4409157b7183919488d6e83a5c11d81e, type: 3}
   teaContent: {fileID: 878712471}
   drinkContent: {fileID: 1626714803}
@@ -4167,7 +4164,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\uC74C\uB8CC \uB808\uC2DC\uD53C"
+          m_StringArgument: "\uC8FC\uC2A4 \uB808\uC2DC\uD53C"
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 524139027}
@@ -4200,7 +4197,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 80a065c9e0b0bcb418aba279083715ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38d404b9cfb03074bad431ea8e660c96, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4234,10 +4231,10 @@ MonoBehaviour:
   juiceIndex: {fileID: 524139022}
   specialIndex: {fileID: 384688365}
   TeaBg1: {fileID: 21300000, guid: 9bab241e719b24b4d97d70169cbac5a2, type: 3}
-  DrinkBg1: {fileID: 21300000, guid: 9743b7fb128b3b14194ecf4e9ebd2504, type: 3}
+  DrinkBg1: {fileID: 21300000, guid: 77d06644cf307cb4b926fffcb96f57d3, type: 3}
   SpecialBg1: {fileID: 21300000, guid: 711d5cf42f11c5c4daf212737b4ea3ff, type: 3}
   TeaBg2: {fileID: 21300000, guid: ffa843bc6c34654419a851517bfe9218, type: 3}
-  DrinkBg2: {fileID: 21300000, guid: 80a065c9e0b0bcb418aba279083715ef, type: 3}
+  DrinkBg2: {fileID: 21300000, guid: 38d404b9cfb03074bad431ea8e660c96, type: 3}
   SpecialBg2: {fileID: 21300000, guid: 4409157b7183919488d6e83a5c11d81e, type: 3}
   teaContent: {fileID: 878712471}
   drinkContent: {fileID: 1626714803}
@@ -5846,10 +5843,10 @@ MonoBehaviour:
   juiceIndex: {fileID: 524139022}
   specialIndex: {fileID: 384688365}
   TeaBg1: {fileID: 21300000, guid: 9bab241e719b24b4d97d70169cbac5a2, type: 3}
-  DrinkBg1: {fileID: 21300000, guid: 9743b7fb128b3b14194ecf4e9ebd2504, type: 3}
+  DrinkBg1: {fileID: 21300000, guid: 77d06644cf307cb4b926fffcb96f57d3, type: 3}
   SpecialBg1: {fileID: 21300000, guid: 711d5cf42f11c5c4daf212737b4ea3ff, type: 3}
   TeaBg2: {fileID: 21300000, guid: ffa843bc6c34654419a851517bfe9218, type: 3}
-  DrinkBg2: {fileID: 21300000, guid: 80a065c9e0b0bcb418aba279083715ef, type: 3}
+  DrinkBg2: {fileID: 21300000, guid: 38d404b9cfb03074bad431ea8e660c96, type: 3}
   SpecialBg2: {fileID: 21300000, guid: 4409157b7183919488d6e83a5c11d81e, type: 3}
   teaContent: {fileID: 878712471}
   drinkContent: {fileID: 1626714803}
@@ -10609,6 +10606,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1145078581}
         m_MethodName: onClickScoreBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1998652849}
+        m_MethodName: onButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15484,6 +15492,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1998652849}
+        m_MethodName: onButtonAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1592874326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19439,8 +19458,6 @@ GameObject:
   - component: {fileID: 2042646189}
   - component: {fileID: 2042646188}
   - component: {fileID: 2042646187}
-  - component: {fileID: 2042646190}
-  - component: {fileID: 2042646191}
   m_Layer: 5
   m_Name: game_rule
   m_TagString: Untagged
@@ -19510,8 +19527,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2042646190}
-        m_MethodName: OnClickGameRealRule
+      - m_Target: {fileID: 1998652849}
+        m_MethodName: onButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19520,6 +19537,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 738228278}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2042646188
 MonoBehaviour:
@@ -19558,115 +19586,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042646185}
   m_CullTransparentMesh: 0
---- !u!114 &2042646190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042646185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4a9b659a5b10747903a052745bc3de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ruleText: {fileID: 738228278}
---- !u!82 &2042646191
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042646185}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &2049062694
 GameObject:
   m_ObjectHideFlags: 0
