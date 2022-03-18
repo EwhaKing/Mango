@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ClickMove : MonoBehaviour
 {
     public int speed = 200;
-    GameObject credit_bg;
+    public GameObject credit_bg;
 
     //AudioSource audioSource;
     //public AudioClip CoinUp;
@@ -32,7 +32,6 @@ public class ClickMove : MonoBehaviour
 
     public void onClickCredit()
     {
-        credit_bg = GameObject.Find("credit_bg");
         credit_bg.transform.localPosition = new Vector2(0f, 0f);
     }
 
