@@ -8436,6 +8436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+  credit_bg: {fileID: 1419277914}
 --- !u!1 &1463001917
 GameObject:
   m_ObjectHideFlags: 0
@@ -12086,9 +12087,9 @@ RectTransform:
   m_Father: {fileID: 409574621}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -539, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1499, y: 0}
   m_SizeDelta: {x: 1000, y: 5000}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2140371241
