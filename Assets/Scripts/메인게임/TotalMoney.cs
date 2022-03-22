@@ -42,6 +42,6 @@ public class TotalMoney : MonoBehaviour
             plusMoney = 0;
         }
 
-        totalMoney += plusMoney;
+        //totalMoney += plusMoney;
     }
 }

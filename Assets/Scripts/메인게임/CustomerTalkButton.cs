@@ -43,7 +43,7 @@ public class CustomerTalkButton : MonoBehaviour
             //미니게임 부르기
             SceneManager.LoadScene("minigameSceneFinish");
         }
-        else if(CustomerManager.current_customer == this.gameObject.transform.GetSiblingIndex()) //건네기 클릭
+        else if (CustomerManager.current_customer == this.gameObject.transform.GetSiblingIndex()) //건네기 클릭
         {
             main_over_check = false;
 
@@ -57,13 +57,15 @@ public class CustomerTalkButton : MonoBehaviour
                 GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = false;
             }
 
-            if(CustomerManager.tip_money[CustomerManager.current_customer] != 0)
+            if (CustomerManager.tip_money[CustomerManager.current_customer] != 0)
             {
                 tip_money_text.text = "+ 보너스 " + CustomerManager.tip_money[CustomerManager.current_customer].ToString();
                 tip_money_text.gameObject.SetActive(true);
                 TotalMoney.totalMoney += CustomerManager.tip_money[CustomerManager.current_customer];
                 CustomerManager.tip_money[CustomerManager.current_customer] = 0;
             }
+
+            TotalMoney.totalMoney += TotalMoney.plusMoney;
 
             audioSource_customer.clip = customer_happy[CustomerManager.customer_img_idx[CustomerManager.current_customer]];
             //audioSource_customer.Play(); //손님 웃음소리 재생
