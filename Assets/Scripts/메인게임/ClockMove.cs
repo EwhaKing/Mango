@@ -59,7 +59,8 @@ public class ClockMove : MonoBehaviour
             }
         }
 
-        else if (check && CustomerTalkButton.main_over_check) //타임오버
+        //처음 종료 && 건네는 애니메이션 다 끝남 && 건네기가 남아있지 않음
+        else if (check && CustomerTalkButton.main_over_check && !CustomerManager.check) //타임오버
         {
             //게임 머니에 한 번만 더하기 위한 체크변수
             check = false; 

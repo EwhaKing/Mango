@@ -78,16 +78,16 @@ public class RecipeManager : MonoBehaviour
             GameObject.Find("Recipe_title").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 이름
             GameObject.Find("Recipe_detail_text").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 상세설명
 
-            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
+            GameObject.Find("Recipe_content").transform.GetChild(12).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
         }
 
         else
         {
-            GameObject.Find("Recipe_content").transform.GetChild(3).gameObject.SetActive(false);
-            GameObject.Find("Recipe_content").transform.GetChild(4).gameObject.SetActive(true);
-            GameObject.Find("Recipe_content").transform.GetChild(5).gameObject.SetActive(false);
-            GameObject.Find("Recipe_content").transform.GetChild(6).gameObject.SetActive(false);
             GameObject.Find("Recipe_content").transform.GetChild(7).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true);
+            GameObject.Find("Recipe_content").transform.GetChild(9).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(10).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(11).gameObject.SetActive(false);
 
             GameObject.Find("Ingredient_2").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
 
@@ -129,16 +129,16 @@ public class RecipeManager : MonoBehaviour
             GameObject.Find("Recipe_title").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 이름
             GameObject.Find("Recipe_detail_text").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 상세설명
 
-            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
+            GameObject.Find("Recipe_content").transform.GetChild(12).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
         }
 
         else
         {
-            GameObject.Find("Recipe_content").transform.GetChild(3).gameObject.SetActive(false);
-            GameObject.Find("Recipe_content").transform.GetChild(4).gameObject.SetActive(true);
-            GameObject.Find("Recipe_content").transform.GetChild(5).gameObject.SetActive(false);
-            GameObject.Find("Recipe_content").transform.GetChild(6).gameObject.SetActive(false);
             GameObject.Find("Recipe_content").transform.GetChild(7).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true);
+            GameObject.Find("Recipe_content").transform.GetChild(9).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(10).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(11).gameObject.SetActive(false);
 
             GameObject.Find("Ingredient_2").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
 
@@ -189,16 +189,16 @@ public class RecipeManager : MonoBehaviour
             GameObject.Find("Recipe_title").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 이름
             GameObject.Find("Recipe_detail_text").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 상세설명
 
-            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
+            GameObject.Find("Recipe_content").transform.GetChild(12).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
         }
 
         else
         {
-            GameObject.Find("Recipe_content").transform.GetChild(3).gameObject.SetActive(false);
-            GameObject.Find("Recipe_content").transform.GetChild(4).gameObject.SetActive(false);
-            GameObject.Find("Recipe_content").transform.GetChild(5).gameObject.SetActive(false);
-            GameObject.Find("Recipe_content").transform.GetChild(6).gameObject.SetActive(true);
-            GameObject.Find("Recipe_content").transform.GetChild(7).gameObject.SetActive(true);
+            GameObject.Find("Recipe_content").transform.GetChild(7).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(9).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(10).gameObject.SetActive(true);
+            GameObject.Find("Recipe_content").transform.GetChild(11).gameObject.SetActive(true);
 
             GameObject.Find("Ingredient_4").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[2].tea_recipe[0].ingredient_num];
             GameObject.Find("Ingredient_5").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[2].tea_recipe[1].ingredient_num];
@@ -256,16 +256,16 @@ public class RecipeManager : MonoBehaviour
             GameObject.Find("Recipe_title").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 이름
             GameObject.Find("Recipe_detail_text").GetComponent<TextMeshProUGUI>().text = "???"; //레시피 상세설명
 
-            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
+            GameObject.Find("Recipe_content").transform.GetChild(12).gameObject.SetActive(true); //레시피 해금 전 미공개 이미지 띄우기
         }
 
         else
         {
-            GameObject.Find("Recipe_content").transform.GetChild(3).gameObject.SetActive(false);
-            GameObject.Find("Recipe_content").transform.GetChild(4).gameObject.SetActive(true);
-            GameObject.Find("Recipe_content").transform.GetChild(5).gameObject.SetActive(false);
-            GameObject.Find("Recipe_content").transform.GetChild(6).gameObject.SetActive(false);
             GameObject.Find("Recipe_content").transform.GetChild(7).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(8).gameObject.SetActive(true);
+            GameObject.Find("Recipe_content").transform.GetChild(9).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(10).gameObject.SetActive(false);
+            GameObject.Find("Recipe_content").transform.GetChild(11).gameObject.SetActive(false);
 
             GameObject.Find("Ingredient_2").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[1].tea_recipe[0].ingredient_num];
 

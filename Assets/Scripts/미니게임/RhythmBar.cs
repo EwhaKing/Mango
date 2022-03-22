@@ -146,7 +146,15 @@ public class RhythmBar : MonoBehaviour
                 audioSource.Play();
             }
 
-            Handheld.Vibrate(); // 실패시 진동
+            if (SettingManager.isVibration)
+            {
+                Debug.Log("진동 o");
+                Handheld.Vibrate(); // 실패시 진동
+            }
+            else
+            {
+                Debug.Log("진동 x");
+            }
         }
 
         cnt++;

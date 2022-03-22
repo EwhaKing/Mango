@@ -2131,6 +2131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63eaf665365a3640a5464e69a089f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 200
+  credit_bg: {fileID: 0}
 --- !u!114 &671920693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2352,6 +2354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63eaf665365a3640a5464e69a089f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 200
+  credit_bg: {fileID: 0}
 --- !u!114 &687180909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3430,6 +3434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63eaf665365a3640a5464e69a089f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 200
+  credit_bg: {fileID: 0}
 --- !u!114 &901350242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5480,24 +5486,24 @@ MonoBehaviour:
   foundRecipe: {fileID: 1030014823}
   tea: {fileID: 1882830075}
   tea_sprites:
-  - {fileID: 21300000, guid: e7049e4483f047143a9d6059f2bc3114, type: 3}
-  - {fileID: 21300000, guid: 09e52de4b28a4b84db8fe673e1e79bea, type: 3}
-  - {fileID: 21300000, guid: 086eb9a1dffb1e54f89a95af047f02c3, type: 3}
-  - {fileID: 21300000, guid: c941652d4a620084fa923583fb559aa6, type: 3}
-  - {fileID: 21300000, guid: 0e14ea8ef2aa8fb42ae326ac3ddbca30, type: 3}
-  - {fileID: 21300000, guid: 34619e811ca86a047b7c05ff9374aee4, type: 3}
-  - {fileID: 21300000, guid: e77685f693d07574d806d272059f4da7, type: 3}
-  - {fileID: 21300000, guid: 42b302a5792a3b446b61e1f35cd64ba5, type: 3}
-  - {fileID: 21300000, guid: 9b39c0f875429fc489be389a6b42bab0, type: 3}
-  - {fileID: 21300000, guid: f1bfcc06a18447348a39e3aa03f34954, type: 3}
-  - {fileID: 21300000, guid: 63f9ff6a9a7008e43a41db14c6c1c271, type: 3}
-  - {fileID: 21300000, guid: 6db298592aba29a41854f0c49f213a29, type: 3}
-  - {fileID: 21300000, guid: 3869ab5369916fc46938fea02a22d217, type: 3}
-  - {fileID: 21300000, guid: 94545a66ea7736a499d9f1d54185470e, type: 3}
-  - {fileID: 21300000, guid: 5097e1c33fa997e43a259fd3c0cc5b93, type: 3}
-  - {fileID: 21300000, guid: 9429a4945d375ae46bd89fa7f91c87fc, type: 3}
-  - {fileID: 21300000, guid: 7c7fb967822a29c4988b483245b6b34a, type: 3}
-  - {fileID: 21300000, guid: 6b75710769c56fd488cd90688de7d7aa, type: 3}
+  - {fileID: 21300000, guid: 58dfddf891b2738488205c11d7487c5e, type: 3}
+  - {fileID: 21300000, guid: 51d16021b157b314d8fb839a0ed3faba, type: 3}
+  - {fileID: 21300000, guid: f356e3022c27f1b49955119d448e4ec9, type: 3}
+  - {fileID: 21300000, guid: 5fa6d59386141054d9f0a3aa7d8d02b7, type: 3}
+  - {fileID: 21300000, guid: 42c236c4fcdb616489b7d9879e8b8918, type: 3}
+  - {fileID: 21300000, guid: 01ee36ba541e672468246e4ec9ea4d74, type: 3}
+  - {fileID: 21300000, guid: badaccd6ab463684b9162933e18e5bf1, type: 3}
+  - {fileID: 21300000, guid: 0aadcea0c35133d4cada7012b212e3ca, type: 3}
+  - {fileID: 21300000, guid: d3e729cee940af34d9d5b2a17ddb1b51, type: 3}
+  - {fileID: 21300000, guid: 4adcbb830dc9c82418290932292b46ad, type: 3}
+  - {fileID: 21300000, guid: 151f5f9f7cb92f4408f3afef3301b0a1, type: 3}
+  - {fileID: 21300000, guid: 72bf98e848e3b2b4aa56d5e5a0ca9284, type: 3}
+  - {fileID: 21300000, guid: 95bedd19d18e5ca429282d673a7ff8ef, type: 3}
+  - {fileID: 21300000, guid: 117493030149acd40aec50bc24c11978, type: 3}
+  - {fileID: 21300000, guid: 5b54bdea3a2d877449588b3e3704370a, type: 3}
+  - {fileID: 21300000, guid: 8cf8f385978264f4e82b0bb94cdd1f5d, type: 3}
+  - {fileID: 21300000, guid: 060d93a109a4306488b67675ee712628, type: 3}
+  - {fileID: 21300000, guid: dd772849ea3b44e4a8d4b389d69f3a44, type: 3}
 --- !u!1 &1407960708
 GameObject:
   m_ObjectHideFlags: 0
@@ -8636,6 +8642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSetting: {fileID: 840378771}
   soundSetting: {fileID: 684901530}
+  vibrationSetting: {fileID: 0}
   babyname: {fileID: 759074080}
   bgmSlider: {fileID: 2112363260}
   soundSlider: {fileID: 1407960710}

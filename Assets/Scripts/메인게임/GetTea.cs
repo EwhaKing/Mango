@@ -19,8 +19,6 @@ public class GetTea : MonoBehaviour
     {
         if(TeaManager.get_recipe != -1) //새로운 도감 얻음
         {
-            tea.sprite = tea_sprites[TeaManager.get_recipe];
-
             //도감 얻었다는 팝업창 뜨도록
             foundRecipe.SetActive(true);
 
@@ -39,6 +37,14 @@ public class GetTea : MonoBehaviour
             File.WriteAllText(Application.persistentDataPath + "/TeaDex.json", JsonUtility.ToJson(TeaDataScript.teaDex));
 
             TeaManager.get_recipe = -1; //초기화
+        }
+        else if(TeaManager.origin_recipe != -1) //있는 도감 만듦
+        {
+            Debug.Log("만든 레시피: " + TeaManager.origin_recipe);
+
+            tea.sprite = tea_sprites[TeaManager.origin_recipe];
+
+            TeaManager.origin_recipe = -1; //초기화
         }
     }
 }
