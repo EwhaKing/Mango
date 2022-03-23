@@ -177,7 +177,7 @@ public class LoadingManager : MonoBehaviour
     void CreateFile()
     {
         File.Create(Application.persistentDataPath + "/GameData.json").Close();
-        GameStaticData.data = JsonUtility.FromJson<GameData>("{\"data_money_total\": 0,\"data_money\": 0,\"data_cloth\": 0,\"date\" :  0,\"name\" : \"\"}");
+        GameStaticData.data = JsonUtility.FromJson<GameData>("{\"data_money_total\": 0,\"data_money\": 0,\"data_cloth\": 0,\"date\" :  0,\"difficulty\" :  1,\"name\" : \"\"}");
         File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
     }
 

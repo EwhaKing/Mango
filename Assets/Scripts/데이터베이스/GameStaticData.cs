@@ -11,8 +11,8 @@ public class GameData
     public int data_money;
     public int data_cloth;
     public int date;
+    public int difficulty;
     public string name;
-
 }
 
 public class GameStaticData : MonoBehaviour
