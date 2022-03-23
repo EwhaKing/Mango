@@ -79,8 +79,32 @@ public class ClockMove : MonoBehaviour
             GameStaticData.data.data_money += TotalMoney.totalMoney;
             GameStaticData.data.data_money_total += TotalMoney.totalMoney;
             GameStaticData.data.date++;
+            GameStaticData.data.difficulty = nextDiff();
             File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
 
         }
+    }
+
+    int nextDiff()
+    {
+        int difficulty = GameStaticData.data.difficulty;
+
+        if (TotalMoney.totalMoney < 2000) difficulty = findDiff(35, 35, 10, 10, 10);
+        else if (TotalMoney.totalMoney >= 4500) difficulty = findDiff(10, 10, 10, 35, 35);
+        else difficulty = findDiff(20, 20, 20, 20, 20);
+
+        return difficulty;
+    }
+
+    int findDiff(int lv1, int lv2, int lv3, int lv4, int lv5)
+    {
+        int num = Random.Range(1, 100 + 1);
+        Debug.Log("랜덤값: " + num + "    잘한정도: " + lv5);
+
+        if (num <= lv1) return 1;
+        else if (num <= lv1 + lv2) return 2;
+        else if (num <= lv1 + lv2 + lv3) return 3;
+        else if (num <= lv1 + lv2 + lv3 + lv4) return 4;
+        else return 5;
     }
 }

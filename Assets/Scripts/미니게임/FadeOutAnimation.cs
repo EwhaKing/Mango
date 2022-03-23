@@ -29,7 +29,6 @@ public class FadeOutAnimation : MonoBehaviour
             this.gameObject.SetActive(false);
         }
         time += Time.deltaTime;
-        Debug.Log("time: " + time);
     }
 
     public void resetAnim()
