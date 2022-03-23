@@ -63,7 +63,7 @@ public class LoadingManager : MonoBehaviour
 
     IEnumerator loadGameData()
     {
-        progress_text.text = "아기정보를 불러오고 있습니다...";
+        progress_text.text = "아기 정보를 불러오고 있습니다...";
         DontDestroyOnLoad(GameObject.Find("GameData"));
 
         if (File.Exists(Application.persistentDataPath + "/GameData.json"))
@@ -122,7 +122,7 @@ public class LoadingManager : MonoBehaviour
 
     IEnumerator loadLeaderData()
     {
-        progress_text.text = "서버에 접속하고 있습니다(최대 30초 소요가능)...";
+        progress_text.text = "서버에 접속하고 있습니다(최대 30초 소요 가능)...";
         UnityWebRequest request = new UnityWebRequest();
         request = UnityWebRequest.Get(url_leader_score);
         yield return request.SendWebRequest();
