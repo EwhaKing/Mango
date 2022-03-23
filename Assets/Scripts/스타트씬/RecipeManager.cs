@@ -140,6 +140,8 @@ public class RecipeManager : MonoBehaviour
             GameObject.Find("Recipe_content").transform.GetChild(10).gameObject.SetActive(false);
             GameObject.Find("Recipe_content").transform.GetChild(11).gameObject.SetActive(false);
 
+            GameObject.Find("Recipe_content").transform.GetChild(12).gameObject.SetActive(false);
+
             GameObject.Find("Ingredient_2").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
 
             GameObject.Find("bubble_2").GetComponent<Image>().sprite = bubble_sprite[TeaDataScript.teaDex.item[0].tea_recipe[0].ingredient_num];
@@ -199,6 +201,8 @@ public class RecipeManager : MonoBehaviour
             GameObject.Find("Recipe_content").transform.GetChild(9).gameObject.SetActive(false);
             GameObject.Find("Recipe_content").transform.GetChild(10).gameObject.SetActive(true);
             GameObject.Find("Recipe_content").transform.GetChild(11).gameObject.SetActive(true);
+
+            GameObject.Find("Recipe_content").transform.GetChild(12).gameObject.SetActive(false);
 
             GameObject.Find("Ingredient_4").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[2].tea_recipe[0].ingredient_num];
             GameObject.Find("Ingredient_5").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[2].tea_recipe[1].ingredient_num];
@@ -266,6 +270,8 @@ public class RecipeManager : MonoBehaviour
             GameObject.Find("Recipe_content").transform.GetChild(9).gameObject.SetActive(false);
             GameObject.Find("Recipe_content").transform.GetChild(10).gameObject.SetActive(false);
             GameObject.Find("Recipe_content").transform.GetChild(11).gameObject.SetActive(false);
+
+            GameObject.Find("Recipe_content").transform.GetChild(12).gameObject.SetActive(false);
 
             GameObject.Find("Ingredient_2").GetComponent<Image>().sprite = total_sprite[TeaDataScript.teaDex.item[1].tea_recipe[0].ingredient_num];
 
