@@ -30,15 +30,19 @@ public class CustomerManager : MonoBehaviour
 
     int customer_num = 0; //현재 누적 손님 
 
+    //난이도에 따른 부자손님 팁 저장
+    int[] tip = {0, 300, 700, 1000, 1300, 1500};
+
     // Start is called before the first frame update
     void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
 
+        /*
         if (GameObject.Find("LifeManager_mini"))
         {
             customer_num = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt;
-        }
+        }*/
 
         leng = customer_img.Length - 1; // 길이 마지막 인덱스는 부자손님
         
@@ -132,6 +136,18 @@ public class CustomerManager : MonoBehaviour
             if(time == 0)
             {
                 //부자손님 이미지 저장
+                int rand = Random.Range(0, 10);
+                Debug.Log("부자 확률 현재 수 " + rand);
+                if (rand == 0 && customer_img_idx[0] != leng && customer_img_idx[1] != leng && customer_img_idx[2] != leng)
+                {
+                    Debug.Log("부자손님 뜸! ");
+
+                    //rich_check++;
+                    customer_img_idx[current_customer] = leng;
+                    tip_money[current_customer] = 1000; //우선 천원
+                    //tip_money[current_customer] = tip[GameStaticData.difficulty];
+                }
+                /*
                 if (customer_num == 5 && rich_check == 0)
                 {
                     rich_check++;
@@ -155,7 +171,7 @@ public class CustomerManager : MonoBehaviour
                     rich_check++;
                     customer_img_idx[current_customer] = leng;
                     tip_money[current_customer] = 1500;
-                }
+                }*/
                 else
                 {
                     //새로운 손님 이미지 저장, 현재있는 손님과 중복 안되게
