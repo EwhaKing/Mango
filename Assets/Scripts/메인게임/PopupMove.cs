@@ -45,7 +45,6 @@ public class PopupMove : MonoBehaviour
 
         while (popupImage.color.a > 0.0f)
         {
-            Debug.Log("현재 투명도: " + popupImage.color.a);
             popupImage.color = new Color(popupImage.color.r, popupImage.color.g, popupImage.color.b, popupImage.color.a - (Time.deltaTime / speed));
             popupText.color = new Color(popupText.color.r, popupText.color.g, popupText.color.b, popupText.color.a - (Time.deltaTime / speed));
             yield return null;

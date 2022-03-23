@@ -32,36 +32,37 @@ public class SliderTimer : MonoBehaviour
         {
             GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt = ++currcus;
         }
-        Debug.Log("customer num: " + GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt);
 
-        if (currcus <= 5) //1단계
+        int difficulty = GameStaticData.data.difficulty;
+        Debug.LogWarning("난이도: " + difficulty);
+
+        if (difficulty == 1) //1단계
         {
             speed = 0.05f;
         }
-        else if (currcus <= 8) //2단계
+        else if (difficulty == 2) //2단계
         {
-            speed = 0.067f;
-            Debug.Log("level2");
+            speed = 0.05f;
+            successArea.transform.localScale = new Vector3(1, 0.66f, 1); //작아짐
         }
-        else if (currcus <= 11) //3단계
+        else if (difficulty == 3) //3단계
         {
-            speed = 0.067f;
-            successArea.transform.localScale = new Vector3(1, 0.66f, 1);
-            Debug.Log("level3");
-        }
-        else if (currcus <= 15) //4단계
-        {
-            speed = 0.067f;
-            successArea.transform.localScale = new Vector3(1, 0.66f, 1);
+            speed = 0.05f;
+            successArea.transform.localScale = new Vector3(1, 1, 1); //넓고 움직임
+            SuccessArea.MaxPos = 220f; SuccessArea.MinPos = -225f;
             GameObject.Find("Image_success").GetComponent<SuccessArea>().successSpeed = 100f;
-            Debug.Log("level4");
+        }
+        else if (difficulty == 4) //4단계
+        {
+            speed = 0.05f;
+            successArea.transform.localScale = new Vector3(1, 0.66f, 1); //좁고 움직임
+            GameObject.Find("Image_success").GetComponent<SuccessArea>().successSpeed = 100f;
         }
         else //5단계
         {
-            speed = 0.083f;
-            successArea.transform.localScale = new Vector3(1, 0.5f, 1);
+            speed = 0.067f;
+            successArea.transform.localScale = new Vector3(1, 0.66f, 1); //좁고 움직이는데 시간도 빨리 줄어듦
             GameObject.Find("Image_success").GetComponent<SuccessArea>().successSpeed = 100f;
-            Debug.Log("level5");
         }
     }
 
