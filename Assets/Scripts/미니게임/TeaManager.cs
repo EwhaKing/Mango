@@ -94,27 +94,25 @@ public class TeaManager : MonoBehaviour
             tea_prob[14] = 30;
             tea_prob[15] = 30;
         }
-        else
+        else //스페셜복 x
         {
-            if (is_special)
+            for(int i = 0; i < 13; i++) //스페셜 전까지
             {
-                for(int i = 0; i < TEA; i++)
-                {
-                    if (tea_prob[i] != 0) continue;
-                    tea_prob[i] = 3;
-                }
+                tea_prob[i] = 8;
             }
-            else
+            tea_prob[1] = 0; //스페셜 레시피 확률 0으로
+        }
+
+        if (is_special) //스페셜 있다면
+        {
+            for (int i = 0; i < TEA; i++)
             {
-                for(int i = 0; i < 13; i++) //스페셜 전까지
-                {
-                    tea_prob[i] = 8;
-                }
-                tea_prob[1] = 0; //스페셜 레시피 확률 0으로
+                if (tea_prob[i] != 0) continue;
+                tea_prob[i] = 3;
             }
         }
 
-        for(int i = 1; i < TEA; i++) //랜덤함수에 따라 확률 정하기 위해 누적합
+        for (int i = 1; i < TEA; i++) //랜덤함수에 따라 확률 정하기 위해 누적합
         {
             tea_prob[i] += tea_prob[i - 1];
         }
@@ -237,8 +235,8 @@ public class TeaManager : MonoBehaviour
 
     public void changeFruit() //fruit_current 로 과일 바꾸기
     {
-        //아기 팔 바꾸기 (자몽만 팔 달라서 필요한 코드)
-        GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(GameStaticData.data.data_cloth);
+        //아기 팔 바꾸기 (자몽만 팔 달라서 필요한 코드) -> 그냥 처음에 입혀주면 돼지 왜 매번 바꿔준거지,,?
+        //GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(GameStaticData.data.data_cloth);
 
         //아기가 들고있는 과일 이미지 바꾸기
         fruits_mini.sprite = fruits_sprite[fruits_index[fruit_current]];
