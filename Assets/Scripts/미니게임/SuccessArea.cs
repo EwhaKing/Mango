@@ -8,6 +8,7 @@ public class SuccessArea : MonoBehaviour
     public float successSpeed = 0;
     private float currsuccessArea;
     private float currSuccessHeight;
+    private float currSuccessScale;
     public static float MaxPos = 245f;
     public static float MinPos = -250f;
 
@@ -22,7 +23,8 @@ public class SuccessArea : MonoBehaviour
     void Update()
     {
         currsuccessArea = this.transform.localPosition.y;
-        currSuccessHeight = this.GetComponent<RectTransform>().rect.height;
+        currSuccessScale = this.transform.localScale.y;
+        currSuccessHeight = this.GetComponent<RectTransform>().rect.height * currSuccessScale;
         GameObject.Find("Image_line").GetComponent<RhythmBar>().MaxSuccess = currsuccessArea + (currSuccessHeight / 2f);
         GameObject.Find("Image_line").GetComponent<RhythmBar>().MinSuccess = currsuccessArea - (currSuccessHeight / 2f);
         
