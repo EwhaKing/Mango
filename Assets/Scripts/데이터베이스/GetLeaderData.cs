@@ -10,6 +10,7 @@ public class GetLeaderData : MonoBehaviour
     public TextMeshProUGUI text_rank;
     public GameObject boardScreen;
     public GameObject boardBackground;
+    public GameObject buttonDay, buttonTotal;
     public GameObject _user;
     public List<GameObject> _users = new List<GameObject>();
     public int totaluser = 0; //나중에 데이터베이스에서 가져올 총 유저 수
@@ -37,12 +38,20 @@ public class GetLeaderData : MonoBehaviour
     {
         isTotalScore = false;
         StartCoroutine(GetLeader(leaderBoard, isTotalScore));
+
+        //버튼 색 조정
+        buttonDay.GetComponent<Image>().color = new Color(1f, 217f / 255f, 102f / 255f, 1f);
+        buttonTotal.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f); //하얀색
     }
 
     public void getTotal()
     {
         isTotalScore = true;
         StartCoroutine(GetLeader(leaderBoard, isTotalScore));
+
+        //버튼 색 조정
+        buttonTotal.GetComponent<Image>().color = new Color(1f, 217f / 255f, 102f / 255f, 1f);
+        buttonDay.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f); //하얀색
     }
 
     IEnumerator GetLeader(string leaderBoard, bool isTotal)
@@ -173,6 +182,9 @@ public class GetLeaderData : MonoBehaviour
     {
         boardBackground.SetActive(true);
         boardScreen.SetActive(true);
+
+        //하루 버튼 노란색으로 시작
+        buttonDay.GetComponent<Image>().color = new Color(1f, 217f / 255f, 102f / 255f, 1f);
     }
 
     public void onClickExit()

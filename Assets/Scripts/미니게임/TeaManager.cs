@@ -39,6 +39,7 @@ public class TeaManager : MonoBehaviour
     public Image clear_img;
 
     public static int get_recipe = -1; //얻은 레시피 번호
+    public static int origin_recipe = -1; //기존에 있는 레시피 만들었을 때 번호
 
     public int fruit_count = 0; //레시피당 과일 몇개있는지
 
@@ -195,9 +196,8 @@ public class TeaManager : MonoBehaviour
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
             case 11:
-                fruits_num[0] = Random.Range(2, 4);
-                fruits_num[1] = 1;
-                fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
+                fruits_num[0] = 3;
+                fruits_num[1] = 3;
                 break;
             case 12:
                 fruits_num[0] = Random.Range(2, 4);
@@ -335,7 +335,13 @@ public class TeaManager : MonoBehaviour
                 break;
             }
         }
-        if (check && TeaDataScript.teaDex.item[recipe].own == false) //기존에 없고 조건 만족 -> 도감 얻음
+
+        if (check && TeaDataScript.teaDex.item[recipe].own) //조건 만족하고 기존에 있는 레시피 또 만든 경우
+        {
+            Debug.Log("레시피 만듦! " + recipe);
+            origin_recipe = recipe;
+        }
+        else if (check && TeaDataScript.teaDex.item[recipe].own == false) //기존에 없고 조건 만족 -> 도감 얻음
         {
             Debug.Log("레시피 획득! " + recipe);
 

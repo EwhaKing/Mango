@@ -90,7 +90,7 @@ public class GameStory : MonoBehaviour
             textCaption.transform.gameObject.SetActive(false);
             StartCoroutine(FadeCurtainToFullAlpha());
         }
-        else
+        else if (currIndex < 8)
         {
             story.sprite = storyImages[currIndex];
             changeCaption(currIndex);
