@@ -19,8 +19,13 @@ public class GetTea : MonoBehaviour
     {
         if(TeaManager.get_recipe != -1) //새로운 도감 얻음
         {
+            //보너스 추가
+            CustomerManager.tip_money[CustomerManager.current_customer] += 500;
+
             //도감 얻었다는 팝업창 뜨도록
             foundRecipe.SetActive(true);
+
+            tea.sprite = tea_sprites[TeaManager.get_recipe]; //이미지 보이게!
 
             //팝업창 텍스트 구성
             foundRecipe.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "'" + TeaDataScript.teaDex.item[TeaManager.get_recipe].tea_name +
@@ -40,6 +45,9 @@ public class GetTea : MonoBehaviour
         }
         else if(TeaManager.origin_recipe != -1) //있는 도감 만듦
         {
+            //보너스 추가
+            CustomerManager.tip_money[CustomerManager.current_customer] += 100;
+
             Debug.Log("만든 레시피: " + TeaManager.origin_recipe);
 
             tea.sprite = tea_sprites[TeaManager.origin_recipe];

@@ -85,18 +85,13 @@ public class BabyCustom : MonoBehaviour
             babyObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = custom_sprites[3][custom_data]; //머리
 
             BabyChange babyScript = babyObject.GetComponent<BabyChange>();
-            TeaManager teaScript = GameObject.Find("GameManager").GetComponent<TeaManager>();
-            switch (teaScript.fruit_current)
-            {
-                case 1: case 2: case 3: case 4: case 7: case 8: case 9: //너비 넓은거
-                    babyScript.left_arm_jamong.sprite = custom_sprites[1][custom_data];
-                    babyScript.right_arm_jamong.sprite = custom_sprites[2][custom_data];
-                    break;
-                default:
-                    babyScript.left_arm.sprite = custom_sprites[1][custom_data];
-                    babyScript.right_arm.sprite = custom_sprites[2][custom_data];
-                    break;
-            }
+
+            //넓은 팔
+            babyScript.left_arm_jamong.sprite = custom_sprites[1][custom_data];
+            babyScript.right_arm_jamong.sprite = custom_sprites[2][custom_data];
+            //좁은 팔
+            babyScript.left_arm.sprite = custom_sprites[1][custom_data];
+            babyScript.right_arm.sprite = custom_sprites[2][custom_data];
         }
         else //시작화면 속 아기 이미지
         {
