@@ -306,6 +306,7 @@ public class TeaManager : MonoBehaviour
     public void gameClear()
     {
         GameObject.Find("Image_line").GetComponent<RhythmBar>().enabled = false;
+        GameObject.Find("Image_success").GetComponent<SuccessArea>().enabled = false;
         if (GameObject.Find("Image_babyarm_left")) GameObject.Find("Image_babyarm_left").GetComponent<Animator>().enabled = false;
         else GameObject.Find("Image_babyarm_left_jamong").GetComponent<Animator>().enabled = false;
         if (GameObject.Find("Image_babyarm_right")) GameObject.Find("Image_babyarm_right").GetComponent<Animator>().enabled = false;
@@ -379,11 +380,8 @@ public class TeaManager : MonoBehaviour
                     left_arm.GetComponent<Animator>().enabled = true;
                     right_arm.GetComponent<Animator>().enabled = true;
                 }
-                else
-                {
-                    left_arm.GetComponent<Animator>().Play("arm_left_anim", -1, 0f);
-                    right_arm.GetComponent<Animator>().Play("arm_right_anim_lemon", -1, 0f);
-                }
+                left_arm.GetComponent<Animator>().Play("arm_left_anim", -1, 0f);
+                right_arm.GetComponent<Animator>().Play("arm_right_anim_lemon", -1, 0f);
                 break;
             default:
                 Debug.Log("현재 과일: " + fruits_index[fruit_current]);
@@ -392,11 +390,8 @@ public class TeaManager : MonoBehaviour
                     jamong_left_arm.GetComponent<Animator>().enabled = true;
                     jamong_right_arm.GetComponent<Animator>().enabled = true;
                 }
-                else
-                {
-                    jamong_left_arm.GetComponent<Animator>().Play("arm_left_anim_jamong", -1, 0f);
-                    jamong_right_arm.GetComponent<Animator>().Play("arm_right_anim_jamong", -1, 0f);
-                }
+                jamong_left_arm.GetComponent<Animator>().Play("arm_left_anim_jamong", -1, 0f);
+                jamong_right_arm.GetComponent<Animator>().Play("arm_right_anim_jamong", -1, 0f);
                 break;
         }
         finish++; //터치 판단

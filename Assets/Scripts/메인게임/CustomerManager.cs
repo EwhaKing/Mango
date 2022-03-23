@@ -88,6 +88,7 @@ public class CustomerManager : MonoBehaviour
             }
             else //타임 오버라면, 즉 차 만들기 실패
             {
+
                 RhythmBar.success_count = 0; //돈 안올라가게 방울 0으로
                 audioSource.clip = customer_sad[customer_img_idx[current_customer]];
                 audioSource.volume = 0.7f;
@@ -108,19 +109,12 @@ public class CustomerManager : MonoBehaviour
 
                 customer_obj[current_customer].GetComponent<Image>().sprite = bad_mark; //말풍선_기분나쁨으로 바꾸기
 
-                Debug.Log("손님:" + GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt);
+                //Debug.Log("손님:" + GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt);
 
-                if (tip_money[0] != 0 || tip_money[1] != 0 || tip_money[2] != 0) //부자 손님있을 때 실패한 경우, 부자손님 있을 땐 손님 카운트가 안됨
-                {
-                    if(tip_money[current_customer] != 0) tip_money[current_customer] = 0; //그 중 현재 손님이 부자손님인 경우, 팁 삭제
-                }
-                else
-                {
-                    GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt--; //손님수 카운트 된거 삭제
-                }
+                if(tip_money[current_customer] != 0) tip_money[current_customer] = 0; //현재 손님이 부자손님인 경우, 팁 삭제
 
-                customer_num = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt;
-                Debug.Log("손님:" + customer_num);
+                //customer_num = GameObject.Find("LifeManager_mini").GetComponent<LifeManager_mini>().customerCnt;
+                //Debug.Log("손님:" + customer_num);
 
                 Invoke("failtea_customerBye", 1f); //1초 뒤 손님+말풍선 사라짐
             }
@@ -144,8 +138,8 @@ public class CustomerManager : MonoBehaviour
 
                     //rich_check++;
                     customer_img_idx[current_customer] = leng;
-                    tip_money[current_customer] = 1000; //우선 천원
-                    //tip_money[current_customer] = tip[GameStaticData.difficulty];
+                    //tip_money[current_customer] = 1000; //우선 천원
+                    tip_money[current_customer] = tip[GameStaticData.data.difficulty];
                 }
                 /*
                 if (customer_num == 5 && rich_check == 0)
@@ -223,6 +217,7 @@ public class CustomerManager : MonoBehaviour
             customer_obj[i].GetComponent<Button>().enabled = true;
         }
         check = false;
+        CustomerTalkButton.main_over_check = true;
     }
 
 }
