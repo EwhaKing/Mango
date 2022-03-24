@@ -17,9 +17,14 @@ public class GetLeaderData : MonoBehaviour
     
     string url_leader_score = "https://mango-love.herokuapp.com/api/leaders/score";
     string url_leader_total = "https://mango-love.herokuapp.com/api/leaders/total";
+    string url_leader_score_me = "https://mango-love.herokuapp.com/api/leaders/score/me";
+    string url_leader_total_me = "https://mango-love.herokuapp.com/api/leaders/total/me";
+
     string leaderBoard;
+    string leaderMe;
     bool isTotalScore;
     Data leader;
+    me leader_me;
 
     [System.Serializable]
     class Data
@@ -34,6 +39,22 @@ public class GetLeaderData : MonoBehaviour
         public string user;
         public string score;
     }
+
+    [System.Serializable]
+    class me
+    {
+        public string leaderNum;
+        public string rank;
+        public string user;
+        public string score;
+    }
+
+    public class User
+    {
+        public string username;
+
+    }
+
     public void getScore()
     {
         isTotalScore = false;
@@ -57,15 +78,31 @@ public class GetLeaderData : MonoBehaviour
     IEnumerator GetLeader(string leaderBoard, bool isTotal)
     {
         UnityWebRequest request = new UnityWebRequest();
-        if(isTotal == false)
+        UnityWebRequest request_me = new UnityWebRequest();
+        string username = GameStaticData.data.name;
+        User user = new User
+        {
+            username = username
+        };
+        string json = JsonUtility.ToJson(user);
+
+        if (isTotal == false)
         {
             request = UnityWebRequest.Get(url_leader_score);
+            request_me = UnityWebRequest.Post(url_leader_score_me, json);
         }
         else
         {
             request = UnityWebRequest.Get(url_leader_total);
+            request_me = UnityWebRequest.Post(url_leader_total_me, json);
         }
         yield return request.SendWebRequest();
+
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+        request_me.uploadHandler = new UploadHandlerRaw(jsonToSend);
+        request_me.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        request_me.SetRequestHeader("Content-Type", "application/json");
+        yield return request_me.SendWebRequest();
 
 
         if (request.isNetworkError || request.isHttpError)
@@ -78,6 +115,18 @@ public class GetLeaderData : MonoBehaviour
             Debug.Log(leaderBoard);
             leader = JsonUtility.FromJson<Data>("{\"item\":" + leaderBoard + "}");
         }
+
+        if (request_me.isNetworkError || request_me.isHttpError)
+        {
+            Debug.Log(request_me.error);
+        }
+        else
+        {
+            leaderMe = request_me.downloadHandler.text;
+            Debug.Log(leaderMe);
+            leader_me = JsonUtility.FromJson<me>(leaderMe);
+            Debug.Log(leader_me.user);
+        }
         StartCoroutine(addUser());
         yield return null;
     }
@@ -89,12 +138,30 @@ public class GetLeaderData : MonoBehaviour
 
         if ( _users.Count > 1 && leader.item.Length < _users.Count)
         {
-            int i;
-            for (i = 1; i < leader.item.Length + 1; i++)
+            int rank = 1;
+            if (leader_me.rank == "0")
             {
-                _users[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (i).ToString() + ".";
-                _users[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].user;
-                _users[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].score;
+                leader_me.rank = "-";
+                leader_me.score = "-";
+            }
+            _users[1].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader_me.rank;
+            _users[1].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader_me.user;
+            _users[1].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = leader_me.score;
+            Color color1 = _users[1].transform.GetChild(0).GetComponent<Image>().color; color1.a = 1.0f;
+            _users[1].transform.GetChild(0).GetComponent<Image>().color = color1;
+
+            int i;
+            for (i = 2; i <= leader.item.Length + 1; i++)
+            {
+                if(i > 2)
+                {
+                    if (leader.item[i - 3].score != leader.item[i - 2].score) rank = i-1;
+                }
+                _users[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (rank).ToString();
+                _users[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 2].user;
+                _users[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = leader.item[i - 2].score;
+                Color color = _users[i].transform.GetChild(0).GetComponent<Image>().color; color.a = 0.0f;
+                _users[i].transform.GetChild(0).GetComponent<Image>().color = color;
             }
             for (int j = _users.Count-1; j >= i; j--) {
                 Destroy(_users[j]);
@@ -104,14 +171,32 @@ public class GetLeaderData : MonoBehaviour
         }
         else if (_users.Count > 1 && leader.item.Length >= _users.Count)
         {
-            int i;
-            for (i = 1; i < _users.Count; i++)
+            int rank = 1;
+            if (leader_me.rank == "0")
             {
-                _users[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (i).ToString() + ".";
-                _users[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].user;
-                _users[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].score;
+                leader_me.rank = "-";
+                leader_me.score = "-";
             }
-            for (int j = i; j < leader.item.Length + 1; j++)
+            _users[1].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader_me.rank;
+            _users[1].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader_me.user;
+            _users[1].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = leader_me.score;
+            Color color1 = _users[1].transform.GetChild(0).GetComponent<Image>().color; color1.a = 1.0f;
+            _users[1].transform.GetChild(0).GetComponent<Image>().color = color1;
+
+            int i;
+            for (i = 2; i <= _users.Count; i++)
+            {
+                if(i > 2)
+                {
+                    if (leader.item[i - 3].score != leader.item[i - 2].score) rank = i-1;
+                }
+                _users[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (rank).ToString();
+                _users[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 2].user;
+                _users[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = leader.item[i - 2].score;
+                Color color = _users[i].transform.GetChild(0).GetComponent<Image>().color; color.a = 0.0f;
+                _users[i].transform.GetChild(0).GetComponent<Image>().color = color;
+            }
+            for (int j = i; j <= leader.item.Length + 1; j++)
             {
                 GameObject user = GameObject.Instantiate(_user) as GameObject;
                 user.name = "user" + (j + 1).ToString();
@@ -119,9 +204,12 @@ public class GetLeaderData : MonoBehaviour
                 user.transform.localScale = Vector3.one;
                 user.transform.localRotation = Quaternion.identity;
 
-                user.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (j).ToString() + "."; //등수
-                user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[j - 1].user; //데이터베이스에서 가져올 이름
-                user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[j - 1].score; //데이터베이스에서 가져올 돈
+                if (leader.item[j - 3].score != leader.item[j - 2].score) rank = j-1;
+                user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (rank).ToString(); //등수
+                user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[j - 2].user; //데이터베이스에서 가져올 이름
+                user.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = leader.item[j - 2].score; //데이터베이스에서 가져올 돈
+                Color color = _users[j].transform.GetChild(0).GetComponent<Image>().color; color.a = 0.0f;
+                _users[j].transform.GetChild(0).GetComponent<Image>().color = color;
 
                 _users.Add(user);
             }
@@ -129,7 +217,27 @@ public class GetLeaderData : MonoBehaviour
         }
         else if (_users.Count <= 1)
         {
-            for(int i = 1; i< leader.item.Length + 1; i++)
+            int rank = 1;
+            GameObject userme = GameObject.Instantiate(_user) as GameObject;
+            userme.name = "user" + (2).ToString();
+            userme.transform.SetParent(_user.transform.parent);
+            userme.transform.localScale = Vector3.one;
+            userme.transform.localRotation = Quaternion.identity;
+            
+            if (leader_me.rank == "0")
+            {
+                leader_me.rank = "-";
+                leader_me.score = "-";
+            }
+            userme.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader_me.rank;
+            userme.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader_me.user;
+            userme.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = leader_me.score;
+            Color color1 = userme.transform.GetChild(0).GetComponent<Image>().color; color1.a = 1.0f;
+            userme.transform.GetChild(0).GetComponent<Image>().color = color1;
+            _users.Add(userme);
+
+
+            for (int i = 2; i<= leader.item.Length + 1; i++)
             {
                 GameObject user = GameObject.Instantiate(_user) as GameObject;
                 user.name = "user" + (i + 1).ToString();
@@ -137,9 +245,13 @@ public class GetLeaderData : MonoBehaviour
                 user.transform.localScale = Vector3.one;
                 user.transform.localRotation = Quaternion.identity;
 
-                user.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = (i).ToString() + "."; //등수
-                user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].user; //데이터베이스에서 가져올 이름
-                user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 1].score; //데이터베이스에서 가져올 돈
+                if( i > 2)
+                {
+                    if (leader.item[i - 3].score != leader.item[i - 2].score) rank = i-1;
+                }
+                user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (rank).ToString(); //등수
+                user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = leader.item[i - 2].user; //데이터베이스에서 가져올 이름
+                user.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = leader.item[i - 2].score; //데이터베이스에서 가져올 돈
 
                 _users.Add(user);
             }
@@ -169,11 +281,13 @@ public class GetLeaderData : MonoBehaviour
         _users.Clear();
         _users.Add(_user);
 
-        _user.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "  ";
-        _user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "이름"; //데이터베이스에서 가져올 이름
-        _user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "돈"; //데이터베이스에서 가져올 돈
+        _user.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "순위";
+        _user.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "이름"; //데이터베이스에서 가져올 이름
+        _user.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "돈"; //데이터베이스에서 가져올 돈
+        Color color = _user.transform.GetChild(0).GetComponent<Image>().color; color.a = 0.0f;
+        _user.transform.GetChild(0).GetComponent<Image>().color = color;
 
-        totaluser = 31; //우선 10으로
+        totaluser = 32;
         getScore();
 
     }
