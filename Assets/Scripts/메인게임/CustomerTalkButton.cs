@@ -108,8 +108,6 @@ public class CustomerTalkButton : MonoBehaviour
             audioSource.Play();
         }
 
-
-
         //float yMove = speed * Time.deltaTime; //속도 설정
         //this.transform.Translate(new Vector3(0, yMove, 0)); //customer 오브젝트는 움직이면 안됩니당
 
@@ -119,19 +117,21 @@ public class CustomerTalkButton : MonoBehaviour
     void Bye()
     {
         plus_img.SetActive(false);
-
-        //다른 말풍선 클릭 가능하게
-        for (int i = 0; i < 3; i++)
-        {
-            GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = true;
-        }
-
         Invoke("mainOver", 0.3f);
-
     }
 
     void mainOver()
     {
         main_over_check = true;
+        Invoke("buttonTrue", 0.3f);
+    }
+
+    void buttonTrue()
+    {
+        //다른 말풍선 클릭 가능하게
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject.Find("GameManager").GetComponent<CustomerManager>().customer_obj[i].GetComponent<Button>().enabled = true;
+        }
     }
 }
