@@ -9,8 +9,8 @@ public class SuccessArea : MonoBehaviour
     private float currsuccessArea;
     private float currSuccessHeight;
     private float currSuccessScale;
-    public static float MaxPos = 245f;
-    public static float MinPos = -250f;
+    public static float MaxPos = 232f;
+    public static float MinPos = -259f;
 
     private float successPos;
     // Start is called before the first frame update
