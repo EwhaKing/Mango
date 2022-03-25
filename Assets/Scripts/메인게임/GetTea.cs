@@ -14,13 +14,16 @@ public class GetTea : MonoBehaviour
 
     public Sprite[] tea_sprites = new Sprite[TEA_NUM];
 
+    //난이도에 따른 레시피 팁 저장
+    int[] tip = { 0, 100, 150, 250, 350, 800 };
+
     // Start is called before the first frame update
     void Start()
     {
         if(TeaManager.get_recipe != -1) //새로운 도감 얻음
         {
             //보너스 추가
-            CustomerManager.tip_money[CustomerManager.current_customer] += 100;
+            CustomerManager.tip_money[CustomerManager.current_customer] += tip[GameStaticData.data.difficulty];
 
             //도감 얻었다는 팝업창 뜨도록
             foundRecipe.SetActive(true);
@@ -46,7 +49,7 @@ public class GetTea : MonoBehaviour
         else if(TeaManager.origin_recipe != -1) //있는 도감 만듦
         {
             //보너스 추가
-            CustomerManager.tip_money[CustomerManager.current_customer] += 100;
+            CustomerManager.tip_money[CustomerManager.current_customer] += tip[GameStaticData.data.difficulty];
 
             Debug.Log("만든 레시피: " + TeaManager.origin_recipe);
 

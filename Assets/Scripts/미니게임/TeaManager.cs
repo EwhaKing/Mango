@@ -358,14 +358,17 @@ public class TeaManager : MonoBehaviour
 
         switch (fruits_index[fruit_current])
         {
-            //과일 + 찻잎 + 스페셜
-            case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
-                downObj = slice;
-                break;
-            default: //방울
+            //방울
+            case 0:
+            case 1:
+            case 13:
+            case 14:
+            case 15:
                 downObj = lemonCircle;
                 break;
-                    
+            default: //과일 + 찻잎 + 스페셜
+                downObj = slice;
+                break;
         }
 
         downObj.GetComponent<Image>().sprite = circleSprite[fruits_index[fruit_current]];
