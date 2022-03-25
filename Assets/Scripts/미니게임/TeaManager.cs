@@ -213,9 +213,9 @@ public class TeaManager : MonoBehaviour
                 fruits_num[0] = (NUM / 3) * 2;
                 fruits_num[1] = NUM / 3;
                 break;
-            case 16:
-                fruits_num[1] = NUM / 3;
-                fruits_num[0] = (NUM / 3) * 2;
+            case 16: //프로틴
+                fruits_num[0] = 2;
+                fruits_num[1] = 4;
                 break;
             case 17:
                 fruits_num[0] = NUM;
