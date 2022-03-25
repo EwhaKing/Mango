@@ -20,7 +20,7 @@ public class GetTea : MonoBehaviour
         if(TeaManager.get_recipe != -1) //새로운 도감 얻음
         {
             //보너스 추가
-            CustomerManager.tip_money[CustomerManager.current_customer] += 500;
+            CustomerManager.tip_money[CustomerManager.current_customer] += 100;
 
             //도감 얻었다는 팝업창 뜨도록
             foundRecipe.SetActive(true);
