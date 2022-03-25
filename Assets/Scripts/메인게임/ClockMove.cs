@@ -11,7 +11,7 @@ public class ClockMove : MonoBehaviour
     public GameObject pop_up;
     public float time = 0;
     bool check = true;
-    float limit_time = 10; //1당 1초
+    float limit_time = 30; //1당 1초
     float fade_time = 0f;
 
     // Start is called before the first frame update
@@ -82,7 +82,6 @@ public class ClockMove : MonoBehaviour
             GameStaticData.data.data_money += TotalMoney.totalMoney;
             GameStaticData.data.data_money_total += TotalMoney.totalMoney;
             GameStaticData.data.date++;
-            TotalMoney.totalMoney = 50;
             GameStaticData.data.difficulty = nextDiff(); //다음날 난이도
             File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
             Debug.Log("다음 난이도: " + GameStaticData.data.difficulty);
