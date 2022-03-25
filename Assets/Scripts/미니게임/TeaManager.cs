@@ -107,7 +107,7 @@ public class TeaManager : MonoBehaviour
         {
             for (int i = 0; i < TEA; i++)
             {
-                if (tea_prob[i] != 0) continue;
+                if ((i>=13 && i<=16) || i==1) continue;
                 tea_prob[i] = 3;
             }
         }
@@ -161,8 +161,8 @@ public class TeaManager : MonoBehaviour
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
             case 4:
-                fruits_num[0] = Random.Range(1, 3);
-                fruits_num[1] = 2;
+                fruits_num[0] = 2;
+                fruits_num[1] = Random.Range(1, 3); 
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
             case 5:
@@ -198,7 +198,7 @@ public class TeaManager : MonoBehaviour
                 fruits_num[1] = 3;
                 break;
             case 12:
-                fruits_num[0] = Random.Range(2, 4);
+                fruits_num[0] = Random.Range(1, 3);
                 fruits_num[1] = Random.Range(1, 3);
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
@@ -206,12 +206,12 @@ public class TeaManager : MonoBehaviour
                 fruits_num[0] = NUM;
                 break;
             case 14:
-                fruits_num[0] = NUM/3;
-                fruits_num[1] = (NUM/3)*2;
+                fruits_num[0] = (NUM / 3) * 2;
+                fruits_num[1] = NUM / 3;
                 break;
             case 15:
-                fruits_num[0] = NUM / 3;
-                fruits_num[1] = (NUM / 3) * 2;
+                fruits_num[0] = (NUM / 3) * 2;
+                fruits_num[1] = NUM / 3;
                 break;
             case 16:
                 fruits_num[1] = NUM / 3;
