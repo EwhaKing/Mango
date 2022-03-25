@@ -171,9 +171,9 @@ public class TeaManager : MonoBehaviour
                 fruits_num[1] = NUM - (fruits_num[0] + fruits_num[2]);
                 break;
             case 6:
+                fruits_num[0] = Random.Range(1, 3);
                 fruits_num[1] = Random.Range(1, 3);
-                fruits_num[2] = Random.Range(1, 3);
-                fruits_num[0] = NUM - (fruits_num[1] + fruits_num[2]);
+                fruits_num[2] = NUM - (fruits_num[1] + fruits_num[2]);
                 break;
             case 7:
                 fruits_num[0] = NUM / 2;
