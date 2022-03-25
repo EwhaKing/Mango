@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using TMPro;
 
 public class ClockMove : MonoBehaviour
 {
@@ -70,18 +71,19 @@ public class ClockMove : MonoBehaviour
             GameObject.Find("GameData").GetComponent<GameStaticData>().clock_hand_rot = 0;
             time = 0;
 
-            //메인게임 중지
-            GameObject.Find("GameManager").SetActive(false);
+            //메인게임 중지 , 손님 새로 오는 거 중지
+            GameObject.Find("GameManager").GetComponent<CustomerManager>().enabled = false;
 
             //오늘 번 돈 정산 팝업창 
             pop_up.SetActive(true);
             ButtonSound._buttonInstance.onMoneyAudio(); //돈 효과음 재생
+            int todayDiff = GameStaticData.data.difficulty; //오늘 난이도 저장
             GameStaticData.data.data_money += TotalMoney.totalMoney;
             GameStaticData.data.data_money_total += TotalMoney.totalMoney;
             GameStaticData.data.date++;
-            GameStaticData.data.difficulty = nextDiff();
+            GameStaticData.data.difficulty = nextDiff(); //다음날 난이도
             File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
-
+            pop_up.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = diffMent(todayDiff, GameStaticData.data.difficulty);
         }
     }
 
@@ -106,5 +108,21 @@ public class ClockMove : MonoBehaviour
         else if (num <= lv1 + lv2 + lv3) return 3;
         else if (num <= lv1 + lv2 + lv3 + lv4) return 4;
         else return 5;
+    }
+
+    string diffMent(int prev_diff, int next_diff)
+    {
+        string ans = "오늘 수익이 들어왔네요!";
+
+        if (prev_diff < next_diff)
+        {
+            ans += "<br>다음 날은 장사가 힘들 수도 있겠어요...";
+        }
+        else if(prev_diff > next_diff)
+        {
+            ans += "<br>다음 날은 왠지 일이 잘 풀릴 것 같아요!";
+        }
+
+        return ans;
     }
 }
