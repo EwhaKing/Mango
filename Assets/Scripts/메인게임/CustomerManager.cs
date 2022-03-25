@@ -31,7 +31,7 @@ public class CustomerManager : MonoBehaviour
     int customer_num = 0; //현재 누적 손님 
 
     //난이도에 따른 부자손님 팁 저장
-    int[] tip = {0, 300, 700, 1000, 1300, 1500};
+    int[] tip = {0, 300, 350, 600, 700, 1000};
 
     // Start is called before the first frame update
     void Start()

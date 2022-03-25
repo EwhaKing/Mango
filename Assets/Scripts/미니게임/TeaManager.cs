@@ -76,23 +76,23 @@ public class TeaManager : MonoBehaviour
         if (GameStaticData.data.data_cloth == 1) //꽃무늬 옷
         {
             is_special = true;
-            tea_prob[13] = 60;
+            tea_prob[13] = 36;
         }
         else if(GameStaticData.data.data_cloth == 2) //트레이닝 복
         {
             is_special = true;
-            tea_prob[16] = 60;
+            tea_prob[16] = 36;
         }
         else if(GameStaticData.data.data_cloth == 7) //꿀벌 옷
         {
             is_special = true;
-            tea_prob[1] = 60;
+            tea_prob[1] = 36;
         }
         else if(GameStaticData.data.data_cloth == 8) //곰돌이 옷
         {
             is_special = true;
-            tea_prob[14] = 30;
-            tea_prob[15] = 30;
+            tea_prob[14] = 18;
+            tea_prob[15] = 18;
         }
         else //스페셜복 x
         {
@@ -107,8 +107,8 @@ public class TeaManager : MonoBehaviour
         {
             for (int i = 0; i < TEA; i++)
             {
-                if (tea_prob[i] != 0) continue;
-                tea_prob[i] = 3;
+                if ((i>=13 && i<=16) || i==1) continue;
+                tea_prob[i] = 5;
             }
         }
 
@@ -161,8 +161,8 @@ public class TeaManager : MonoBehaviour
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
             case 4:
-                fruits_num[0] = Random.Range(1, 3);
-                fruits_num[1] = 2;
+                fruits_num[0] = 2;
+                fruits_num[1] = Random.Range(1, 3); 
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
             case 5:
@@ -171,9 +171,9 @@ public class TeaManager : MonoBehaviour
                 fruits_num[1] = NUM - (fruits_num[0] + fruits_num[2]);
                 break;
             case 6:
+                fruits_num[0] = Random.Range(1, 3);
                 fruits_num[1] = Random.Range(1, 3);
-                fruits_num[2] = Random.Range(1, 3);
-                fruits_num[0] = NUM - (fruits_num[1] + fruits_num[2]);
+                fruits_num[2] = NUM - (fruits_num[1] + fruits_num[2]);
                 break;
             case 7:
                 fruits_num[0] = NUM / 2;
@@ -198,7 +198,7 @@ public class TeaManager : MonoBehaviour
                 fruits_num[1] = 3;
                 break;
             case 12:
-                fruits_num[0] = Random.Range(2, 4);
+                fruits_num[0] = Random.Range(1, 3);
                 fruits_num[1] = Random.Range(1, 3);
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
@@ -206,12 +206,12 @@ public class TeaManager : MonoBehaviour
                 fruits_num[0] = NUM;
                 break;
             case 14:
-                fruits_num[0] = NUM/3;
-                fruits_num[1] = (NUM/3)*2;
+                fruits_num[0] = (NUM / 3) * 2;
+                fruits_num[1] = NUM / 3;
                 break;
             case 15:
-                fruits_num[0] = NUM / 3;
-                fruits_num[1] = (NUM / 3) * 2;
+                fruits_num[0] = (NUM / 3) * 2;
+                fruits_num[1] = NUM / 3;
                 break;
             case 16:
                 fruits_num[1] = NUM / 3;
@@ -358,14 +358,17 @@ public class TeaManager : MonoBehaviour
 
         switch (fruits_index[fruit_current])
         {
-            //과일 + 찻잎 + 스페셜
-            case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
-                downObj = slice;
-                break;
-            default: //방울
+            //방울
+            case 0:
+            case 1:
+            case 13:
+            case 14:
+            case 15:
                 downObj = lemonCircle;
                 break;
-                    
+            default: //과일 + 찻잎 + 스페셜
+                downObj = slice;
+                break;
         }
 
         downObj.GetComponent<Image>().sprite = circleSprite[fruits_index[fruit_current]];

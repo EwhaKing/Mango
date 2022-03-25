@@ -40,6 +40,7 @@ public class SceneChange : MonoBehaviour
         GameStaticData.data.data_money = 0;
         GameStaticData.data.data_cloth = 0;
         GameStaticData.data.date = 0;
+        GameStaticData.data.difficulty = 1;
         GameStaticData.data.name = "";
 
         File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
