@@ -49,7 +49,7 @@ public class SliderTimer : MonoBehaviour
         {
             speed = 0.05f;
             successArea.transform.localScale = new Vector3(1, 1, 1); //넓고 움직임
-            SuccessArea.MaxPos = 220f; SuccessArea.MinPos = -225f;
+            SuccessArea.MaxPos = 208f; SuccessArea.MinPos = -233f;
             GameObject.Find("Image_success").GetComponent<SuccessArea>().successSpeed = 100f;
         }
         else if (difficulty == 4) //4단계
