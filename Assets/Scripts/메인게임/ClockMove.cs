@@ -11,7 +11,7 @@ public class ClockMove : MonoBehaviour
     public GameObject pop_up;
     public float time = 0;
     bool check = true;
-    float limit_time = 30; //1당 1초
+    float limit_time = 10; //1당 1초
     float fade_time = 0f;
 
     // Start is called before the first frame update
@@ -27,6 +27,7 @@ public class ClockMove : MonoBehaviour
         clock_hand.transform.localEulerAngles = new Vector3(clock_hand.transform.localEulerAngles.x,
                                                             clock_hand.transform.localEulerAngles.y,
                                                             clock_hand_z);
+        
     }
 
     // Update is called once per frame
@@ -81,8 +82,10 @@ public class ClockMove : MonoBehaviour
             GameStaticData.data.data_money += TotalMoney.totalMoney;
             GameStaticData.data.data_money_total += TotalMoney.totalMoney;
             GameStaticData.data.date++;
+            TotalMoney.totalMoney = 50;
             GameStaticData.data.difficulty = nextDiff(); //다음날 난이도
             File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
+            Debug.Log("다음 난이도: " + GameStaticData.data.difficulty);
             pop_up.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = diffMent(todayDiff, GameStaticData.data.difficulty);
         }
     }
@@ -90,24 +93,71 @@ public class ClockMove : MonoBehaviour
     int nextDiff()
     {
         int difficulty = GameStaticData.data.difficulty;
-
-        if (TotalMoney.totalMoney < 2000) difficulty = findDiff(35, 35, 10, 10, 10);
-        else if (TotalMoney.totalMoney >= 4500) difficulty = findDiff(10, 10, 10, 35, 35);
-        else difficulty = findDiff(20, 20, 20, 20, 20);
+        if (TotalMoney.totalMoney < 2000) difficulty = findDiff(0);
+        else if (TotalMoney.totalMoney >= 4500) difficulty = findDiff(2);
+        else difficulty = findDiff(1);
 
         return difficulty;
     }
 
-    int findDiff(int lv1, int lv2, int lv3, int lv4, int lv5)
+    int findDiff(int diff)
     {
+        int[] level = { 0, 0, 0, 0, 0 };
         int num = Random.Range(1, 100 + 1);
-        Debug.Log("랜덤값: " + num + "    잘한정도: " + lv5);
+        int currLv = GameStaticData.data.difficulty;
+        Debug.Log("랜덤값: " + num);
 
-        if (num <= lv1) return 1;
-        else if (num <= lv1 + lv2) return 2;
-        else if (num <= lv1 + lv2 + lv3) return 3;
-        else if (num <= lv1 + lv2 + lv3 + lv4) return 4;
+        if(diff == 0)
+        {
+            if (currLv == 1) level[0] = 100;
+            else
+            {
+                int percent = 100 / (currLv - 1);
+                for (int i = 0; i < currLv - 1; i++)
+                {
+                    level[i] = percent;
+                }
+            }
+        }
+        else if(diff == 1)
+        {
+            int percent;
+            if (currLv == 1)
+            {
+                level[0] = level[1] = 50;
+            }
+            else if (currLv == 5)
+            {
+                level[3] = level[4] = 50;
+            }
+            else
+            {
+                percent = 33;
+                for (int i = currLv - 2; i <= currLv; i++)
+                {
+                    level[i] = percent;
+                }
+            }
+        }
+        else
+        {
+            if (currLv == 5) level[4] = 100;
+            else
+            {
+                int percent = 100 / (4 - (currLv - 1));
+                for (int i = 4; i > currLv - 1; i--)
+                {
+                    level[i] = percent;
+                }
+            }  
+        }
+
+        if (num <= level[0]) return 1;
+        else if (num <= level[0] + level[1]) return 2;
+        else if (num <= level[0] + level[1] + level[2]) return 3;
+        else if (num <= level[0] + level[1] + level[2] + level[3]) return 4;
         else return 5;
+
     }
 
     string diffMent(int prev_diff, int next_diff)
