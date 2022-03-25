@@ -76,23 +76,23 @@ public class TeaManager : MonoBehaviour
         if (GameStaticData.data.data_cloth == 1) //꽃무늬 옷
         {
             is_special = true;
-            tea_prob[13] = 60;
+            tea_prob[13] = 36;
         }
         else if(GameStaticData.data.data_cloth == 2) //트레이닝 복
         {
             is_special = true;
-            tea_prob[16] = 60;
+            tea_prob[16] = 36;
         }
         else if(GameStaticData.data.data_cloth == 7) //꿀벌 옷
         {
             is_special = true;
-            tea_prob[1] = 60;
+            tea_prob[1] = 36;
         }
         else if(GameStaticData.data.data_cloth == 8) //곰돌이 옷
         {
             is_special = true;
-            tea_prob[14] = 30;
-            tea_prob[15] = 30;
+            tea_prob[14] = 18;
+            tea_prob[15] = 18;
         }
         else //스페셜복 x
         {
@@ -108,7 +108,7 @@ public class TeaManager : MonoBehaviour
             for (int i = 0; i < TEA; i++)
             {
                 if ((i>=13 && i<=16) || i==1) continue;
-                tea_prob[i] = 3;
+                tea_prob[i] = 5;
             }
         }
 
