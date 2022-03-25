@@ -44,7 +44,6 @@ public class GetTea : MonoBehaviour
             TeaDataScript.teaDex.item[TeaManager.get_recipe].is_read = true;
             File.WriteAllText(Application.persistentDataPath + "/TeaDex.json", JsonUtility.ToJson(TeaDataScript.teaDex));
 
-            TeaManager.get_recipe = -1; //초기화
         }
         else if(TeaManager.origin_recipe != -1) //있는 도감 만듦
         {
@@ -55,7 +54,9 @@ public class GetTea : MonoBehaviour
 
             tea.sprite = tea_sprites[TeaManager.origin_recipe];
 
-            TeaManager.origin_recipe = -1; //초기화
+            
         }
+        TeaManager.origin_recipe = -1; //초기화
+        TeaManager.get_recipe = -1; //초기화
     }
 }
