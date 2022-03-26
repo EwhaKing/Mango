@@ -145,79 +145,79 @@ public class TeaManager : MonoBehaviour
         //레시피마다 과일 개수 정하기
         switch (recipe)
         {
-            case 0:
+            case 0://형아 위한 차
                 fruits_num[0] = NUM;
                 break;
-            case 1:
+            case 1: //눈에서 꿀이 뚝뚝
                 fruits_num[0] = NUM;
                 break;
-            case 2:
+            case 2: //코코파인 플리쉬
                 fruits_num[0] = NUM/2;
                 fruits_num[1] = NUM/2;
                 break;
-            case 3:
-                fruits_num[0] = Random.Range(1, 3);
-                fruits_num[1] = Random.Range(1, 3);
+            case 3: //딸바보 주스
+                fruits_num[0] = Random.Range(1, 2);
+                fruits_num[1] = Random.Range(1, 2);
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
-            case 4:
+            case 4: //허니만을 위한 밀크티
                 fruits_num[0] = 2;
-                fruits_num[1] = Random.Range(1, 3); 
+                fruits_num[1] = Random.Range(1, 2); 
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
-            case 5:
-                fruits_num[2] = 1;
-                fruits_num[0] = Random.Range(2, 4);
-                fruits_num[1] = NUM - (fruits_num[0] + fruits_num[2]);
+            case 5: //레몬디베트
+                fruits_num[2] = 1; //꿀 1개로 고정
+                fruits_num[1] = Random.Range(2, 3);
+                fruits_num[0] = NUM - (fruits_num[1] + fruits_num[2]);
                 break;
-            case 6:
-                fruits_num[0] = Random.Range(1, 3);
-                fruits_num[1] = Random.Range(1, 3);
-                fruits_num[2] = NUM - (fruits_num[1] + fruits_num[2]);
+            case 6: //레몬아.. 나 자몽다..
+                fruits_num[0] = Random.Range(1, 2);
+                fruits_num[1] = Random.Range(1, 2);
+                fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
-            case 7:
+            case 7: //올때 메론라떼
                 fruits_num[0] = NUM / 2;
                 fruits_num[1] = NUM / 2;
                 break;
-            case 8:
+            case 8: //궁금해 허니~
                 fruits_num[0] = NUM / 2;
                 fruits_num[1] = NUM / 2;
                 break;
-            case 9:
+            case 9: //민트 폴라디츠
                 fruits_num[0] = 1;
                 fruits_num[1] = 2;
                 fruits_num[2] = 3;
                 break;
-            case 10:
-                fruits_num[0] = Random.Range(1, 3);
-                fruits_num[1] = Random.Range(1, 3);
+            case 10: //언덕위의 트로피컬
+                fruits_num[0] = Random.Range(1, 2);
+                fruits_num[1] = Random.Range(1, 2);
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
-            case 11:
+            case 11: //디벳민트티
                 fruits_num[0] = 3;
                 fruits_num[1] = 3;
                 break;
-            case 12:
-                fruits_num[0] = Random.Range(1, 3);
-                fruits_num[1] = Random.Range(1, 3);
+            case 12: //신호등 주스
+                fruits_num[0] = Random.Range(1, 2);
+                fruits_num[1] = Random.Range(1, 2);
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
-            case 13:
+            case 13: //봄 사랑 벚꽃차
                 fruits_num[0] = NUM;
                 break;
-            case 14:
+            case 14: //쑥쑥쑥라떼
                 fruits_num[0] = (NUM / 3) * 2;
                 fruits_num[1] = NUM / 3;
                 break;
-            case 15:
+            case 15: //감기 뚝 마늘차
                 fruits_num[0] = (NUM / 3) * 2;
                 fruits_num[1] = NUM / 3;
                 break;
             case 16: //프로틴
-                fruits_num[0] = 2;
-                fruits_num[1] = 4;
+                fruits_num[0] = NUM / 3;
+                fruits_num[1] = (NUM / 3) * 2;
                 break;
-            case 17:
+            case 17: //아프디망고!
                 fruits_num[0] = NUM;
                 break;
         }
