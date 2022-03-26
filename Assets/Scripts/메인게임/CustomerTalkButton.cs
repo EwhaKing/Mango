@@ -123,7 +123,7 @@ public class CustomerTalkButton : MonoBehaviour
     void mainOver()
     {
         main_over_check = true;
-        Invoke("buttonTrue", 0.3f);
+        Invoke("buttonTrue", 0.1f);
     }
 
     void buttonTrue()
