@@ -14,7 +14,9 @@ public class GetLeaderData : MonoBehaviour
     public GameObject _user;
     public List<GameObject> _users = new List<GameObject>();
     public int totaluser = 0; //나중에 데이터베이스에서 가져올 총 유저 수
-    
+    public bool isScoreGetted;
+    public bool isTotalGetted;
+
     string url_leader_score = "https://mango-love.herokuapp.com/api/leaders/score";
     string url_leader_total = "https://mango-love.herokuapp.com/api/leaders/total";
     string url_leader_score_me = "https://mango-love.herokuapp.com/api/leaders/score/me";
@@ -23,8 +25,11 @@ public class GetLeaderData : MonoBehaviour
     string leaderBoard;
     string leaderMe;
     bool isTotalScore;
-    Data leader;
-    me leader_me;
+
+    Data leader_score;
+    Data leader_total;
+    me leader_me_score;
+    me leader_me_total;
 
     [System.Serializable]
     class Data
@@ -58,7 +63,8 @@ public class GetLeaderData : MonoBehaviour
     public void getScore()
     {
         isTotalScore = false;
-        StartCoroutine(GetLeader(leaderBoard, isTotalScore));
+        if (isScoreGetted == false) StartCoroutine(GetLeader(leaderBoard, isTotalScore));
+        else StartCoroutine(addUser());
 
         //버튼 색 조정
         buttonDay.GetComponent<Image>().color = new Color(1f, 217f / 255f, 102f / 255f, 1f);
@@ -68,7 +74,8 @@ public class GetLeaderData : MonoBehaviour
     public void getTotal()
     {
         isTotalScore = true;
-        StartCoroutine(GetLeader(leaderBoard, isTotalScore));
+        if (isTotalGetted == false) StartCoroutine(GetLeader(leaderBoard, isTotalScore));
+        else StartCoroutine(addUser());
 
         //버튼 색 조정
         buttonTotal.GetComponent<Image>().color = new Color(1f, 217f / 255f, 102f / 255f, 1f);
@@ -104,7 +111,7 @@ public class GetLeaderData : MonoBehaviour
         request_me.SetRequestHeader("Content-Type", "application/json");
         yield return request_me.SendWebRequest();
 
-
+        //전체
         if (request.isNetworkError || request.isHttpError)
         {
             Debug.Log(request.error);
@@ -112,10 +119,19 @@ public class GetLeaderData : MonoBehaviour
         else
         {
             leaderBoard = request.downloadHandler.text;
-            Debug.Log(leaderBoard);
-            leader = JsonUtility.FromJson<Data>("{\"item\":" + leaderBoard + "}");
+            if(isTotal == false)
+            {
+                leader_score = JsonUtility.FromJson<Data>("{\"item\":" + leaderBoard + "}");
+                isScoreGetted = true;
+            }
+            else
+            {
+                leader_total = JsonUtility.FromJson<Data>("{\"item\":" + leaderBoard + "}");
+                isTotalGetted = true;
+            }
         }
 
+        //나
         if (request_me.isNetworkError || request_me.isHttpError)
         {
             Debug.Log(request_me.error);
@@ -124,8 +140,14 @@ public class GetLeaderData : MonoBehaviour
         {
             leaderMe = request_me.downloadHandler.text;
             Debug.Log(leaderMe);
-            leader_me = JsonUtility.FromJson<me>(leaderMe);
-            Debug.Log(leader_me.user);
+            if(isTotal == false)
+            {
+                leader_me_score = JsonUtility.FromJson<me>(leaderMe);
+            }
+            else
+            {
+                leader_me_total = JsonUtility.FromJson<me>(leaderMe);
+            }
         }
         StartCoroutine(addUser());
         yield return null;
@@ -133,8 +155,20 @@ public class GetLeaderData : MonoBehaviour
 
     IEnumerator addUser()
     {
-        if (isTotalScore == false) text_rank.text = "하루 랭킹";
-        else text_rank.text = "전체 랭킹";
+        Data leader;
+        me leader_me;
+        if (isTotalScore == false)
+        {
+            text_rank.text = "하루 랭킹";
+            leader = leader_score;
+            leader_me = leader_me_score;
+        }
+        else
+        {
+            text_rank.text = "전체 랭킹";
+            leader = leader_total;
+            leader_me = leader_me_total;
+        }
 
         if ( _users.Count > 1 && leader.item.Length < _users.Count)
         {
@@ -288,7 +322,8 @@ public class GetLeaderData : MonoBehaviour
         _user.transform.GetChild(0).GetComponent<Image>().color = color;
 
         totaluser = 32;
-        getScore();
+        isScoreGetted = false;
+        isTotalGetted = false;
 
     }
 
@@ -296,6 +331,7 @@ public class GetLeaderData : MonoBehaviour
     {
         boardBackground.SetActive(true);
         boardScreen.SetActive(true);
+        getScore();
 
         //하루 버튼 노란색으로 시작
         buttonDay.GetComponent<Image>().color = new Color(1f, 217f / 255f, 102f / 255f, 1f);

@@ -11,7 +11,7 @@ public class LoadingManager : MonoBehaviour
 {
     public static string next_scene;
     public int totaluser = 0;
-    string url_leader_score = "https://mango-love.herokuapp.com/api/leaders/score";
+    string url_login = "https://mango-love.herokuapp.com/api/user/login";
     string leaderBoard;
     Data leader;
 
@@ -124,17 +124,11 @@ public class LoadingManager : MonoBehaviour
     {
         progress_text.text = "서버에 접속하고 있습니다(최대 30초 소요 가능)...";
         UnityWebRequest request = new UnityWebRequest();
-        request = UnityWebRequest.Get(url_leader_score);
+        request = UnityWebRequest.Get(url_login);
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)
         {
             Debug.Log(request.error);
-        }
-        else
-        {
-            leaderBoard = request.downloadHandler.text;
-            Debug.Log(leaderBoard);
-            leader = JsonUtility.FromJson<Data>("{\"item\":" + leaderBoard + "}");
         }
 
         StartCoroutine(moveProgress(0.8f, "scene"));
@@ -186,7 +180,7 @@ public class LoadingManager : MonoBehaviour
         string str = File.ReadAllText(Application.persistentDataPath + "/GameData.json");
         GameStaticData.data = JsonUtility.FromJson<GameData>(str);
 
-        Debug.Log("불러온 데이터" + str);
+        Debug.Log(Application.persistentDataPath);
     }
 
 
