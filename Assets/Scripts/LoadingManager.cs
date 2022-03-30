@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -70,12 +71,70 @@ public class LoadingManager : MonoBehaviour
         {
             Debug.LogWarning("게임파일있음");
             LoadGameData();
+
+            DateTime newDate = new DateTime(0001, 01, 01, 00, 00, 00);
+            string newDateString = newDate.ToString("yyyy-MM-dd HH:mm:ss");
+
+            if (GameStaticData.data.score_viewed_time == null)
+            {
+                Debug.LogWarning("업데이트 한 사람이다");
+                GameStaticData.data.score_viewed_time = newDateString;
+                SaveGameData();
+            }
+
+            if (GameStaticData.data.total_viewed_time == null)
+            {
+                Debug.LogWarning("업데이트 한 사람이다");
+                GameStaticData.data.total_viewed_time = newDateString;
+                SaveGameData();
+            }
         }
         else
         {
             Debug.LogWarning("게임파일없음");
             CreateFile();
         }
+
+        if(File.Exists(Application.persistentDataPath + "/ScoreData.json"))
+        {
+            Debug.LogWarning("하루랭킹 파일있음");
+        }
+        else
+        {
+            Debug.LogWarning("하루랭킹 파일없음");
+            CreateScoreFile();
+        }
+
+        if (File.Exists(Application.persistentDataPath + "/TotalData.json"))
+        {
+            Debug.LogWarning("전체랭킹 파일있음");
+        }
+        else
+        {
+            Debug.LogWarning("전체랭킹 파일없음");
+            CreateTotalFile();
+        }
+
+        if (File.Exists(Application.persistentDataPath + "/ScoreMeData.json"))
+        {
+            Debug.LogWarning("내랭킹 파일있음");
+        }
+        else
+        {
+            Debug.LogWarning("내랭킹 파일없음");
+            CreateScoreMeFile();
+        }
+
+        if (File.Exists(Application.persistentDataPath + "/TotalMeData.json"))
+        {
+            Debug.LogWarning("내랭킹 파일있음");
+        }
+        else
+        {
+            Debug.LogWarning("내랭킹 파일없음");
+            CreateTotalMeFile();
+        }
+
         StartCoroutine(moveProgress(0.2f, "shop"));
         yield return null;
     }
@@ -171,7 +230,7 @@ public class LoadingManager : MonoBehaviour
     void CreateFile()
     {
         File.Create(Application.persistentDataPath + "/GameData.json").Close();
-        GameStaticData.data = JsonUtility.FromJson<GameData>("{\"data_money_total\": 0,\"data_money\": 0,\"data_cloth\": 0,\"date\" :  0,\"difficulty\" :  1,\"name\" : \"\"}");
+        GameStaticData.data = JsonUtility.FromJson<GameData>("{\"data_money_total\": 0,\"data_money\": 0,\"data_cloth\": 0,\"date\" :  0,\"difficulty\" :  1,\"name\" : \"\",\"score_viewed_time\" : \"0001-01-01 00:00:00\",\"total_viewed_time\" : \"0001-01-01 00:00:00\"}");
         File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
     }
 
@@ -253,6 +312,26 @@ public class LoadingManager : MonoBehaviour
         TeaDataScript.teaDex.item[17] = JsonUtility.FromJson<TeaData>("{\"tea_num\": 17, \"tea_type\": 1,\"tea_name\": \"아프디망고!\",\"tea_description\" : \"세상 모든 사람들 이제 더 이상 <b>아프디망고!</b>\",\"tea_recipe\": [{\"ingredient_num\": 20,\"ingredient_amout\": 18}],\"own\": false, \"is_read\": false}");
 
         File.WriteAllText(Application.persistentDataPath + "/TeaDex.json", JsonUtility.ToJson(TeaDataScript.teaDex));
+    }
+
+    void CreateScoreFile()
+    {
+        File.Create(Application.persistentDataPath + "/ScoreData.json").Close();
+    }
+
+    void CreateTotalFile()
+    {
+        File.Create(Application.persistentDataPath + "/TotalData.json").Close();
+    }
+
+    void CreateScoreMeFile()
+    {
+        File.Create(Application.persistentDataPath + "/ScoreMeData.json").Close();
+    }
+
+    void CreateTotalMeFile()
+    {
+        File.Create(Application.persistentDataPath + "/TotalMeData.json").Close();
     }
 
     IEnumerator moveProgress(float destination, string next)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -13,6 +14,8 @@ public class GameData
     public int date;
     public int difficulty;
     public string name;
+    public string score_viewed_time;
+    public string total_viewed_time;
 }
 
 public class GameStaticData : MonoBehaviour
