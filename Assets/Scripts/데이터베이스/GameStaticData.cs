@@ -16,6 +16,11 @@ public class GameData
     public string name;
     public string score_viewed_time;
     public string total_viewed_time;
+    public bool bgm_muted;
+    public bool sound_muted;
+    public bool vibration_muted;
+    public float bgm_slider_value;
+    public float sound_slider_value;
 }
 
 public class GameStaticData : MonoBehaviour
@@ -30,7 +35,8 @@ public class GameStaticData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*
+         * 뒤로가기 한 번 눌러서 종료 팝업창 뜨는 것으로 바꿨으므로 주석 처리
         if (Input.GetKey(KeyCode.Escape) && !this.is_click)
         {
             this.StartCoroutine(this.CrQuitTimer());
@@ -46,6 +52,7 @@ public class GameStaticData : MonoBehaviour
                 Application.Quit();
             }
         }
+        */
 
     }
 

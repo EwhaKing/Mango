@@ -70,9 +70,9 @@ public class CustomerTalkButton : MonoBehaviour
             audioSource_customer.clip = customer_happy[CustomerManager.customer_img_idx[CustomerManager.current_customer]];
             //audioSource_customer.Play(); //손님 웃음소리 재생
 
-            if (GamePause.soundOnOff == 1)
+            if (!GameStaticData.data.sound_muted)
             {
-                audioSource_customer.volume = SettingManager.soundSliderValue;
+                audioSource_customer.volume = GameStaticData.data.sound_slider_value;
                 audioSource_customer.Play();
             }
 
@@ -97,16 +97,8 @@ public class CustomerTalkButton : MonoBehaviour
     public void plusDisplayMoney()
     {
         plus_img.SetActive(true); //추가금 관련 게임 오브젝트 표시하고
-        audioSource = this.music_money.GetComponent<AudioSource>();
 
-        audioSource.clip = CoinUp;
-        //audioSource.Play();
-
-        if (GamePause.soundOnOff == 1)
-        {
-            audioSource.volume = SettingManager.soundSliderValue;
-            audioSource.Play();
-        }
+        ButtonSound._buttonInstance.onMoneyAudio();
 
         //float yMove = speed * Time.deltaTime; //속도 설정
         //this.transform.Translate(new Vector3(0, yMove, 0)); //customer 오브젝트는 움직이면 안됩니당

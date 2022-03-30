@@ -31059,6 +31059,9 @@ MonoBehaviour:
   babylaughBGM: {fileID: 8300000, guid: 99cd5aec9ef6162498635bdccf36f766, type: 3}
   popupBGM: {fileID: 8300000, guid: e015fd11f4981b242b6ef8a189edeeaf, type: 3}
   moneyBGM: {fileID: 8300000, guid: ad7e30fd89d6483479960981aad8e966, type: 3}
+  timeBGM: {fileID: 0}
+  powerSuccessBGM: {fileID: 0}
+  powerFailBGM: {fileID: 0}
 --- !u!4 &1998652850
 Transform:
   m_ObjectHideFlags: 0
