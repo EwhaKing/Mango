@@ -170,7 +170,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.King.Mango
   buildNumber: {}
-  AndroidBundleVersionCode: 4
+  AndroidBundleVersionCode: 5
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 30
   AndroidPreferredInstallLocation: 1
