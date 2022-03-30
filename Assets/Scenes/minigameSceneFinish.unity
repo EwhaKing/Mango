@@ -1316,8 +1316,6 @@ MonoBehaviour:
   - {fileID: 1951400843}
   successArea: {fileID: 1493884954}
   successText: {fileID: 656280435}
-  PowerSuccess: {fileID: 8300000, guid: 36f9662259370f94bb6bbbb810cdddfc, type: 3}
-  PowerFail: {fileID: 8300000, guid: 93591a4df6cce4f4a8494c80b8cf2f0b, type: 3}
 --- !u!82 &263369002
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8736,8 +8734,11 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   buttonBGM: {fileID: 8300000, guid: dfadcdaf3882ff64291677d9142938db, type: 3}
   babylaughBGM: {fileID: 8300000, guid: 99cd5aec9ef6162498635bdccf36f766, type: 3}
-  popupBGM: {fileID: 0}
-  moneyBGM: {fileID: 0}
+  popupBGM: {fileID: 8300000, guid: e015fd11f4981b242b6ef8a189edeeaf, type: 3}
+  moneyBGM: {fileID: 8300000, guid: ad7e30fd89d6483479960981aad8e966, type: 3}
+  timeBGM: {fileID: 8300000, guid: 9a8a548916bc46341b4d5ad684a7b7b6, type: 3}
+  powerSuccessBGM: {fileID: 8300000, guid: 36f9662259370f94bb6bbbb810cdddfc, type: 3}
+  powerFailBGM: {fileID: 8300000, guid: 93591a4df6cce4f4a8494c80b8cf2f0b, type: 3}
 --- !u!4 &2095932791
 Transform:
   m_ObjectHideFlags: 0

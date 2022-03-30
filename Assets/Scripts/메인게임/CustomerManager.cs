@@ -94,9 +94,9 @@ public class CustomerManager : MonoBehaviour
                 audioSource.volume = 0.7f;
                 //audioSource.Play(); //손님 한숨 소리 재생
 
-                if (GamePause.soundOnOff == 1)
+                if (!GameStaticData.data.sound_muted)
                 {
-                    audioSource.volume = SettingManager.soundSliderValue;
+                    audioSource.volume = GameStaticData.data.sound_slider_value;
                     audioSource.Play();
                 }
 

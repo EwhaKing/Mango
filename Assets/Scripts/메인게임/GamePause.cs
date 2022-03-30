@@ -16,8 +16,6 @@ public class GamePause : MonoBehaviour
     public GameObject number1;
     public GameObject number0;
 
-    public static int soundOnOff = 1; //버튼 브금 온 오프 변수 (다른 스크립트에서 이거 사용)
-
     public void OnClickGamePause() //일시정지
     {
         Time.timeScale = 0;

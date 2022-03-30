@@ -86,6 +86,8 @@ public class LoadingManager : MonoBehaviour
             {
                 Debug.LogWarning("업데이트 한 사람이다");
                 GameStaticData.data.total_viewed_time = newDateString;
+                GameStaticData.data.bgm_slider_value = 1.0f;    //슬라이더 값..처음에 json데이터에 0으로 초기화돼있을텐데, 사용자가 0으로 바꾼 경우도 있을테니까 업데이트 한지 판단을 어케할지 모르겠어서 여기에 넣었어욥,,,
+                GameStaticData.data.sound_slider_value = 1.0f;
                 SaveGameData();
             }
         }
@@ -230,7 +232,7 @@ public class LoadingManager : MonoBehaviour
     void CreateFile()
     {
         File.Create(Application.persistentDataPath + "/GameData.json").Close();
-        GameStaticData.data = JsonUtility.FromJson<GameData>("{\"data_money_total\": 0,\"data_money\": 0,\"data_cloth\": 0,\"date\" :  0,\"difficulty\" :  1,\"name\" : \"\",\"score_viewed_time\" : \"0001-01-01 00:00:00\",\"total_viewed_time\" : \"0001-01-01 00:00:00\"}");
+        GameStaticData.data = JsonUtility.FromJson<GameData>("{\"data_money_total\": 0,\"data_money\": 0,\"data_cloth\": 0,\"date\" :  0,\"difficulty\" :  1,\"name\" : \"\",\"score_viewed_time\" : \"0001-01-01 00:00:00\",\"total_viewed_time\" : \"0001-01-01 00:00:00\",\"bgm_muted\": false,\"sound_muted\": false,\"vibration_muted\": false,\"bgm_slider_value\": 1.0,\"sound_slider_value\": 1.0}");
         File.WriteAllText(Application.persistentDataPath + "/GameData.json", JsonUtility.ToJson(GameStaticData.data));
     }
 

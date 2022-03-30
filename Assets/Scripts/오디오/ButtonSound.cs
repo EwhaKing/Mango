@@ -12,6 +12,9 @@ public class ButtonSound : MonoBehaviour
     public AudioClip babylaughBGM;
     public AudioClip popupBGM;
     public AudioClip moneyBGM;
+    public AudioClip timeBGM; 
+    public AudioClip powerSuccessBGM;
+    public AudioClip powerFailBGM;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,36 +25,15 @@ public class ButtonSound : MonoBehaviour
     void Start()
     {
         audioSource = this.gameObject.GetComponent<AudioSource>(); //GameManager 오브젝트
-
-        /*if (!PlayerPrefs.HasKey("soundMuted"))
-        {
-            PlayerPrefs.SetInt("soundMuted", 0);
-            soundLoad();
-        }
-
-        else
-        {
-            soundLoad();
-        }*/
     }
 
-    /*private void soundLoad()
-    {
-        //bgmSlider.value = PlayerPrefs.GetFloat("bgmVolume");
-        soundMuted = PlayerPrefs.GetInt("soundMuted") == 1;
-    }
-
-    private void soundSave()
-    {
-        //PlayerPrefs.SetFloat("bgmVolume", bgmSlider.value);
-        PlayerPrefs.SetInt("soundMuted", soundMuted ? 1 : 0);
-    }*/
 
     public void onButtonAudio()
     {
         audioSource.clip = buttonBGM;
-        if(GamePause.soundOnOff == 1)
+        if(!GameStaticData.data.sound_muted) //브금 켜져있다면
         {
+            audioSource.volume = GameStaticData.data.sound_slider_value;
             audioSource.Play();
         }
     }
@@ -59,9 +41,9 @@ public class ButtonSound : MonoBehaviour
     public void onBabyAudio()
     {
         audioSource.clip = babylaughBGM;
-        //audioSource.Play();
-        if (GamePause.soundOnOff == 1)
+        if (!GameStaticData.data.sound_muted)
         {
+            audioSource.volume = GameStaticData.data.sound_slider_value;
             audioSource.Play();
         }
     }
@@ -69,9 +51,9 @@ public class ButtonSound : MonoBehaviour
     public void onPopUpAudio()
     {
         audioSource.clip = popupBGM;
-        //audioSource.Play();
-        if (GamePause.soundOnOff == 1)
+        if (!GameStaticData.data.sound_muted)
         {
+            audioSource.volume = GameStaticData.data.sound_slider_value;
             audioSource.Play();
         }
     }
@@ -79,9 +61,41 @@ public class ButtonSound : MonoBehaviour
     public void onMoneyAudio()
     {
         audioSource.clip = moneyBGM;
-        //audioSource.Play();
-        if (GamePause.soundOnOff == 1)
+        if (!GameStaticData.data.sound_muted)
         {
+            audioSource.volume = GameStaticData.data.sound_slider_value;
+            audioSource.Play();
+        }
+    }
+
+    public void onTimeAudio()
+    {
+        audioSource.clip = timeBGM;
+        if (!GameStaticData.data.sound_muted)
+        {
+            audioSource.volume = GameStaticData.data.sound_slider_value;
+            audioSource.Play();
+        }
+    }
+
+
+    public void onPowerSuccessAudio()
+    {
+        audioSource.clip = powerSuccessBGM;
+        if (!GameStaticData.data.sound_muted)
+        {
+            audioSource.volume = GameStaticData.data.sound_slider_value;
+            audioSource.Play();
+        }
+    }
+
+
+    public void onPowerFailAudio()
+    {
+        audioSource.clip = powerFailBGM;
+        if (!GameStaticData.data.sound_muted)
+        {
+            audioSource.volume = GameStaticData.data.sound_slider_value;
             audioSource.Play();
         }
     }
