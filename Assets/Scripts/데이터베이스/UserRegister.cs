@@ -14,11 +14,13 @@ public class UserRegister : MonoBehaviour
     public TextMeshProUGUI textError;
     public GameObject nameScreen;
     public GameObject nameBackground;
+    public bool isPosting;
 
 
     public string username;
     public void post()
     {
+        isPosting = true;
         StartCoroutine(PostUser());
     }
 
@@ -49,6 +51,7 @@ public class UserRegister : MonoBehaviour
 
         if (request.isNetworkError || request.isHttpError)
         {
+            textError.text = "<color=red>서버 접속실패</color>" + "\n" + "<color=red>나중에 다시 시도해주세요.</color>";
             Debug.Log(request.error);
         }
         else
@@ -57,6 +60,7 @@ public class UserRegister : MonoBehaviour
             if(result == "exist")
             {
                 textError.text = "<color=red>이미 있는 이름입니다.</color>"+"\n"+ "<color=red>다시 입력하세요</color>";
+                isPosting = false;
                 Debug.Log("이미 있는 이름입니다. 다시 입력하세요");
             }
             else
@@ -79,13 +83,16 @@ public class UserRegister : MonoBehaviour
 
     public void onClickOk()
     {
-        post();
+        if(isPosting == false)
+        {
+            post();
+        }
     }
 
     public void onTextChanged()
     {
         Debug.Log("Text Changed");
-        if (textError.text.Contains("이미 있는 이름입니다."))
+        if (textError.text.Contains("이미 있는 이름입니다.") || textError.text.Contains("서버 접속실패"))
         {
             textError.text = "아기의 이름을 지어주세요!";
         }
@@ -115,6 +122,7 @@ public class UserRegister : MonoBehaviour
     void Start()
     {
         textUsername.text = "";
+        isPosting = false;
     }
 
 
