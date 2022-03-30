@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
@@ -13,6 +14,7 @@ public class LoadingManager : MonoBehaviour
     public static string next_scene;
     public int totaluser = 0;
     string url_login = "https://mango-love.herokuapp.com/api/user/login";
+    string url_version_num = "https://mango-love.herokuapp.com/api/version";
     string leaderBoard;
     Data leader;
 
@@ -36,7 +38,37 @@ public class LoadingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(defineNextScene());
+        GameObject.Find("update_popup_big").transform.GetChild(0).gameObject.SetActive(false);
+        StartCoroutine(GetVersion());
+    }
+
+    IEnumerator GetVersion()
+    {
+        UnityWebRequest versionnum = UnityWebRequest.Get(url_version_num);
+        yield return versionnum.SendWebRequest();
+        progress_text.text = "아기가 새로운 메뉴가 있는지 찾아보는 중이에요...";
+
+        if (versionnum.isNetworkError || versionnum.isHttpError)
+        {
+            Debug.Log(versionnum.error); //오류 시 pass
+            progress_text.text = "네트워크 오류. 나중에 다시 시도해주세요";
+        }
+        else
+        {
+            string version_num = versionnum.downloadHandler.text;
+
+            if (version_num != Application.version) //서버의 version_num과 유저의 version code 다르면
+            {
+                Debug.Log("업데이트 버전 숫자? " + version_num);
+                GameObject.Find("update_popup_big").transform.GetChild(0).gameObject.SetActive(true); //강제 업데이트 팝업 띄우면서
+                GameObject.Find("update_popup").transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = version_num; //업데이트 버전 숫자 띄움
+            }
+            else
+            {
+                StartCoroutine(defineNextScene());
+            }
+        }
+
     }
 
     IEnumerator defineNextScene()
