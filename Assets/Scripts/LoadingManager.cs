@@ -13,7 +13,7 @@ public class LoadingManager : MonoBehaviour
 {
     public static string next_scene;
     public int totaluser = 0;
-    string url_login = "https://mango-love.herokuapp.com/api/user/login";
+    string url_login = "https://mango-love.herokuapp.com/api/server/connection"; //서버와의 접속 상태 체크 api
     string url_version_num = "https://mango-love.herokuapp.com/api/version";
     string leaderBoard;
     Data leader;
@@ -217,7 +217,11 @@ public class LoadingManager : MonoBehaviour
     {
         progress_text.text = "서버에 접속하고 있습니다(최대 30초 소요 가능)...";
         UnityWebRequest request = new UnityWebRequest();
-        request = UnityWebRequest.Get(url_login);
+
+        //해당 api는 서버와의 접속 상태만을 확인하는 api로, 실제 로그인 기능처럼 사용자의 정보를 요구하는 기능이 아님
+        //해당 api는 사용자의 개인정보를 일체 요구하지 않음
+        request = UnityWebRequest.Get(url_login);  
+
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)
         {
