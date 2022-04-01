@@ -61,7 +61,7 @@ public class LockerManager : MonoBehaviour
                 // 입고있는 옷이라면 토글
                 if (GameStaticData.data.data_cloth == i)
                 {
-                    item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
+                    item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1.0f, 0.851f, 0.4f, 1f);
                 }
                 else item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
 
@@ -113,7 +113,7 @@ public class LockerManager : MonoBehaviour
             //현재 입고 있는 옷이라면
             if(locker_sprites[i] == GameStaticData.data.data_cloth)
             {
-                item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
+                item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1.0f, 0.851f, 0.4f, 1f);
                 GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(GameStaticData.data.data_cloth); //현재 입고 있는 옷 입히기
             }
             else
