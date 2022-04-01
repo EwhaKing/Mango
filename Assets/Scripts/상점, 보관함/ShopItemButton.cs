@@ -20,6 +20,16 @@ public class ShopItemButton : MonoBehaviour
 
         //현재 gameObject == item
         int index = gameObject.transform.GetSiblingIndex(); //item 몇번째 자식인지
+
+        //색 바꾸기
+        //우선 초기화
+        for(int i = 0; i < gameObject.transform.parent.childCount; i++)
+        {
+            gameObject.transform.parent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+        }
+        //해당 옷 색 바꾸기
+        gameObject.transform.GetChild(0).GetComponent<Image>().color = new Color(1f, 0.851f, 0.4f, 1f);
+
         int clothe_sprite_num = GameObject.Find("GameManager").GetComponent<ShopManager>().shop[index]; //고른 옷의 스프라이트 넘버
         GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(clothe_sprite_num); //아기 옷 미리보기
     }
