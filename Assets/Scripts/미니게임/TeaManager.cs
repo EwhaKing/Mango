@@ -156,23 +156,23 @@ public class TeaManager : MonoBehaviour
                 fruits_num[1] = NUM/2;
                 break;
             case 3: //딸바보 주스
-                fruits_num[0] = Random.Range(1, 2);
-                fruits_num[1] = Random.Range(1, 2);
+                fruits_num[0] = Random.Range(1, 3);
+                fruits_num[1] = Random.Range(1, 3);
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
             case 4: //허니만을 위한 밀크티
                 fruits_num[0] = 2;
-                fruits_num[1] = Random.Range(1, 2); 
+                fruits_num[1] = Random.Range(1, 3); 
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
             case 5: //레몬디베트
                 fruits_num[2] = 1; //꿀 1개로 고정
-                fruits_num[1] = Random.Range(2, 3);
+                fruits_num[1] = Random.Range(2, 4);
                 fruits_num[0] = NUM - (fruits_num[1] + fruits_num[2]);
                 break;
             case 6: //레몬아.. 나 자몽다..
-                fruits_num[0] = Random.Range(1, 2);
-                fruits_num[1] = Random.Range(1, 2);
+                fruits_num[0] = Random.Range(1, 3);
+                fruits_num[1] = Random.Range(1, 3);
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
             case 7: //올때 메론라떼
@@ -189,8 +189,8 @@ public class TeaManager : MonoBehaviour
                 fruits_num[2] = 3;
                 break;
             case 10: //언덕위의 트로피컬
-                fruits_num[0] = Random.Range(1, 2);
-                fruits_num[1] = Random.Range(1, 2);
+                fruits_num[0] = Random.Range(1, 3);
+                fruits_num[1] = Random.Range(1, 3);
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
             case 11: //디벳민트티
@@ -198,8 +198,8 @@ public class TeaManager : MonoBehaviour
                 fruits_num[1] = 3;
                 break;
             case 12: //신호등 주스
-                fruits_num[0] = Random.Range(1, 2);
-                fruits_num[1] = Random.Range(1, 2);
+                fruits_num[0] = Random.Range(1, 3);
+                fruits_num[1] = Random.Range(1, 3);
                 fruits_num[2] = NUM - (fruits_num[0] + fruits_num[1]);
                 break;
             case 13: //봄 사랑 벚꽃차
