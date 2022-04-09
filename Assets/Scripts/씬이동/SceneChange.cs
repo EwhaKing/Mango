@@ -47,7 +47,7 @@ public class SceneChange : MonoBehaviour
 
         //ShopData 초기화
 
-        for (int i=0; i<11; i++)
+        for (int i=1; i<11; i++) //기본 옷(0번)은 항상 소유 중이어어야
         {
             ShopDataScript.sd.item[i].own = false;
             ShopDataScript.sd.item[i].is_read = false;

@@ -183,6 +183,9 @@ public class LoadingManager : MonoBehaviour
             Debug.LogWarning("옷파일 있음");
             Debug.Log("파일 주소: " + Application.persistentDataPath + "/ShopData.json");
             LoadShopData();
+
+            ShopDataScript.sd.item[0].own = true; //1.0.0 ~ 1.6.0 버전에서 '다시 시작'한 유저 : '기본 옷' 초기화 덮어쓰기
+            File.WriteAllText(Application.persistentDataPath + "/ShopData.json", JsonUtility.ToJson(ShopDataScript.sd));
         }
         else
         {
