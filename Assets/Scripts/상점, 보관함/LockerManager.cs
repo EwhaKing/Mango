@@ -105,6 +105,8 @@ public class LockerManager : MonoBehaviour
     {
         int cnt = _item.transform.parent.transform.childCount; //총 몇 개 보관하고 있는지
 
+        GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(GameStaticData.data.data_cloth); //현재 입고 있는 옷 입히기
+
         //보관 옷 토글 + new 관리
         for (int i = 0; i < cnt; i++)
         {
@@ -114,7 +116,6 @@ public class LockerManager : MonoBehaviour
             if(locker_sprites[i] == GameStaticData.data.data_cloth)
             {
                 item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1.0f, 0.851f, 0.4f, 1f);
-                GameObject.Find("BabyCustom").GetComponent<BabyCustom>().changeBabyCustom(GameStaticData.data.data_cloth); //현재 입고 있는 옷 입히기
             }
             else
             {
