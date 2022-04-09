@@ -92,8 +92,8 @@ public class ClockMove : MonoBehaviour
     int nextDiff()
     {
         int difficulty = GameStaticData.data.difficulty;
-        if (TotalMoney.totalMoney < 2000) difficulty = findDiff(0);
-        else if (TotalMoney.totalMoney >= 4500) difficulty = findDiff(2);
+        if (TotalMoney.totalMoney < 1000) difficulty = findDiff(0);
+        else if (TotalMoney.totalMoney >= 2000) difficulty = findDiff(2);
         else difficulty = findDiff(1);
 
         return difficulty;
