@@ -139,7 +139,7 @@ public class ShopManager : MonoBehaviour
 
                 //item에 진열 옷 이미지 채우기
                 item.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>().sprite = set_clothes[i];
-                item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 0.851f, 0.4f, 1f);
+                item.transform.GetChild(0).gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f); //색 바꾸기
 
                 item.transform.GetChild(1).transform.gameObject.SetActive(false); //가격버튼은 비활성화
                 item.transform.GetChild(2).transform.gameObject.SetActive(true); //보유중 버튼 활성화
