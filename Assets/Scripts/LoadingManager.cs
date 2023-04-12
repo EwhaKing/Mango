@@ -13,8 +13,8 @@ public class LoadingManager : MonoBehaviour
 {
     public static string next_scene;
     public int totaluser = 0;
-    string url_login = "https://mango-love.herokuapp.com/api/server/connection"; //서버와의 접속 상태 체크 api
-    string url_version_num = "https://mango-love.herokuapp.com/api/version";
+    string url_login = "https://mango-bsa0322.koyeb.app/api/server/connection"; //서버와의 접속 상태 체크 api
+    string url_version_num = "https://mango-bsa0322.koyeb.app/api/version";
     string leaderBoard;
     Data leader;
 

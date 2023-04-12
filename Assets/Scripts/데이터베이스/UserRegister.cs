@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class UserRegister : MonoBehaviour
 {
-    string url_user = "https://mango-love.herokuapp.com/api/user/registration";
+    string url_user = "https://mango-bsa0322.koyeb.app/api/user/registration";
     public TextMeshProUGUI textUsername;
     public TextMeshProUGUI textError;
     public GameObject nameScreen;

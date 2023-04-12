@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TotalLeaderRegister : MonoBehaviour
 {
-    string url_leader_register = "https://mango-love.herokuapp.com/api/leaders/total/registration";
+    string url_leader_register = "https://mango-bsa0322.koyeb.app/api/leaders/total/registration";
 
 
     public string nickname;

@@ -22,11 +22,11 @@ public class GetLeaderData : MonoBehaviour
     DateTime curr_time;
     DateTime prev_renewal_time;
 
-    string url_leader_score = "https://mango-love.herokuapp.com/api/leaders/score";
-    string url_leader_total = "https://mango-love.herokuapp.com/api/leaders/total";
-    string url_leader_score_me = "https://mango-love.herokuapp.com/api/leaders/score/me";
-    string url_leader_total_me = "https://mango-love.herokuapp.com/api/leaders/total/me";
-    string url_time = "https://mango-love.herokuapp.com/api/time";
+    string url_leader_score = "https://mango-bsa0322.koyeb.app/api/leaders/score";
+    string url_leader_total = "https://mango-bsa0322.koyeb.app/api/leaders/total";
+    string url_leader_score_me = "https://mango-bsa0322.koyeb.app/api/leaders/score/me";
+    string url_leader_total_me = "https://mango-bsa0322.koyeb.app/api/leaders/total/me";
+    string url_time = "https://mango-bsa0322.koyeb.app/api/time";
 
     string leaderBoard;
     string leaderMe;
